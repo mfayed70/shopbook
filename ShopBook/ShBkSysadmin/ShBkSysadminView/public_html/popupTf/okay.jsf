@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout id="pgl1" halign="center" layout="vertical"
+                                 inlineStyle="width:300px; height:150px; padding:20px 0 0; margin-left:20px;">
+                <af:outputText value="#{shbksysadminviewBundle.REFERENCE__0VARIABLE__0NAME__0CHANGED__0SUCCESSFULLY__0}" id="ot1"
+                               inlineStyle="font-size:14px;"/>
+                <af:spacer width="10" height="50" id="s1"/>
+                <af:link id="l1" action="toSave" text="#{shbksysadminviewBundle.OKAY}"
+                         inlineStyle="font-size:16px; text-decoration:underline solid currentColor; background-color:Gray;padding:5px 10px 5px 10px;"/>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="sysparameters.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" usesUpload="true">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelHeader text="#{shbksysadminviewBundle.SYSTEM_PARAMETERS}" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:navigationPane hint="bar" id="np1">
+                                <af:commandNavigationItem id="cni1" text="#{shbksysadminviewBundle.EDIT}"
+                                                          icon="/icons/edit.png" action="toEditSysPrmtrs"
+                                                          useWindow="true" windowEmbedStyle="inlineDocument"
+                                                          windowHeight="400" windowWidth="600"
+                                                          returnListener="#{RefereshBean.SysPrmtrsReturnListener}">
+                                    <af:setPropertyListener from="#{bindings.FileServerPath.inputValue}"
+                                                            to="#{pageFlowScope.vFileServPath}" type="action"/>
+                                </af:commandNavigationItem>
+                            </af:navigationPane>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.SysParameterId.inputValue}"
+                                          label="#{bindings.SysParameterId.hints.label}"
+                                          required="#{bindings.SysParameterId.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.SysParameterId.hints.displayWidth}"
+                                          maximumLength="#{bindings.SysParameterId.hints.precision}"
+                                          shortDesc="#{bindings.SysParameterId.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.SysParameterId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.SysParameterId.format}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s1"/>
+                            <af:inputText value="#{bindings.FileServerIp.inputValue}"
+                                          label="#{bindings.FileServerIp.hints.label}"
+                                          required="#{bindings.FileServerIp.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.FileServerIp.hints.displayWidth}"
+                                          maximumLength="#{bindings.FileServerIp.hints.precision}"
+                                          shortDesc="#{bindings.FileServerIp.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.FileServerIp.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <af:inputText value="#{bindings.FileServerName.inputValue}"
+                                          label="#{bindings.FileServerName.hints.label}"
+                                          required="#{bindings.FileServerName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.FileServerName.hints.displayWidth}"
+                                          maximumLength="#{bindings.FileServerName.hints.precision}"
+                                          shortDesc="#{bindings.FileServerName.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.FileServerName.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s3"/>
+                            <af:inputText value="#{bindings.FileServerPath.inputValue}"
+                                          label="#{bindings.FileServerPath.hints.label}"
+                                          required="#{bindings.FileServerPath.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.FileServerPath.hints.displayWidth}"
+                                          maximumLength="#{bindings.FileServerPath.hints.precision}"
+                                          shortDesc="#{bindings.FileServerPath.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.FileServerPath.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s4"/>
+                            <af:inputText value="#{bindings.SmtpHost.inputValue}"
+                                          label="#{bindings.SmtpHost.hints.label}"
+                                          required="#{bindings.SmtpHost.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.SmtpHost.hints.displayWidth}"
+                                          maximumLength="#{bindings.SmtpHost.hints.precision}"
+                                          shortDesc="#{bindings.SmtpHost.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.SmtpHost.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s5"/>
+                            <af:inputText value="#{bindings.SmtpPort.inputValue}"
+                                          label="#{bindings.SmtpPort.hints.label}"
+                                          required="#{bindings.SmtpPort.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.SmtpPort.hints.displayWidth}"
+                                          maximumLength="#{bindings.SmtpPort.hints.precision}"
+                                          shortDesc="#{bindings.SmtpPort.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.SmtpPort.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.SmtpPort.format}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s6"/>
+                            <af:inputText value="#{bindings.SslOrTsl.inputValue}"
+                                          label="#{bindings.SslOrTsl.hints.label}"
+                                          required="#{bindings.SslOrTsl.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.SslOrTsl.hints.displayWidth}"
+                                          maximumLength="#{bindings.SslOrTsl.hints.precision}"
+                                          shortDesc="#{bindings.SslOrTsl.hints.tooltip}" id="it7">
+                                <f:validator binding="#{bindings.SslOrTsl.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s7"/>
+                            <af:inputText value="#{bindings.WebServerIp.inputValue}"
+                                          label="#{bindings.WebServerIp.hints.label}"
+                                          required="#{bindings.WebServerIp.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.WebServerIp.hints.displayWidth}"
+                                          maximumLength="#{bindings.WebServerIp.hints.precision}"
+                                          shortDesc="#{bindings.WebServerIp.hints.tooltip}" id="it8">
+                                <f:validator binding="#{bindings.WebServerIp.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s8"/>
+                            <af:inputText value="#{bindings.WebServerName.inputValue}"
+                                          label="#{bindings.WebServerName.hints.label}"
+                                          required="#{bindings.WebServerName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.WebServerName.hints.displayWidth}"
+                                          maximumLength="#{bindings.WebServerName.hints.precision}"
+                                          shortDesc="#{bindings.WebServerName.hints.tooltip}" id="it9">
+                                <f:validator binding="#{bindings.WebServerName.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s9"/>
+                            <af:inputText value="#{bindings.ShopAdminEmail.inputValue}"
+                                          label="#{bindings.ShopAdminEmail.hints.label}"
+                                          required="#{bindings.ShopAdminEmail.hints.mandatory}"
+                                          columns="#{bindings.ShopAdminEmail.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopAdminEmail.hints.precision}"
+                                          shortDesc="#{bindings.ShopAdminEmail.hints.tooltip}" id="it10"
+                                          readOnly="true">
+                                <f:validator binding="#{bindings.ShopAdminEmail.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s13"/>
+                            <af:inputText value="#{bindings.ShopAdminPasswrd.inputValue}"
+                                          label="#{bindings.ShopAdminPasswrd.hints.label}"
+                                          required="#{bindings.ShopAdminPasswrd.hints.mandatory}"
+                                          columns="#{bindings.ShopAdminPasswrd.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopAdminPasswrd.hints.precision}"
+                                          shortDesc="#{bindings.ShopAdminPasswrd.hints.tooltip}" id="it14"
+                                          readOnly="true">
+                                <f:validator binding="#{bindings.ShopAdminPasswrd.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s10"/>
+                            <af:inputText value="#{bindings.ShopCode.inputValue}"
+                                          label="#{bindings.ShopCode.hints.label}"
+                                          required="#{bindings.ShopCode.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.ShopCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopCode.hints.precision}"
+                                          shortDesc="#{bindings.ShopCode.hints.tooltip}" id="it11">
+                                <f:validator binding="#{bindings.ShopCode.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s11"/>
+                            <af:inputText value="#{bindings.ShopUserName.inputValue}"
+                                          label="#{bindings.ShopUserName.hints.label}"
+                                          required="#{bindings.ShopUserName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.ShopUserName.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopUserName.hints.precision}"
+                                          shortDesc="#{bindings.ShopUserName.hints.tooltip}" id="it12">
+                                <f:validator binding="#{bindings.ShopUserName.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s12"/>
+                            <af:inputText value="#{bindings.NoimagePath.inputValue}"
+                                          label="#{bindings.NoimagePath.hints.label}"
+                                          required="#{bindings.NoimagePath.hints.mandatory}"
+                                          columns="#{bindings.NoimagePath.hints.displayWidth}"
+                                          maximumLength="#{bindings.NoimagePath.hints.precision}"
+                                          shortDesc="#{bindings.NoimagePath.hints.tooltip}" id="it13" readOnly="true">
+                                <f:validator binding="#{bindings.NoimagePath.validator}"/>
+                            </af:inputText>
+                            <af:spacer width="10" height="10" id="s14"/>
+                            <af:image id="i1" inlineStyle="width:130px; height:124px;" source="/icons/NoImage.png"/>
+                        </af:panelFormLayout>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout id="psl1" layout="vertical">
+                <af:panelBox text="#{shbkshopadminviewBundle.CREATE___ADD_TO_A_SET}" id="pb1">
+                    <af:panelGroupLayout id="pgl1" layout="vertical">
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:activeOutputText value="#{shbkshopadminviewBundle.SUCH_PRODUCT_WILL_BE_CREATED_AS_A_SET}"
+                                             id="aot1" inlineStyle="color:Maroon; font-size:small;"
+                                             rendered='#{pageFlowScope.skuAssAction=="createAsAss"}'/>
+                        <af:spacer width="10" height="10" id="s2"/>
+                    </af:panelGroupLayout>
+                    <f:facet name="toolbar">
+                        <af:navigationPane hint="buttons" id="np1">
+                            <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}"
+                                                      icon="/icons/OK.png" action="toSave"
+                                                      actionListener="#{RefreshBean.createAsAssSaveActionListener}"/>
+                            <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                      icon="/icons/Refresh.png" action="toCancel"/>
+                        </af:navigationPane>
+                    </f:facet>
+                    <af:panelBox text="#{shbkshopadminviewBundle.ADD_PRODUCT_TO_A_SET}" id="pb2"
+                                 rendered="#{pageFlowScope.skuAssAction=='addToAss'}">
+                        <af:listView value="#{bindings.SkuAddToAssembliesV.collectionModel}" var="item"
+                                     emptyText="#{bindings.SkuAddToAssembliesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="#{bindings.SkuAddToAssembliesV.rangeSize}" id="lv1"
+                                     selectionListener="#{bindings.SkuAddToAssembliesV.treeModel.makeCurrent}"
+                                     selection="single"
+                                     selectedRowKeys="#{bindings.SkuAddToAssembliesV.collectionModel.selectedRow}">
+                            <af:listItem id="li1">
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow marginTop="2px" height="auto" marginBottom="2px" id="gr1">
+                                        <af:gridCell marginStart="2px" width="70%" id="gc1">
+                                            <af:outputFormatted value="#{item.bindings.SkuName.inputValue}" id="of1"
+                                                                inlineStyle="color:Maroon; font-size:small;"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="1px" width="30%" marginEnd="2px" id="gc2">
+                                            <af:link text="#{shbkshopadminviewBundle.ADD_TO_A_SET}" id="l1"
+                                                     inlineStyle="font-size:small;"
+                                                     actionListener="#{RefreshBean.addToAssemblyActionListener}"
+                                                     disabled="#{item.bindings.IsCreated.inputValue=='Y'}"
+                                                     partialTriggers="l1" binding="#{RefreshBean.addToAssLink}"
+                                                     clientComponent="true"/>
+                                            <af:outputText value="#{item.bindings.IsCreated.inputValue}" id="ot1"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:listItem>
+                        </af:listView>
+                        <f:facet name="toolbar"/>
+                    </af:panelBox>
+                </af:panelBox>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

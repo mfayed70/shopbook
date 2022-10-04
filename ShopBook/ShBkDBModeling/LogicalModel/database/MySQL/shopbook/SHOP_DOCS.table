@@ -1,0 +1,290 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>SHOP_DOCS</name>
+  <columns>
+    <column>
+      <name>SHOP_DOC_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOP_DOC_CODE created from UML attribute &quot;shop doc code&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHOP_DOC_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">500</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOP_DOC_NAME created from UML attribute &quot;shop doc name&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHOP_DOC_FILE_PATH</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOP_DOC_FILE_PATH created from UML attribute &quot;shop doc file path&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHOP_DOC_FILE_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOP_DOC_FILE_TYPE created from UML attribute &quot;shop doc file type&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHOP_DOC_FILE_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOP_DOC_FILE_NAME created from UML attribute &quot;shop doc file name&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CNTRY_DOC_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column DOC_TYPE_TO_PROOF_DOC created as default foreign key column for foreign key &quot;DOC_TYPE_TO_PROOF_DOC&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHOP_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">9</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOP_TO_PROOF_DOCS created as default foreign key column for foreign key &quot;SHOP_TO_PROOF_DOCS&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_MODIFIED</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATETIME</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">CURRENT_TIMESTAMP</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column LAST_MODIFIED created from UML attribute &quot;last modified&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NOTES</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">500</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column NOTES created from UML attribute &quot;notes&quot; in UML class &quot;shop doc&quot;</value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PRIMARY</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SHOP_DOC_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SHOP_DOCS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>DOC_TYPE_TO_PROOF_DOC</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CNTRY_DOC_TYPE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SHOP_DOCS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SHOP_PROOF_DOC_TYPES</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SHOP_TO_PROOF_DOCS</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SHOP_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SHOP_DOCS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SHOPS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>SHOP_DOCS_INDEX</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>SHOP_DOC_CODE</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>shopbook</name>
+      </schema>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">UML to Offline Database Transform: Table SHOP_DOCS created from UML class &quot;shop doc&quot;
+UML to Offline Database Transform: Primary key constraint PRIMARY created by default
+UML to Offline Database Transform: Foreign key constraint DOC_TYPE_TO_PROOF_DOC created for UML association &quot;doc type to proof doc&quot;
+UML to Offline Database Transform: Foreign key constraint SHOP_TO_PROOF_DOCS created for UML association &quot;shop to proof docs&quot;</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>shopbook</name>
+  </schema>
+</table>

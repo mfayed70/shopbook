@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuCompAssembliesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT 
+    SkuCompAssemblies.SKU_ASS_COMP_CODE, 
+    SkuCompAssemblies.SKU_SEQ, 
+    SkuCompAssemblies.AVAILABLE, 
+    SkuCompAssemblies.HIDE, 
+    SkuCompAssemblies.SKU_ASS_CODE, 
+    SkuCompAssemblies.SKU_ASS_COMP, 
+    SkuCompAssemblies.LAST_MODIFIED, 
+    SkuCompAssemblies.NOTES, 
+    SkuCompAssemblies.QTY_IN_ASS, 
+    SkuCompAssemblies.IS_CREATED, 
+    Skus.SKU_NAME SKU_NAME 
+FROM 
+    sku_assemblies SkuCompAssemblies, skus Skus 
+    where SkuCompAssemblies.SKU_ASS_CODE = Skus.SKU_CODE
+     AND SkuCompAssemblies.SKU_ASS_CODE != SkuCompAssemblies.SKU_ASS_COMP]]></SQLQuery>
+  <EntityUsage
+    Name="SkuCompAssemblies"
+    Entity="com.shopbook.shopadmin.model.entity.SkuCompAssemblies"/>
+  <ViewAttribute
+    Name="SkuAssCompCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuAssCompCode"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="SKU_ASS_COMP_CODE"/>
+  <ViewAttribute
+    Name="SkuSeq"
+    PrecisionRule="true"
+    EntityAttrName="SkuSeq"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="SKU_SEQ"/>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="AVAILABLE"/>
+  <ViewAttribute
+    Name="Hide"
+    PrecisionRule="true"
+    EntityAttrName="Hide"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="HIDE"/>
+  <ViewAttribute
+    Name="SkuAssCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuAssCode"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="SKU_ASS_CODE"/>
+  <ViewAttribute
+    Name="SkuAssComp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuAssComp"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="SKU_ASS_COMP"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="QtyInAss"
+    PrecisionRule="true"
+    EntityAttrName="QtyInAss"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="QTY_IN_ASS"/>
+  <ViewAttribute
+    Name="IsCreated"
+    PrecisionRule="true"
+    EntityAttrName="IsCreated"
+    EntityUsage="SkuCompAssemblies"
+    AliasName="IS_CREATED"/>
+  <ViewAttribute
+    Name="SkuName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_NAME"
+    Expression="SKU_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+</ViewObject>

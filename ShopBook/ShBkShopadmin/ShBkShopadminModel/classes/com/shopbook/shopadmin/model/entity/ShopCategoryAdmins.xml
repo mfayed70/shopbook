@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShopCategoryAdmins"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="shop_category_admins"
+  AliasName="ShopCategoryAdmins"
+  BindingStyle="JDBC"
+  RowClass="com.shopbook.shopadmin.model.entity.ShopCategoryAdminsImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+  </DesignTime>
+  <Attribute
+    Name="AdminShpCatCode"
+    Precision="150"
+    ColumnName="ADMIN_SHP_CAT_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_category_admins"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    Precision="1"
+    ColumnName="ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_category_admins">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="USER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_category_admins">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopCatSubCode"
+    IsNotNull="true"
+    Precision="18"
+    ColumnName="SHOP_CAT_SUB_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_category_admins">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="18"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_category_admins">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="shop_category_admins"/>
+  <AccessorAttribute
+    Name="ShopSubCats"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShopCatsToAdminCatAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShopCatsToAdminCatAssoc.ShopSubCats"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.ShopCatsToAdminCatAssoc.ShopCategoryAdmins1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Users"
+    Association="com.shopbook.shopadmin.model.entity.assoc.AdminToAdminCatAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.AdminToAdminCatAssoc.Users"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.AdminToAdminCatAssoc.ShopCategoryAdmins"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="ShopCategoryAdminsAdminShpCatCodeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Shop_Category_Admins_Admin_Shp"/>
+      <Attr Name="_checkCondition" Value='"ADMIN_SHP_CAT_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.ShopCategoryAdmins.AdminShpCatCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AdminToAdminCat">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ADMIN_TO_ADMIN_CAT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="ShopCatsToAdminCat">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SHOP_CATS_TO_ADMIN_CAT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+</Entity>

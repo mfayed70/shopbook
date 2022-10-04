@@ -1,0 +1,190 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>CAT_SIZE_CLASSES</name>
+  <columns>
+    <column>
+      <name>CAT_SZ_CLASS_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">8</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column CAT_SZ_CLASS_CODE created from UML attribute &quot;cat sz class code&quot; in UML class &quot;cat size class&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SZ_CLASS_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">3</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SIZE_CLS_TO_CAT_SIZE_CLASS created as default foreign key column for foreign key &quot;SIZE_CLS_TO_CAT_SIZE_CLASS&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CAT_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">5</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column CAT_TO_CAT_SIZE_CLASS created as default foreign key column for foreign key &quot;CAT_TO_CAT_SIZE_CLASS&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NOTES</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">500</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column NOTES created from UML attribute &quot;notes&quot; in UML class &quot;cat size class&quot;</value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PRIMARY</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CAT_SZ_CLASS_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CAT_SIZE_CLASSES</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SHBKLOGICALMODEL</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CAT_TO_CAT_SIZE_CLASS</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CAT_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CAT_SIZE_CLASSES</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SHBKLOGICALMODEL</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>CATEGORIES</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SIZE_CLS_TO_CAT_SIZE_CLASS</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SZ_CLASS_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CAT_SIZE_CLASSES</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SHBKLOGICALMODEL</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SIZE_CLASSES</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>CAT_SIZE_CLASSES_INDEX</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>CAT_SZ_CLASS_CODE</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>shopbook</name>
+      </schema>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">UML to Offline Database Transform: Table CAT_SIZE_CLASSES created from UML class &quot;cat size class&quot;
+UML to Offline Database Transform: Primary key constraint PRIMARY created by default
+UML to Offline Database Transform: Foreign key constraint CAT_TO_CAT_SIZE_CLASS created for UML association &quot;cat to cat size class&quot;
+UML to Offline Database Transform: Foreign key constraint SIZE_CLS_TO_CAT_SIZE_CLASS created for UML association &quot;size cls to cat size class&quot;</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>shopbook</name>
+  </schema>
+</table>

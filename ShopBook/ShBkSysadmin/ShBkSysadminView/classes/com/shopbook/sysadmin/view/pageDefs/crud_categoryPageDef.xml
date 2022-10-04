@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="crud_categoryPageDef"
+                Package="com.shopbook.sysadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CategoriesCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl"
+              id="CategoriesCrudVIterator"/>
+    <iterator Binds="SysParametersV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="SysParametersVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="CatCode">
+      <AttrNames>
+        <Item Value="CatCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="CatImgType">
+      <AttrNames>
+        <Item Value="CatImgType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="CatName">
+      <AttrNames>
+        <Item Value="CatName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CategoriesCrudVIterator" id="Delete" InstanceName="ShBkSysAdminDataControl.CategoriesCrudV"
+            DataControl="ShBkSysAdminDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="has_details_in_catSizes">
+      <AttrNames>
+        <Item Value="has_details_in_catSizes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="has_details_in_catRefs">
+      <AttrNames>
+        <Item Value="has_details_in_catRefs"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CategoriesCrudVIterator" id="CatImgName">
+      <AttrNames>
+        <Item Value="CatImgName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

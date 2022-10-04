@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CityTreeFkAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="PrntCityCodeCities"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.shopadmin.model.entity.Cities">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PrntCityCodeCities"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.shopadmin.model.entity.Cities.Primary1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.Cities.CityCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Cities"
+    Cardinality="-1"
+    Owner="com.shopbook.shopadmin.model.entity.Cities">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Cities"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.shopadmin.model.entity.Cities.CityTreeFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.Cities.PrntCityCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

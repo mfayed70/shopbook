@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-shopproducts-tf">
+    <?audit suppress oracle.adfdt.controller.adfc.source.audit.extra.DataControlScopeNotDefined?>
+    <default-activity>shopproducts-crud</default-activity>
+    <task-flow-reentry>
+      <reentry-not-allowed/>
+    </task-flow-reentry>
+    <input-parameter-definition id="__6">
+      <name>vShopSubCatCode</name>
+      <value>#{pageFlowScope.vShopSubCatCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__16">
+      <name>shpPrdcCrudAction</name>
+      <value>#{pageFlowScope.shpPrdcCrudAction}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__10">
+      <name>vSkuCode</name>
+      <value>#{pageFlowScope.vSkuCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name>vSkuClrCode</name>
+      <value>#{pageFlowScope.vSkuClrCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__35">
+      <managed-bean-name>DeleteSkuWithDets</managed-bean-name>
+      <managed-bean-class>com.shopbook.shopadmin.view.beans.DeleteSkuWithDets</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="crud-shopproducts">
+      <page>/popupTf/crud-shopproducts.jsf</page>
+    </view>
+    <router id="shopproducts-crud">
+      <case id="__17">
+        <expression>#{pageFlowScope.shpPrdcCrudAction=='new'}</expression>
+        <outcome>new</outcome>
+      </case>
+      <case id="__18">
+        <expression>#{pageFlowScope.shpPrdcCrudAction=='edit'}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>new</default-outcome>
+    </router>
+    <task-flow-return id="back">
+      <outcome>
+        <name>back</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="crudSkuBdata">
+      <task-flow-reference>
+        <document>/popupTf/crudSkuBdata.xml</document>
+        <id>crudSkuBdata</id>
+      </task-flow-reference>
+      <input-parameter id="__20">
+        <name>vShopSubCatCode</name>
+        <value>#{pageFlowScope.vShopSubCatCode}</value>
+      </input-parameter>
+      <input-parameter id="__21">
+        <name>vCrudSkuAction</name>
+        <value>#{pageFlowScope.vCrudSkuAction}</value>
+      </input-parameter>
+      <return-value id="__11">
+        <name>rCrudAction</name>
+        <value>#{pageFlowScope.rCrudAction}</value>
+      </return-value>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <method-call id="CreateWithParameters">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="crud-sku-colors-tf">
+      <task-flow-reference>
+        <document>/popupTf/crud-sku-colors-tf.xml</document>
+        <id>crud-sku-colors-tf</id>
+      </task-flow-reference>
+      <input-parameter id="__36">
+        <name>pLastPrice</name>
+        <value>#{pageFlowScope.pLastPrice}</value>
+      </input-parameter>
+      <input-parameter id="__37">
+        <name>pOldPrice</name>
+        <value>#{pageFlowScope.pOldPrice}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="crud-sku-clr-images-tf">
+      <task-flow-reference>
+        <document>/popupTf/crud-sku-clr-images-tf.xml</document>
+        <id>crud-sku-clr-images-tf</id>
+      </task-flow-reference>
+      <input-parameter id="__22">
+        <name>vSkuClrCode</name>
+        <value>#{pageFlowScope.vSkuClrCode}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="crud-product-props-tf">
+      <task-flow-reference>
+        <document>/popupTf/crud-product-props-tf.xml</document>
+        <id>crud-product-props-tf</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="crud-product-ass-tf">
+      <task-flow-reference>
+        <document>/popupTf/crud-product-ass-tf.xml</document>
+        <id>crud-product-ass-tf</id>
+      </task-flow-reference>
+      <input-parameter id="__29">
+        <name>skuAssAction</name>
+        <value>#{pageFlowScope.skuAssAction}</value>
+      </input-parameter>
+      <input-parameter id="__30">
+        <name>vSkuAssCode</name>
+        <value>#{pageFlowScope.vSkuAssCode}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="sets-components-tf">
+      <task-flow-reference>
+        <document>/popupTf/sets-components-tf.xml</document>
+        <id>sets-components-tf</id>
+      </task-flow-reference>
+      <input-parameter id="__33">
+        <name>vSkuCode</name>
+        <value>#{pageFlowScope.vSkuCode}</value>
+      </input-parameter>
+      <input-parameter id="__34">
+        <name>vSkuAssComp</name>
+        <value>#{pageFlowScope.vSkuAssComp}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="crud-sku-units">
+      <task-flow-reference>
+        <document>/popupTf/crud-sku-units.xml</document>
+        <id>crud-sku-units</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>crud-shopproducts</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toBack</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>toSkuBdata</from-outcome>
+        <to-activity-id>crudSkuBdata</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>toSkuCColors</from-outcome>
+        <to-activity-id>crud-sku-colors-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>toSkuClrImgs</from-outcome>
+        <to-activity-id>crud-sku-clr-images-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>toSkuProps</from-outcome>
+        <to-activity-id>crud-product-props-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome>toSkuAss</from-outcome>
+        <to-activity-id>crud-product-ass-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>toSets</from-outcome>
+        <to-activity-id>sets-components-tf</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>toSkuUnits</from-outcome>
+        <to-activity-id>crud-sku-units</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>shopproducts-crud</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateWithParameters</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>CreateWithParameters</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>crud-shopproducts</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>crud-shopproducts</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LangToRefNamevVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.home.model.view.link.LangToRefNamevVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="LangCurrV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.home.model.view.LangCurrV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="LangCurrV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.view.LangCurrV.LangCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ReferencesNamesV"
+    Cardinality="-1"
+    Owner="com.shopbook.home.model.view.ReferencesNamesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ReferencesNamesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.view.ReferencesNamesV.Lang"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

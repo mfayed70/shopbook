@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="sets_componentsPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SkusSetV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkusSetVIterator"/>
+    <iterator Binds="SkuSetCompsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkuSetCompsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SkusSetVIterator" id="SkusSetV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkusV" Name="SkusSetV0">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="Available"/>
+          <Item Value="QntyInStock"/>
+          <Item Value="SkuCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SkuSetCompsVIterator" id="SkuSetCompsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuAssemblyCompsV" Name="SkuSetCompsV0">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="QtyInAss"/>
+          <Item Value="Available"/>
+          <Item Value="Hide"/>
+          <Item Value="Notes"/>
+          <Item Value="LastModified"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

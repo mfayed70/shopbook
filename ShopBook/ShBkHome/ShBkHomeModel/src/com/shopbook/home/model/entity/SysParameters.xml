@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysParameters"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="sys_parameters"
+  AliasName="SysParameters"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SysParameterId"
+    IsNotNull="true"
+    ColumnName="SYS_PARAMETER_ID"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="sys_parameters"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WebServerIp"
+    Precision="20"
+    ColumnName="WEB_SERVER_IP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WebServerName"
+    Precision="20"
+    ColumnName="WEB_SERVER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FileServerIp"
+    Precision="20"
+    ColumnName="FILE_SERVER_IP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FileServerName"
+    Precision="20"
+    ColumnName="FILE_SERVER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SmtpHost"
+    Precision="50"
+    ColumnName="SMTP_HOST"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SmtpPort"
+    ColumnName="SMTP_PORT"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SslOrTsl"
+    Precision="1"
+    ColumnName="SSL_OR_TSL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopAdminEmail"
+    Precision="100"
+    ColumnName="SHOP_ADMIN_EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopUserName"
+    Precision="100"
+    ColumnName="SHOP_USER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopCode"
+    Precision="9"
+    ColumnName="SHOP_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FileServerPath"
+    Precision="200"
+    ColumnName="FILE_SERVER_PATH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NoimagePath"
+    Precision="200"
+    ColumnName="NOIMAGE_PATH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopAdminPasswrd"
+    Precision="128"
+    ColumnName="SHOP_ADMIN_PASSWRD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VerifyEmailUrl"
+    Precision="500"
+    ColumnName="verify_email_url"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sys_parameters">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SysImages1"
+    Association="com.shopbook.home.model.entity.assoc.SysImagesAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SysImagesAssoc.SysImages1"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SysImagesAssoc.SysParameters"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SysParameters.SysParameterId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShopToSysPrm">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SHOP_TO_SYS_PRM"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SysParameters.ShopCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

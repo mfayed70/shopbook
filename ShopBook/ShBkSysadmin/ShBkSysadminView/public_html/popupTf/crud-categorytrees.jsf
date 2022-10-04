@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="crud-categorytrees.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbksysadminviewBundle.EDIT__0CATEGORY__0TREE}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="bar" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbksysadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toSave"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbksysadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelSplitter id="ps1" splitterPosition="400" disabled="true">
+                    <f:facet name="first">
+                        <af:panelHeader text="#{shbksysadminviewBundle.AVAILABLE__0CATEGORIES}" id="ph2">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar">
+                                <af:outputText value="#{shbksysadminviewBundle.DRAG__0__0__0DROP__0FROM__0LEFT__0TO__0RIGHT}" id="ot5"/>
+                            </f:facet>
+                            <f:facet name="legend"/>
+                            <af:table value="#{bindings.CategoryTreeTableV.collectionModel}" var="row"
+                                      rows="#{bindings.CategoryTreeTableV.rangeSize}"
+                                      emptyText="#{bindings.CategoryTreeTableV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CategoryTreeTableV.collectionModel.selectedRow}"
+                                      rowSelection="multiple" fetchSize="#{bindings.CategoryTreeTableV.rangeSize}"
+                                      id="t1">
+                                <af:dragSource actions="MOVE" defaultAction="MOVE" discriminant="rowmove"/>
+                                <af:column headerText="#{bindings.CategoryTreeTableV.hints.ChildCategory.label}"
+                                           id="c1" width="60">
+                                    <af:outputText value="#{row.ChildCategory}"
+                                                   shortDesc="#{bindings.CategoryTreeTableV.hints.ChildCategory.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.CategoryTreeTableV.hints.CatName.label}" id="c2"
+                                           width="213">
+                                    <af:outputText value="#{row.CatName}"
+                                                   shortDesc="#{bindings.CategoryTreeTableV.hints.CatName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.CategoryTreeTableV.hints.ParentCategory.label}"
+                                           id="c3" width="97">
+                                    <af:outputText value="#{row.ParentCategory}"
+                                                   shortDesc="#{bindings.CategoryTreeTableV.hints.ParentCategory.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="info"/>
+                        </af:panelHeader>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelHeader text="#{shbksysadminviewBundle.CATEGORY__0TREE}" id="ph3">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:tree value="#{bindings.CategoryTreeV.treeModel}" var="node"
+                                     selectionListener="#{bindings.CategoryTreeV.treeModel.makeCurrent}"
+                                     rowSelection="single" id="t2" initiallyExpanded="true">
+                                <f:facet name="nodeStamp">
+                                    <af:outputText value="#{node}" id="ot4"
+                                                   inlineStyle="color:Maroon; font-size:large;"/>
+                                </f:facet>
+                                <af:collectionDropTarget dropListener="#{TreeDnDbean.dropHandler}" actions="MOVE"
+                                                         modelName="rowmove"/>
+                            </af:tree>
+                        </af:panelHeader>
+                    </f:facet>
+                </af:panelSplitter>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

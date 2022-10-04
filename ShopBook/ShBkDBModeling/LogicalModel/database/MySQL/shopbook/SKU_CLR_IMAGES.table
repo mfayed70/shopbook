@@ -1,0 +1,233 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>SKU_CLR_IMAGES</name>
+  <columns>
+    <column>
+      <name>SKU_CLR_IMG_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">35</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_SZ_CLR_IMG_CODE created from UML attribute &quot;sku sz clr img code&quot; in UML class &quot;sku sz clr image&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SKU_CLR_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">28</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_SZ_CLR_TO_SKU_SZ_CLR_IMG created as default foreign key column for foreign key &quot;SKU_SZ_CLR_TO_SKU_SZ_CLR_IMG&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>IMG_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">7</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_IMGS_TO_SZ_CLR_IMGS created as default foreign key column for foreign key &quot;SKU_IMGS_TO_SZ_CLR_IMGS&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>IMG_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>IMG_SEQ</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INT</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>IMG_PATH</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">100</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>IMG_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>NOTES</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">500</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column NOTES created from UML attribute &quot;notes&quot; in UML class &quot;sku sz clr image&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_MODIFIED</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATETIME</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">CURRENT_TIMESTAMP</default>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PRIMARY</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SKU_CLR_IMG_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKU_CLR_IMAGES</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SKU_CLR_TO_SKU_CLR_IMG</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SKU_CLR_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKU_CLR_IMAGES</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.ReferenceID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SKU_COLORS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>SKU_SZ_CLR_IMAGES_INDEX</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>SKU_CLR_IMG_CODE</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>shopbook</name>
+      </schema>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">UML to Offline Database Transform: Table SKU_SZ_CLR_IMAGES created from UML class &quot;sku sz clr image&quot;
+UML to Offline Database Transform: Primary key constraint PRIMARY created by default
+UML to Offline Database Transform: Foreign key constraint SKU_IMGS_TO_SZ_CLR_IMGS created for UML association &quot;sku imgs to sz clr imgs&quot;
+UML to Offline Database Transform: Foreign key constraint SKU_SZ_CLR_TO_SKU_SZ_CLR_IMG created for UML association &quot;sku sz clr to sku sz clr img&quot;</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>shopbook</name>
+  </schema>
+</table>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShopSubCats"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="shop_sub_cats"
+  AliasName="ShopSubCats"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="ShopSubCatCode"
+    Precision="18"
+    ColumnName="SHOP_SUB_CAT_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_sub_cats"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="18"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopSubCatName"
+    Precision="200"
+    ColumnName="SHOP_SUB_CAT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_sub_cats">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SubCatImageName"
+    Precision="100"
+    ColumnName="SUB_CAT_IMAGE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_sub_cats">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SubCatImageType"
+    Precision="9"
+    ColumnName="SUB_CAT_IMAGE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_sub_cats">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopCatCode"
+    IsNotNull="true"
+    Precision="14"
+    ColumnName="SHOP_CAT_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_sub_cats">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="14"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shop_sub_cats">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="shop_sub_cats"/>
+  <AccessorAttribute
+    Name="Skus"
+    Association="com.shopbook.home.model.entity.temp.ShopCatToSubCatAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.ShopCatToSubCatAssoc.Skus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.ShopCatToSubCatAssoc.ShopSubCats"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus6"
+    Association="com.shopbook.home.model.entity.assoc.ShopcatSkuAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.ShopcatSkuAssoc.Skus6"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.ShopcatSkuAssoc.ShopSubCats"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.ShopSubCats.ShopSubCatCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShopCatToSubCat">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SHOP_CAT_TO_SUB_CAT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.ShopSubCats.ShopCatCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

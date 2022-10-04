@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-brands-tf">
+    <default-activity>brands-crud-router</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__13">
+      <name>brandsAction</name>
+      <value>#{pageFlowScope.brandsAction}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__14">
+      <name>vBrandCode</name>
+      <value>#{pageFlowScope.vBrandCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <router id="brands-crud-router">
+      <case id="__11">
+        <expression>#{pageFlowScope.brandsAction=='edit'}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <case id="__12">
+        <expression>#{pageFlowScope.brandsAction=='new'}</expression>
+        <outcome>new</outcome>
+      </case>
+      <default-outcome>new</default-outcome>
+    </router>
+    <view id="crud-brands">
+      <page>/popupTf/crud-brands.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__8">
+      <from-activity-id>crud-brands</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>brands-crud-router</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>crud-brands</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>crud-brands</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

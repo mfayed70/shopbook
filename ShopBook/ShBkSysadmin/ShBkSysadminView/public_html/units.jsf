@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="units.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_AVAILABLE_UNITS}" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:navigationPane hint="buttons" id="np1">
+                                <af:commandNavigationItem id="cni1" text="#{shbksysadminviewBundle.CREATE_NEW_UNIT}"
+                                                          icon="/icons/New.png" action="toUnitsCrud"
+                                                          partialSubmit="true" useWindow="true"
+                                                          windowEmbedStyle="inlineDocument" windowHeight="250"
+                                                          windowWidth="500"
+                                                          returnListener="#{RefereshBean.unitsReturnListener}">
+                                    <af:setPropertyListener from="#{'new'}" to="#{pageFlowScope.unitsAction}"
+                                                            type="action"/>
+                                </af:commandNavigationItem>
+                            </af:navigationPane>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:table value="#{bindings.UnitsV.collectionModel}" var="row"
+                                  rows="#{bindings.UnitsV.rangeSize}"
+                                  emptyText="#{bindings.UnitsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.UnitsV.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.UnitsV.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.UnitsV.rangeSize}" id="t1"
+                                  inlineStyle="background-color:White;">
+                            <af:column headerText="#{bindings.UnitsV.hints.FromUnit.label}" id="c1" width="150">
+                                <af:panelGroupLayout id="pgl1">
+                                    <af:link id="l1" icon="/icons/edit.png" action="toUnitsCrud" partialSubmit="true"
+                                             useWindow="true" windowEmbedStyle="inlineDocument" windowHeight="250"
+                                             windowWidth="500" returnListener="#{RefereshBean.unitsReturnListener}">
+                                        <af:setPropertyListener from="#{'edit'}" to="#{pageFlowScope.unitsAction}"
+                                                                type="action"/>
+                                        <af:setPropertyListener from="#{row.FromUnit}" to="#{viewScope.vFromUnit}"
+                                                                type="action"/>
+                                    </af:link>
+                                    <af:spacer width="20" height="10" id="s1"/>
+                                    <af:outputText value="#{row.FromUnit}"
+                                                   shortDesc="#{bindings.UnitsV.hints.FromUnit.tooltip}" id="ot1"/>
+                                </af:panelGroupLayout>
+                            </af:column>
+                            <af:column headerText="#{bindings.UnitsV.hints.UnitName.label}" id="c2">
+                                <af:outputText value="#{row.UnitName}"
+                                               shortDesc="#{bindings.UnitsV.hints.UnitName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.UnitsV.hints.BasicUnit.label}" id="c3">
+                                <af:outputText value="#{row.BasicUnit}"
+                                               shortDesc="#{bindings.UnitsV.hints.BasicUnit.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.UnitsV.hints.MultiplyBy.label}" id="c4">
+                                <af:outputText value="#{row.MultiplyBy}"
+                                               shortDesc="#{bindings.UnitsV.hints.MultiplyBy.tooltip}" id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.UnitsV.hints.MultiplyBy.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.UnitsV.hints.ToUnit.label}" id="c5">
+                                <af:selectOneChoice value="#{row.bindings.ToUnit.inputValue}"
+                                                    label="#{row.bindings.ToUnit.label}"
+                                                    required="#{bindings.UnitsV.hints.ToUnit.mandatory}"
+                                                    shortDesc="#{bindings.UnitsV.hints.ToUnit.tooltip}" readOnly="true"
+                                                    id="soc1">
+                                    <f:selectItems value="#{row.bindings.ToUnit.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.ToUnit.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column id="c6" headerText="#{bindings.UnitsV.hints.MinQty.label}">
+                                <af:outputText value="#{row.MinQty}" id="ot5"
+                                               shortDesc="#{bindings.UnitsV.hints.MinQty.tooltip}"/>
+                            </af:column>
+                            <af:column id="c7" headerText="#{bindings.UnitsV.hints.MaxQty.label}">
+                                <af:outputText value="#{row.MaxQty}" id="ot6"
+                                               shortDesc="#{bindings.UnitsV.hints.MaxQty.tooltip}"/>
+                            </af:column>
+                            <af:column id="c8" headerText="#{bindings.UnitsV.hints.StepQty.label}">
+                                <af:outputText value="#{row.StepQty}" id="ot7"
+                                               shortDesc="#{bindings.UnitsV.hints.StepQty.tooltip}"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

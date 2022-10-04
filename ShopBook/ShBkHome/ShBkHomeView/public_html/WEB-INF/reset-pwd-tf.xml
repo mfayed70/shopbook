@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="reset-pwd-tf">
+    <?audit suppress oracle.adfdt.controller.adfc.source.audit.TaskFlowReturnActivitiesNotDefined?>
+    <default-activity>ExecuteWithParams</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pOneTimeCode</name>
+      <value>#{pageFlowScope.pOneTimeCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__7">
+      <name>pStatus</name>
+      <value>#{pageFlowScope.pStatus}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name>ResetPasswrd</managed-bean-name>
+      <managed-bean-class>com.shopbook.home.view.beans.ResetPasswrd</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="resetPassword">
+      <page>/resetPassword.jsf</page>
+    </view>
+    <router id="router1">
+      <case id="__13">
+        <expression>#{pageFlowScope.pStatus=='good'}</expression>
+        <outcome>good</outcome>
+      </case>
+      <default-outcome>bad</default-outcome>
+    </router>
+    <view id="login">
+      <page>/login.jsf</page>
+    </view>
+    <view id="newhome">
+      <page>/index.jsf</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>resetPassword</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>resetPassword</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>verify</from-outcome>
+        <to-activity-id>router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>bad</from-outcome>
+        <to-activity-id>resetPassword</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>good</from-outcome>
+        <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>adfMenu_home</from-outcome>
+        <to-activity-id>newhome</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>adfMenu_login</from-outcome>
+        <to-activity-id>login</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

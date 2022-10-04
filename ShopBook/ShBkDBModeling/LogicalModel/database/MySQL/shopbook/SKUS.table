@@ -1,0 +1,681 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>SKUS</name>
+  <columns>
+    <column>
+      <name>SKU_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">23</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_CODE created from UML attribute &quot;sku code&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SKU_NAME</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">200</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_NAME created from UML attribute &quot;sku name&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>AVAILABLE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">&apos;Y&apos;</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column AVAILABLE created from UML attribute &quot;available&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>HIDE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">&apos;N&apos;</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column HIDE created from UML attribute &quot;hide&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>RATE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">5</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INT</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column RATE created from UML attribute &quot;rate&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>QNTY_IN_STOCK</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INT</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">0</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column QNTY_IN_STOCK created from UML attribute &quot;qnty in stock&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_PRICE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">9</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DECIMAL</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column LAST_PRICE created from UML attribute &quot;last price&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>APPEAR_ONLY_IN_ASS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">&apos;N&apos;</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column APPEAR_ONLY_IN_ASS created from UML attribute &quot;appear only in ass&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ASSEMBLY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">&apos;Y&apos;</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column ASSEMBLY created from UML attribute &quot;assembly&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>OLD_PRICE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">9</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DECIMAL</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String"> </default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column OLD_PRICE created from UML attribute &quot;old price&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHOP_CAT_SUB_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">18</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHOPCAT_SKU created as default foreign key column for foreign key &quot;SHOPCAT_SKU&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>SHP_PROP_CLS_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">22</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SHP_CAT_PROP_CLS_TO_SHU created as default foreign key column for foreign key &quot;SHP_CAT_PROP_CLS_TO_SHU&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>BRAND_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_BRAND created as default foreign key column for foreign key &quot;SKU_BRAND&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MNF_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_MANUFACTURER created as default foreign key column for foreign key &quot;SKU_MANUFACTURER&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MODEL_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">9</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_MODEL created as default foreign key column for foreign key &quot;SKU_MODEL&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>YEAR</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INT</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column SKU_YEAR created as default foreign key column for foreign key &quot;SKU_YEAR&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>LAST_MODIFIED</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATETIME</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">CURRENT_TIMESTAMP</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column LAST_MODIFIED created from UML attribute &quot;last modified&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NOTES</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">500</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column NOTES created from UML attribute &quot;notes&quot; in UML class &quot;sku&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>CAT_SZ_CLASS_CODE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">8</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>BASIC_UNIT</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PRIMARY</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SKU_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CAT_SIZE_CLASSES_TO_SKUS</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CAT_SZ_CLASS_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.ReferenceID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>CAT_SIZE_CLASSES</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SHOPCAT_SKU</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SHOP_CAT_SUB_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SHOP_SUB_CATS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SHP_CAT_PROP_CLS_TO_SHU</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>SHP_PROP_CLS_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SHOP_SUB_CAT_PROP_CLASSES</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SKU_BRAND</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>BRAND_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>BRANDS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SKU_MANUFACTURER</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>MNF_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>MANUFACTURES</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SKU_MODEL</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>MODEL_CODE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>MODELS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SKU_YEAR</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>YEAR</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>YEARS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SHBKLOGICALMODEL</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>UNITS_SKU_BASIC_UNIT_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>BASIC_UNIT</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SKUS</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>shopbook</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.ReferenceID">
+        <name>PRIMARY</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>UNITS</name>
+          <schemaName>shopbook</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>SKUS_INDEX</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>SKU_CODE</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>shopbook</name>
+      </schema>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">UML to Offline Database Transform: Table SKUS created from UML class &quot;sku&quot;
+UML to Offline Database Transform: Primary key constraint PRIMARY created by default
+UML to Offline Database Transform: Foreign key constraint SHOPCAT_SKU created for UML association &quot;shopcat sku&quot;
+UML to Offline Database Transform: Foreign key constraint SHP_CAT_PROP_CLS_TO_SHU created for UML association &quot;shp cat prop cls to shu&quot;
+UML to Offline Database Transform: Foreign key constraint SKU_BRAND created for UML association &quot;sku brand&quot;
+UML to Offline Database Transform: Foreign key constraint SKU_MANUFACTURER created for UML association &quot;sku manufacturer&quot;
+UML to Offline Database Transform: Foreign key constraint SKU_MODEL created for UML association &quot;sku model&quot;
+UML to Offline Database Transform: Foreign key constraint SKU_YEAR created for UML association &quot;sku year&quot;</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>shopbook</name>
+  </schema>
+</table>

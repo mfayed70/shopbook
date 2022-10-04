@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="ProductPagePageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.SkuTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <taskFlow id="skudettf1" taskFlowId="/WEB-INF/sku-det-tf.xml#sku-det-tf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="pSkuCode" value="#{param.p1}"/>
+        <parameter id="pSkuClrCode" value="#{param.p2}"/>
+        <parameter id="pSkuDetails" value="#{param.p4}"/>
+        <parameter id="pClrName" value="#{param.p3}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UnitsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Units"
+    Entity="com.shopbook.home.model.entity.Units"/>
+  <ViewAttribute
+    Name="FromUnit"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FromUnit"
+    EntityUsage="Units"
+    AliasName="FROM_UNIT"/>
+  <ViewAttribute
+    Name="UnitName"
+    PrecisionRule="true"
+    EntityAttrName="UnitName"
+    EntityUsage="Units"
+    AliasName="UNIT_NAME"/>
+  <ViewAttribute
+    Name="BasicUnit"
+    PrecisionRule="true"
+    EntityAttrName="BasicUnit"
+    EntityUsage="Units"
+    AliasName="BASIC_UNIT"/>
+  <ViewAttribute
+    Name="MultiplyBy"
+    PrecisionRule="true"
+    EntityAttrName="MultiplyBy"
+    EntityUsage="Units"
+    AliasName="MULTIPLY_BY"/>
+  <ViewAttribute
+    Name="ToUnit"
+    PrecisionRule="true"
+    EntityAttrName="ToUnit"
+    EntityUsage="Units"
+    AliasName="TO_UNIT"/>
+  <ViewLinkAccessor
+    Name="ShoppingDetV"
+    ViewLink="com.shopbook.home.model.view.link.ShoppingDetUnitFkVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelSplitter id="ps1" disabled="true">
+                        <f:facet name="first">
+                            <af:panelHeader text="#{shbkhomeviewBundle.FilterBy}" id="pb2"
+                                            contentStyle="font-size:16px; color:Gray;">
+                                <f:facet name="toolbar"/>
+                                <f:facet name="context"/>
+                                <f:facet name="menuBar">
+                                    <af:link id="l3" text="#{shbkhomeviewBundle.APPLY}"
+                                             inlineStyle="font-size:16px; background-color:#003D5B; color:White;padding:5px 10px 10px 10px;height:20px;"
+                                             partialTriggers="i1" actionListener="#{HomeWhereConditionBean.filterBy}"/>
+                                </f:facet>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                                <af:showDetailHeader text="#{bindings.BrPlural.inputValue}" id="sdh2"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:listView value="#{bindings.BrandsV.collectionModel}" var="item"
+                                                 emptyText="#{bindings.BrandsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.BrandsV.rangeSize}" id="lv1">
+                                        <af:listItem id="li1">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl7">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s2"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl13" layout="vertical"
+                                                                     inlineStyle="width:140px;">
+                                                    <af:outputFormatted value="#{item.bindings.BrandName.inputValue}"
+                                                                        id="of1" inlineStyle="font-size:12px;"/>
+                                                </af:panelGroupLayout>
+                                                <af:selectBooleanCheckbox value="#{item.bindings.Selected.inputValue}"
+                                                                          id="of2" label="Label 1" simple="true"/>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{bindings.MdPlural.inputValue}" id="sdh3"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:listView value="#{bindings.ModelsV.collectionModel}" var="item"
+                                                 emptyText="#{bindings.ModelsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.ModelsV.rangeSize}" id="lv2">
+                                        <af:listItem id="li2">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl9">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s3"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl12" layout="vertical"
+                                                                     inlineStyle="width:140px;">
+                                                    <af:outputFormatted value="#{item.bindings.ModelName.inputValue}"
+                                                                        id="of4" inlineStyle="font-size:12px;"/>
+                                                </af:panelGroupLayout>
+                                                <af:selectBooleanCheckbox value="#{item.bindings.Selected.inputValue}"
+                                                                          id="of5" label="Label 2" simple="true"/>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{bindings.MnPluran.inputValue}" id="sdh4"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:listView value="#{bindings.ManufacturesV.collectionModel}" var="item"
+                                                 emptyText="#{bindings.ManufacturesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.ManufacturesV.rangeSize}" id="lv3">
+                                        <af:listItem id="li3">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl10">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s4"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl11" layout="vertical"
+                                                                     inlineStyle="width:140px;">
+                                                    <af:outputFormatted value="#{item.bindings.MnfName.inputValue}"
+                                                                        id="of6" inlineStyle="font-size:12px;"/>
+                                                </af:panelGroupLayout>
+                                                <af:selectBooleanCheckbox value="#{item.bindings.Selected.inputValue}"
+                                                                          id="of7" label="Label 3" simple="true"/>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.YEAR}" id="sdh1">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:listView value="#{bindings.YearsV.collectionModel}" var="item"
+                                                 emptyText="#{bindings.YearsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.YearsV.rangeSize}" id="lv4">
+                                        <af:listItem id="li4">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl14">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s5"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl15" layout="vertical"
+                                                                     inlineStyle="width:140px;">
+                                                    <af:outputFormatted value="#{item.bindings.Year.inputValue}"
+                                                                        id="of8" inlineStyle="font-size:12px;">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.YearsV.hints.Year.format}"/>
+                                                    </af:outputFormatted>
+                                                </af:panelGroupLayout>
+                                                <af:selectBooleanCheckbox value="#{item.bindings.Selected.inputValue}"
+                                                                          id="of9" label="Label 4" simple="true"/>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.COLOR}" disclosed="false" id="sdh6"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:listView value="#{bindings.SkuFilterColorsV.collectionModel}" var="item"
+                                                 emptyText="#{bindings.SkuFilterColorsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.SkuFilterColorsV.rangeSize}" id="lv5">
+                                        <af:listItem id="li5">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl16">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s6"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl17" layout="horizontal"
+                                                                     inlineStyle="width:140px;">
+                                                    <af:outputFormatted value="#{item.bindings.ClrName.inputValue}"
+                                                                        id="of10" inlineStyle="font-size:12px;"/>
+                                                </af:panelGroupLayout>
+                                                <af:selectBooleanCheckbox value="#{item.bindings.Selected.inputValue}"
+                                                                          id="of12" simple="true"/>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.SIZE}" disclosed="false" id="sdh5"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <af:listView value="#{bindings.SkuFilterSizesV.collectionModel}" var="item"
+                                                 emptyText="#{bindings.SkuFilterSizesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                 fetchSize="#{bindings.SkuFilterSizesV.rangeSize}" id="lv6">
+                                        <af:listItem id="li6">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl18">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s7"/>
+                                                </f:facet>
+                                                <af:panelGroupLayout id="pgl19" layout="horizontal"
+                                                                     inlineStyle="width:140px;">
+                                                    <af:outputFormatted value="#{item.bindings.SzDetName.inputValue}"
+                                                                        id="of13" inlineStyle="font-size:12px;"/>
+                                                </af:panelGroupLayout>
+                                                <af:selectBooleanCheckbox value="#{item.bindings.Selected.inputValue}"
+                                                                          id="of14" label="Label 6" simple="true"/>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </af:listView>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                            </af:panelHeader>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelGroupLayout id="pgl1" layout="vertical" inlineStyle="padding-bottom:30px;">
+                                <af:panelGroupLayout id="pgl5" layout="horizontal" halign="center"
+                                                     inlineStyle="padding:0px 200px 5px 200px;border-bottom-color:#e7e7e7; border-bottom-style:solid; border-bottom-width:thin; ">
+                                    <f:facet name="separator">
+                                        <af:spacer width="20" height="10" id="s1"/>
+                                    </f:facet>
+                                    <af:inputText value="#{bindings.pSrchTxt.inputValue}" simple="true"
+                                                  required="#{bindings.pSrchTxt.hints.mandatory}"
+                                                  columns="#{bindings.pSrchTxt.hints.displayWidth}"
+                                                  maximumLength="#{bindings.pSrchTxt.hints.precision}"
+                                                  shortDesc="#{bindings.pSrchTxt.hints.tooltip}" id="it1">
+                                        <f:validator binding="#{bindings.pSrchTxt.validator}"/>
+                                    </af:inputText>
+                                    <af:link actionListener="#{bindings.ExecuteWithParams.execute}" disabled="#{!bindings.ExecuteWithParams.enabled}"
+                                             id="l2" icon="/icons/search_small.png" partialTriggers="i1"/>
+                                </af:panelGroupLayout>
+                                <af:panelGroupLayout id="pgl2" layout="scroll">
+                                    <af:outputText value="#{shbkhomeviewBundle.SORRY__THERE_ARE_NO_ITEMS_MATCH_YOUR_SEARCH_}" id="ot1"
+                                                   rendered="#{bindings.newHmSkuVIterator.estimatedRowCount==0}"
+                                                   inlineStyle="padding-top:15px;padding-left:15px;font-size:18px;"
+                                                   partialTriggers="pt_i4:pt_l9 pt_i4:pt_t1:pt_ot4 pt_i4"
+                                                   binding="#{HomeWhereConditionBean.noRecordsFoundTxt}"
+                                                   clientComponent="true"/>
+                                    <af:panelFormLayout id="pfl1" maxColumns="3" rows="1" fieldWidth="100%"
+                                                        labelWidth="0%">
+                                        <f:facet name="footer"/>
+                                        <af:iterator id="i1" value="#{bindings.newHmSkuV.collectionModel}" var="skus"
+                                                     binding="#{HomeWhereConditionBean.skuIterator}">
+                                            <af:panelGroupLayout id="pgl3" layout="vertical" halign="center"
+                                                                 styleClass=".myLink"
+                                                                 inlineStyle="margin:5px 7.5px 10px 7.5px;">
+                                                <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                                     inlineStyle="height:25px;margin-left:-150px;margin-bottom:7px;">
+                                                    <af:outputText value="#{skus.FlagClrPriceDiffer}" id="ot4"
+                                                                   inlineStyle="color:#c60000; font-size:16px; text-decoration:underline;"
+                                                                   styleClass="badge"
+                                                                   rendered="#{skus.SkcOldPrice!=null}"/>
+                                                </af:panelGroupLayout>
+                                                <af:panelGroupLayout id="pgl6" layout="vertical"
+                                                                     inlineStyle="height:40px;">
+                                                    <af:outputText id="it2" value="#{skus.SkuName}" truncateAt="67"
+                                                                   inlineStyle="color:#003D5B;"/>
+                                                </af:panelGroupLayout>
+                                                <af:link id="l1" partialSubmit="true"
+                                                         inlineStyle="font-size:medium;width:200px;height:200px;"
+                                                         icon="/ViewImageServlet?path=#{skus.FullPath==null || empty skus.FullPath? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : skus.FullPath}"
+                                                         iconPosition="bottom" styleClass="homeSkuLink myLink"
+                                                         targetFrame="_blank"
+                                                         destination="../shop/ProductPage?p1=#{skus.SkuCode}&amp;p2=#{skus.SkuClrCode}&amp;p3=#{skus.ClrName}&amp;p4=#{'No'}">
+                                                    <af:setPropertyListener from="#{skus.SkuCode}"
+                                                                            to="#{pageFlowScope.pSkuCode}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{skus.SkuClrCode}"
+                                                                            to="#{pageFlowScope.pSkuClrCode}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{skus.MinSkuSzClrCode}"
+                                                                            to="#{pageFlowScope.pSkuSzClrCode}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{'No'}"
+                                                                            to="#{pageFlowScope.pSkuDetails}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{skus.LastPrice}"
+                                                                            to="#{pageFlowScope.pClrLprice}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{skus.OlpPrice}"
+                                                                            to="#{pageFlowScope.pClrOprice}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{skus.ClrName}"
+                                                                            to="#{pageFlowScope.pClrName}"
+                                                                            type="action"/>
+                                                    <f:attribute name="pSkuCode" value="#{skus.SkuCode}"/>
+                                                    <f:attribute name="pSkuClrCode" value="#{skus.SkuClrCode}"/>
+                                                </af:link>
+                                                <af:outputText value="#{skus.ClrName}" id="of3"
+                                                               inlineStyle="color:Gray; font-size:small;"
+                                                               truncateAt="28"/>
+                                                <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                                                     rendered="#{skus.LastPrice!=null}">
+                                                    <af:outputText value="#{skus.SkcOldPrice}#{bindings.CurrSymbol.inputValue}"
+                                                                   id="ot12"
+                                                                   inlineStyle="color:Gray; font-size:14px; background-repeat:no-repeat; background-position:70% 20%; background-size:60.0px 20.0px; background-origin:content-box; background-clip:content-box; text-decoration:line-through solid currentColor;"
+                                                                   rendered="#{skus.SkcOldPrice>skus.SkcLastPrice}"/>
+                                                    <af:spacer width="15" height="10" id="s14"/>
+                                                    <af:outputFormatted value="#{skus.SkcLastPrice}#{bindings.CurrSymbol.inputValue}"
+                                                                        id="of11"
+                                                                        inlineStyle="color:Maroon; font-size:16px;"/>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:iterator>
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

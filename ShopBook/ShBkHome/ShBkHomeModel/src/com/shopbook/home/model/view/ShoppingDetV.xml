@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShoppingDetV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="ShpBagStatusV1"
+    ViewObjectName="com.shopbook.home.model.view.ShpBagStatusV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ShpBagStatusVCriteria"
+      FullName="com.shopbook.home.model.view.ShpBagStatusV.ShpBagStatusVCriteria"/>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_SkuStatus"
+    ListVOName="ShpBagStatusV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SkuStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 
+    shopping_det.DET_ID DET_ID, 
+    shopping_det.LAST_MODIFIED LAST_MODIFIED, 
+    shopping_det.NOTES NOTES, 
+    shopping_det.QTY QTY, 
+    shopping_det.UNIT_PRICE UNIT_PRICE, 
+    shopping_det.TOTAL_PRICE TOTAL_PRICE, 
+    shopping_det.SKU_STATUS SKU_STATUS, 
+    shopping_det.AVAILABLE AVAILABLE, 
+    shopping_det.ADDED_DATE ADDED_DATE, 
+    shopping_det.TRANS_ID TRANS_ID, 
+    shopping_det.SIZE_CODE SIZE_CODE, 
+    shopping_det.SKU_CLR_CODE SKU_CLR_CODE, 
+    shopping_det.UNIT_CODE UNIT_CODE, 
+    shopping_det.SKU_NAME SKU_NAME, 
+    shopping_det.CLR_NAME CLR_NAME, 
+    shopping_det.SIZE_NAME SIZE_NAME, 
+    shopping_det.UNIT_NAME UNIT_NAME,
+    concat(min(sku_clr_images.img_path),sku_clr_images.sku_clr_img_code,
+    sku_clr_images.img_type) IMG_FULL_PATH,
+    skus.MIN_QTY,skus.MAX_QTY,skus.STEP_QTY,
+    substr(shopping_det.SKU_CLR_CODE,1,23) SKU_CODE
+FROM 
+    shopping_det left join sku_clr_images 
+on shopping_det.SKU_CLR_CODE = sku_clr_images.SKU_CLR_CODE
+inner join skus on substr(shopping_det.SKU_CLR_CODE,1,23) = skus.SKU_CODE
+GROUP BY 
+    shopping_det.DET_ID, 
+    shopping_det.LAST_MODIFIED, 
+    shopping_det.NOTES , 
+    shopping_det.QTY , 
+    shopping_det.UNIT_PRICE , 
+    shopping_det.TOTAL_PRICE , 
+    shopping_det.SKU_STATUS , 
+    shopping_det.AVAILABLE , 
+    shopping_det.ADDED_DATE , 
+    shopping_det.TRANS_ID , 
+    shopping_det.SIZE_CODE , 
+    shopping_det.SKU_CLR_CODE , 
+    shopping_det.UNIT_CODE , 
+    shopping_det.SKU_NAME , 
+    shopping_det.CLR_NAME , 
+    shopping_det.SIZE_NAME , 
+    shopping_det.UNIT_NAME ,skus.MIN_QTY,skus.MAX_QTY,skus.STEP_QTY]]></SQLQuery>
+  <EntityUsage
+    Name="ShoppingDet"
+    Entity="com.shopbook.home.model.entity.ShoppingDet"/>
+  <ViewAttribute
+    Name="DetId"
+    PrecisionRule="true"
+    EntityAttrName="DetId"
+    EntityUsage="ShoppingDet"
+    AliasName="DET_ID"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="ShoppingDet"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="ShoppingDet"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="Qty"
+    PrecisionRule="true"
+    EntityAttrName="Qty"
+    EntityUsage="ShoppingDet"
+    AliasName="QTY"/>
+  <ViewAttribute
+    Name="UnitPrice"
+    PrecisionRule="true"
+    EntityAttrName="UnitPrice"
+    EntityUsage="ShoppingDet"
+    AliasName="UNIT_PRICE"/>
+  <ViewAttribute
+    Name="TotalPrice"
+    PrecisionRule="true"
+    EntityAttrName="TotalPrice"
+    EntityUsage="ShoppingDet"
+    AliasName="TOTAL_PRICE">
+    <Dependencies>
+      <Item
+        Value="Qty"
+        Type="notify"/>
+      <Item
+        Value="UnitPrice"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuStatus"
+    PrecisionRule="true"
+    EntityAttrName="SkuStatus"
+    EntityUsage="ShoppingDet"
+    AliasName="SKU_STATUS"
+    LOVName="LOV_SkuStatus">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="ShoppingDet"
+    AliasName="AVAILABLE"/>
+  <ViewAttribute
+    Name="AddedDate"
+    PrecisionRule="true"
+    EntityAttrName="AddedDate"
+    EntityUsage="ShoppingDet"
+    AliasName="ADDED_DATE"/>
+  <ViewAttribute
+    Name="TransId"
+    PrecisionRule="true"
+    EntityAttrName="TransId"
+    EntityUsage="ShoppingDet"
+    AliasName="TRANS_ID"/>
+  <ViewAttribute
+    Name="SizeCode"
+    PrecisionRule="true"
+    EntityAttrName="SizeCode"
+    EntityUsage="ShoppingDet"
+    AliasName="SIZE_CODE"/>
+  <ViewAttribute
+    Name="SkuClrCode"
+    PrecisionRule="true"
+    AliasName="SKU_CLR_CODE"
+    EntityAttrName="SkuClrCode"
+    EntityUsage="ShoppingDet"/>
+  <ViewAttribute
+    Name="UnitCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitCode"
+    EntityUsage="ShoppingDet"
+    AliasName="UNIT_CODE"/>
+  <ViewAttribute
+    Name="SkuName"
+    PrecisionRule="true"
+    AliasName="SKU_NAME"
+    EntityAttrName="SkuName"
+    EntityUsage="ShoppingDet"/>
+  <ViewAttribute
+    Name="ClrName"
+    PrecisionRule="true"
+    AliasName="CLR_NAME"
+    EntityAttrName="ClrName"
+    EntityUsage="ShoppingDet"/>
+  <ViewAttribute
+    Name="SizeName"
+    PrecisionRule="true"
+    AliasName="SIZE_NAME"
+    EntityAttrName="SizeName"
+    EntityUsage="ShoppingDet"/>
+  <ViewAttribute
+    Name="UnitName"
+    PrecisionRule="true"
+    AliasName="UNIT_NAME"
+    EntityAttrName="UnitName"
+    EntityUsage="ShoppingDet"/>
+  <ViewAttribute
+    Name="ImgFullPath"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="IMG_FULL_PATH"
+    SQLType="VARCHAR"
+    Expression="IMG_FULL_PATH"/>
+  <ViewAttribute
+    Name="MinQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="155"
+    Type="java.math.BigDecimal"
+    ColumnType="VARCHAR"
+    AliasName="MIN_QTY"
+    Expression="MIN_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="155"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MaxQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    AliasName="MAX_QTY"
+    Expression="MAX_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StepQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    AliasName="STEP_QTY"
+    Expression="STEP_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SKU_CODE"
+    SQLType="VARCHAR"
+    Expression="SKU_CODE"/>
+  <ViewAttribute
+    Name="fTotalPrice"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"/>
+  <ViewLinkAccessor
+    Name="ServingOrderMastV"
+    ViewLink="com.shopbook.home.model.view.link.ServingOrdersMastToDetVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

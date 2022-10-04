@@ -1,0 +1,238 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>SHOPPING_MASTER</name>
+  <columns>
+    <column>
+      <name>TRANS_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column TRANS_ID created from UML attribute &quot;trans id&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TRANS_DATE_TIME</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATETIME</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">CURRENT_TIMESTAMP</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column TRANS_DATE_TIME created from UML attribute &quot;trans date time&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TRANS_VALUE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">11</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>INT</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">0</default>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column TRANS_VALUE created from UML attribute &quot;trans value&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>NOTES</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">500</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column NOTES created from UML attribute &quot;notes&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>MOB_NO</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">15</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column MOB_NO created from UML attribute &quot;mob no&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>ADDRESS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">200</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column ADDRESS created from UML attribute &quot;address&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>TRANS_STATUS</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column TRANS_STATUS created from UML attribute &quot;trans status&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>PAYMENT_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column PAYMENT_ID created from UML attribute &quot;payment id&quot; in UML class &quot;shopping master&quot;</value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <name>USER_ID</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">UML to Offline Database Transform: Column USER_TO_SHOPPING_MAST created as default foreign key column for foreign key &quot;USER_TO_SHOPPING_MAST&quot;</value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>PRIMARY</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>TRANS_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SHOPPING_MASTER</name>
+            <schemaName>shopbook</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SHBKLOGICALMODEL</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <indexes>
+    <index>
+      <name>SHOPPING_MASTER_INDEX</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>TRANS_ID</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>shopbook</name>
+      </schema>
+    </index>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">UML to Offline Database Transform: Table SHOPPING_MASTER created from UML class &quot;shopping master&quot;
+UML to Offline Database Transform: Primary key constraint PRIMARY created by default
+UML to Offline Database Transform: Foreign key constraint USER_TO_SHOPPING_MAST created for UML association &quot;user to shopping mast&quot;</value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>shopbook</name>
+  </schema>
+</table>

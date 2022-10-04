@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbkshopadminviewBundle.EDIT___NEW_CATEGORY_PROPERTIES}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toSave"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelHeader text="#{shbkshopadminviewBundle.CATEGORY}" id="ph2"
+                                inlineStyle="padding-bottom:10px;">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelFormLayout id="pfl1" inlineStyle="margin-top:5px;margin-bottom:5px;">
+                        <af:inputText value="#{fn:substring(bindings.ShopCatCode.inputValue,9,14)}"
+                                      label="#{bindings.ShopCatCode.hints.label}"
+                                      required="#{bindings.ShopCatCode.hints.mandatory}" readOnly="true"
+                                      columns="#{bindings.ShopCatCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.ShopCatCode.hints.precision}"
+                                      shortDesc="#{bindings.ShopCatCode.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.ShopCatCode.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ShopSubCatName.inputValue}"
+                                      shortDesc="#{bindings.ShopSubCatName.hints.tooltip}" id="ot2"
+                                      label="#{bindings.ShopSubCatName.hints.label}" readOnly="true"/>
+                        <af:image shortDesc="#{bindings.ShopSubCatName.hints.tooltip}" id="it2"
+                                  inlineStyle="width:123px; height:94px;"
+                                  source="/ViewImageServlet?path=#{bindings.SubCatImageName.inputValue}"/>
+                    </af:panelFormLayout>
+                    <af:panelHeader text="#{shbkshopadminviewBundle.PROPERTY_CLASSES}" id="ph3">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:navigationPane hint="buttons" id="np2">
+                                <af:commandNavigationItem id="ni3"
+                                                          text="#{shbkshopadminviewBundle.CLEAR_CATEGORY_CLASS}"
+                                                          icon="/icons/Delete.png"
+                                                          actionListener="#{bindings.DeleteCatPropCls.execute}"
+                                                          action="toSave"/>
+                            </af:navigationPane>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <af:spacer width="10" height="10" id="s5"/>
+                        <af:panelFormLayout id="pfl2">
+                            <af:inputText value="#{fn:substring(bindings.ShopSubCatCode.inputValue,9,14)}"
+                                          label="#{bindings.ShopSubCatCode.hints.label}"
+                                          required="#{bindings.ShopSubCatCode.hints.mandatory}"
+                                          columns="#{bindings.ShopSubCatCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopSubCatCode.hints.precision}"
+                                          shortDesc="#{bindings.ShopSubCatCode.hints.tooltip}" id="it4" readOnly="true"
+                                          rendered="false">
+                                <f:validator binding="#{bindings.ShopSubCatCode.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{fn:substring(bindings.ShpSubCatPrpClsCode.inputValue,18,22)}"
+                                          label="#{bindings.ShpSubCatPrpClsCode.hints.label}"
+                                          required="#{bindings.ShpSubCatPrpClsCode.hints.mandatory}"
+                                          columns="#{bindings.ShpSubCatPrpClsCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShpSubCatPrpClsCode.hints.precision}"
+                                          shortDesc="#{bindings.ShpSubCatPrpClsCode.hints.tooltip}" id="it11"
+                                          autoSubmit="true" readOnly="true">
+                                <f:validator binding="#{bindings.ShpSubCatPrpClsCode.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ShpSubCatPrpClsName.inputValue}"
+                                          label="#{bindings.ShpSubCatPrpClsName.hints.label}"
+                                          required="#{bindings.ShpSubCatPrpClsName.hints.mandatory}"
+                                          columns="#{bindings.ShpSubCatPrpClsName.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShpSubCatPrpClsName.hints.precision}"
+                                          shortDesc="#{bindings.ShpSubCatPrpClsName.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.ShpSubCatPrpClsName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.LastModified.inputValue}"
+                                          label="#{bindings.LastModified.hints.label}"
+                                          required="#{bindings.LastModified.hints.mandatory}"
+                                          columns="#{bindings.LastModified.hints.displayWidth}"
+                                          maximumLength="#{bindings.LastModified.hints.precision}"
+                                          shortDesc="#{bindings.LastModified.hints.tooltip}" id="it6" readOnly="true">
+                                <f:validator binding="#{bindings.LastModified.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.LastModified.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                                          required="#{bindings.Notes.hints.mandatory}"
+                                          columns="#{bindings.Notes.hints.displayWidth}"
+                                          maximumLength="#{bindings.Notes.hints.precision}"
+                                          shortDesc="#{bindings.Notes.hints.tooltip}" id="it7" rows="2"
+                                          contentStyle="height:30px;" rendered="false">
+                                <f:validator binding="#{bindings.Notes.validator}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                        <f:facet name="info"/>
+                        <af:panelHeader text="#{shbkshopadminviewBundle.PROPERTY_CLASS_DETAILS}" id="ph4"
+                                        inlineStyle="margin-top:5px;">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar">
+                                <af:navigationPane hint="buttons" id="np3">
+                                    <af:commandNavigationItem id="ni4"
+                                                              text="#{shbkshopadminviewBundle.CREATE_NEW_CLASS_DETAIL}"
+                                                              icon="/icons/New.png"
+                                                              actionListener="#{bindings.CreateInsertCatDet.execute}"
+                                                              disabled="#{bindings.ShpSubCatPrpClsCode.inputValue==null}"/>
+                                </af:navigationPane>
+                            </f:facet>
+                            <f:facet name="legend">
+                                <af:outputText id="ot3" inlineStyle="color:Maroon;"
+                                               value="#{shbkshopadminviewBundle.PROPCLASSITEMDET}"/>
+                            </f:facet>
+                            <f:facet name="info"/>
+                            <af:spacer width="10" height="10" id="s4"/>
+                            <af:panelGroupLayout id="pgl1" layout="scroll">
+                                <af:table value="#{bindings.CrudShopSubCatPropClassDetsV1.collectionModel}" var="row"
+                                          rows="#{bindings.CrudShopSubCatPropClassDetsV1.rangeSize}"
+                                          emptyText="#{bindings.CrudShopSubCatPropClassDetsV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.CrudShopSubCatPropClassDetsV1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.CrudShopSubCatPropClassDetsV1.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.CrudShopSubCatPropClassDetsV1.rangeSize}" id="t1"
+                                          columnStretching="column:c3" inlineStyle="background-color:White;"
+                                          partialTriggers="l1" verticalGridVisible="false" autoHeightRows="0">
+                                    <af:column headerText="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClassCode.label}"
+                                               id="c1" width="100" rendered="false">
+                                        <af:outputText value="#{row.PropClassCode}"
+                                                       shortDesc="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClassCode.tooltip}"
+                                                       id="ot1" partialTriggers="::it11"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrudShopSubCatPropClassDetsV1.hints.ShpSubcatPrpClsDetCode.label}"
+                                               id="c2" width="100" rendered="false">
+                                        <af:inputText value="#{row.bindings.ShpSubcatPrpClsDetCode.inputValue}"
+                                                      label="#{bindings.CrudShopSubCatPropClassDetsV1.hints.ShpSubcatPrpClsDetCode.label}"
+                                                      required="#{bindings.CrudShopSubCatPropClassDetsV1.hints.ShpSubcatPrpClsDetCode.mandatory}"
+                                                      columns="#{bindings.CrudShopSubCatPropClassDetsV1.hints.ShpSubcatPrpClsDetCode.displayWidth}"
+                                                      maximumLength="#{bindings.CrudShopSubCatPropClassDetsV1.hints.ShpSubcatPrpClsDetCode.precision}"
+                                                      shortDesc="#{bindings.CrudShopSubCatPropClassDetsV1.hints.ShpSubcatPrpClsDetCode.tooltip}"
+                                                      id="it8" readOnly="true">
+                                            <f:validator binding="#{row.bindings.ShpSubcatPrpClsDetCode.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClsDetName.label}"
+                                               id="c3" width="200">
+                                        <af:inputText value="#{row.bindings.PropClsDetName.inputValue}"
+                                                      label="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClsDetName.label}"
+                                                      required="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClsDetName.mandatory}"
+                                                      columns="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClsDetName.displayWidth}"
+                                                      maximumLength="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClsDetName.precision}"
+                                                      shortDesc="#{bindings.CrudShopSubCatPropClassDetsV1.hints.PropClsDetName.tooltip}"
+                                                      id="it9" rows="2">
+                                            <f:validator binding="#{row.bindings.PropClsDetName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrudShopSubCatPropClassDetsV1.hints.Notes.label}"
+                                               id="c4" width="70" rendered="false">
+                                        <af:inputText value="#{row.bindings.Notes.inputValue}"
+                                                      label="#{bindings.CrudShopSubCatPropClassDetsV1.hints.Notes.label}"
+                                                      required="#{bindings.CrudShopSubCatPropClassDetsV1.hints.Notes.mandatory}"
+                                                      columns="#{bindings.CrudShopSubCatPropClassDetsV1.hints.Notes.displayWidth}"
+                                                      maximumLength="#{bindings.CrudShopSubCatPropClassDetsV1.hints.Notes.precision}"
+                                                      shortDesc="#{bindings.CrudShopSubCatPropClassDetsV1.hints.Notes.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{row.bindings.Notes.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.CrudShopSubCatPropClassDetsV1.hints.LastModified.label}"
+                                               id="c5" width="70">
+                                        <af:inputDate value="#{row.bindings.LastModified.inputValue}"
+                                                      label="#{bindings.CrudShopSubCatPropClassDetsV1.hints.LastModified.label}"
+                                                      required="#{bindings.CrudShopSubCatPropClassDetsV1.hints.LastModified.mandatory}"
+                                                      columns="#{bindings.CrudShopSubCatPropClassDetsV1.hints.LastModified.displayWidth}"
+                                                      shortDesc="#{bindings.CrudShopSubCatPropClassDetsV1.hints.LastModified.tooltip}"
+                                                      id="id1" readOnly="true">
+                                            <f:validator binding="#{row.bindings.LastModified.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.CrudShopSubCatPropClassDetsV1.hints.LastModified.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column id="c6" width="140">
+                                        <af:link text="#{shbkshopadminviewBundle.CLEAR_CLASS_DETAIL}" id="l1"
+                                                 icon="/icons/Delete.png"
+                                                 actionListener="#{bindings.DeleteCatPropDet.execute}"
+                                                 rendered="#{row.bindings.PropClsDetName.inputValue!=null}"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:panelHeader>
+                    </af:panelHeader>
+                </af:panelHeader>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

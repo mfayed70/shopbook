@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" 
+                    xmlns:f="http://java.sun.com/jsf/core"
+                    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>SkuTemplate</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>_main</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+    <f:view locale="#{Locale.locale}">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+        <af:panelStretchLayout id="pt_psl1" startWidth="0px" endWidth="0px" topHeight="100px" bottomHeight="130px"
+                               inlineStyle="background-color:White; width:1100px; margin-left:135px;margin-right:135px;">
+            <f:facet name="bottom">
+<af:panelGroupLayout id="pt_pgl1" styleClass="AFStretchWidth" layout="scroll"
+                                     inlineStyle="background-color:#e7e7e7;">
+                    <af:panelGroupLayout id="pt_pgl4" layout="horizontal" inlineStyle="height:100px;"
+                                         styleClass="AFStretchWidth">
+                        <af:panelGridLayout id="pt_pgl7">
+                            <af:gridRow marginTop="5px" marginBottom="5px" id="pt_gr1">
+                                <af:gridCell marginStart="5px" width="25%" id="pt_gc1" valign="middle" halign="center">
+                                    <af:link text="#{shbkhomeviewBundle.ShippingDeliveryTerms}" id="pt_l1" inlineStyle="font-size:16px;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" id="pt_gc2" halign="center" valign="middle">
+                                    <af:link text="#{shbkhomeviewBundle.RETURN_POLICY}" id="pt_l2" inlineStyle="font-size:16px;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" id="pt_gc3" halign="center" valign="middle">
+                                    <af:link text="#{shbkhomeviewBundle.CONTACT_US}" id="pt_l3" inlineStyle="font-size:16px;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="pt_gc4" halign="center"
+                                             valign="middle">
+                                    <af:image id="pt_i3" source="/icons/outlet_card_logos_banner.jpeg"
+                                              inlineStyle="width:100px;height:33px;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pt_pgl6" layout="horizontal"
+                                         inlineStyle="height:30px; background-color:#c6c6c6;"
+                                         styleClass="AFStretchWidth"/>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="center">
+                <af:facetRef facetName="_main"/>
+            </f:facet>
+            <f:facet name="start"/>
+            <f:facet name="end"/>
+            <f:facet name="top">
+                <af:panelStretchLayout id="pt_psl2" startWidth="100px" endWidth="100px" topHeight="0px"
+                                       bottomHeight="0px">
+                    <f:facet name="bottom">
+                    
+                    </f:facet>
+                    <f:facet name="center">
+            <af:panelGroupLayout id="pt_pgl5">
+                                <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="start"
+                                                     styleClass="AFStretchWidth"
+                                                     inlineStyle="border-bottom-color:#e7e7e7; border-bottom-style:solid; border-bottom-width:thin; padding-left:20px; width:930px; margin-top:5px; padding-bottom:5px;">
+                                    <af:selectOneChoice label="#{shbkhomeviewBundle.LANGUAGE}"
+                                                        valueChangeListener="#{Locale.localeChangeListener}"
+                                                        id="pt_soc1" value="#{Locale.locale}" autoSubmit="true">
+                                        <f:selectItems value="#{Locale.locales}" id="pt_si1"/>
+                                    </af:selectOneChoice>
+                                    <af:navigationPane hint="bar" id="pt_np1" value="#{root_menu}" var="menuInfo"
+                                                       rendered="false">
+                                        <f:facet name="nodeStamp">
+                                            <?audit suppress oracle.jdeveloper.jsp.check-valid-parent?>
+                                            <af:commandNavigationItem id="ni1" text="#{menuInfo.label}"
+                                                                      icon="#{menuInfo.icon}"
+                                                                      destination="#{menuInfo.destination}"
+                                                                      action="#{menuInfo.doAction}"/>
+                                        </f:facet>
+                                    </af:navigationPane>
+                                <af:panelGroupLayout id="pt_pgl9" layout="horizontal">
+                                    <af:link text="#{shbkhomeviewBundle.HOME}" id="pt_l4"
+                                             inlineStyle="font-size:16px;color:#003D5B;" action="adfMenu_home"/>
+                                    <af:link text="#{shbkhomeviewBundle.YOUR_SHOPPING_BAG}" id="pt_l5"
+                                             inlineStyle="font-size:16px;color:#003D5B;"
+                                             rendered="#{not empty request.remoteUser}" icon="/icons/shopping-bag.png"
+                                             action="adfMenu_shoppingBag"/>
+                                    <af:link text="Login/Signup" id="pt_l6"
+                                             inlineStyle="font-size:16px;color:#003D5B;"
+                                             rendered="#{empty request.remoteUser}" action="adfMenu_login"/>
+                                    <af:menuBar id="pt_mb1" inlineStyle="height:30px;font-size:16px;color:Blue;">
+                                        <af:menu text="#{sessionScope.welcomeUser}" id="pt_m1"
+                                                 rendered="#{not empty request.remoteUser}"
+                                                 inlineStyle="font-size:16px;color:Blue;">
+                                            <af:commandMenuItem text="#{shbkhomeviewBundle.YOUR_PROFILE}" id="pt_cmi2"
+                                                                action="adfMenu_profile"
+                                                                inlineStyle="font-size:16px;color:#003D5B;padding-right:10px;width:200px;"/>
+                                            <af:commandMenuItem text="#{shbkhomeviewBundle.LOGOUT}" id="pt_cmi4"
+                                                                actionListener="#{backingBeanScope.LoginBean.logOut}"
+                                                                inlineStyle="font-size:16px;color:#003D5B;padding-right:10px;width:200px;"/>
+                                        </af:menu>
+                                        <af:commandMenuItem text="#{shbkhomeviewBundle.HOME}" id="pt_cmi5"
+                                                            inlineStyle="font-size:16px;color:#003D5B;" action="home"
+                                                            rendered="false"/>
+                                        <af:commandMenuItem text="#{shbkhomeviewBundle.YOUR_SHOPPING_BAG}" id="pt_cmi3"
+                                                            action="adfMenu_shoppingBag"
+                                                            inlineStyle="font-size:16px;color:#003D5B;"
+                                                            icon="/icons/shopping-bag.png" rendered="false"/>
+                                        <af:commandMenuItem text="Login/Signup" id="pt_cmi1"
+                                                            action="adfMenu_login"
+                                                            inlineStyle="font-size:16px;color:Blue;" rendered="false"/>
+                                    </af:menuBar>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="pt_s3"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                                <f:facet name="separator">
+                                    <af:spacer width="200" height="10" id="pt_s1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                            </af:panelGroupLayout>        
+                    </f:facet>
+                    <f:facet name="start">
+                        <af:panelGroupLayout id="pt_pgl8" layout="vertical">
+                            <af:panelGroupLayout id="pt_pgl10" layout="horizontal"
+                                                 inlineStyle="margin-top:10px;margin-right:10px;">
+                                <af:image id="pt_i1"
+                                          source="/ViewImageServlet?path=#{bindings.Logo.inputValue==null || empty bindings.Logo.inputValue? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : bindings.Logo.inputValue}"
+                                          inlineStyle="width:85px;height:85px;"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="end">
+                        <af:panelGroupLayout id="pt_pgl3" layout="vertical">
+                            <af:panelGroupLayout id="pt_pgl11" layout="horizontal"
+                                                 inlineStyle="margin-top:10px;margin-left:10px;">
+                                <af:image id="pt_i2"
+                                          source="/ViewImageServlet?path=#{bindings.WebAddress.inputValue==null || empty bindings.WebAddress.inputValue? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : bindings.WebAddress.inputValue}"
+                                          inlineStyle="width:85px;height:85px;"/>
+                                <af:spacer width="10" height="10" id="pt_s11"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="top"/>
+                </af:panelStretchLayout>
+            </f:facet>
+        </af:panelStretchLayout>
+    </f:view>
+</af:pageTemplateDef>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="reviewshoppingbags.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelGroupLayout layout="vertical" id="pgl1">
+                        <af:panelHeader text="#{shbkshopadminviewBundle.REVIEW__0ORDERS}" id="ph1">
+                            <af:query id="qryId1" headerText="Search" disclosed="false"
+                                      value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                      resultComponentId="::lv1" rows="4" maxColumns="2" type="flow"/>
+                            <f:facet name="menuBar">
+                                <af:button text="button 1" id="b1" actionListener="#{RefreshBean.checkJdbcAccess}"/>
+                            </f:facet>
+                        </af:panelHeader>
+                        <af:separator id="s1" inlineStyle="height:2px; background-color:Gray;"/>
+                        <af:listView value="#{bindings.ShoppingMasterV1.collectionModel}" var="item"
+                                     emptyText="#{bindings.ShoppingMasterV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="#{bindings.ShoppingMasterV1.rangeSize}" id="lv1" selection="single"
+                                     selectionListener="#{bindings.ShoppingMasterV1.treeModel.makeCurrent}"
+                                     selectedRowKeys="#{bindings.ShoppingMasterV1.collectionModel.selectedRow}">
+                            <af:listItem id="li1">
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc1">
+                                            <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+                                                <af:outputText id="of1" inlineStyle="font-size:small;"
+                                                               value="#{item.bindings.TransId.inputValue}"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5" id="s2"/>
+                                                </f:facet>
+                                                <af:outputText id="ot1"
+                                                               value="#{item.bindings.TransDateTime.inputValue}"
+                                                               inlineStyle="font-size:small;"/>
+                                                <af:selectOneChoice value="#{item.bindings.TransStatus.inputValue}"
+                                                                    id="soc1" contentStyle="font-size:small;">
+                                                    <f:selectItems value="#{item.bindings.TransStatus.items}"
+                                                                   id="si1"/>
+                                                </af:selectOneChoice>
+                                                <af:outputFormatted value="#{item.bindings.TransValue.inputValue}"
+                                                                    id="of3"
+                                                                    inlineStyle="font-size:small; color:Maroon;">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.ShoppingMasterV1.hints.TransValue.format}"/>
+                                                </af:outputFormatted>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="15%" id="gc2">
+                                            <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5" id="s4"/>
+                                                </f:facet>
+                                                <af:outputText value="#{item.bindings.UserId.inputValue}" id="ot2"
+                                                               inlineStyle="font-size:small; color:Gray;"/>
+                                                <af:outputText value="#{item.bindings.RegFirstName.inputValue}" id="ot3"
+                                                               inlineStyle="font-size:small; color:Gray;"/>
+                                                <af:outputText value="#{item.bindings.RegFamilyName.inputValue}" id="ot4"
+                                                               inlineStyle="font-size:small; color:Gray;"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc3">
+                                            <af:panelGroupLayout id="pgl4" layout="vertical" halign="center">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5" id="s3"/>
+                                                </f:facet>
+                                                <af:outputText value="#{item.bindings.FirstName.inputValue}" id="ot5"
+                                                               inlineStyle="font-size:small;"/>
+                                                <af:outputText value="#{item.bindings.LastName.inputValue}" id="ot6"
+                                                               inlineStyle="font-size:small;"/>
+                                                <af:outputFormatted value="#{item.bindings.MobNo.inputValue}" id="of4"
+                                                                    inlineStyle="font-size:small;"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc4">
+                                            <af:panelGroupLayout id="pgl6" layout="vertical">
+                                                <af:panelGroupLayout id="pgl7" halign="center" layout="horizontal">
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="5" id="s5"/>
+                                                    </f:facet>
+                                                    <af:selectOneChoice value="#{item.bindings.CntryCode2.inputValue}"
+                                                                        id="soc4" contentStyle="font-size:small;">
+                                                        <f:selectItems value="#{item.bindings.CntryCode2.items}"
+                                                                       id="si2"/>
+                                                    </af:selectOneChoice>
+                                                    <af:selectOneChoice value="#{item.bindings.CityCode.inputValue}"
+                                                                        id="soc2" contentStyle="font-size:small;"
+                                                                        readOnly="true">
+                                                        <f:selectItems value="#{item.bindings.CityCode.items}"
+                                                                       id="si3"/>
+                                                    </af:selectOneChoice>
+                                                    <af:selectOneChoice value="#{item.bindings.AreaCode.inputValue}"
+                                                                        id="soc3" contentStyle="font-size:small;"
+                                                                        readOnly="true">
+                                                        <f:selectItems value="#{item.bindings.AreaCode.items}"
+                                                                       id="si4"/>
+                                                    </af:selectOneChoice>
+                                                </af:panelGroupLayout>
+                                                <af:outputText value="#{item.bindings.Address.inputValue}" id="ot7"
+                                                               inlineStyle="font-size:small;"/>
+                                                <af:outputText value="#{item.bindings.PostalZipCode.inputValue}" id="ot9"
+                                                               inlineStyle="font-size:small;"/>
+                                                <af:outputText value="#{item.bindings.Address1.inputValue}" id="ot8"
+                                                               inlineStyle="font-size:small;"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc5"/>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc6">
+                                            <af:panelGroupLayout id="pgl8" halign="center" layout="vertical">
+                                                <af:selectOneChoice value="#{item.bindings.Code.inputValue}" id="soc5">
+                                                    <f:selectItems value="#{item.bindings.Code.items}" id="si5"/>
+                                                </af:selectOneChoice>
+                                                <af:link id="ot10" inlineStyle="font-size:small;"
+                                                         text="#{item.bindings.SumQty.inputValue} #{shbkshopadminviewBundle.ITEMS}"
+                                                         action="toBagDetails"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5" id="s6"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" marginEnd="5px" id="gc7">
+                                            <af:outputFormatted value="#{item.bindings.Notes.inputValue}" id="of7"
+                                                                inlineStyle="font-size:small;"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:listItem>
+                        </af:listView>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

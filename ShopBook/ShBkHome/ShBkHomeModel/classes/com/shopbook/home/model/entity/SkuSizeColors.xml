@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuSizeColors"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="sku_size_colors"
+  AliasName="SkuSizeColors"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SkuSzClrCode"
+    IsNotNull="true"
+    Precision="37"
+    ColumnName="SKU_SZ_CLR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_size_colors"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="37"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuSizeCode"
+    IsNotNull="true"
+    Precision="29"
+    ColumnName="SKU_SIZE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="29"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuClrCode"
+    IsNotNull="true"
+    Precision="28"
+    ColumnName="SKU_CLR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Available"
+    Precision="1"
+    ColumnName="AVAILABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Rate"
+    ColumnName="RATE"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="QntyInStock"
+    ColumnName="QNTY_IN_STOCK"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastPrice"
+    ColumnName="LAST_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OldPrice"
+    ColumnName="OLD_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_size_colors">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="sku_size_colors"/>
+  <AccessorAttribute
+    Name="SkuSizeColors1"
+    Association="com.shopbook.home.model.entity.temp.SkuSzToSkuSzClrAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuSzToSkuSzClrAssoc.SkuSizeColors1"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuSzToSkuSzClrAssoc.SkuSizeCodeSkuSizeColors"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SkuSizeCodeSkuSizeColors"
+    Association="com.shopbook.home.model.entity.temp.SkuSzToSkuSzClrAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuSzToSkuSzClrAssoc.SkuSizeCodeSkuSizeColors"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuSzToSkuSzClrAssoc.SkuSizeColors1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SkuColors"
+    Association="com.shopbook.home.model.entity.assoc.SkuClrToSkuSzClrAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuClrToSkuSzClrAssoc.SkuColors"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuClrToSkuSzClrAssoc.SkuSizeColors"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SkuClrToSkuSzClr">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_CLR_TO_SKU_SZ_CLR"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SkuSzToSkuSzClr">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_SZ_TO_SKU_SZ_CLR"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+</Entity>

@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="crud-sku-colors.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbkshopadminviewBundle.ADD___EDIT_NEW_COLOR_SIZE}" id="ph1">
+                <f:facet name="context">
+                    <af:panelGroupLayout id="pgl3" layout="horizontal">
+                        <af:spacer width="20" height="10" id="s5"/>
+                        <af:outputText value="#{shbkshopadminviewBundle['Productsizeclassisaddedautomaticallytoeverycolorafterbeencreated.']}" id="ot4"
+                                       inlineStyle="color:Maroon; font-size:11px;"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="menuBar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toSave"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="toolbar">
+                    <af:outputText value="#{bindings.SkuClrCode.inputValue}" id="ot1" rendered="false"/>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelHeader text="#{shbkshopadminviewBundle.COLORS}" id="ph2">
+                    <f:facet name="context">
+                        <af:panelGroupLayout id="pgl2" layout="horizontal" inlineStyle="padding-left:10px;">
+                            <af:outputText value="#{shbkshopadminviewBundle.COLOR__0PRICES__0OVERRIDE__0PRODUCT__0PRICES__0}"
+                                           id="ot2" inlineStyle="color:Maroon;"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="menuBar">
+                        <af:navigationPane hint="buttons" id="np2">
+                            <af:commandNavigationItem id="ni4" text="#{shbkshopadminviewBundle.CREATE_NEW_COLOR}"
+                                                      icon="/icons/New.png"
+                                                      actionListener="#{MisSkuClrSizes.createNewSKUClr}"/>
+                        </af:navigationPane>
+                    </f:facet>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend">
+                        <af:outputLabel id="ol1" value="#{bindings.SkuClrCode.inputValue}"/>
+                    </f:facet>
+                    <f:facet name="info"/>
+                    <af:table value="#{bindings.CrudSkuColorsV.collectionModel}" var="row"
+                              rows="#{bindings.CrudSkuColorsV.rangeSize}"
+                              emptyText="#{bindings.CrudSkuColorsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.CrudSkuColorsV.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.CrudSkuColorsV.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.CrudSkuColorsV.rangeSize}" id="t1"
+                              partialTriggers="l1" inlineStyle="border-color:White;">
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.SkuCode.label}" id="c1" rendered="false"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.SkuCode.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.SkuCode.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.SkuCode.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.SkuCode.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.SkuCode.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.SkuCode.tooltip}" id="it1">
+                                <f:validator binding="#{row.bindings.SkuCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.ClrCode.label}" id="c2" rendered="false"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.ClrCode.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.ClrCode.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.ClrCode.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.ClrCode.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.ClrCode.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.ClrCode.tooltip}" id="it2">
+                                <f:validator binding="#{row.bindings.ClrCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.SkuClrCode.label}" id="c3"
+                                   rendered="false" align="center">
+                            <af:inputText value="#{row.bindings.SkuClrCode.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.SkuClrCode.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.SkuClrCode.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.SkuClrCode.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.SkuClrCode.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.SkuClrCode.tooltip}" id="it3">
+                                <f:validator binding="#{row.bindings.SkuClrCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.ClrName.label}" id="c4" width="150"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.ClrName.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.ClrName.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.ClrName.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.ClrName.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.ClrName.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.ClrName.tooltip}" id="it4"
+                                          inlineStyle="text-align:center;">
+                                <f:validator binding="#{row.bindings.ClrName.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.Available.label}" id="c5" width="70"
+                                   align="center">
+                            <af:selectOneRadio value="#{row.bindings.Available.inputValue}"
+                                               label="#{row.bindings.Available.label}"
+                                               required="#{bindings.CrudSkuColorsV.hints.Available.mandatory}"
+                                               shortDesc="#{bindings.CrudSkuColorsV.hints.Available.tooltip}" id="sor1"
+                                               layout="horizontal">
+                                <f:selectItems value="#{row.bindings.Available.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Available.validator}"/>
+                            </af:selectOneRadio>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.QntyInStock.label}" id="c6" width="50"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.QntyInStock.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.QntyInStock.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.QntyInStock.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.QntyInStock.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.QntyInStock.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.QntyInStock.tooltip}" id="it5"
+                                          contentStyle="text-align:center;width:40px">
+                                <f:validator binding="#{row.bindings.QntyInStock.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.CrudSkuColorsV.hints.QntyInStock.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.LastPrice.label}" id="c7" width="50"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.LastPrice.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.LastPrice.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.LastPrice.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.LastPrice.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.LastPrice.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.LastPrice.tooltip}" id="it6" binding="#{MisSkuClrSizes.clrLastprice}"
+                                          valueChangeListener="#{MisSkuClrSizes.clrLastPriceChange}"
+                                          contentStyle="text-align:center;">
+                                <f:validator binding="#{row.bindings.LastPrice.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.CrudSkuColorsV.hints.LastPrice.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.OldPrice.label}" id="c8" width="50"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.OldPrice.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.OldPrice.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.OldPrice.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.OldPrice.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.OldPrice.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.OldPrice.tooltip}" id="it7"
+                                          inlineStyle="text-align:center;" readOnly="true"
+                                          binding="#{MisSkuClrSizes.oldClrPrice}">
+                                <f:validator binding="#{row.bindings.OlpPrice.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.CrudSkuColorsV.hints.OlpPrice.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.CrudSkuColorsV.hints.Notes.label}" id="c9" width="150"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.Notes.inputValue}"
+                                          label="#{bindings.CrudSkuColorsV.hints.Notes.label}"
+                                          required="#{bindings.CrudSkuColorsV.hints.Notes.mandatory}"
+                                          columns="#{bindings.CrudSkuColorsV.hints.Notes.displayWidth}"
+                                          maximumLength="#{bindings.CrudSkuColorsV.hints.Notes.precision}"
+                                          shortDesc="#{bindings.CrudSkuColorsV.hints.Notes.tooltip}" id="it8" rows="2">
+                                <f:validator binding="#{row.bindings.Notes.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column id="c10" width="150" align="center">
+                            <af:link text="#{shbkshopadminviewBundle.DELETE_CURRENT_COLOR}" id="l1"
+                                     icon="/icons/Delete.png" actionListener="#{bindings.ColorDelete.execute}"
+                                     inlineStyle="font-weight:normal; font-size:small;"
+                                     rendered='#{row.bindings.ClrCode.inputValue!="CLR00"}'/>
+                        </af:column>
+                    </af:table>
+                </af:panelHeader>
+                <f:facet name="info"/>
+                <af:spacer width="10" height="10" id="s2"/>
+                <af:separator id="s1" inlineStyle="height:5px; background-color:#c6c6c6; width:524px;"/>
+                <af:spacer width="10" height="10" id="s3"/>
+                <af:panelBox text="#{shbkshopadminviewBundle.COLOR_SIZES}" id="ph3">
+                    <f:facet name="toolbar">
+                        <af:panelGroupLayout id="pgl1" layout="horizontal">
+                            <af:outputText value="#{shbkshopadminviewBundle.SIZE__0PRICES__0OVERRIDE__0COLOR__0PRICES}" id="ot3"
+                                           inlineStyle="color:Maroon; font-weight:bold;"/>
+                            <af:navigationPane hint="buttons" id="np3">
+                                <af:commandNavigationItem id="ni3"
+                                                          text="#{shbkshopadminviewBundle.UPDATE_MISSING_SIZES}"
+                                                          icon="/icons/New.png"
+                                                          actionListener="#{MisSkuClrSizes.genMisdSkuClrSizes}"
+                                                          inlineStyle="font-weight:bold;"
+                                                          disabled="#{bindings.SkuSizeColorsVIterator.estimatedRowCount>= bindings.NoOfDetSizes.inputValue || bindings.SkuClrCode.inputValue==null}"/>
+                            </af:navigationPane>
+                            <f:facet name="separator">
+                                <af:spacer width="20" height="10" id="s4"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <af:table value="#{bindings.SkuSizeColorsV.collectionModel}" var="row"
+                              rows="#{bindings.SkuSizeColorsV.rangeSize}"
+                              emptyText="#{bindings.SkuSizeColorsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SkuSizeColorsV.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SkuSizeColorsV.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SkuSizeColorsV.rangeSize}" id="t2"
+                              partialTriggers="::np3:ni3 l2 ::np2:ni4" inlineStyle="border-color:White;">
+                        <af:column headerText="#{bindings.SkuSizeColorsV.hints.SkuSizeCode.label}" id="c11" width="100"
+                                   align="center">
+                            <af:selectOneChoice value="#{row.bindings.SkuSizeCode.inputValue}"
+                                                label="#{row.bindings.SkuSizeCode.label}"
+                                                required="#{bindings.SkuSizeColorsV.hints.SkuSizeCode.mandatory}"
+                                                shortDesc="#{bindings.SkuSizeColorsV.hints.SkuSizeCode.tooltip}"
+                                                id="soc1">
+                                <f:selectItems value="#{row.bindings.SkuSizeCode.items}" id="si2"/>
+                                <f:validator binding="#{row.bindings.SkuSizeCode.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column headerText="#{bindings.SkuSizeColorsV.hints.Available.label}" id="c12" width="70"
+                                   align="center">
+                            <af:selectOneRadio value="#{row.bindings.Available.inputValue}"
+                                               label="#{row.bindings.Available.label}"
+                                               required="#{bindings.SkuSizeColorsV.hints.Available.mandatory}"
+                                               shortDesc="#{bindings.SkuSizeColorsV.hints.Available.tooltip}" id="sor2">
+                                <f:selectItems value="#{row.bindings.Available.items}" id="si3"/>
+                                <f:validator binding="#{row.bindings.Available.validator}"/>
+                            </af:selectOneRadio>
+                        </af:column>
+                        <af:column headerText="#{bindings.SkuSizeColorsV.hints.QntyInStock.label}" id="c13" width="50"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.QntyInStock.inputValue}"
+                                          label="#{bindings.SkuSizeColorsV.hints.QntyInStock.label}"
+                                          required="#{bindings.SkuSizeColorsV.hints.QntyInStock.mandatory}"
+                                          columns="#{bindings.SkuSizeColorsV.hints.QntyInStock.displayWidth}"
+                                          maximumLength="#{bindings.SkuSizeColorsV.hints.QntyInStock.precision}"
+                                          shortDesc="#{bindings.SkuSizeColorsV.hints.QntyInStock.tooltip}" id="it9"
+                                          contentStyle="text-align:center;">
+                                <f:validator binding="#{row.bindings.QntyInStock.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SkuSizeColorsV.hints.QntyInStock.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SkuSizeColorsV.hints.LastPrice.label}" id="c14" width="50"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.LastPrice.inputValue}"
+                                          label="#{bindings.SkuSizeColorsV.hints.LastPrice.label}"
+                                          required="#{bindings.SkuSizeColorsV.hints.LastPrice.mandatory}"
+                                          columns="#{bindings.SkuSizeColorsV.hints.LastPrice.displayWidth}"
+                                          maximumLength="#{bindings.SkuSizeColorsV.hints.LastPrice.precision}"
+                                          shortDesc="#{bindings.SkuSizeColorsV.hints.LastPrice.tooltip}" id="it10"
+                                          binding="#{MisSkuClrSizes.sizeLastPrice}"
+                                          valueChangeListener="#{MisSkuClrSizes.sizeLastPriceChange}"
+                                          contentStyle="text-align:center;">
+                                <f:validator binding="#{row.bindings.LastPrice.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SkuSizeColorsV.hints.LastPrice.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SkuSizeColorsV.hints.OldPrice.label}" id="c15" width="50"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.OldPrice.inputValue}"
+                                          label="#{bindings.SkuSizeColorsV.hints.OldPrice.label}"
+                                          required="#{bindings.SkuSizeColorsV.hints.OldPrice.mandatory}"
+                                          columns="#{bindings.SkuSizeColorsV.hints.OldPrice.displayWidth}"
+                                          maximumLength="#{bindings.SkuSizeColorsV.hints.OldPrice.precision}"
+                                          shortDesc="#{bindings.SkuSizeColorsV.hints.OldPrice.tooltip}" id="it11"
+                                          readOnly="true" binding="#{MisSkuClrSizes.sizeOldPrice}"
+                                          contentStyle="text-align:center;">
+                                <f:validator binding="#{row.bindings.OldPrice.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.SkuSizeColorsV.hints.OldPrice.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SkuSizeColorsV.hints.Notes.label}" id="c16" width="150"
+                                   align="center">
+                            <af:inputText value="#{row.bindings.Notes.inputValue}"
+                                          label="#{bindings.SkuSizeColorsV.hints.Notes.label}"
+                                          required="#{bindings.SkuSizeColorsV.hints.Notes.mandatory}"
+                                          columns="#{bindings.SkuSizeColorsV.hints.Notes.displayWidth}"
+                                          maximumLength="#{bindings.SkuSizeColorsV.hints.Notes.precision}"
+                                          shortDesc="#{bindings.SkuSizeColorsV.hints.Notes.tooltip}" id="it12" rows="2"
+                                          contentStyle="text-align:center;">
+                                <f:validator binding="#{row.bindings.Notes.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column id="c17" width="150" align="center">
+                            <af:link actionListener="#{bindings.SizeDelete.execute}"
+                                     text="#{shbkshopadminviewBundle.DELETE_CURRENT_SIZE}"
+                                     disabled="#{!bindings.SizeDelete.enabled}" id="l2" inlineStyle="font-size:small;"
+                                     icon="/icons/Delete.png"/>
+                  <!--visible="#{!(bindings.SkuSizeColorsVIterator.estimatedRowCount eq 1)}"-->
+                                     
+                        </af:column>
+                    </af:table>
+                </af:panelBox>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

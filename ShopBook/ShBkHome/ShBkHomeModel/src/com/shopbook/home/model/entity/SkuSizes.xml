@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuSizes"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="sku_sizes"
+  AliasName="SkuSizes"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SkuSizeCode"
+    IsNotNull="true"
+    Precision="29"
+    ColumnName="SKU_SIZE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_sizes"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="29"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuCode"
+    IsNotNull="true"
+    Precision="23"
+    ColumnName="SKU_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeDetCode"
+    IsNotNull="true"
+    Precision="6"
+    ColumnName="SIZE_DET_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Available"
+    Precision="1"
+    ColumnName="AVAILABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Rate"
+    ColumnName="RATE"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="QntyInStock"
+    ColumnName="QNTY_IN_STOCK"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastPrice"
+    ColumnName="LAST_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OldPrice"
+    ColumnName="OLD_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_sizes">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="sku_sizes"/>
+  <AccessorAttribute
+    Name="Skus"
+    Association="com.shopbook.home.model.entity.temp.SkuToSkuSizesAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuToSkuSizesAssoc.Skus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuToSkuSizesAssoc.SkuSizes"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SizeClassDets"
+    Association="com.shopbook.home.model.entity.temp.SzClsDetToSkuSzsAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SzClsDetToSkuSzsAssoc.SizeClassDets"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SzClsDetToSkuSzsAssoc.SkuSizes1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuSizes.SkuSizeCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuToSkuSizes">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_TO_SKU_SIZES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuSizes.SkuCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SzClsDetToSkuSzs">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SZ_CLS_DET_TO_SKU_SZS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuSizes.SizeDetCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

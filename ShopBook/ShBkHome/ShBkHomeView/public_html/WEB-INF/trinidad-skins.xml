@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>ImageSlider.desktop</id>
+    <family>ImageSlider</family>
+    <extends>skyros-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/jflow.style.css</style-sheet-name>
+  <!--   <bundle-name>com.shopbook.home.view.skinBundle</bundle-name> -->
+  </skin>
+  <skin>
+    <id>ShBkHome.desktop</id>
+    <family>ShBkHome</family>
+    <extends>skyros-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/ShBkHome/ShBkHome.css</style-sheet-name>
+    <bundle-name>com.shopbook.home.view.skinBundle</bundle-name>
+  </skin>
+  <!-- <skin>
+    <id>jflow.style.desktop</id>
+    <family>jflow.style</family>
+    <extends>skyros-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/jflow.style/jflow.style.css</style-sheet-name>
+    <bundle-name>com.shopbook.home.view.skinBundle</bundle-name>
+  </skin> -->
+</skins> 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="nivosliderPageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SliderImagesV" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="SliderImagesVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide1">
+      <AttrNames>
+        <Item Value="ImageSlide1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide2">
+      <AttrNames>
+        <Item Value="ImageSlide2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide3">
+      <AttrNames>
+        <Item Value="ImageSlide3"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide4">
+      <AttrNames>
+        <Item Value="ImageSlide4"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide5">
+      <AttrNames>
+        <Item Value="ImageSlide5"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide1cap">
+      <AttrNames>
+        <Item Value="ImageSlide1cap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide2cap">
+      <AttrNames>
+        <Item Value="ImageSlide2cap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide3cap">
+      <AttrNames>
+        <Item Value="ImageSlide3cap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide4cap">
+      <AttrNames>
+        <Item Value="ImageSlide4cap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SliderImagesVIterator" id="ImageSlide5cap">
+      <AttrNames>
+        <Item Value="ImageSlide5cap"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

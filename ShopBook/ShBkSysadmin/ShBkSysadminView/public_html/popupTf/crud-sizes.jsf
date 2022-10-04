@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document id="d1" title="#{shbksysadminviewBundle.EDIT_NEW_SIZE_CLASS}">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbksysadminviewBundle.EDIT_NEW_SIZE_CLASS}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbksysadminviewBundle.SAVE}" icon="/icons/Save.png"
+                                                  action="toCommit"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbksysadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                        <af:commandNavigationItem text="#{shbksysadminviewBundle.CLEAR__0SIZE__0CLASS}" id="cni1"
+                                                  icon="/icons/Delete.png" action="toCommit"
+                                                  actionListener="#{bindings.DeleteSizeClass.execute}"
+                                                  disabled="#{bindings.SzClsDetCrudV.estimatedRowCount>0 || bindings.has_detail_szClass_in_catSizes.inputValue=='Y'}"
+                                                  shortDesc="#{bindings.SzClsDetCrudV.estimatedRowCount > 0 &amp;&amp; bindings.has_detail_szClass_in_catSizes.inputValue=='Y' ?shbksysadminviewBundle.has_details_in_catsizes_sizedets : bindings.SzClsDetCrudV.estimatedRowCount == 0 &amp;&amp; bindings.has_detail_szClass_in_catSizes.inputValue=='Y'?shbksysadminviewBundle.has_detail_size_in_catsizes : bindings.SzClsDetCrudV.estimatedRowCount > 0 &amp;&amp; bindings.has_detail_szClass_in_catSizes.inputValue=='N' ?shbksysadminviewBundle.has_detail_size_in_sizedets : shbksysadminviewBundle.delete_record}"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.SzClassCode.inputValue}" label="#{bindings.SzClassCode.hints.label}"
+                                  required="#{bindings.SzClassCode.hints.mandatory}"
+                                  columns="#{bindings.SzClassCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.SzClassCode.hints.precision}"
+                                  shortDesc="#{bindings.SzClassCode.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.SzClassCode.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.SzClassName.inputValue}" label="#{bindings.SzClassName.hints.label}"
+                                  required="#{bindings.SzClassName.hints.mandatory}"
+                                  columns="#{bindings.SzClassName.hints.displayWidth}"
+                                  maximumLength="#{bindings.SzClassName.hints.precision}"
+                                  shortDesc="#{bindings.SzClassName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.SzClassName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                                  required="#{bindings.Notes.hints.mandatory}"
+                                  columns="30"
+                                  maximumLength="#{bindings.Notes.hints.precision}"
+                                  shortDesc="#{bindings.Notes.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.Notes.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.LastModified.inputValue}"
+                                  label="#{bindings.LastModified.hints.label}"
+                                  required="#{bindings.LastModified.hints.mandatory}"
+                                  columns="#{bindings.LastModified.hints.displayWidth}"
+                                  shortDesc="#{bindings.LastModified.hints.tooltip}" id="id1" readOnly="true">
+                        <f:validator binding="#{bindings.LastModified.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.LastModified.format}"/>
+                    </af:inputDate>
+                </af:panelFormLayout>
+                <af:panelHeader text="#{shbksysadminviewBundle.SIZE_CLASS_DETAILS}" id="ph2">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:link actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                 disabled="#{bindings.SzClassCode.inputValue==null}" id="l2" icon="/icons/New.png"
+                                 shortDesc="#{bindings.SzClassCode.inputValue==null ?shbksysadminviewBundle.createInsert_sizeDet_lnk_disabled : shbksysadminviewBundle.creatInsert_sizeDet_lnk}"/>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:table value="#{bindings.SzClsDetCrudV.collectionModel}" var="row"
+                              rows="#{bindings.SzClsDetCrudV.rangeSize}"
+                              emptyText="#{bindings.SzClsDetCrudV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SzClsDetCrudV.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SzClsDetCrudV.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SzClsDetCrudV.rangeSize}"
+                              filterModel="#{bindings.SzClsDetCrudVQuery.queryDescriptor}"
+                              queryListener="#{bindings.SzClsDetCrudVQuery.processQuery}" filterVisible="true"
+                              varStatus="vs" id="t1" columnStretching="column:c3" partialTriggers="l1 ::l2">
+                        <af:column sortProperty="#{bindings.SzClsDetCrudV.hints.SzDetCode.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.SzClsDetCrudV.hints.SzDetCode.label}" id="c1">
+                            <af:inputText value="#{row.bindings.SzDetCode.inputValue}"
+                                          label="#{bindings.SzClsDetCrudV.hints.SzDetCode.label}"
+                                          required="#{bindings.SzClsDetCrudV.hints.SzDetCode.mandatory}"
+                                          columns="#{bindings.SzClsDetCrudV.hints.SzDetCode.displayWidth}"
+                                          maximumLength="#{bindings.SzClsDetCrudV.hints.SzDetCode.precision}"
+                                          shortDesc="#{bindings.SzClsDetCrudV.hints.SzDetCode.tooltip}" id="it4"
+                                          readOnly="true">
+                                <f:validator binding="#{row.bindings.SzDetCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SzClsDetCrudV.hints.SzClassCode.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.SzClsDetCrudV.hints.SzClassCode.label}"
+                                   id="c2">
+                            <af:inputText value="#{row.bindings.SzClassCode.inputValue}"
+                                          label="#{bindings.SzClsDetCrudV.hints.SzClassCode.label}"
+                                          required="#{bindings.SzClsDetCrudV.hints.SzClassCode.mandatory}"
+                                          columns="#{bindings.SzClsDetCrudV.hints.SzClassCode.displayWidth}"
+                                          maximumLength="#{bindings.SzClsDetCrudV.hints.SzClassCode.precision}"
+                                          shortDesc="#{bindings.SzClsDetCrudV.hints.SzClassCode.tooltip}" id="it5"
+                                          readOnly="true">
+                                <f:validator binding="#{row.bindings.SzClassCode.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SzClsDetCrudV.hints.SzDetName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.SzClsDetCrudV.hints.SzDetName.label}" id="c4">
+                            <af:inputText value="#{row.bindings.SzDetName.inputValue}"
+                                          label="#{bindings.SzClsDetCrudV.hints.SzDetName.label}"
+                                          required="#{bindings.SzClsDetCrudV.hints.SzDetName.mandatory}"
+                                          columns="#{bindings.SzClsDetCrudV.hints.SzDetName.displayWidth}"
+                                          maximumLength="#{bindings.SzClsDetCrudV.hints.SzDetName.precision}"
+                                          shortDesc="#{bindings.SzClsDetCrudV.hints.SzDetName.tooltip}" id="it7">
+                                <f:validator binding="#{row.bindings.SzDetName.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.SzClsDetCrudV.hints.Notes.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.SzClsDetCrudV.hints.Notes.label}" id="c3">
+                            <af:inputText value="#{row.bindings.Notes.inputValue}"
+                                          label="#{bindings.SzClsDetCrudV.hints.Notes.label}"
+                                          required="#{bindings.SzClsDetCrudV.hints.Notes.mandatory}"
+                                          columns="#{bindings.SzClsDetCrudV.hints.Notes.displayWidth}"
+                                          maximumLength="#{bindings.SzClsDetCrudV.hints.Notes.precision}"
+                                          shortDesc="#{bindings.SzClsDetCrudV.hints.Notes.tooltip}" id="it6">
+                                <f:validator binding="#{row.bindings.Notes.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column id="c5">
+                            <af:link text="#{shbksysadminviewBundle.CLEAR__0SIZE__0CLASS__0DETAIL}" id="l1"
+                                     icon="/icons/Delete.png" inlineStyle="font-weight:bold;" action="toCommit"
+                                     actionListener="#{bindings.DeleteSzDet.execute}"/>
+                        </af:column>
+                    </af:table>
+                </af:panelHeader>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

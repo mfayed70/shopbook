@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="frgtPswrdPageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator id="ResetPswrdReqVIterator" Binds="ResetPswrdReqV" DataControl="ShBkHomeAmDataControl" RangeSize="25"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="SysParametersVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ResetPswrdReqVIterator" id="ExecuteWithParams"
+            InstanceName="ShBkHomeAmDataControl.ResetPswrdReqV" DataControl="ShBkHomeAmDataControl"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="pOneTimeCode" NDType="java.lang.String"/>
+      <NamedData NDName="pUserId" NDValue="#{ResetPasswrd.puserId.value}" NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="ResetPswrdReqVIterator" id="OneTimeCode">
+      <AttrNames>
+        <Item Value="OneTimeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="SmtpHost">
+      <AttrNames>
+        <Item Value="SmtpHost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="SmtpPort">
+      <AttrNames>
+        <Item Value="SmtpPort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="ShopAdminEmail">
+      <AttrNames>
+        <Item Value="ShopAdminEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="ShopAdminPasswrd">
+      <AttrNames>
+        <Item Value="ShopAdminPasswrd"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ShBkHomeAmDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ResetPswrdReqVIterator" id="Passwrd">
+      <AttrNames>
+        <Item Value="Passwrd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="VerifyEmailUrl">
+      <AttrNames>
+        <Item Value="VerifyEmailUrl"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ResetPswrdReqVIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

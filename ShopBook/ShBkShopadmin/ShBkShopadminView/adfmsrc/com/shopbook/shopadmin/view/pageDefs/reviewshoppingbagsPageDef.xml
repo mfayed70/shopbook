@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="reviewshoppingbagsPageDef"
+                Package="com.shopbook.shopadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ShoppingMasterV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="ShoppingMasterVIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ShoppingMasterVIterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ShoppingMasterVIterator" id="ShoppingMasterV1">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShoppingMasterV" Name="ShoppingMasterV10">
+        <AttrNames>
+          <Item Value="TransId"/>
+          <Item Value="UserId"/>
+          <Item Value="TransValue"/>
+          <Item Value="MobNo"/>
+          <Item Value="TransDateTime"/>
+          <Item Value="TransStatus"/>
+          <Item Value="Notes"/>
+          <Item Value="Address"/>
+          <Item Value="Address1"/>
+          <Item Value="AreaCode"/>
+          <Item Value="CityCode"/>
+          <Item Value="CntryCode2"/>
+          <Item Value="Code"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="PaymentId"/>
+          <Item Value="PostalZipCode"/>
+          <Item Value="RegFamilyName"/>
+          <Item Value="RegFirstName"/>
+          <Item Value="RegUserId"/>
+          <Item Value="ShippCode"/>
+          <Item Value="ShortTxt"/>
+          <Item Value="SumQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

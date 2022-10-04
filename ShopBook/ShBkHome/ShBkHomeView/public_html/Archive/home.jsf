@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+    <af:document title="home.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelSplitter id="ps1" disabled="true">
+                        <f:facet name="first">
+                            <af:panelHeader text="#{shbkhomeviewBundle.FilterBy}" id="pb2"
+                                            contentStyle="font-size:16px; color:Gray;">
+                                <f:facet name="toolbar"/>
+                                <f:facet name="context"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.BRANDS}" disclosed="true" id="sdh2"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.MODELS}" disclosed="true" id="sdh3"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.MANUFACTURER}" disclosed="true" id="sdh4"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.SIZE}" disclosed="true" id="sdh5"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                                <af:showDetailHeader text="#{shbkhomeviewBundle.COLOR}" disclosed="true" id="sdh6"
+                                                     inlineStyle="margin-top:10px;margin-bottom:10px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:showDetailHeader>
+                            </af:panelHeader>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelGroupLayout id="pb1" layout="vertical">
+                                <af:panelGroupLayout id="pgl4" layout="horizontal" halign="center">
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s5"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                                <af:panelGroupLayout id="pgl2" layout="scroll">
+                                    <af:iterator id="i1" value="#{bindings.HmShopSubCatsV.collectionModel}" var="cats">
+                                        <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" fieldWidth="100%"
+                                                            labelWidth="0%">
+                                            <af:iterator id="i2" value="#{cats.SkusV}" var="skus">
+                                                <af:panelGroupLayout id="pgl3" halign="center" layout="vertical"
+                                                                     inlineStyle="margin:5px 7.5px 10px 7.5px;"
+                                                                     styleClass=".myLink">
+                                                    <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                                                         inlineStyle="height:25px;margin-left:-150px;margin-bottom:7px;">
+                                                        <af:outputText value="#{skus.FlagPriceDiffer}" id="ot1"
+                                                                       inlineStyle="color:#c60000; font-size:16px; text-decoration:underline;"
+                                                                       styleClass="badge"
+                                                                       rendered="#{skus.Skuclroprice==null}"/>
+                                                        <af:outputText value="#{skus.FlagClrPriceDiffer}" id="ot4"
+                                                                       inlineStyle="color:#c60000; font-size:16px; text-decoration:underline;"
+                                                                       styleClass="badge"
+                                                                       rendered="#{skus.Skuclroprice!=null}"/>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl6" layout="vertical"
+                                                                         inlineStyle="height:40px;">
+                                                        <af:outputText id="it2" value="#{skus.SkuName}" truncateAt="67"
+                                                                       inlineStyle="color:#003D5B;"/>
+                                                    </af:panelGroupLayout>
+                                                    <af:link id="l1" partialSubmit="true"
+                                                             inlineStyle="font-size:medium;width:200px;height:200px;"
+                                                             icon="/ViewImageServlet?path=#{skus.ImgFullPath==null || empty skus.ImgFullPath? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : skus.ImgFullPath}"
+                                                             iconPosition="bottom" styleClass="homeSkuLink myLink"
+                                                             action="toSkuDet">
+                                                        <af:setPropertyListener from="#{skus.SkuCode}"
+                                                                                to="#{pageFlowScope.pSkuCode}"
+                                                                                type="action"/>
+                                                        <af:setPropertyListener from="#{skus.SkuClrCode}"
+                                                                                to="#{pageFlowScope.pSkuClrCode}"
+                                                                                type="action"/>
+                                                        <af:setPropertyListener from="#{skus.MinSkuSzClrCode}"
+                                                                                to="#{pageFlowScope.pSkuSzClrCode}"
+                                                                                type="action"/>
+                                                        <af:setPropertyListener from="#{'No'}"
+                                                                                to="#{pageFlowScope.pSkuDetails}"
+                                                                                type="action"/>
+                                                        <af:setPropertyListener from="#{skus.Skuclroprice}"
+                                                                                to="#{pageFlowScope.pClrLprice}"
+                                                                                type="action"/>
+                                                        <af:setPropertyListener from="#{skus.Skuclroprice}"
+                                                                                to="#{pageFlowScope.pClrOprice}"
+                                                                                type="action"/>
+                                                        <af:setPropertyListener from="#{skus.Clrname}"
+                                                                                to="#{pageFlowScope.pClrName}"
+                                                                                type="action"/>
+                                                    </af:link>
+                                                    <af:outputText value="#{skus.ClrName}" id="of3"
+                                                                   inlineStyle="color:Gray; font-size:small;"
+                                                                   truncateAt="28"/>
+                                                    <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                                                         rendered="#{skus.Skuclrlprice==null}">
+                                                        <af:outputText value="#{skus.OldPrice}#{bindings.CurrSymbol.inputValue}"
+                                                                       id="ot2"
+                                                                       inlineStyle="color:Gray; font-size:14px; background-repeat:no-repeat; background-position:70% 20%; background-size:60.0px 20.0px; background-origin:content-box; background-clip:content-box; text-decoration:line-through solid currentColor;"
+                                                                       visible="#{skus.OldPrice > skus.LastPrice}"/>
+                                                        <af:spacer width="15" height="10" id="s4"/>
+                                                        <af:outputFormatted value="#{skus.LastPrice}#{bindings.CurrSymbol.inputValue}"
+                                                                            id="of1"
+                                                                            inlineStyle="color:Maroon; font-size:16px;"/>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                                                         rendered="#{skus.Skuclrlprice!=null}">
+                                                        <af:outputText value="#{skus.Skuclroprice}#{bindings.CurrSymbol.inputValue}"
+                                                                       id="ot12"
+                                                                       inlineStyle="color:Gray; font-size:14px; background-repeat:no-repeat; background-position:70% 20%; background-size:60.0px 20.0px; background-origin:content-box; background-clip:content-box; text-decoration:line-through solid currentColor;"
+                                                                       visible="#{skus.Skuclroprice>skus.Skuclrlprice}"/>
+                                                        <af:spacer width="15" height="10" id="s14"/>
+                                                        <af:outputFormatted value="#{skus.Skuclrlprice}#{bindings.CurrSymbol.inputValue}"
+                                                                            id="of11"
+                                                                            inlineStyle="color:Maroon; font-size:16px;"/>
+                                                    </af:panelGroupLayout>
+                                                    <af:image id="i4"
+                                                              inlineStyle="width:150px; height:150px; margin:0px 0px 0px;"
+                                                              source="/ViewImageServlet?path=#{skus.ImgFullPath==null || empty skus.ImgFullPath? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : skus.ImgFullPath}"
+                                                              rendered="false">
+                                                        <?audit suppress oracle.adf.faces.imgshortdesc?>
+                                                    </af:image>
+                                                </af:panelGroupLayout>
+                                            </af:iterator>
+                                            <f:facet name="footer"/>
+                                        </af:panelFormLayout>
+                                        <!--<af:showDetailHeader text="#{cats.ShopSubCatName}" disclosed="true" id="sdh1"
+                                                             partialTriggers="::l2">
+                                            <f:facet name="context"/>
+                                            <f:facet name="menuBar"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="legend"/>
+                                            <f:facet name="info"/>
+                                        </af:showDetailHeader>-->
+                                    </af:iterator>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sku-det-tf">
+    <default-activity>SetCurrentRowWithKeyValue</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>pSkuCode</name>
+      <value>#{pageFlowScope.pSkuCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name>pSkuClrCode</name>
+      <value>#{pageFlowScope.pSkuClrCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__9">
+      <name>pSkuSzClrCode</name>
+      <value>#{pageFlowScope.pSkuSzClrCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__14">
+      <name>pSkuDetails</name>
+      <value>#{pageFlowScope.pSkuDetails}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__28">
+      <name>pSzOprice</name>
+      <value>#{pageFlowScope.pSzOprice}</value>
+      <class>java.math.BigDecimal</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__29">
+      <name>pSzLprice</name>
+      <value>#{pageFlowScope.pSzLprice}</value>
+      <class>java.math.BigDecimal</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__30">
+      <name>pClrOprice</name>
+      <value>#{pageFlowScope.pClrOprice}</value>
+      <class>java.math.BigDecimal</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__31">
+      <name>pClrLprice</name>
+      <value>#{pageFlowScope.pClrLprice}</value>
+      <class>java.math.BigDecimal</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__32">
+      <name>pClrName</name>
+      <value>#{pageFlowScope.pClrName}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__36">
+      <name>pSzName</name>
+      <value>#{pageFlowScope.pSzName}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__19">
+      <managed-bean-name>SkuUserPostClass</managed-bean-name>
+      <managed-bean-class>com.shopbook.home.view.beans.SkuUserPostClass</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__20">
+      <managed-bean-name>AddToMyBagBean</managed-bean-name>
+      <managed-bean-class>com.shopbook.home.view.beans.AddToMyBagBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="skuDetails">
+      <page>/skuDetail.jsff</page>
+      <redirect/>
+    </view>
+    <method-call id="SkuClrSetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SetCurrentRowWithKeyValue1">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="__sku-det-tf1">
+      <task-flow-reference>
+        <document>/WEB-INF/sku-det-tf.xml</document>
+        <id>sku-det-tf</id>
+      </task-flow-reference>
+      <input-parameter id="__15">
+        <name>pSkuCode</name>
+        <value>#{pageFlowScope.pSkuCode}</value>
+      </input-parameter>
+      <input-parameter id="__16">
+        <name>pSkuClrCode</name>
+        <value>#{pageFlowScope.pSkuClrCode}</value>
+      </input-parameter>
+      <input-parameter id="__17">
+        <name>pSkuSzClrCode</name>
+        <value>#{pageFlowScope.pSkuSzClrCode}</value>
+      </input-parameter>
+      <input-parameter id="__18">
+        <name>pSkuDetails</name>
+        <value>#{pageFlowScope.pSkuDetails}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-return id="back">
+      <outcome>
+        <name>back</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="First">
+      <method>#{bindings.First.execute}</method>
+      <outcome>
+        <fixed-outcome>First</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Last">
+      <method>#{bindings.Last.execute}</method>
+      <outcome>
+        <fixed-outcome>Last</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="newhome">
+      <page>/index.jsf</page>
+    </view>
+    <view id="shoppingBag">
+      <page>/shoppingBag.jsf</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>SkuClrSetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>skuDetails</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>toSetDet</from-outcome>
+        <to-activity-id>__sku-det-tf1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>toSkuDetails</from-outcome>
+        <to-activity-id>back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>SkuClrSetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>SetCurrentRowWithKeyValue1</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>skuDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>First</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>First</from-outcome>
+        <to-activity-id>skuDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id>Last</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome>Last</from-outcome>
+        <to-activity-id>skuDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>Execute</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>Execute</from-outcome>
+        <to-activity-id>First</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>toHome</from-outcome>
+        <to-activity-id>newhome</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__33">
+        <from-outcome>toShopBag</from-outcome>
+        <to-activity-id>shoppingBag</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

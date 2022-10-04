@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="refNamesConfirm">
+    <default-activity>okay</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name>ReferenceNamingUpdate</managed-bean-name>
+      <managed-bean-class>com.shopbook.sysadmin.view.bean.ReferenceNamingUpdate</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="okay">
+      <page>/popupTf/okay.jsf</page>
+    </view>
+    <task-flow-return id="Commit">
+      <outcome>
+        <name>Commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__4">
+      <from-activity-id>okay</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

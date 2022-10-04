@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MainSkuToAssemblyVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.shopbook.shopadmin.model.entity.assoc.MainSkuToAssemblyAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.link.MainSkuToAssemblyVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SkusV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.shopadmin.model.view.SkusV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SkusV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.SkusV.SkuCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SkuAssembliesV"
+    Cardinality="-1"
+    Owner="com.shopbook.shopadmin.model.view.SkuAssemblyCompsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SkuAssembliesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.SkuAssemblyCompsV.SkuAssCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

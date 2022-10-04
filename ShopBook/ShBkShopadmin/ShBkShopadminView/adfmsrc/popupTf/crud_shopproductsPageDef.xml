@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_shopproductsPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CrudSkusV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudSkusVIterator"/>
+    <iterator Binds="CrudSkuClrImagesV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="CrudSkuClrImagesVIterator"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkShopAdminDataControl" id="SysParametersVIterator"/>
+    <iterator Binds="CrudSkuColorsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudSkuColorsVIterator"/>
+    <iterator Binds="SkuSizeColorsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkuSizeColorsVIterator"/>
+    <iterator Binds="SkuPropDetsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkuPropDetsVIterator"/>
+    <iterator Binds="SkuAssemblyCompsV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="SkuAssemblyCompsVIterator"/>
+    <iterator Binds="SkuCompAssembliesV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="SkuCompAssembliesVIterator"/>
+    <iterator Binds="SkuUnitsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkuUnitsVIterator"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="SysParametersVIterator1"/>
+    <iterator Binds="ReferencesNamesV" RangeSize="10" DataControl="ShBkHomeAmDataControl"
+              id="ReferencesNamesVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CrudSkusVIterator" id="SkuCode">
+      <AttrNames>
+        <Item Value="SkuCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="SkuName">
+      <AttrNames>
+        <Item Value="SkuName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Available" id="Available" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Hide" id="Hide" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="Rate">
+      <AttrNames>
+        <Item Value="Rate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="QntyInStock">
+      <AttrNames>
+        <Item Value="QntyInStock"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="LastPrice">
+      <AttrNames>
+        <Item Value="LastPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_AppearOnlyInAss" id="AppearOnlyInAss"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="OldPrice">
+      <AttrNames>
+        <Item Value="OldPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_ShopCatSubCode" id="ShopCatSubCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_NewFlag" id="NewFlag" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action id="Rollback" DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <tree IterBinding="CrudSkuClrImagesVIterator" id="CrudSkuClrImagesV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuClrImagesV" Name="CrudSkuClrImagesV0">
+        <AttrNames>
+          <Item Value="SkuClrImgCode"/>
+          <Item Value="ImgPath"/>
+          <Item Value="ImgName"/>
+          <Item Value="ImgType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CrudSkuClrImagesVIterator" id="ImgName1">
+      <AttrNames>
+        <Item Value="ImgName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="NoimagePath">
+      <AttrNames>
+        <Item Value="NoimagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkuClrImagesVIterator" id="ImgFullPath">
+      <AttrNames>
+        <Item Value="ImgFullPath"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_ShpPropClsCode" id="ShpPropClsCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_CatSzClassCode" id="CatSzClassCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="CrudSkuColorsVIterator" id="CrudSkuColorsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuColorsV" Name="CrudSkuColorsV0">
+        <AttrNames>
+          <Item Value="ClrName"/>
+          <Item Value="Available"/>
+          <Item Value="LastPrice"/>
+          <Item Value="QntyInStock"/>
+          <Item Value="OldPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SkuSizeColorsVIterator" id="SkuSizeColorsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuSizeColorsV" Name="SkuSizeColorsV0">
+        <AttrNames>
+          <Item Value="SkuSizeCode"/>
+          <Item Value="Available"/>
+          <Item Value="LastPrice"/>
+          <Item Value="SzDetName"/>
+          <Item Value="OldPrice"/>
+          <Item Value="QntyInStock"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_BrandCode" id="BrandCode"/>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_ModelCode" id="ModelCode"/>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_MnfCode" id="MnfCode"/>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Year" id="Year"/>
+    <tree IterBinding="SkuPropDetsVIterator" id="SkuPropDetsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuPropDetsV" Name="SkuPropDetsV0">
+        <AttrNames>
+          <Item Value="SkuPropDetName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SkuSizeColorsVIterator" id="SzDetName">
+      <AttrNames>
+        <Item Value="SzDetName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SkuAssemblyCompsVIterator" id="SkuAssemblyCompsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuAssemblyCompsV" Name="SkuAssemblyCompsV0">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="QtyInAss"/>
+          <Item Value="SkuAssComp"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SkuCompAssembliesVIterator" id="SkuCompAssembliesV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuCompAssembliesV" Name="SkuCompAssembliesV0">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="QtyInAss"/>
+          <Item Value="SkuAssCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CrudSkusVIterator" id="Skuclroprice">
+      <AttrNames>
+        <Item Value="Skuclroprice"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SkuUnitsVIterator" id="SkuUnitsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuUnitsV" Name="SkuUnitsV0">
+        <AttrNames>
+          <Item Value="UnitName"/>
+          <Item Value="LastPrice"/>
+          <Item Value="OldPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Assembly" id="Assembly" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_BasicUnit" id="BasicUnit" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="MinQty">
+      <AttrNames>
+        <Item Value="MinQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="MaxQty">
+      <AttrNames>
+        <Item Value="MaxQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="StepQty">
+      <AttrNames>
+        <Item Value="StepQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="CurrSymbol">
+      <AttrNames>
+        <Item Value="CurrSymbol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkuColorsVIterator" id="ClrName">
+      <AttrNames>
+        <Item Value="ClrName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="Skuclrlprice">
+      <AttrNames>
+        <Item Value="Skuclrlprice"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CrudSkuColorsVIterator" id="CrudSkuColorsV1">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuColorsV" Name="CrudSkuColorsV10">
+        <AttrNames>
+          <Item Value="ClrName"/>
+          <Item Value="AvailableName"/>
+          <Item Value="OldPrice"/>
+          <Item Value="LastPrice"/>
+          <Item Value="QntyInStock"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="SkuSizeColorsV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuSizeColorsV" Name="CrudSkuColorsV11">
+        <AttrNames>
+          <Item Value="ClrName"/>
+          <Item Value="AvailableName"/>
+          <Item Value="OldPrice"/>
+          <Item Value="LastPrice"/>
+          <Item Value="QntyInStock"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="BrPlural">
+      <AttrNames>
+        <Item Value="BrPlural"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="MdPlural">
+      <AttrNames>
+        <Item Value="MdPlural"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="MnPluran">
+      <AttrNames>
+        <Item Value="MnPluran"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

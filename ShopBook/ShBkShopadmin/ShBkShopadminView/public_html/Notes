@@ -1,0 +1,3 @@
+Render Property of show detail header under iterator is : #{sessionScope.myPerms.containsValue(cats.ShopCatCode)}
+
+Render Property of show detail item of category is : #{sessionScope.myPerms.size()>0}

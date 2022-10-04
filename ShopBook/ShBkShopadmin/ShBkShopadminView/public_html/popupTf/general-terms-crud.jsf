@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="general-terms-crud.jsf" id="d1"
+                 initialFocusId="#{shbkshopadminviewBundle.EDIT__0__0__0NEW__0GENERAL__0TERM}">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbkshopadminviewBundle.EDIT__0__0__0NEW__0GENERAL__0TERM}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="bar" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toCommit"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.ShortTxt.inputValue}" label="#{bindings.ShortTxt.hints.label}"
+                                  required="#{bindings.ShortTxt.hints.mandatory}"
+                                  columns="#{bindings.ShortTxt.hints.displayWidth}"
+                                  maximumLength="#{bindings.ShortTxt.hints.precision}"
+                                  shortDesc="#{bindings.ShortTxt.hints.tooltip}" id="it3" contentStyle="width:200px;">
+                        <f:validator binding="#{bindings.ShortTxt.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Txt.inputValue}" label="#{bindings.Txt.hints.label}"
+                                  required="#{bindings.Txt.hints.mandatory}"
+                                  columns="#{bindings.Txt.hints.displayWidth}"
+                                  maximumLength="#{bindings.Txt.hints.precision}"
+                                  shortDesc="#{bindings.Txt.hints.tooltip}" id="it1" contentStyle="width:400px;"
+                                  rows="2">
+                        <f:validator binding="#{bindings.Txt.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Ordr.inputValue}" label="#{bindings.Ordr.hints.label}"
+                                  required="#{bindings.Ordr.hints.mandatory}"
+                                  columns="#{bindings.Ordr.hints.displayWidth}"
+                                  maximumLength="#{bindings.Ordr.hints.precision}"
+                                  shortDesc="#{bindings.Ordr.hints.tooltip}" id="it2" rendered="false">
+                        <f:validator binding="#{bindings.Ordr.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Ordr.format}"/>
+                    </af:inputText>
+                    <af:selectOneRadio value="#{bindings.Active.inputValue}" label="#{bindings.Active.label}"
+                                       required="#{bindings.Active.hints.mandatory}"
+                                       shortDesc="#{bindings.Active.hints.tooltip}" id="sor1">
+                        <f:selectItems value="#{bindings.Active.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Active.validator}"/>
+                    </af:selectOneRadio>
+                </af:panelFormLayout>
+                <af:spacer height="20" id="s1"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

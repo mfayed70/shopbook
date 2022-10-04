@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="shopbasicdataPageDef"
+                Package="com.shopbook.shopadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ShopsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="ShopsVIterator"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkShopAdminDataControl" id="SysParametersVIterator"/>
+    <iterator Binds="ShopsTreeV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="ShopsTreeVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ShopsVIterator" id="WebAddress">
+      <AttrNames>
+        <Item Value="WebAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="Logo">
+      <AttrNames>
+        <Item Value="Logo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopCode">
+      <AttrNames>
+        <Item Value="ShopCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopName">
+      <AttrNames>
+        <Item Value="ShopName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopLat">
+      <AttrNames>
+        <Item Value="ShopLat"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopLong">
+      <AttrNames>
+        <Item Value="ShopLong"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="StreetAdd1">
+      <AttrNames>
+        <Item Value="StreetAdd1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="StreetAdd2">
+      <AttrNames>
+        <Item Value="StreetAdd2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="StreetAdd3">
+      <AttrNames>
+        <Item Value="StreetAdd3"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="Province">
+      <AttrNames>
+        <Item Value="Province"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="Country">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="Tel">
+      <AttrNames>
+        <Item Value="Tel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopFilePath">
+      <AttrNames>
+        <Item Value="ShopFilePath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="SmtpHost">
+      <AttrNames>
+        <Item Value="SmtpHost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="SmtpPort">
+      <AttrNames>
+        <Item Value="SmtpPort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="SslOrTsl">
+      <AttrNames>
+        <Item Value="SslOrTsl"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopUserName">
+      <AttrNames>
+        <Item Value="ShopUserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ShopAdminEmail">
+      <AttrNames>
+        <Item Value="ShopAdminEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="Rate">
+      <AttrNames>
+        <Item Value="Rate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="Level">
+      <AttrNames>
+        <Item Value="Level"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="CntryCode2">
+      <AttrNames>
+        <Item Value="CntryCode2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="ParentShopCode">
+      <AttrNames>
+        <Item Value="ParentShopCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopsVIterator" id="RegisterStatus">
+      <AttrNames>
+        <Item Value="RegisterStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ShopsVIterator" StaticList="false" Uses="LOV_Active" id="Active" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="NoimagePath">
+      <AttrNames>
+        <Item Value="NoimagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ShopsTreeVIterator" id="ShopsTreeV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShopsV" Name="ShopsTreeV0">
+        <AttrNames>
+          <Item Value="ShopName"/>
+          <Item Value="ShopCode"/>
+          <Item Value="StreetAdd1"/>
+          <Item Value="StreetAdd2"/>
+          <Item Value="Tel"/>
+          <Item Value="Country"/>
+          <Item Value="City"/>
+          <Item Value="StreetAdd3"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ShopsV"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

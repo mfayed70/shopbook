@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="crud_manufPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ManufacturersVCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl"
+              id="ManufacturersVCrudVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ManufacturersVCrudVIterator" id="MnfCode">
+      <AttrNames>
+        <Item Value="MnfCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ManufacturersVCrudVIterator" id="MnfName">
+      <AttrNames>
+        <Item Value="MnfName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ManufacturersVCrudVIterator" StaticList="false" Uses="LOV_RegisterStatus" id="RegisterStatus"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ManufacturersVCrudVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ManufacturersVCrudVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ManufacturersVCrudVIterator" id="Delete"
+            InstanceName="ShBkSysAdminDataControl.ManufacturersVCrudV" DataControl="ShBkSysAdminDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ManufacturersVCrudVIterator" id="has_detail_mnf_in_catRefs">
+      <AttrNames>
+        <Item Value="has_detail_mnf_in_catRefs"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

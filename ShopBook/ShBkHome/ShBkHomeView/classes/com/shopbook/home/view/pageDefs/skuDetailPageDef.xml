@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="skuDetailPageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.SkuTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="DetSkuClrImagesV" RangeSize="25" DataControl="ShBkHomeAmDataControl"
+              id="DetSkuClrImagesVIterator"/>
+    <iterator Binds="DetSkusV" RangeSize="1" DataControl="ShBkHomeAmDataControl" id="DetSkusVIterator"/>
+    <iterator Binds="DetSkuColorsV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="DetSkuColorsVIterator"/>
+    <iterator Binds="DetSkuSizeColorsV" RangeSize="10" DataControl="ShBkHomeAmDataControl"
+              id="DetSkuSizeColorsVIterator"/>
+    <iterator Binds="DetSkuPropDetsV" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="DetSkuPropDetsVIterator"/>
+    <iterator Binds="SkuAssemblyCompsV" RangeSize="25" DataControl="ShBkHomeAmDataControl"
+              id="SkuAssemblyCompsVIterator"/>
+    <iterator Binds="SkuCompAssembliesV" RangeSize="25" DataControl="ShBkHomeAmDataControl"
+              id="SkuCompAssembliesVIterator"/>
+    <iterator Binds="SkuPostsV" RangeSize="1" DataControl="ShBkHomeAmDataControl" id="SkuPostsVIterator"/>
+    <iterator Binds="ShippingTermsV" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="ShippingTermsVIterator"/>
+    <iterator Binds="ReturnTermsV" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="ReturnTermsVIterator"/>
+    <iterator Binds="LangCurrV" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="LangCurrVIterator"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="SysParametersVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DetSkuClrImagesVIterator" id="DetSkuClrImagesV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.SkuClrImagesV" Name="DetSkuClrImagesV0">
+        <AttrNames>
+          <Item Value="SkuClrImgCode"/>
+          <Item Value="ImgCode"/>
+          <Item Value="ImgName"/>
+          <Item Value="ImgPath"/>
+          <Item Value="ImgSeq"/>
+          <Item Value="ImgType"/>
+          <Item Value="LastModified"/>
+          <Item Value="Notes"/>
+          <Item Value="SkuClrCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DetSkusVIterator" id="SkuCode">
+      <AttrNames>
+        <Item Value="SkuCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="SkuName">
+      <AttrNames>
+        <Item Value="SkuName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="QntyInStock">
+      <AttrNames>
+        <Item Value="QntyInStock"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="LastPrice">
+      <AttrNames>
+        <Item Value="LastPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="Assembly">
+      <AttrNames>
+        <Item Value="Assembly"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="OldPrice">
+      <AttrNames>
+        <Item Value="OldPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="ShpPropClsCode">
+      <AttrNames>
+        <Item Value="ShpPropClsCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="BrandCode">
+      <AttrNames>
+        <Item Value="BrandCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="MnfCode">
+      <AttrNames>
+        <Item Value="MnfCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="ModelCode">
+      <AttrNames>
+        <Item Value="ModelCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="Year">
+      <AttrNames>
+        <Item Value="Year"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="Skuclrlprice">
+      <AttrNames>
+        <Item Value="Skuclrlprice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="Skuclroprice">
+      <AttrNames>
+        <Item Value="Skuclroprice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="NewFlag">
+      <AttrNames>
+        <Item Value="NewFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="ImgName">
+      <AttrNames>
+        <Item Value="ImgName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="SkuClrCode">
+      <AttrNames>
+        <Item Value="SkuClrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="ImgFullPath">
+      <AttrNames>
+        <Item Value="ImgFullPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkuClrImagesVIterator" id="SclFullPath">
+      <AttrNames>
+        <Item Value="SclFullPath"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="DetSkuColorsVIterator" id="DetSkuColorsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.SkuColorsV" Name="DetSkuColorsV0">
+        <AttrNames>
+          <Item Value="SkuCode"/>
+          <Item Value="Available"/>
+          <Item Value="ClrCode"/>
+          <Item Value="ClrName"/>
+          <Item Value="FullPath"/>
+          <Item Value="ImgName"/>
+          <Item Value="LastModified"/>
+          <Item Value="LastPrice"/>
+          <Item Value="NoOfDetSizes"/>
+          <Item Value="Notes"/>
+          <Item Value="OlpPrice"/>
+          <Item Value="QntyInStock"/>
+          <Item Value="SkuClrCode"/>
+          <Item Value="MinSkuSzClrCode"/>
+          <Item Value="SkuName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DetSkuSizeColorsVIterator" id="DetSkuSizeColorsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.SkuSizeColorsV" Name="DetSkuSizeColorsV0">
+        <AttrNames>
+          <Item Value="SkuSzClrCode"/>
+          <Item Value="Available"/>
+          <Item Value="LastModified"/>
+          <Item Value="LastPrice"/>
+          <Item Value="Notes"/>
+          <Item Value="OldPrice"/>
+          <Item Value="QntyInStock"/>
+          <Item Value="Rate"/>
+          <Item Value="SkuClrCode"/>
+          <Item Value="SkuClrCode1"/>
+          <Item Value="SkuCode"/>
+          <Item Value="SkuSizeCode"/>
+          <Item Value="SzDetCode"/>
+          <Item Value="SzDetName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DetSkuPropDetsVIterator" id="DetSkuPropDetsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.SkuPropDetsV" Name="DetSkuPropDetsV0">
+        <AttrNames>
+          <Item Value="SkuPropDetName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SkuAssemblyCompsVIterator" id="SkuAssemblyCompsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.SkuAssemblyCompsV" Name="SkuAssemblyCompsV0">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="QtyInAss"/>
+          <Item Value="Available"/>
+          <Item Value="Notes"/>
+          <Item Value="SkuAssComp"/>
+          <Item Value="SkuClrCode"/>
+          <Item Value="SkuSzClrCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SkuCompAssembliesVIterator" id="SkuCompAssembliesV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.SkuCompAssembliesV" Name="SkuCompAssembliesV0">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="Available"/>
+          <Item Value="Notes"/>
+          <Item Value="SkuAssCode"/>
+          <Item Value="SkuAssComp"/>
+          <Item Value="SkuSzClrCode"/>
+          <Item Value="SkuClrCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="ShBkHomeAmDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="ShBkHomeAmDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <tree IterBinding="ShippingTermsVIterator" id="ShippingTermsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.ShippingTermsV" Name="ShippingTermsV0">
+        <AttrNames>
+          <Item Value="Txt"/>
+          <Item Value="PercOrVal"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ReturnTermsVIterator" id="ReturnTermsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.ReturnTermsV" Name="ReturnTermsV0">
+        <AttrNames>
+          <Item Value="Txt"/>
+          <Item Value="PercOrVal"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DetSkusVIterator" id="MinQty">
+      <AttrNames>
+        <Item Value="MinQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="UnitName">
+      <AttrNames>
+        <Item Value="UnitName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="BrandName">
+      <AttrNames>
+        <Item Value="BrandName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="ModelName">
+      <AttrNames>
+        <Item Value="ModelName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="MnfName">
+      <AttrNames>
+        <Item Value="MnfName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LangCurrVIterator" id="CurrSymbol">
+      <AttrNames>
+        <Item Value="CurrSymbol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="NoimagePath">
+      <AttrNames>
+        <Item Value="NoimagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="StepQty">
+      <AttrNames>
+        <Item Value="StepQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="MaxQty">
+      <AttrNames>
+        <Item Value="MaxQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkuColorsVIterator" id="ClrsNotes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="SkuRate">
+      <AttrNames>
+        <Item Value="SkuRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetSkusVIterator" id="BasicUnit">
+      <AttrNames>
+        <Item Value="BasicUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addToMyBag" RequiresUpdateModel="true" Action="invokeMethod" MethodName="addToMyBag"
+                  IsViewObjectMethod="false" DataControl="ShBkHomeAmDataControl"
+                  InstanceName="data.ShBkHomeAmDataControl.dataProvider"
+                  ReturnName="data.ShBkHomeAmDataControl.methodResults.addToMyBag_ShBkHomeAmDataControl_dataProvider_addToMyBag_result">
+      <NamedData NDName="pUserId" NDType="java.lang.String"/>
+      <NamedData NDName="pSkuClrCode" NDType="java.lang.String"/>
+      <NamedData NDName="pSizeCode" NDType="java.lang.String"/>
+      <NamedData NDName="pUnitCode" NDType="java.lang.String"/>
+      <NamedData NDName="pQty" NDType="java.math.BigDecimal"/>
+      <NamedData NDName="pUnitPrice" NDType="java.math.BigDecimal"/>
+    </methodAction>
+    <attributeValues IterBinding="SysParametersVIterator" id="WebServerName">
+      <AttrNames>
+        <Item Value="WebServerName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SkuPostsVIterator" id="SkuPostsV">
+      <nodeDefinition DefName="com.shopbook.home.model.view.PostsV" Name="SkuPostsV0">
+        <AttrNames>
+          <Item Value="PostDatetime"/>
+          <Item Value="PostText"/>
+          <Item Value="UserName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

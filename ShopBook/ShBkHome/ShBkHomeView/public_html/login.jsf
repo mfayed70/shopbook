@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+    <af:document title="login.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
+                                         inlineStyle="border-style:solid none none; border-width:thin medium medium; border-top-color:#e7e7e7;">
+                        <af:panelHeader text="#{shbkhomeviewBundle.LOGIN}" id="ph1"
+                                        inlineStyle="padding-left:20px; width:600px; padding-top:20px; text-decoration:underline;">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                <af:outputText value="#{shbkhomeviewBundle.WELCOME_TO_OUR_E_SHOPPING}" id="ot2"
+                                               inlineStyle="font-size:16px;color:#003D5B;"/>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl7" layout="horizontal" inlineStyle="margin-top:10px;">
+                                <af:outputText value="#{shbkhomeviewBundle.NewGuest}" id="ot1"
+                                               inlineStyle="font-size:16px;color:#003D5B;"/>
+                                <af:link text="#{shbkhomeviewBundle.SIGN_UP}" id="l4" action="adfMenu_signUp"
+                                         inlineStyle="color:Maroon;font-size:16px;"/>
+                                <f:facet name="separator">
+                                    <af:spacer width="10" height="10" id="s5"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="15" id="s1"/>
+                            <af:panelFormLayout id="pfl1">
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout id="pgl3" layout="vertical">
+                                        <af:spacer width="10" height="20" id="s3"/>
+                                        <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                            <af:link text="#{shbkhomeviewBundle.FORGOT_PASSWORD}" id="l2"
+                                                     inlineStyle="font-size:16px;color:#003D5B;text-decoration:underline;" action="toFrgtPswrd"/>
+                                            <af:spacer width="150" height="10" id="s2"/>
+                                            <af:link text="#{shbkhomeviewBundle.LOGIN}" id="l1"
+                                                     actionListener="#{backingBeanScope.LoginBean.login}"
+                                                     inlineStyle="font-size:16px;color:#003D5B;text-decoration:underline;"/>
+                                            <f:facet name="separator"/>
+                                            <af:spacer width="50" height="10" id="s7"/>
+                                        </af:panelGroupLayout>
+                                        <af:spacer width="10" height="50" id="s6"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                                <af:inputText label="#{shbkhomeviewBundle.EMAIL_ADDRESS}" id="it1"
+                                              value="#{backingBeanScope.LoginBean.userName}"/>
+                                <af:inputText label="#{shbkhomeviewBundle.PASSWORD}" id="it2"
+                                              value="#{backingBeanScope.LoginBean.password}"/>
+                            </af:panelFormLayout>
+                        </af:panelHeader>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

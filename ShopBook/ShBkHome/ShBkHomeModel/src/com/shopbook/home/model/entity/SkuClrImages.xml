@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuClrImages"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="sku_clr_images"
+  AliasName="SkuClrImages"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SkuClrImgCode"
+    IsNotNull="true"
+    Precision="35"
+    ColumnName="SKU_CLR_IMG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="35"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuClrCode"
+    IsNotNull="true"
+    Precision="28"
+    ColumnName="SKU_CLR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImgCode"
+    IsNotNull="true"
+    Precision="7"
+    ColumnName="IMG_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImgPath"
+    Precision="100"
+    ColumnName="IMG_PATH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImgSeq"
+    Precision="1"
+    ColumnName="IMG_SEQ"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImgName"
+    Precision="50"
+    ColumnName="IMG_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="sku_clr_images"/>
+  <Attribute
+    Name="ImgType"
+    Precision="20"
+    ColumnName="IMG_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_clr_images">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SkuColors"
+    Association="com.shopbook.home.model.entity.assoc.SkuClrToSkuClrImgAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuClrToSkuClrImgAssoc.SkuColors"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuClrToSkuClrImgAssoc.SkuClrImages"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuClrImages.SkuClrImgCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuClrToSkuClrImg">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_CLR_TO_SKU_CLR_IMG"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuClrImages.SkuClrCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

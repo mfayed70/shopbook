@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="popupTf/crud-shopproducts-tf.xml" id="crud-shopproducts-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="vSkuClrCode"/>
+      <input-parameter name="shpPrdcCrudAction"/>
+      <input-parameter name="vShopSubCatCode"/>
+      <input-parameter name="vSkuCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-shop-tf.xml" id="crud-shop-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="vShopCode"/>
+      <input-parameter name="vParentShopCode"/>
+      <input-parameter name="vLevel"/>
+      <input-parameter name="vWhat"/>
+      <input-parameter name="shopCrudAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-product-ass-tf.xml" id="crud-product-ass-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pSkuCode"/>
+      <input-parameter name="skuAssAction"/>
+      <input-parameter name="vSkuAssCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-sku-clr-images-tf.xml" id="crud-sku-clr-images-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="vSkuClrCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crudSkuBdata.xml" id="crudSkuBdata" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="vShopSubCatCode"/>
+      <input-parameter name="vCrudSkuAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-sku-colors-tf.xml" id="crud-sku-colors-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pOldPrice"/>
+      <input-parameter name="pLastPrice"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-return-terms-tf.xml" id="crud-return-terms-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pRcode"/>
+      <input-parameter name="returnAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-shipping-terms-tf.xml" id="crud-shipping-terms-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pScode"/>
+      <input-parameter name="shippingAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-product-props-tf.xml" id="crud-product-props-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="popupTf/crud-general-terms-tf.xml" id="crud-general-terms-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="generalAction"/>
+      <input-parameter name="pGcode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/offers-tf.xml" id="offers-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="popupTf/crud-cat-admin-tf.xml" id="crud-cat-admin-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pCatName"/>
+      <input-parameter name="pUserId"/>
+      <input-parameter name="pAction"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/crud-categoryproperties-tf.xml" id="crud-categoryproperties-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="catPropsAction"/>
+      <input-parameter name="vCatPropClsCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="popupTf/sets-components-tf.xml" id="sets-components-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="vSkuAssComp"/>
+      <input-parameter name="vSkuCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="popupTf/crud-sku-units.xml" id="crud-sku-units" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+</task-flow-registry>

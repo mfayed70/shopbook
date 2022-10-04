@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/image-slider-tf.xml" id="image-slider-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/reset-pwd-tf.xml" id="reset-pwd-tf" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pStatus"/>
+      <input-parameter name="pOneTimeCode"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/sku-det-tf.xml" id="sku-det-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="pSzLprice"/>
+      <input-parameter name="pSkuClrCode"/>
+      <input-parameter name="pSzName"/>
+      <input-parameter name="pSkuSzClrCode"/>
+      <input-parameter name="pClrName"/>
+      <input-parameter name="pClrLprice"/>
+      <input-parameter name="pClrOprice"/>
+      <input-parameter name="pSkuCode"/>
+      <input-parameter name="pSkuDetails"/>
+      <input-parameter name="pSzOprice"/>
+   </task-flow-descriptor>
+</task-flow-registry>

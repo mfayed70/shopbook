@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="ProductPage.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/SkuTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_main">
+                    <af:panelGroupLayout id="pgl1" layout="vertical">
+                        <af:panelGroupLayout id="pgl2" layout="vertical">
+                            <af:region value="#{bindings.skudettf1.regionModel}" id="r1"/>
+                        </af:panelGroupLayout>
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="pt_p1"
+                          binding="#{SkuDeatilsBean.infoPopup}">
+                    <af:panelWindow id="pt_pw1" contentHeight="100" contentWidth="300">
+                        <af:panelGroupLayout id="pt_pgl12" layout="vertical" inlineStyle="padding-top:10px;" halign="center">
+                            <af:outputText value="#{ResetPasswrd.confrmMsg}" id="pt_ot2"
+                                           inlineStyle="font-size:12px;color:#003D5B;"/>
+                            <af:link text="Okay" id="pt_l7"
+                                     inlineStyle="font-size:16px;background-color:#003D5B;width:40px;color:white;padding:5px 10px 5px 10px;"
+                                     action="#{ResetPasswrd.getConfrmGo}" immediate="true"/>
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="40" id="pt_s2"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:panelWindow>
+                </af:popup>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+        <af:resource type="javascript" source="/js/invokeFaceookShareFeature.js"/>
+    </af:document>
+</f:view>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OfferDetsDets"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="offer_dets_dets"
+  AliasName="OfferDetsDets"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="TrxId"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="TRX_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="offer_dets_dets"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuCode"
+    Precision="23"
+    ColumnName="SKU_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="offer_dets_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuClrCode"
+    Precision="28"
+    ColumnName="SKU_CLR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="offer_dets_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuSzClrCode"
+    Precision="37"
+    ColumnName="SKU_SZ_CLR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="offer_dets_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="37"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Discount"
+    ColumnName="DISCOUNT"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="offer_dets_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Qty"
+    ColumnName="QTY"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="offer_dets_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OfferDetId"
+    ColumnName="OFFER_DET_ID"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="offer_dets_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="OfferDets"
+    Association="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsDetsAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsDetsAssoc.OfferDets"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsDetsAssoc.OfferDetsDets"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus"
+    Association="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuAssoc.Skus"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuAssoc.OfferDetsDets1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SkuColors"
+    Association="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuClrAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuClrAssoc.SkuColors"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuClrAssoc.OfferDetsDets2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SkuSizeColors"
+    Association="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuSzClrAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuSzClrAssoc.SkuSizeColors"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.FkOfferDetsDetsSkuSzClrAssoc.OfferDetsDets"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.OfferDetsDets.TrxId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkOfferDetsDetsSku">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_offer_dets_dets_sku"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.OfferDetsDets.SkuCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkOfferDetsDetsSkuClr">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_offer_dets_dets_sku_clr"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.OfferDetsDets.SkuClrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkOfferDetsDetsSkuSzClr">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_offer_dets_dets_sku_sz_clr"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.OfferDetsDets.SkuSzClrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_OfferDetsDets">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Offer_Dets_Dets"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.OfferDetsDets.OfferDetId"/>
+    </AttrArray>
+  </Key>
+</Entity>

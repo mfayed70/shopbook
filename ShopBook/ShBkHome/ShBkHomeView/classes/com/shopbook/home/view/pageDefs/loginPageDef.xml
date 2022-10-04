@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="loginPageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator id="UserPermissionsVIterator" Binds="UserPermissionsV" DataControl="ShBkHomeAmDataControl"
+              RangeSize="25"/>
+    <iterator id="UsersProfileVIterator" Binds="UsersProfileV" DataControl="ShBkHomeAmDataControl" RangeSize="25"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

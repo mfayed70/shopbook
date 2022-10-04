@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="crud_sizesPageDef"
+                Package="com.shopbook.sysadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SizeClassesCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl"
+              id="SizeClassesCrudVIterator"/>
+    <iterator Binds="SzClsDetCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="SzClsDetCrudVIterator"/>
+    <searchRegion Binds="SzClsDetCrudVIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SzClsDetCrudVQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SizeClassesCrudVIterator" id="SzClassCode">
+      <AttrNames>
+        <Item Value="SzClassCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SizeClassesCrudVIterator" id="SzClassName">
+      <AttrNames>
+        <Item Value="SzClassName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SizeClassesCrudVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SizeClassesCrudVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SzClsDetCrudVIterator" id="SzClsDetCrudV">
+      <nodeDefinition DefName="com.shopbook.sysadmin.model.view.SzClsDetV" Name="SzClsDetCrudV0">
+        <AttrNames>
+          <Item Value="SzDetCode"/>
+          <Item Value="SzClassCode"/>
+          <Item Value="Notes"/>
+          <Item Value="SzDetName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SizeClassesCrudVIterator" id="DeleteSizeClass"
+            InstanceName="ShBkSysAdminDataControl.SizeClassesCrudV"
+            DataControl="ShBkSysAdminDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SzClsDetCrudVIterator" id="DeleteSzDet" InstanceName="ShBkSysAdminDataControl.SzClsDetCrudV"
+            DataControl="ShBkSysAdminDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SzClsDetCrudVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="SizeClassesCrudVIterator" id="has_detail_szClass_in_catSizes">
+      <AttrNames>
+        <Item Value="has_detail_szClass_in_catSizes"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

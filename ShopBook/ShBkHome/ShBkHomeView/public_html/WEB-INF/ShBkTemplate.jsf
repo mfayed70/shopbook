@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core"
+                    xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <f:view locale="#{Locale.locale}">
+        <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+        <af:panelStretchLayout id="pt_psl1" startWidth="0px" bottomHeight="130px" topHeight="270px" endWidth="0px"
+                               inlineStyle="background-color:White; width:1100px; margin-left:135px;margin-right:180px;">
+            <f:facet name="bottom">
+                <af:panelGroupLayout id="pt_pgl1" styleClass="AFStretchWidth" layout="scroll"
+                                     inlineStyle="background-color:#e7e7e7;">
+                    <af:panelGroupLayout id="pt_pgl4" layout="horizontal" inlineStyle="height:100px;"
+                                         styleClass="AFStretchWidth">
+                        <af:panelGridLayout id="pt_pgl7">
+                            <af:gridRow marginTop="5px" marginBottom="5px" id="pt_gr1">
+                                <af:gridCell marginStart="5px" width="25%" id="pt_gc1" valign="middle" halign="center">
+                                    <af:link text="#{shbkhomeviewBundle.ShippingDeliveryTerms}" id="pt_l1"
+                                             inlineStyle="font-size:16px;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" id="pt_gc2" halign="center" valign="middle">
+                                    <af:link text="#{shbkhomeviewBundle.RETURN_POLICY}" id="pt_l2"
+                                             inlineStyle="font-size:16px;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" id="pt_gc3" halign="center" valign="middle">
+                                    <af:link text="#{shbkhomeviewBundle.CONTACT_US}" id="pt_l3"
+                                             inlineStyle="font-size:16px;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="pt_gc4" halign="center"
+                                             valign="middle">
+                                    <af:image id="pt_i3" source="/icons/outlet_card_logos_banner.jpeg"
+                                              inlineStyle="width:100px;height:33px;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pt_pgl6" layout="horizontal"
+                                         inlineStyle="height:30px; background-color:#c6c6c6;"
+                                         styleClass="AFStretchWidth"/>
+                </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="center">
+                <af:panelSplitter id="pt_ps1" disabled="true"
+                                  collapsed="#{controllerContext.currentViewPort.viewId =='/sku-det-tf/home' or controllerContext.currentViewPort.viewId =='/home' or controllerContext.currentViewPort.viewId=='/login' or controllerContext.currentViewPort.viewId =='/frgtPswrd' or controllerContext.currentViewPort.viewId =='/signUp' or controllerContext.currentViewPort.viewId =='/profile' or controllerContext.currentViewPort.viewId =='/orderMngmnt'}"
+                                  inlineStyle="margin-top:10px;padding-top:30px;" splitterPosition="230">
+                    <f:facet name="first">
+                        <af:panelGroupLayout id="pt_pgl8" layout="vertical"
+                                             inlineStyle="min-height:700px; background-color:White;border-right-color:#e7e7e7; border-right-style:solid; border-right-width:thin; ">
+                            <af:panelGroupLayout id="pt_pgl9" layout="vertical">
+                                <af:navigationPane hint="list" id="pt_np3" level="2" value="#{root_menu}"
+                                                   var="menuInfo">
+                                    <?audit suppress oracle.jdeveloper.jsp.validate-children?>
+                                    <f:facet name="nodeStamp">
+                                        <af:commandNavigationItem id="ni3" text="#{menuInfo.label}"
+                                                                  icon="#{menuInfo.icon}"
+                                                                  destination="#{menuInfo.destination}"
+                                                                  action="#{menuInfo.doAction}"
+                                                                  inlineStyle="font-size:16px;color:#003D5B;border-bottom-color:#e7e7e7; border-bottom-style:solid; border-bottom-width:thin; "/>
+                                    </f:facet>
+                                    <af:spacer width="10" height="20" id="pt_s8"/>
+                                </af:navigationPane>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:facetRef facetName="_body"/>
+                    </f:facet>
+                </af:panelSplitter>
+            </f:facet>
+            <f:facet name="start">
+                <?audit suppress oracle.jdeveloper.jsp.check-valid-parent?>
+            </f:facet>
+            <f:facet name="end">
+                <af:popup childCreation="deferred" autoCancel="disabled" id="pt_p1"
+                          binding="#{ResetPasswrd.confrmPopup}">
+                    <af:panelWindow id="pt_pw1" contentHeight="100" contentWidth="300">
+                        <af:panelGroupLayout id="pt_pgl12" layout="vertical" inlineStyle="padding-top:10px;" halign="center">
+                            <af:outputText value="#{ResetPasswrd.confrmMsg}" id="pt_ot2"
+                                           inlineStyle="font-size:12px;color:#003D5B;"/>
+                            <af:link text="Okay" id="pt_l7"
+                                     inlineStyle="font-size:16px;background-color:#003D5B;width:40px;color:white;padding:5px 10px 5px 10px;" immediate="true"
+                                     action="#{ResetPasswrd.popupOkayAction}"/>
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="40" id="pt_s2"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:panelWindow>
+                </af:popup>
+            </f:facet>
+            <f:facet name="top">
+                <af:panelStretchLayout id="pt_psl2" startWidth="200px" endWidth="200px" topHeight="50px"
+                                       bottomHeight="40px">
+                    <f:facet name="bottom">
+                        <af:panelGroupLayout id="pt_pgl15" layout="vertical">
+                            <af:panelGroupLayout id="pt_pgl3" layout="horizontal"
+                                                 inlineStyle="background-color:#003D5B;width:1100px;margin-top:10px;height:30px;padding-left:10px;"
+                                                 rendered="#{request.isUserInRole('OrderMgmnt')}">
+                                <af:link text="#{shbkhomeviewBundle.ServingOrders}" id="pt_l8"
+                                         inlineStyle="font-size:14px;color:#e7e7e7;margin-right:20px;font-weight:600;"
+                                         rendered="#{request.isUserInRole('OrderMgmnt')}" action="adfMenu_orderMngmnt"/>
+                                <af:navigationPane hint="bar" id="pt_np2" level="1" value="#{root_menu}" var="menuInfo"
+                                                   inlineStyle="margin-left:10px;">
+                                    <f:facet name="nodeStamp">
+                                        <af:commandNavigationItem id="ni2" text="#{menuInfo.label}"
+                                                                  icon="#{menuInfo.icon}"
+                                                                  destination="#{menuInfo.destination}"
+                                                                  action="#{menuInfo.doAction}"
+                                                                  rendered="#{menuInfo.rendered}"
+                                                                  inlineStyle="font-size:14px;color:#e7e7e7;margin-right:20px;font-weight:600;"/>
+                                    </f:facet>
+                                </af:navigationPane>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pt_pgl14" layout="horizontal"
+                                                 inlineStyle="background-color:#003D5B;width:1100px;margin-top:10px;height:30px;padding-left:10px;"
+                                                 rendered="#{!request.isUserInRole('OrderMgmnt')}">
+                                <af:iterator id="pt_i4" value="#{bindings.IndexHomeCategoriesV.collectionModel}"
+                                             var="homeCats">
+                                    <af:link text="#{homeCats.ShopSubCatName}" id="pt_l9"
+                                             inlineStyle="font-size:14px;color:#e7e7e7;margin-right:20px;font-weight:600;"
+                                             actionListener="#{HomeWhereConditionBean.searchByCategory}">
+                                        <f:attribute name="catName" value="#{homeCats.ShopSubCatName}"/>
+                                        <f:attribute name="catCode" value="#{homeCats.ChildCategory}"/>
+                                    </af:link>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="pt_p2"
+                                              binding="#{HomeWhereConditionBean.childCategoryPopup}"
+                                              contentDelivery="lazyUncached">
+                                        <af:menuBar id="pt_mb2" inlineStyle="margin-top:-20px;width:200px;">
+                                            <f:facet name="nodeStamp"/>
+                                        </af:menuBar>
+                                        <af:link id="pt_ot3" inlineStyle="font-size:16px;"
+                                                 text="ALL #{HomeWhereConditionBean.prntCatName}"
+                                                 actionListener="#{HomeWhereConditionBean.searchByDetCats}">
+                                            <f:attribute name="childCatCode" value="#{HomeWhereConditionBean.prntCatCode}"/>
+                                        </af:link>
+                                        <af:separator id="pt_s4"/>
+                                        <af:tree value="#{bindings.IndexChildCategories1.treeModel}" var="node"
+                                                 selectionListener="#{bindings.IndexChildCategories1.treeModel.makeCurrent}"
+                                                 rowSelection="single" id="pt_t1" contentDelivery="immediate">
+                                            <f:facet name="nodeStamp">
+                                                <af:link id="pt_ot4" text="#{node.ShopSubCatName}"
+                                                         actionListener="#{HomeWhereConditionBean.searchByDetCats}"
+                                                         inlineStyle="font-size:14px;">
+                                                    <f:attribute name="childCatCode" value="#{node.ChildCategory}"/>
+                                                </af:link>
+                                            </f:facet>
+                                        </af:tree>
+                                    </af:popup>
+                                </af:iterator>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pt_pgl5" layout="vertical" halign="center">
+                            <af:region value="#{bindings.imageslidertf1.regionModel}" id="pt_r1"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="start">
+                        <af:panelGroupLayout id="pt_pgl11" layout="vertical" halign="center">
+                            <af:image id="pt_i1"
+                                      source="/ViewImageServlet?path=#{bindings.Logo.inputValue==null || empty bindings.Logo.inputValue? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : bindings.Logo.inputValue}"
+                                      inlineStyle="width:180px;height:180px;border-radius:90px 90px 90px 90px;"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="end">
+                        <af:panelGroupLayout id="pt_pgl13" layout="vertical" halign="center">
+                            <af:image id="pt_i2"
+                                      source="/ViewImageServlet?path=#{bindings.WebAddress.inputValue==null || empty bindings.WebAddress.inputValue? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : bindings.WebAddress.inputValue}"
+                                      inlineStyle="width:180px;height:180px;border-radius:90px 90px 90px 90px;"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="top">
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal"
+                                             inlineStyle="border-bottom-color:#e7e7e7; border-bottom-style:solid; border-bottom-width:thin; padding-left:20px; width:1100px; margin-top:5px;padding-bottom:5px;"
+                                             valign="bottom">
+                            <af:selectOneChoice label="#{shbkhomeviewBundle.LANGUAGE}"
+                                                valueChangeListener="#{Locale.localeChangeListener}" id="pt_soc1"
+                                                value="#{Locale.locale}" autoSubmit="true"
+                                                labelStyle="font-size:16px;color:#003D5B;height:16px;">
+                                <f:selectItems value="#{Locale.locales}" id="pt_si1"/>
+                            </af:selectOneChoice>
+                            <af:outputText id="pt_ot5" inlineStyle="font-size:large;"/>
+                            <af:outputText id="pt_ot1" inlineStyle="font-size:small; font-weight:bold;"
+                                           value="#{sessionScope.welcomeUser}" truncateAt="25" rendered="false"/>
+                            <af:spacer width="#{empty request.remoteUser ? 600: 500}" id="pt_s3"/>
+                            <af:navigationPane hint="buttons" id="pt_np1" value="#{root_menu}" var="menuInfo"
+                                               rendered="false">
+                                <f:facet name="nodeStamp">
+                                    <?audit suppress oracle.jdeveloper.jsp.check-valid-parent?>
+                                    <af:commandNavigationItem id="ni1" text="#{menuInfo.label}" icon="#{menuInfo.icon}"
+                                                              destination="#{menuInfo.destination}"
+                                                              action="#{menuInfo.doAction}"
+                                                              rendered="#{menuInfo.rendered}"
+                                                              disabled="#{menuInfo.disabled}"/>
+                                </f:facet>
+                            </af:navigationPane>
+                            <af:navigationPane hint="buttons" id="pt_np4">
+                                <af:commandNavigationItem text="#{shbkhomeviewBundle.LOG_OUT}" id="pt_cni1"
+                                                          actionListener="#{backingBeanScope.LoginBean.logOut}"
+                                                          rendered="false"/>
+                            </af:navigationPane>
+                            <af:panelGroupLayout id="pt_pgl10" layout="horizontal">
+                                <af:link text="#{shbkhomeviewBundle.HOME}" id="pt_l4"
+                                         inlineStyle="font-size:16px;color:#003D5B;" action="adfMenu_home"/>
+                                <af:link text="#{shbkhomeviewBundle.YOUR_SHOPPING_BAG}" id="pt_l5"
+                                         icon="/icons/shopping-bag.png" inlineStyle="font-size:16px;color:#003D5B;"
+                                         rendered="#{request.isUserInRole('User')}" action="adfMenu_shoppingBag"/>
+                                <af:link text="Login/Signup" id="pt_l6" inlineStyle="font-size:16px;color:#003D5B;"
+                                         rendered="#{empty request.remoteUser}" action="adfMenu_login"/>
+                                <af:menuBar id="pt_mb1"
+                                            inlineStyle="height:30px;font-size:16px;color:Blue;">
+                                    <af:menu text="#{sessionScope.welcomeUser}" id="pt_m1"
+                                             rendered="#{not empty request.remoteUser}"
+                                             inlineStyle="font-size:16px;color:Blue;">
+                                        <af:commandMenuItem text="#{shbkhomeviewBundle.YOUR_PROFILE}" id="pt_cmi2"
+                                                            action="adfMenu_profile"
+                                                            inlineStyle="font-size:16px;color:#003D5B;padding-right:10px;width:200px;"/>
+                                        <af:commandMenuItem text="#{shbkhomeviewBundle.LOGOUT}" id="pt_cmi4"
+                                                            actionListener="#{backingBeanScope.LoginBean.logOut}"
+                                                            inlineStyle="font-size:16px;color:#003D5B;padding-right:10px;width:200px;"/>
+                                    </af:menu>
+                                    <af:commandMenuItem text="#{shbkhomeviewBundle.HOME}" id="pt_cmi5"
+                                                        inlineStyle="font-size:16px;color:#003D5B;"
+                                                        action="adfMenu_home" rendered="false"/>
+                                    <af:commandMenuItem text="#{shbkhomeviewBundle.YOUR_SHOPPING_BAG}" id="pt_cmi3"
+                                                        action="adfMenu_shoppingBag"
+                                                        inlineStyle="font-size:16px;color:#003D5B;"
+                                                        icon="/icons/shopping-bag.png" rendered="false"/>
+                                    <af:commandMenuItem text="Login/Signup" id="pt_cmi1" action="adfMenu_login"
+                                                        inlineStyle="font-size:16px;color:#003D5B;" immediate="true"
+                                                        rendered="false"/>
+                                </af:menuBar>
+                                <f:facet name="separator">
+                                    <af:spacer width="10" height="10" id="pt_s1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout>
+            </f:facet>
+        </af:panelStretchLayout>
+    </f:view>
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>ShBkTemplate</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>_body</afc:facet-name>
+            </afc:facet>
+        </afc:component>
+    </af:xmlContent>
+</af:pageTemplateDef>

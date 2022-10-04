@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" locale="#{Locale.locale}">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{pageFlowScope.vCrudSkuAction=='new' ? shbkshopadminviewBundle.NEW_PRODUCT_BASIC_DATA : shbkshopadminviewBundle.EDIT_PRODUCT_BASIC_DATA}
+" id="ph1" inlineStyle="margin-bottom:10px;">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}" action="toSucess"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}" action="ToFail"
+                                                  immediate="true"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelGroupLayout id="pfl1" partialTriggers="np1:ni1" layout="vertical">
+                    <af:panelBox text="#{shbkshopadminviewBundle.ProductReferences}" id="pb1" disclosed="true"
+                                 inlineStyle="margin:10px 0 10px 0;border-radius: 0.5em ;  border: 1px solid #ced4da;">
+                        <f:facet name="toolbar"/>
+                        <af:panelGroupLayout id="pgl1" layout="horizontal">
+                            <af:panelFormLayout id="pfl4" labelAlignment="top" inlineStyle="width:300px;">
+                                <af:inputListOfValues id="brandCodeId"
+                                                      popupTitle="Search and Select: #{bindings.BrandCode.hints.label}"
+                                                      value="#{bindings.BrandCode.inputValue}"
+                                                      label="#{bindings.BrPlural.inputValue}"
+                                                      model="#{bindings.BrandCode.listOfValuesModel}"
+                                                      required="#{bindings.BrandCode.hints.mandatory}"
+                                                      columns="#{bindings.BrandCode.hints.displayWidth}"
+                                                      shortDesc="#{bindings.BrandCode.hints.tooltip}"
+                                                      converter="#{bindings.BrandCode.converter}" autoSubmit="true"
+                                                      contentStyle="width:200px;">
+                                    <f:validator binding="#{bindings.BrandCode.validator}"/>
+                                </af:inputListOfValues>
+                            </af:panelFormLayout>
+                            <af:panelGroupLayout id="pfl5"
+                                                 layout="horizontal" inlineStyle="margin-top:30px;">
+                                <af:inputListOfValues id="modelCodeId"
+                                                      popupTitle="Search and Select: #{bindings.ModelCode.hints.label}"
+                                                      value="#{bindings.ModelCode.inputValue}"
+                                                      label="#{bindings.MdPlural.inputValue}"
+                                                      model="#{bindings.ModelCode.listOfValuesModel}"
+                                                      required="#{bindings.ModelCode.hints.mandatory}"
+                                                      columns="#{bindings.ModelCode.hints.displayWidth}"
+                                                      shortDesc="#{bindings.ModelCode.hints.tooltip}"
+                                                      converter="#{bindings.ModelCode.converter}" autoSubmit="true"
+                                                      contentStyle="font-weight:bold;color:Maroon;" readOnly="true">
+                                    <f:validator binding="#{bindings.ModelCode.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputListOfValues id="mnfCodeId"
+                                                      popupTitle="Search and Select: #{bindings.MnfCode.hints.label}"
+                                                      value="#{bindings.MnfCode.inputValue}"
+                                                      label="#{bindings.MnPluran.inputValue}"
+                                                      model="#{bindings.MnfCode.listOfValuesModel}"
+                                                      required="#{bindings.MnfCode.hints.mandatory}"
+                                                      shortDesc="#{bindings.MnfCode.hints.tooltip}"
+                                                      converter="#{bindings.MnfCode.converter}" autoSubmit="true"
+                                                      columns="#{bindings.MnfCode.hints.displayWidth}"
+                                                      contentStyle="font-weight:bold;color:Maroon;" readOnly="true">
+                                    <f:validator binding="#{bindings.MnfCode.validator}"/>
+                                </af:inputListOfValues>
+                                <af:inputListOfValues id="yearId"
+                                                      popupTitle="Search and Select: #{bindings.Year.hints.label}"
+                                                      value="#{bindings.Year.inputValue}"
+                                                      label="#{bindings.Year.hints.label}"
+                                                      model="#{bindings.Year.listOfValuesModel}"
+                                                      required="#{bindings.Year.hints.mandatory}"
+                                                      columns="#{bindings.Year.hints.displayWidth}"
+                                                      shortDesc="#{bindings.Year.hints.tooltip}" readOnly="true">
+                                    <f:validator binding="#{bindings.Year.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Year.format}"/>
+                                </af:inputListOfValues>
+                                <f:facet name="separator">
+                                    <af:spacer width="10" height="10" id="s9"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </af:panelBox>
+                    <af:panelSplitter id="ps1" splitterPosition="350" disabled="true">
+                        <f:facet name="first">
+                            <af:panelFormLayout id="pfl3" maxColumns="1" labelAlignment="top" rows="3"
+                                                inlineStyle="border-radius: 0.5em ;  border: 1px solid #ced4da;">
+                                <af:inputText value="#{bindings.SkuCode.inputValue}"
+                                              label="#{bindings.SkuCode.hints.label}"
+                                              required="#{bindings.SkuCode.hints.mandatory}"
+                                              columns="#{bindings.SkuCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.SkuCode.hints.precision}"
+                                              shortDesc="#{bindings.SkuCode.hints.tooltip}" id="it1" readOnly="true"
+                                              partialTriggers="np1:ni1" rendered="false">
+                                    <f:validator binding="#{bindings.SkuCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.SkuName.inputValue}"
+                                              label="#{bindings.SkuName.hints.label}"
+                                              required="#{bindings.SkuName.hints.mandatory}" columns="30"
+                                              maximumLength="#{bindings.SkuName.hints.precision}"
+                                              shortDesc="#{bindings.SkuName.hints.tooltip}" id="it2"
+                                              contentStyle="width:300px;">
+                                    <f:validator binding="#{bindings.SkuName.validator}"/>
+                                </af:inputText>
+                                <af:selectOneChoice value="#{bindings.ShpPropClsCode.inputValue}"
+                                                    label="#{bindings.ShpPropClsCode.label}"
+                                                    required="#{bindings.ShpPropClsCode.hints.mandatory}"
+                                                    shortDesc="#{bindings.ShpPropClsCode.hints.tooltip}" id="soc4"
+                                                    contentStyle="width:325px;">
+                                    <f:selectItems value="#{bindings.ShpPropClsCode.items}" id="si9"/>
+                                    <f:validator binding="#{bindings.ShpPropClsCode.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.CatSzClassCode.inputValue}"
+                                                    label="#{bindings.CatSzClassCode.label}"
+                                                    required="true"
+                                                    shortDesc="#{bindings.CatSzClassCode.hints.tooltip}" id="soc3"
+                                                    contentStyle="width:325px;">
+                                    <f:selectItems value="#{bindings.CatSzClassCode.items}" id="si8"/>
+                                    <f:validator binding="#{bindings.CatSzClassCode.validator}"/>
+                                </af:selectOneChoice>
+                                <af:inputText value="#{bindings.QntyInStock.inputValue}"
+                                              label="#{bindings.QntyInStock.hints.label}"
+                                              required="#{bindings.QntyInStock.hints.mandatory}"
+                                              columns="20"
+                                              maximumLength="#{bindings.QntyInStock.hints.precision}"
+                                              shortDesc="#{bindings.QntyInStock.hints.tooltip}" id="it4"
+                                              contentStyle="width:300px;">
+                                    <f:validator binding="#{bindings.QntyInStock.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.QntyInStock.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelGroupLayout id="pgl4" layout="vertical">
+                                <af:panelFormLayout id="pgl3" maxColumns="3" rows="2"
+                                                    inlineStyle="border-radius: 0.5em ;  border: 1px solid #ced4da;margin-bottom:5px;">
+                                    <af:selectOneRadio value="#{bindings.Available.inputValue}"
+                                                       label="#{bindings.Available.label}"
+                                                       required="#{bindings.Available.hints.mandatory}"
+                                                       shortDesc="#{bindings.Available.hints.tooltip}" id="sor1"
+                                                       layout="horizontal"
+                                                       contentStyle="height: 20px;   width: 100% !important; padding: 0.0rem 0.75rem !important; line-height: 1.5 !important;color: #003D5B !important; font-size: 14px;  font-weight: 200;  background-color: transparent !important;  background-image: none !important;  background-clip: padding-box !important;"
+                                                       labelStyle="padding-top:7px;">
+                                        <f:selectItems value="#{bindings.Available.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.Available.validator}"/>
+                                    </af:selectOneRadio>
+                                    <af:selectOneRadio value="#{bindings.Assembly.inputValue}"
+                                                       label="#{bindings.Assembly.label}"
+                                                       required="#{bindings.Assembly.hints.mandatory}"
+                                                       shortDesc="#{bindings.Assembly.hints.tooltip}" id="sor4"
+                                                       layout="horizontal" autoSubmit="true"
+                                                       contentStyle="height: 20px;   width: 100% !important; padding: 0.0rem 0.75rem !important; line-height: 1.5 !important;color: #003D5B !important; font-size: 14px;  font-weight: 200;  background-color: transparent !important;  background-image: none !important;  background-clip: padding-box !important;"
+                                                       labelStyle="padding-top:7px;">
+                                        <f:selectItems value="#{bindings.Assembly.items}" id="si6"/>
+                                        <f:validator binding="#{bindings.Assembly.validator}"/>
+                                    </af:selectOneRadio>
+                                    <af:selectOneRadio value="#{bindings.NewFlag.inputValue}"
+                                                       label="#{bindings.NewFlag.label}"
+                                                       required="#{bindings.NewFlag.hints.mandatory}"
+                                                       shortDesc="#{bindings.NewFlag.hints.tooltip}" id="sor5"
+                                                       layout="horizontal"
+                                                       contentStyle="height: 20px;   width: 100% !important; padding: 0.0rem 0.75rem !important; line-height: 1.5 !important;color: #003D5B !important; font-size: 14px;  font-weight: 200;  background-color: transparent !important;  background-image: none !important;  background-clip: padding-box !important;"
+                                                       labelStyle="padding-top:7px;">
+                                        <f:selectItems value="#{bindings.NewFlag.items}" id="si7"/>
+                                        <f:validator binding="#{bindings.NewFlag.validator}"/>
+                                    </af:selectOneRadio>
+                                    <af:selectOneRadio value="#{bindings.AppearOnlyInAss.inputValue}"
+                                                       label="#{bindings.AppearOnlyInAss.label}"
+                                                       required="#{bindings.AppearOnlyInAss.hints.mandatory}"
+                                                       shortDesc="#{bindings.AppearOnlyInAss.hints.tooltip}" id="sor3"
+                                                       layout="horizontal"
+                                                       visible="#{bindings.Assembly.inputValue=='Y'}"
+                                                       partialTriggers="sor4"
+                                                       contentStyle="height: 20px;   width: 100% !important; padding: 0.0rem 0.75rem !important; line-height: 1.5 !important;color: #003D5B !important; font-size: 14px;  font-weight: 200;  background-color: transparent !important;  background-image: none !important;  background-clip: padding-box !important;"
+                                                       labelStyle="padding-top:7px;">
+                                        <f:selectItems value="#{bindings.AppearOnlyInAss.items}" id="si3"/>
+                                        <f:validator binding="#{bindings.AppearOnlyInAss.validator}"/>
+                                    </af:selectOneRadio>
+                                    <af:selectOneRadio value="#{bindings.Hide.inputValue}"
+                                                       label="#{bindings.Hide.label}"
+                                                       required="#{bindings.Hide.hints.mandatory}"
+                                                       shortDesc="#{bindings.Hide.hints.tooltip}" id="sor2"
+                                                       layout="horizontal"
+                                                       contentStyle="height: 20px;   width: 100% !important; padding: 0.0rem 0.75rem !important; line-height: 1.5 !important;color: #003D5B !important; font-size: 14px;  font-weight: 200;  background-color: transparent !important;  background-image: none !important;  background-clip: padding-box !important;"
+                                                       labelStyle="padding-top:7px;">
+                                        <f:selectItems value="#{bindings.Hide.items}" id="si2"/>
+                                        <f:validator binding="#{bindings.Hide.validator}"/>
+                                    </af:selectOneRadio>
+                                </af:panelFormLayout>
+                                <af:panelFormLayout id="pfl2" maxColumns="1" rows="4"
+                                                    inlineStyle="border-radius: 0.5em ;  border: 1px solid #ced4da;margin-left:5px;" labelAlignment="start">
+                                    <af:selectOneChoice value="#{bindings.BasicUnit.inputValue}"
+                                                        label="#{bindings.BasicUnit.label}"
+                                                        required="true"
+                                                        shortDesc="#{bindings.BasicUnit.hints.tooltip}" id="soc2"
+                                                        autoSubmit="true" contentStyle="width:225px;">
+                                        <f:selectItems value="#{bindings.BasicUnit.items}" id="si4"/>
+                                        <f:validator binding="#{bindings.BasicUnit.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:outputText value="#{shbkshopadminviewBundle['EntertheLastpriceoftheSKUandoldpricewillbeequalsthelastprice.']}"
+                                                   id="ot1" inlineStyle="color:Maroon; font-style:italic;"/>
+                                    <af:inputText value="#{bindings.LastPrice.inputValue}"
+                                                  label="#{bindings.LastPrice.hints.label}"
+                                                  required="#{bindings.LastPrice.hints.mandatory}"
+                                                  columns="#{bindings.LastPrice.hints.displayWidth}"
+                                                  maximumLength="#{bindings.LastPrice.hints.precision}"
+                                                  shortDesc="#{bindings.LastPrice.hints.tooltip}" id="it5"
+                                                  valueChangeListener="#{SkuBdataBean.lastPriceChange}"
+                                                  autoSubmit="false" binding="#{SkuBdataBean.skuLastSavedPrice}"
+                                                  contentStyle="width:200px;">
+                                        <f:validator binding="#{bindings.LastPrice.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.LastPrice.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.OldPrice.inputValue}"
+                                                  label="#{bindings.OldPrice.hints.label}"
+                                                  required="#{bindings.OldPrice.hints.mandatory}"
+                                                  columns="#{bindings.OldPrice.hints.displayWidth}"
+                                                  maximumLength="#{bindings.OldPrice.hints.precision}"
+                                                  shortDesc="#{bindings.OldPrice.hints.tooltip}" id="it6"
+                                                  binding="#{SkuBdataBean.oldPriceFromLastPrice}" partialTriggers="it5"
+                                                  disabled="true" contentStyle="width:200px;">
+                                        <f:validator binding="#{bindings.OldPrice.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.OldPrice.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Notes.inputValue}"
+                                                  label="#{bindings.Notes.hints.label}"
+                                                  required="#{bindings.Notes.hints.mandatory}" columns="30"
+                                                  maximumLength="#{bindings.Notes.hints.precision}"
+                                                  shortDesc="#{bindings.Notes.hints.tooltip}" id="it11" rows="3"
+                                                  contentStyle="width:500px;">
+                                        <f:validator binding="#{bindings.Notes.validator}"/>
+                                    </af:inputText>
+                                    <af:panelGroupLayout id="pgl2" visible="false">
+                                        <af:inputText value="#{bindings.MaxQty.inputValue}"
+                                                      label="#{bindings.MaxQty.hints.label}"
+                                                      required="#{bindings.MaxQty.hints.mandatory}"
+                                                      columns="#{bindings.MaxQty.hints.displayWidth}"
+                                                      maximumLength="#{bindings.MaxQty.hints.precision}"
+                                                      shortDesc="#{bindings.MaxQty.hints.tooltip}" id="it7"
+                                                      partialTriggers="si4">
+                                            <f:validator binding="#{bindings.MaxQty.validator}"/>
+                                            <af:convertNumber groupingUsed="false" pattern="#{bindings.MaxQty.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.MinQty.inputValue}"
+                                                      label="#{bindings.MinQty.hints.label}"
+                                                      required="#{bindings.MinQty.hints.mandatory}"
+                                                      columns="#{bindings.MinQty.hints.displayWidth}"
+                                                      maximumLength="#{bindings.MinQty.hints.precision}"
+                                                      shortDesc="#{bindings.MinQty.hints.tooltip}" id="it8"
+                                                      partialTriggers="si4">
+                                            <f:validator binding="#{bindings.MinQty.validator}"/>
+                                            <af:convertNumber groupingUsed="false" pattern="#{bindings.MinQty.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.StepQty.inputValue}"
+                                                      label="#{bindings.StepQty.hints.label}"
+                                                      required="#{bindings.StepQty.hints.mandatory}"
+                                                      columns="#{bindings.StepQty.hints.displayWidth}"
+                                                      maximumLength="#{bindings.StepQty.hints.precision}"
+                                                      shortDesc="#{bindings.StepQty.hints.tooltip}" id="it9"
+                                                      partialTriggers="si4">
+                                            <f:validator binding="#{bindings.StepQty.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.StepQty.format}"/>
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                    <af:inputText value="#{bindings.Rate.inputValue}"
+                                                  label="#{bindings.Rate.hints.label}"
+                                                  required="#{bindings.Rate.hints.mandatory}"
+                                                  columns="#{bindings.Rate.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Rate.hints.precision}"
+                                                  shortDesc="#{bindings.Rate.hints.tooltip}" id="it3" visible="false">
+                                        <f:validator binding="#{bindings.Rate.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.ShopCatSubCode.inputValue}"
+                                                        label="#{bindings.ShopCatSubCode.label}"
+                                                        required="#{bindings.ShopCatSubCode.hints.mandatory}"
+                                                        shortDesc="#{bindings.ShopCatSubCode.hints.tooltip}" id="soc1"
+                                                        readOnly="true" rendered="false">
+                                        <f:selectItems value="#{bindings.ShopCatSubCode.items}" id="si5"/>
+                                        <f:validator binding="#{bindings.ShopCatSubCode.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputDate value="#{bindings.LastModified.inputValue}"
+                                                  label="#{bindings.LastModified.hints.label}"
+                                                  required="#{bindings.LastModified.hints.mandatory}"
+                                                  columns="#{bindings.LastModified.hints.displayWidth}"
+                                                  shortDesc="#{bindings.LastModified.hints.tooltip}" id="id1"
+                                                  rendered="false">
+                                        <f:validator binding="#{bindings.LastModified.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.LastModified.format}"/>
+                                    </af:inputDate>
+                                    <af:inputText value="#{bindings.ImgName.inputValue}"
+                                                  label="#{bindings.ImgName.hints.label}"
+                                                  required="#{bindings.ImgName.hints.mandatory}"
+                                                  columns="#{bindings.ImgName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.ImgName.hints.precision}"
+                                                  shortDesc="#{bindings.ImgName.hints.tooltip}" id="it12"
+                                                  rendered="false">
+                                        <f:validator binding="#{bindings.ImgName.validator}"/>
+                                    </af:inputText>
+                                </af:panelFormLayout>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </af:panelGroupLayout>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

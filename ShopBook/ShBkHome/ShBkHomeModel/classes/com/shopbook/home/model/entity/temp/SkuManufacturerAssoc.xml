@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuManufacturerAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="MnfCodeSkus"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.home.model.entity.Skus">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MnfCodeSkus"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.home.model.entity.Skus.Primary1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.SkuCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Skus2"
+    Cardinality="-1"
+    Owner="com.shopbook.home.model.entity.Skus">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Skus2"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.home.model.entity.Skus.SkuManufacturer"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.MnfCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

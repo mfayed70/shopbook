@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>ShBkShpAdmin.desktop</id>
+    <family>ShBkShpAdmin</family>
+    <extends>ShBkHome.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/ShBkShpAdmin/ShBkShpAdmin.css</style-sheet-name>
+    <bundle-name>com.shopbook.shopadmin.view.skinBundle</bundle-name>
+  </skin>
+  <skin>
+    <id>ShBkShopAdminSkin.desktop</id>
+    <family>ShBkShopAdminSkin</family>
+    <extends>ShBkHome.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/ShBkShopAdminSkin/ShBkShopAdminSkin.css</style-sheet-name>
+    <bundle-name>com.shopbook.shopadmin.view.skinBundle</bundle-name>
+  </skin>
+</skins>

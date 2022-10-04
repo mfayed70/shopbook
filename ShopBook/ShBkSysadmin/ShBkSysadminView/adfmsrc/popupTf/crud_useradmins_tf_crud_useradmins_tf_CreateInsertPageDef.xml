@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_useradmins_tf_crud_useradmins_tf_CreateInsertPageDef" Package="popupTf" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="UsersCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="UsersCrudVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="UsersCrudVIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

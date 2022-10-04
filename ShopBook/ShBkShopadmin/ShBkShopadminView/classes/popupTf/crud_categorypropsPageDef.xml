@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_categorypropsPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ShopSubCatsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="ShopSubCatsVIterator"/>
+    <iterator Binds="CrudShopSubCatPropClassesV1" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="CrudShopSubCatPropClassesV1Iterator"/>
+    <iterator Binds="CrudShopSubCatPropClassDetsV1" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="CrudShopSubCatPropClassDetsV1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="ShopCatCode">
+      <AttrNames>
+        <Item Value="ShopCatCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="ShopSubCatName">
+      <AttrNames>
+        <Item Value="ShopSubCatName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="SubCatImageName">
+      <AttrNames>
+        <Item Value="SubCatImageName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopSubCatPropClassesV1Iterator" id="ShopSubCatCode">
+      <AttrNames>
+        <Item Value="ShopSubCatCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopSubCatPropClassesV1Iterator" id="ShpSubCatPrpClsName">
+      <AttrNames>
+        <Item Value="ShpSubCatPrpClsName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopSubCatPropClassesV1Iterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopSubCatPropClassesV1Iterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CrudShopSubCatPropClassDetsV1Iterator" id="CrudShopSubCatPropClassDetsV1">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShopSubCatPropClassDetsV"
+                      Name="CrudShopSubCatPropClassDetsV10">
+        <AttrNames>
+          <Item Value="PropClassCode"/>
+          <Item Value="ShpSubcatPrpClsDetCode"/>
+          <Item Value="PropClsDetName"/>
+          <Item Value="Notes"/>
+          <Item Value="LastModified"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CrudShopSubCatPropClassDetsV1Iterator" id="CreateInsertCatDet"
+            InstanceName="ShBkShopAdminDataControl.CrudShopSubCatPropClassDetsV1" DataControl="ShBkShopAdminDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CrudShopSubCatPropClassesV1Iterator" id="DeleteCatPropCls"
+            InstanceName="ShBkShopAdminDataControl.CrudShopSubCatPropClassesV1" DataControl="ShBkShopAdminDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CrudShopSubCatPropClassDetsV1Iterator" id="DeleteCatPropDet"
+            InstanceName="ShBkShopAdminDataControl.CrudShopSubCatPropClassDetsV1" DataControl="ShBkShopAdminDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="CrudShopSubCatPropClassesV1Iterator" id="ShpSubCatPrpClsCode">
+      <AttrNames>
+        <Item Value="ShpSubCatPrpClsCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

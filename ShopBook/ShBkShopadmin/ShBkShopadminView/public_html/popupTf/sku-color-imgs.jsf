@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="sku-color-imgs.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" usesUpload="true">
+            <af:panelHeader text="panelHeader 1" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar">
+                    <af:navigationPane hint="buttons" id="np2">
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.SAVE}"
+                                                  actionListener="#{bindings.Commit.execute}" icon="/icons/Save.png"
+                                                  action="toBack"/>
+                        <af:commandNavigationItem id="ni3" text="#{shbkshopadminviewBundle.BACK}"
+                                                  icon="/icons/Refresh.png" action="toBack"/>
+                    </af:navigationPane>
+                </f:facet>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:outputText value="#{bindings.SkuClrCode.inputValue}"
+                               shortDesc="#{bindings.SkuClrCode.hints.tooltip}" id="ot4" rendered="false"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:separator id="s2" inlineStyle="height:8px;"/>
+                <af:inputFile id="if1" simple="true" autoSubmit="true"
+                              valueChangeListener="#{SkuClrImgBean.insImgFilesVCE}"
+                              disabled="#{bindings.SkuClrImagesVIterator.estimatedRowCount>5}"
+                              partialTriggers="t1:l2"/>
+                <af:table value="#{bindings.SkuClrImagesV.collectionModel}" var="row"
+                          rows="#{bindings.SkuClrImagesV.rangeSize}"
+                          emptyText="#{bindings.SkuClrImagesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.SkuClrImagesV.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.SkuClrImagesV.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.SkuClrImagesV.rangeSize}" id="t1"
+                          partialTriggers="::np2:ni2 ::np2:ni3 l2" varStatus="vs" width="552"
+                          columnStretching="column:c8">
+                    <af:column headerText="#{bindings.SkuClrImagesV.hints.ImgCode.label}" id="c3" width="100">
+                        <af:inputText value="#{row.bindings.ImgCode.inputValue}"
+                                      label="#{bindings.SkuClrImagesV.hints.ImgCode.label}"
+                                      required="#{bindings.SkuClrImagesV.hints.ImgCode.mandatory}"
+                                      columns="#{bindings.SkuClrImagesV.hints.ImgCode.displayWidth}"
+                                      maximumLength="#{bindings.SkuClrImagesV.hints.ImgCode.precision}"
+                                      shortDesc="#{bindings.SkuClrImagesV.hints.ImgCode.tooltip}" id="it3"
+                                      readOnly="true">
+                            <f:validator binding="#{row.bindings.ImgCode.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuClrImagesV.hints.ImgName.label}" id="c6" width="100">
+                        <af:inputText value="#{row.bindings.ImgName.inputValue}"
+                                      label="#{bindings.SkuClrImagesV.hints.ImgName.label}"
+                                      required="#{bindings.SkuClrImagesV.hints.ImgName.mandatory}"
+                                      columns="#{bindings.SkuClrImagesV.hints.ImgName.displayWidth}"
+                                      maximumLength="#{bindings.SkuClrImagesV.hints.ImgName.precision}"
+                                      shortDesc="#{bindings.SkuClrImagesV.hints.ImgName.tooltip}" id="it6">
+                            <f:validator binding="#{row.bindings.ImgName.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuClrImagesV.hints.Notes.label}" id="c8">
+                        <af:inputText value="#{row.bindings.Notes.inputValue}"
+                                      label="#{bindings.SkuClrImagesV.hints.Notes.label}"
+                                      required="#{bindings.SkuClrImagesV.hints.Notes.mandatory}"
+                                      columns="#{bindings.SkuClrImagesV.hints.Notes.displayWidth}"
+                                      maximumLength="#{bindings.SkuClrImagesV.hints.Notes.precision}"
+                                      shortDesc="#{bindings.SkuClrImagesV.hints.Notes.tooltip}" id="it8" rows="3">
+                            <f:validator binding="#{row.bindings.Notes.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuClrImagesV.hints.ImgSeq.label}" id="c5" width="100">
+                        <af:inputText value="#{row.bindings.ImgSeq.inputValue}"
+                                      label="#{bindings.SkuClrImagesV.hints.ImgSeq.label}"
+                                      required="#{bindings.SkuClrImagesV.hints.ImgSeq.mandatory}"
+                                      columns="#{bindings.SkuClrImagesV.hints.ImgSeq.displayWidth}"
+                                      maximumLength="#{bindings.SkuClrImagesV.hints.ImgSeq.precision}"
+                                      shortDesc="#{bindings.SkuClrImagesV.hints.ImgSeq.tooltip}" id="it5"
+                                      readOnly="true">
+                            <f:validator binding="#{row.bindings.ImgSeq.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column id="c1" width="90">
+                        <af:link actionListener="#{SkuClrImgBean.deleteCurrRecord}" text="Delete"
+                                 disabled="#{!bindings.Delete.enabled}" id="l2" icon="/icons/Delete.png"
+                                 inlineStyle="font-size:medium;"/>
+                    </af:column>
+                </af:table>
+                <af:panelBorderLayout id="pbl1">
+                    <af:panelBox id="pb1" disclosed="false" showDisclosure="false"
+                                 inlineStyle="height:400px;width:550px">
+                        <af:inlineFrame id="if2" inlineStyle="height:400px;width:550px;"
+                                        source="/ViewImageServlet?path=#{bindings.ImgPath}#{bindings.SkuClrImgCode}#{bindings.ImgType}"/>
+                    </af:panelBox>
+                </af:panelBorderLayout>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

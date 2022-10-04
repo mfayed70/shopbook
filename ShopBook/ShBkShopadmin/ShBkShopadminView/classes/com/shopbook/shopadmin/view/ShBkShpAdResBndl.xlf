@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.shopbook.shopadmin.view.ShBkShpAdResBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="SHOP_ADMINISTRATION">
+        <source>Shop Administration</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOP_BASIC_DATA">
+        <source>Shop Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOP_PRODUCTS">
+        <source>Shop Products</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORY_PROPERTIES">
+        <source>Category Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORIES">
+        <source>Categories</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PROPERTY_CLASSES">
+        <source>Property Classes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PROPERTY_CLASS_DETAILS">
+        <source>Property Class Details</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT___NEW_CATEGORY_PROPERTIES">
+        <source>Edit / New Category Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORY">
+        <source>Category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_NEW_CATEGORY_CLASS">
+        <source>Create New category Class</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_NEW_CLASS_DETAIL">
+        <source>Create New Class Detail</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CLEAR_CATEGORY_CLASS">
+        <source>Clear category Class</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CLEAR_CLASS_DETAIL">
+        <source>Clear Class Detail</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOP_DATA">
+        <source>Shop Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LEFT_LOGO">
+        <source>Left Logo</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RIGHT_IMAGE">
+        <source>Right Image</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GEOGRAPHIC_DATA">
+        <source>Geographic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SENDING_EMAILS_SETTINGS">
+        <source>Sending Emails settings</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_SHOP___NEW_BRANCH">
+        <source>Edit Shop / New Branch</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_NEW_BRANCH">
+        <source>Create New Branch</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT___NEW_PRODUCT">
+        <source>Edit / New Product</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BACK">
+        <source>back</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_PRODUCT">
+        <source>New Product</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_PRODUCT_BASIC_DATA">
+        <source>New Product Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_PRODUCT_BASIC_DATA">
+        <source>New Product Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_COLOR_DATA">
+        <source>Edit Color Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_NEW_COLOR">
+        <source>Create New Color</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_CURRENT_COLOR">
+        <source>Delete current color</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOR_IMAGES">
+        <source>Color Images</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLORS">
+        <source>Colors</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOR_SIZES">
+        <source>Color Sizes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_NEW_COLOR_SIZE">
+        <source>Add / Edit new color / Size</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_CURRENT_SIZE">
+        <source>Delete current size</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_PROPERTIES">
+        <source>Product Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHIPPING___DELIVERY">
+        <source>Shipping &amp; Delivery</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_PRODUCT_PROPERTIES">
+        <source>Add / Edit Product Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_CURRENT_PROPERTY">
+        <source>Delete current property</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SUCH_PRODUCT_WILL_BE_CREATED_AS_A_SET">
+        <source>such product will be created as a set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_AS_A_SET">
+        <source>Create as a set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_TO_A_SET">
+        <source>Add to a set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_IN_SETS">
+        <source>Product in Sets</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SET_PRODUCTS">
+        <source>Set Products</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE___ADD_TO_A_SET">
+        <source>Create / Add to a Set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_PRODUCT_TO_A_SET">
+        <source>Add product to a set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT_PRODUCT_BASIC_DATA">
+        <source>Edit Product Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SETS_AND_ITS_COMPONENTS">
+        <source>Sets and its components</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SETS">
+        <source>Sets</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SET_COMPONENTS">
+        <source>Set Components</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_WHOLESALE_PRICES">
+        <source>Add / Edit Wholesale prices</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_WHOLESALE_PRICES">
+        <source>Product Wholesale Prices</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_CURRENT_WHOLESALE_PRICE">
+        <source>Delete current wholesale price</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_EXIST_IN_BRANCHES">
+        <source>Product exist in branches</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE_NEW_WHOLESALE_PRICE">
+        <source>Create new wholesale price</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_SIZES___COLORS">
+        <source>Product sizes &amp; colors</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DRAG_N_DROP_ADMIN_FOR_CATEGORY">
+        <source>Drag &amp; Drop admin for category</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_CATEGORY_ADMIN">
+        <source>Delete Category admin</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AVAILABLE_ADMINS">
+        <source>Available Admins</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_NEW_ADMIN">
+        <source>Add New Admin</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORIES_BY_ADMINISTRATORS">
+        <source>Categories by Administrators</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CATEGORY_ADMINISTARTORS">
+        <source>Category Administartors</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD___EDIT_CATEGORY_ADMINISTRATOR">
+        <source>Add / Edit Category Administrator</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE_SKU_WITH_ALL_DATA">
+        <source>Delete Sku with All data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UPDATE_MISSING_SIZES">
+        <source>Update Missing Sizes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TERMS">
+        <source>Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOP_TERMS">
+        <source>Shop Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHIPPING_TERMS">
+        <source>Shipping Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RETURN_TERMS">
+        <source>Return Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="GENERAL_TERMS">
+        <source>General Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="_">
+        <source> </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT__0__0__0NEW__0SHIPPING__0TERMS">
+        <source>Edit / New Shipping Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW__0SHIPPING__0TERM">
+        <source>New Shipping Term</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW__0RETURN__0TERM">
+        <source>New Return Term</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW__0GENERAL__0TERM">
+        <source>New General Term</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT__0__0__0NEW__0RETURN__0TERM">
+        <source>Edit / New Return term</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EDIT__0__0__0NEW__0GENERAL__0TERM">
+        <source>Edit / New General Term</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REVIEW__0SHOPPING__0BAGS">
+        <source>Review Shopping Bags</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CAMPAIGNS">
+        <source>Campaigns</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REVIEW__0ORDERS">
+        <source>Review Orders</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS">
+        <source>Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORDER__0ITEMS">
+        <source>Order Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE__0__0__0BACK">
+        <source>Save &amp; Back</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL__0__0__0BACK">
+        <source>Cancel &amp; Back</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHOOSE">
+        <source>choose</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PROPCLASSITEMDET">
+        <source>Below are the lines describe category that applied to all items lied under this category and displayed in item properties.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ALL__0CATEGORIES__0ADMINS">
+        <source>All Categories Admins</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="THIS__0CATEGORY__0ADMINS">
+        <source>This Category Admins</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IMAGE__0SLIDER">
+        <source>Image Slider</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RIGHT__0__0__0LEFT__0IMAGES">
+        <source>Right &amp; Left Images</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EdithomePageImages">
+        <source>Edit home Page Images</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="contactusShopData">
+        <source>contact us - Shop Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="eachslideshouldbeofformat.jpeg.gif.pngdimensionof800x200px.">
+        <source>each slide should be of format ( .jpeg / .gif / .png) &amp; dimension of 800x200 px.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IMAGE__0SHOULD__0BE__0OF__0FORMAT__0__0__0__0JPEG__0__0__0__0GIF__0__0__0__0PNG__0__0__0__0DIMENSION__0OF__0180X180__0PX__0">
+        <source>image should be of format ( .jpeg / .gif / .png) &amp; dimension of 180x180 px.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD__0__0__0EDIT__0SHOP__0DATA">
+        <source>Add / Edit Shop Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COUNTRY__0">
+        <source>Country:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CITY__0">
+        <source>City:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADDRESS__0">
+        <source>Address:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TEL__0__0">
+        <source>Tel.:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CODE">
+        <source>Code : </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ProductData">
+        <source>Product Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT__0BASIC__0DATA">
+        <source>-Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EntertheLastpriceoftheSKUandoldpricewillbeequalsthelastprice.">
+        <source>Enter the Last price of the SKU, and old price will be equals the last price.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ProductReferences">
+        <source>Product References</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLORS__0__0SIZES__0__0__0IMAGES">
+        <source>Colors, Sizes &amp; Images</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOR__0__0__0SIZE__0NAME">
+        <source>Color / Size Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOW">
+        <source>Show</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OLD__0PRICE">
+        <source>Old Price</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LAST__0PRICE">
+        <source>Last Price</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="QTY__0IN__0STOCK">
+        <source>Qty in Stock</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DATA__0AS__0A__0SET">
+        <source>Data as a set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DESCRIPTION">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOR__0PRICE__0OVERRIDE__0PRODUCT__0PRICE__0__0AND__0SIZE__0PRICE__0OVERRIDE__0COLOR__0PRICE__0">
+        <source>Color Price override product price, and size price override color price.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOR__0PRICES__0OVERRIDE__0PRODUCT__0PRICES__0">
+        <source>Color prices override Product Prices.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SIZE__0PRICES__0OVERRIDE__0COLOR__0PRICES">
+        <source>Size prices override color prices</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Productsizeclassisaddedautomaticallytoeverycolorafterbeencreated.">
+        <source>Product size class is added automatically to every color after been created.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RemovefromSet">
+        <source>Remove from Set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YouarenotCategoryAdministratorsoyoudontseeanyproducts.">
+        <source>You are not Category Administrator, so you don't see any products.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CampaignsChangePrices">
+        <source>Campaigns/Change Prices</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CREATE__0NEW__0CAMPAIGN">
+        <source>Create New Campaign</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewCampaignBasicData">
+        <source>New Campaign Basic Data</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CampaignItems">
+        <source>Campaign Items</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AddItemtoCampaign">
+        <source>Add Item to Campaign</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ShowpricesinCampaign">
+        <source>Show prices in Campaign</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ERROR">
+        <source>Error</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MAXIMUM__0ITEMS__0TO__0BE__0SENS__0IN__0ADS__0EMAIL__0ARE__012__0ITEM__0">
+        <source>Maximum Items to be sens in Ads Email are 12 item.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MAXIMUM__0ITEMS__0TO__0BE__0SENT__0IN__0ADS__0EMAIL__0ARE__012__0ITEM__0">
+        <source>Maximum Items to be sent in Ads Email are 12 item.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CAMPAIGN__0NAME__0__0__0TYPE">
+        <source>Campaign Name &amp; Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DONE__0IN">
+        <source>Done in</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="VALID__0FROM__0__0__0TO">
+        <source>valid from : to</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PERCENTAGE">
+        <source>Percentage</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SEND__0ADS__0EMAIL__0IN">
+        <source>Send ads email in</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEM__0TYPE__0__0__0NAME">
+        <source>Item Type &amp; Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRICE__0IN__0CAMPAIGN">
+        <source>Price in Campaign</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FOR__0EVER">
+        <source>for ever</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELETE__0CAMPAIGN">
+        <source>Delete Campaign</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ARE__0YOU__0SURE__0YOU__0WANT__0TO__0DELETE__0THIS__0CAMPAIGN__0AND__0IT__0S__0ITEMS__0__0">
+        <source>are you sure you want to delete this campaign and it's items ?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="cantDeleteCampaign">
+        <source>This campaign has been applied, you can't delete it</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

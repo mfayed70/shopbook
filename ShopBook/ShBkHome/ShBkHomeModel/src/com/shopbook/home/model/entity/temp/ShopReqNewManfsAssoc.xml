@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShopReqNewManfsAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ShopCodeManufactures"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.home.model.entity.Manufactures">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ShopCodeManufactures"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.home.model.entity.Manufactures.Primary1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Manufactures.MnfCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Manufactures"
+    Cardinality="-1"
+    Owner="com.shopbook.home.model.entity.Manufactures">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Manufactures"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.home.model.entity.Manufactures.ShopReqNewManfs"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Manufactures.ShopCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

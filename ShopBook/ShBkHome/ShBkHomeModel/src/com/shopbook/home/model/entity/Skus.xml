@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Skus"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="skus"
+  AliasName="Skus"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SkuCode"
+    Precision="23"
+    ColumnName="SKU_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuName"
+    Precision="200"
+    ColumnName="SKU_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Available"
+    Precision="1"
+    ColumnName="AVAILABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Hide"
+    Precision="1"
+    ColumnName="HIDE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Rate"
+    ColumnName="RATE"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="QntyInStock"
+    ColumnName="QNTY_IN_STOCK"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastPrice"
+    ColumnName="LAST_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AppearOnlyInAss"
+    Precision="1"
+    ColumnName="APPEAR_ONLY_IN_ASS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Assembly"
+    Precision="1"
+    ColumnName="ASSEMBLY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OldPrice"
+    ColumnName="OLD_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShopCatSubCode"
+    IsNotNull="true"
+    Precision="18"
+    ColumnName="SHOP_CAT_SUB_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="18"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShpPropClsCode"
+    Precision="22"
+    ColumnName="SHP_PROP_CLS_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BrandCode"
+    Precision="6"
+    ColumnName="BRAND_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MnfCode"
+    Precision="6"
+    ColumnName="MNF_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModelCode"
+    Precision="9"
+    ColumnName="MODEL_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Year"
+    ColumnName="YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="skus"/>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NewFlag"
+    Precision="2"
+    ColumnName="NEW_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CatSzClassCode"
+    Precision="8"
+    ColumnName="CAT_SZ_CLASS_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BasicUnit"
+    Precision="4"
+    ColumnName="BASIC_UNIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MaxQty"
+    ColumnName="MAX_QTY"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MinQty"
+    ColumnName="MIN_QTY"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StepQty"
+    ColumnName="STEP_QTY"
+    SQLType="DOUBLE"
+    Type="java.math.BigDecimal"
+    ColumnType="DOUBLE"
+    TableName="skus">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Skus"
+    Association="com.shopbook.home.model.entity.temp.SkuYearAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuYearAssoc.Skus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuYearAssoc.YearSkus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="YearSkus"
+    Association="com.shopbook.home.model.entity.temp.SkuYearAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuYearAssoc.YearSkus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuYearAssoc.Skus"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus1"
+    Association="com.shopbook.home.model.entity.temp.ShpCatPropClsToShuAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.ShpCatPropClsToShuAssoc.Skus1"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.ShpCatPropClsToShuAssoc.ShpPropClsCodeSkus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ShpPropClsCodeSkus"
+    Association="com.shopbook.home.model.entity.temp.ShpCatPropClsToShuAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.ShpCatPropClsToShuAssoc.ShpPropClsCodeSkus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.ShpCatPropClsToShuAssoc.Skus1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus2"
+    Association="com.shopbook.home.model.entity.temp.SkuManufacturerAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuManufacturerAssoc.Skus2"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuManufacturerAssoc.MnfCodeSkus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MnfCodeSkus"
+    Association="com.shopbook.home.model.entity.temp.SkuManufacturerAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuManufacturerAssoc.MnfCodeSkus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuManufacturerAssoc.Skus2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus3"
+    Association="com.shopbook.home.model.entity.temp.CatSizeClassesToSkusAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.CatSizeClassesToSkusAssoc.Skus3"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.CatSizeClassesToSkusAssoc.CatSzClassCodeSkus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="CatSzClassCodeSkus"
+    Association="com.shopbook.home.model.entity.temp.CatSizeClassesToSkusAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.CatSizeClassesToSkusAssoc.CatSzClassCodeSkus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.CatSizeClassesToSkusAssoc.Skus3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus4"
+    Association="com.shopbook.home.model.entity.temp.SkuModelAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuModelAssoc.Skus4"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuModelAssoc.ModelCodeSkus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ModelCodeSkus"
+    Association="com.shopbook.home.model.entity.temp.SkuModelAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuModelAssoc.ModelCodeSkus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuModelAssoc.Skus4"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Skus5"
+    Association="com.shopbook.home.model.entity.temp.SkuBrandAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuBrandAssoc.Skus5"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuBrandAssoc.BrandCodeSkus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="BrandCodeSkus"
+    Association="com.shopbook.home.model.entity.temp.SkuBrandAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuBrandAssoc.BrandCodeSkus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuBrandAssoc.Skus5"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SkuColors"
+    Association="com.shopbook.home.model.entity.assoc.SkuToColorsAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuToColorsAssoc.SkuColors"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuToColorsAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SkuPropDets"
+    Association="com.shopbook.home.model.entity.assoc.SkuToSkuPropAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuToSkuPropAssoc.SkuPropDets"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuToSkuPropAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SkuUnits"
+    Association="com.shopbook.home.model.entity.assoc.SkuToSkuUnitAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuToSkuUnitAssoc.SkuUnits"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuToSkuUnitAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SkuAssemblyComps1"
+    Association="com.shopbook.home.model.entity.assoc.MainSkuToAssemblyAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.MainSkuToAssemblyAssoc.SkuAssemblyComps1"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.MainSkuToAssemblyAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SkuCompAssemblies1"
+    Association="com.shopbook.home.model.entity.assoc.SkuToAssCompAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuToAssCompAssoc.SkuCompAssemblies1"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuToAssCompAssoc.SkuAssCompSkuCompAssemblies"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SkuSizes"
+    Association="com.shopbook.home.model.entity.temp.SkuToSkuSizesAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.SkuToSkuSizesAssoc.SkuSizes"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.SkuToSkuSizesAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Posts4"
+    Association="com.shopbook.home.model.entity.assoc.SkuPostAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuPostAssoc.Posts4"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuPostAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ShopSubCats"
+    Association="com.shopbook.home.model.entity.temp.ShopCatToSubCatAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.temp.ShopCatToSubCatAssoc.ShopSubCats"
+    AssociationOtherEnd="com.shopbook.home.model.entity.temp.ShopCatToSubCatAssoc.Skus"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.SkuCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CatSizeClassesToSkus">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CAT_SIZE_CLASSES_TO_SKUS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.CatSzClassCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShopcatSku">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SHOPCAT_SKU"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.ShopCatSubCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShpCatPropClsToShu">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SHP_CAT_PROP_CLS_TO_SHU"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.ShpPropClsCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuBrand">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_BRAND"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.BrandCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuManufacturer">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_MANUFACTURER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.MnfCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuModel">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_MODEL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.ModelCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuYear">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_YEAR"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.Skus.Year"/>
+    </AttrArray>
+  </Key>
+</Entity>

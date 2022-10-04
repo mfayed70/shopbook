@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_shopproducts_tf_crud_shopproducts_tf_SetCurrentRowWithKeyValuePageDef" Package="popupTf"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CrudSkuColorsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudSkuColorsVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CrudSkuColorsVIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.vSkuClrCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

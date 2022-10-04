@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="newHmSkuV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.home.model.view.newHmSkuV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="p0BrandCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="p1ModelCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="p2MnfCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="2"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="p3Year"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="3"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="pSrchTxt"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p4ClrCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="4"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="p5SzDetCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="5"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="p6ShopCatSubCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="6"/>
+    </AttrArray>
+  </Variable>
+  <SQLQuery><![CDATA[SELECT 
+    sku_colors.SKU_CLR_CODE SKU_CLR_CODE, 
+    sku_colors.SKU_CODE SKU_CODE, 
+    sku_colors.RATE RATE, 
+    sku_colors.CLR_NAME CLR_NAME, 
+    sku_colors.LAST_PRICE SKC_LAST_PRICE, 
+    sku_colors.OLP_PRICE SKC_OLD_PRICE, 
+    sku_colors.CLR_CODE CLR_CODE,
+    skus.SKU_NAME SKU_NAME, 
+    skus.OLD_PRICE OLD_PRICE, 
+    skus.LAST_PRICE LAST_PRICE, 
+    skus.BRAND_CODE BRAND_CODE, 
+    skus.MNF_CODE MNF_CODE, 
+    skus.MODEL_CODE MODEL_CODE, 
+    skus.YEAR YEAR, 
+    min(CONCAT(sku_clr_images.IMG_PATH, sku_clr_images.SKU_CLR_IMG_CODE, sku_clr_images.IMG_TYPE)) FULL_PATH 
+FROM 
+    sku_colors JOIN skus USING (SKU_CODE)
+    LEFT JOIN sku_clr_images USING (sku_clr_code)
+    LEFT JOIN sku_size_colors USING (sku_clr_code)
+WHERE sku_colors.CLR_NAME <>'RESERVED' 
+    and xyz(brand_code,?)='Y'
+    and xyz(model_code,?)='Y'
+    and xyz(mnf_code,?)='Y'
+    and xyz(YEAR,?)='Y'
+    and xyz(clr_name,?)='Y'
+    and xyz(substr(sku_size_code,-6),?)='Y' 
+    and xyz(shop_cat_sub_code,get_cat_tree(?))='Y'
+    group by 
+    sku_colors.SKU_CLR_CODE, 
+    sku_colors.SKU_CODE, 
+    sku_colors.RATE, 
+    sku_colors.CLR_NAME, 
+    sku_colors.LAST_PRICE, 
+    sku_colors.OLP_PRICE, 
+    skus.SKU_NAME, 
+    skus.OLD_PRICE, 
+    skus.LAST_PRICE, 
+    skus.BRAND_CODE, 
+    skus.MNF_CODE, 
+    skus.MODEL_CODE, 
+    skus.YEAR]]></SQLQuery>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SKU_CLR_CODE"
+    Expression="SKU_CLR_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="23"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CODE"
+    Expression="SKU_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="RATE"
+    Expression="RATE"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ClrName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CLR_NAME"
+    Expression="CLR_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkcLastPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="SKC_LAST_PRICE"
+    Expression="SKC_LAST_PRICE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkcOldPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="SKC_OLD_PRICE"
+    Expression="SKC_OLD_PRICE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CLR_CODE"
+    Expression="CLR_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_NAME"
+    Expression="SKU_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OldPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="OLD_PRICE"
+    Expression="OLD_PRICE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="LAST_PRICE"
+    Expression="LAST_PRICE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BrandCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="BRAND_CODE"
+    Expression="BRAND_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MnfCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="MNF_CODE"
+    Expression="MNF_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModelCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="MODEL_CODE"
+    Expression="MODEL_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="YEAR"
+    Expression="YEAR"
+    SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FullPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="155"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FULL_PATH"
+    Expression="FULL_PATH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="155"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="clrPriceDiffer"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[if (SkcLastPrice!= null && SkcOldPrice !=null) {
+return 100 - ((SkcLastPrice/SkcOldPrice)*100) }
+else {return null}]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FlagClrPriceDiffer"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[if (clrPriceDiffer==0) {
+return "New"}
+else if (clrPriceDiffer<0) {
+return "   "}
+else {return clrPriceDiffer+"%Off"}]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="SrchTxtNewHmSkuVCriteria"
+    ViewObjectName="com.shopbook.home.model.view.newHmSkuV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="newHmSkuVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SkuName"
+        ViewAttribute="SkuName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":pSrchTxt"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SkuClrCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

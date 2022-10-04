@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="../newSlider/js/jquery.nivo.slider.pack.js"></script>
+<script>
+	$(window).load(function() {
+		$('#slider').nivoSlider({
+			effect: 'random',
+			directionNavHide: false,
+			pauseOnHover: true,
+			captionOpacity: 1,
+			prevText: '',
+			nextText: ''
+		});
+	});
+</script>
+ <f:view>
+  <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+    <link rel="stylesheet" href="../newSlider/css/nivo-slider.css" media="screen"/>
+    <link rel="stylesheet" href="../newSlider/css/futurico-theme.css" media="screen"/>
+    <!-- originally #wrapper{padding: 50px 0 0 225px;}-->
+    <style type="text/css">body{background:#ffffff repeat;width:800px;margin:0px auto}.footer{margin-top:100px;
+        text-align:center;color:#ffffff;font:bold 14px Arial}.footer a{color:#ffffff;text-decoration:none}#wrapper{padding: 0 0 0 0;}</style>
+   </head>
+   <body>
+    <div id="wrapper"> 
+ 
+      <div class="slider-wrapper futurico-theme"> 
+     <div id="slider" class="nivoSlider"> 
+      
+      <af:image id="img1" source="/ViewImageServlet?path=#{bindings.ImageSlide1.inputValue}"/>      
+       <!--<img src="/ViewImageServlet?path=#{bindings.ImageSlide1.inputValue}" alt=" " title="#caption1" height="287" width="890"/>-->  
+      <af:image id="img2" source="/ViewImageServlet?path=#{bindings.ImageSlide2.inputValue}"/> 
+       <!--<img src="#{bindings.ImageSlide2.inputValue}" alt=" " title="#caption2" height="287" width="890"/>-->
+      <af:image id="img3" source="/ViewImageServlet?path=#{bindings.ImageSlide3.inputValue}"/>        
+       <!--<img src="#{bindings.ImageSlide3.inputValue}" alt=" " title="#caption3"/>-->
+      <af:image id="img4" source="/ViewImageServlet?path=#{bindings.ImageSlide4.inputValue}"/>        
+       <!--<img src="#{bindings.ImageSlide4.inputValue}" alt=" " title="#caption4"/>-->
+      <af:image id="img5" source="/ViewImageServlet?path=#{bindings.ImageSlide5.inputValue}"/>        
+       <!--<img src="#{bindings.ImageSlide5.inputValue}" alt=" " title="#caption5"/>-->
+      </div> 
+      <div id="caption1" class="nivo-html-caption">
+       <af:outputText id="ot1" value="#{bindings.ImageSlide1cap.inputValue}"/>
+      </div>
+      <div id="caption2" class="nivo-html-caption">
+       <af:outputText id="ot2" value="#{bindings.ImageSlide2cap.inputValue}"/>
+      </div>
+      <div id="caption3" class="nivo-html-caption">
+       <af:outputText id="ot3" value="#{bindings.ImageSlide3cap.inputValue}"/>
+      </div>
+      <div id="caption4" class="nivo-html-caption">
+       <af:outputText id="ot4" value="#{bindings.ImageSlide4cap.inputValue}"/>
+      </div>
+      <div id="caption5" class="nivo-html-caption">
+       <af:outputText id="ot5" value="#{bindings.ImageSlide5cap.inputValue}"/>
+      </div>
+     </div> 
+    </div> 
+   </body>
+  </html>
+ </f:view>
+</ui:composition>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuPropDetsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT SkuPropDets.SKU_CODE, 
+       SkuPropDets.SHP_SUBCAT_PRP_CLS_DET_CODE, 
+       SkuPropDets.SKU_PROP_DET_CODE, 
+       SkuPropDets.SKU_PROP_DET_NAME, 
+       SkuPropDets.HIDE, 
+       SkuPropDets.NOTES, 
+       SkuPropDets.LAST_MODIFIED
+FROM  sku_prop_dets SkuPropDets
+where substr(sku_prop_det_code,-5) != '00000']]></SQLQuery>
+  <EntityUsage
+    Name="SkuPropDets"
+    Entity="com.shopbook.shopadmin.model.entity.SkuPropDets"/>
+  <ViewAttribute
+    Name="SkuCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuCode"
+    EntityUsage="SkuPropDets"
+    AliasName="SKU_CODE"/>
+  <ViewAttribute
+    Name="ShpSubcatPrpClsDetCode"
+    PrecisionRule="true"
+    EntityAttrName="ShpSubcatPrpClsDetCode"
+    EntityUsage="SkuPropDets"
+    AliasName="SHP_SUBCAT_PRP_CLS_DET_CODE"/>
+  <ViewAttribute
+    Name="SkuPropDetCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuPropDetCode"
+    EntityUsage="SkuPropDets"
+    AliasName="SKU_PROP_DET_CODE"/>
+  <ViewAttribute
+    Name="SkuPropDetName"
+    PrecisionRule="true"
+    EntityAttrName="SkuPropDetName"
+    EntityUsage="SkuPropDets"
+    AliasName="SKU_PROP_DET_NAME"/>
+  <ViewAttribute
+    Name="Hide"
+    PrecisionRule="true"
+    EntityAttrName="Hide"
+    EntityUsage="SkuPropDets"
+    AliasName="HIDE"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="SkuPropDets"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="SkuPropDets"
+    AliasName="LAST_MODIFIED"/>
+</ViewObject>

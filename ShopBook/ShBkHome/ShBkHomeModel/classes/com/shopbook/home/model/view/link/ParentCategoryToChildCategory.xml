@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ParentCategoryToChildCategory"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.home.model.view.link.ParentCategoryToChildCategory_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="IndexParentCategories"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.home.model.view.IndexParentCategories">
+    <DesignTime>
+      <Attr Name="_finderName" Value="IndexParentCategories"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.view.IndexParentCategories.ChildParentCategory"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="IndexChildCategories"
+    Cardinality="-1"
+    Owner="com.shopbook.home.model.view.IndexChildCategories">
+    <DesignTime>
+      <Attr Name="_finderName" Value="IndexChildCategories"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.view.IndexChildCategories.ParentCategory"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

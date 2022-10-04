@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="sets_components_tf_sets_components_tf_DeletePageDef" Package="popupTf" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SkuSetCompsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkuSetCompsVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SkuSetCompsVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

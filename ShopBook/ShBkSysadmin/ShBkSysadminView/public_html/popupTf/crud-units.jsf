@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="#{shbksysadminviewBundle.EDIT___NEW_UNIT}" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbksysadminviewBundle.EDIT___NEW_UNIT}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbksysadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" partialSubmit="true" action="toCommit"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbksysadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" partialSubmit="true" action="toCancel"/>
+                        <af:commandNavigationItem text="#{shbksysadminviewBundle.CLEAR__0UNIT__0RECORD}" id="cni1"
+                                                  icon="/icons/Delete.png" action="toCommit"
+                                                  actionListener="#{bindings.Delete.execute}"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.FromUnit.inputValue}" label="#{bindings.FromUnit.hints.label}"
+                                  required="#{bindings.FromUnit.hints.mandatory}"
+                                  columns="#{bindings.FromUnit.hints.displayWidth}"
+                                  maximumLength="#{bindings.FromUnit.hints.precision}"
+                                  shortDesc="#{bindings.FromUnit.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.FromUnit.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.UnitName.inputValue}" label="#{bindings.UnitName.hints.label}"
+                                  required="#{bindings.UnitName.hints.mandatory}"
+                                  columns="30"
+                                  maximumLength="#{bindings.UnitName.hints.precision}"
+                                  shortDesc="#{bindings.UnitName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.UnitName.validator}"/>
+                    </af:inputText>
+                    <af:selectOneRadio value="#{bindings.BasicUnit.inputValue}" label="#{bindings.BasicUnit.label}"
+                                       required="#{bindings.BasicUnit.hints.mandatory}"
+                                       shortDesc="#{bindings.BasicUnit.hints.tooltip}" id="sor1" autoSubmit="true">
+                        <f:selectItems value="#{bindings.BasicUnit.items}" id="si2"/>
+                        <f:validator binding="#{bindings.BasicUnit.validator}"/>
+                    </af:selectOneRadio>
+                    <af:inputText value="#{bindings.MultiplyBy.inputValue}" label="#{bindings.MultiplyBy.hints.label}"
+                                  required="#{bindings.MultiplyBy.hints.mandatory}"
+                                  columns="#{bindings.MultiplyBy.hints.displayWidth}"
+                                  maximumLength="#{bindings.MultiplyBy.hints.precision}"
+                                  shortDesc="#{bindings.MultiplyBy.hints.tooltip}" id="it4"
+                                  visible="#{bindings.BasicUnit1.inputValue=='N'}" partialTriggers="sor1">
+                        <f:validator binding="#{bindings.MultiplyBy.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.MultiplyBy.format}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.ToUnit.inputValue}" label="#{bindings.ToUnit.label}"
+                                        required="#{bindings.ToUnit.hints.mandatory}"
+                                        shortDesc="#{bindings.ToUnit.hints.tooltip}" id="soc1"
+                                        visible="#{bindings.BasicUnit1.inputValue=='N'}" partialTriggers="sor1">
+                        <f:selectItems value="#{bindings.ToUnit.items}" id="si1"/>
+                        <f:validator binding="#{bindings.ToUnit.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.MinQty.inputValue}" label="#{bindings.MinQty.hints.label}"
+                                  required="#{bindings.MinQty.hints.mandatory}"
+                                  columns="#{bindings.MinQty.hints.displayWidth}"
+                                  maximumLength="#{bindings.MinQty.hints.precision}"
+                                  shortDesc="#{bindings.MinQty.hints.tooltip}" id="it8">
+                        <f:validator binding="#{bindings.MinQty.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.MinQty.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.StepQty.inputValue}" label="#{bindings.StepQty.hints.label}"
+                                  required="#{bindings.StepQty.hints.mandatory}"
+                                  columns="#{bindings.StepQty.hints.displayWidth}"
+                                  maximumLength="#{bindings.StepQty.hints.precision}"
+                                  shortDesc="#{bindings.StepQty.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.StepQty.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.StepQty.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.MaxQty.inputValue}" label="#{bindings.MaxQty.hints.label}"
+                                  required="#{bindings.MaxQty.hints.mandatory}"
+                                  columns="#{bindings.MaxQty.hints.displayWidth}"
+                                  maximumLength="#{bindings.MaxQty.hints.precision}"
+                                  shortDesc="#{bindings.MaxQty.hints.tooltip}" id="it7">
+                        <f:validator binding="#{bindings.MaxQty.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.MaxQty.format}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

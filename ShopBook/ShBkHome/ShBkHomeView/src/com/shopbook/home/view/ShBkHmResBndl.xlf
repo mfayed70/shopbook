@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.shopbook.home.view.ShBkHmResBndl" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="HOME">
+        <source>Home</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_WISHES_LIST">
+        <source>Your Wishes List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LANGUAGE">
+        <source>Language</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TEST__BUNDLE">
+        <source>Test Bundle</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_WHOLESALE_PRICES">
+        <source>Product Wholesale prices</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_PROPERTIES">
+        <source>Product Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RETURN_POLICY">
+        <source>Return Policy</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_CATEGORIZED">
+        <source>Product Categorized</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IS_A_SET">
+        <source>is a set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BACK_TO_A_SET">
+        <source>Back to a Set</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RESET_PASSWORD">
+        <source>Reset Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONFIRM_PASSWORD">
+        <source>Confirm Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NEW_PASSWORD">
+        <source>New Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD_MISMATCH__PLEASE_TRY_AGAIN_">
+        <source>password mismatch, Please try again.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD_SHOULD_BE_6_CHARACTERS_LONG_">
+        <source>Password should be 6 characters long.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="THIS_PAGE_IS_EXPIRED__KINDLY_USE_THE_LINK_SEND_TO_YOUR_EMAIL_">
+        <source>This page is expired, kindly use the last link send to your email.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SIGN_UP">
+        <source>Sign-up</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_BAG">
+        <source>Your Bag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SUBMIT">
+        <source>Submit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>Cancel</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EMAIL_ADDRESS">
+        <source>Email Address</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PASSWORD">
+        <source>Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="INFO_">
+        <source>Info.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="A_VERIFICATION_EMAIL_HAS_BEEN_SENT_TO_YOUR_EMAIL__KINDLY_USE_IN_CONTENT_LINK_TO_VERIFY_YOUR_SELF_">
+        <source>A verification email has been sent to your email.\nKindly use in content link to verify your self.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="THIS_EMAIL_IS_INVALID__PLEASE_REVIEW_YOUR_EMAIL_AND_TRY_AGAIN_">
+        <source>This email is invalid, Please review your email and try again.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FORGOT_PASSWORD">
+        <source>Forgot password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONTACT_US">
+        <source>Contact us</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REVIEWS">
+        <source>Reviews</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="POST">
+        <source>post</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOPPING_BAG">
+        <source>Shopping Bag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ADD_TO_BAG">
+        <source>Add to Bag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SKUSLASTPRICE">
+        <source>#{skus.LastPrice}</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UPDATING">
+        <source>UPDATING</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REMOVE">
+        <source>Remove</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_SHOPPING_BAG">
+        <source>Your Shopping Bag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="REFRESH">
+        <source>Refresh</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ORDER_SUMMARY">
+        <source>Order Summary</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="__AND_IT_COSTS_">
+        <source>, and it costs </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="__OF_TOTAL_ORDER_VALUE_">
+        <source>% of total order value.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOUR__">
+        <source>Colour :</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SIZES">
+        <source>Sizes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELIVERY_METHOD">
+        <source>Delivery Method</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOG_OUT">
+        <source>Log out</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN_SIGN_UP">
+        <source>Login / Sign-up</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN">
+        <source>Login</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WELCOME_TO_OUR_E_SHOPPING">
+        <source>Welcome to our e-Commerce </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="WELCOME">
+        <source>Welcome</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHANGE">
+        <source>change</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CHANGE_PASSWORD">
+        <source>Change Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="password">
+        <source>password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="confirm_password">
+        <source>confirm password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FilterBy">
+        <source>Filter By</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BRANDS">
+        <source>Brands</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MODELS">
+        <source>Models</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MANUFACTURER">
+        <source>Manufacturer</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="COLOR">
+        <source>Color</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SIZE">
+        <source>Size</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_PROFILE">
+        <source>Your Profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGOUT">
+        <source>Logout</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SelectQuantity">
+        <source>Select Quantity</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IN_STOCK">
+        <source>In Stock</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN__TO_ADD_TO_BAG">
+        <source>Login, to add to Bag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PRODUCT_NAME">
+        <source>Product Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="APPLY">
+        <source>Apply</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YEAR">
+        <source>Year</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="IS_A_SET__SHOW_DETAILS">
+        <source>is a set, show details</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="EXIST_IN_SETS__SHOW">
+        <source>exist in sets, show</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ShippingDeliveryTerms">
+        <source>Shipping &amp; Delivery Terms</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="NewGuest">
+        <source>New Guest ?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="FORGET_PASSWORD_">
+        <source>Forget Password </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ENTER_YOUR_EMAIL__AND_WE_WILL_SEND_YOU_AN_EMAIL_CONTAINS_LINK_TO_RESET_YOUR_PASSWORD">
+        <source>enter your email, we will send you an email contains link to reset your password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="QTY">
+        <source>Qty</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="UNIT_PRICE">
+        <source>Unit Price</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TOTAL_PRICE">
+        <source>Total Price</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CheckoutSecurely">
+        <source>Checkout Securely</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONTINUE_SHOOPING">
+        <source>Continue Shooping</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="OKAY">
+        <source>Okay</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DELIVERY_ADDRESS">
+        <source>Delivery Address</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONTINUE_CHECKOUT">
+        <source>Continue Checkout</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DeliveryCost">
+        <source>Delivery Cost</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ITEMS_COST">
+        <source>Items Cost</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CASH_ON_DELIVERY">
+        <source>Cash on Delivery</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PAY_BY_CARD">
+        <source>Pay by Card</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TOTAL_COST">
+        <source>Total Cost</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ServingOrders">
+        <source>Serving Orders</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RECEIVED_ORDERS">
+        <source>Received Orders</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="selectCity">
+        <source>&lt;select City&gt;</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="pCity_null">
+        <source>&lt;ALL&gt;</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SearchOrders">
+        <source>Search Orders</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SEARCH">
+        <source>search</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="pTrnsStus_null">
+        <source>&lt;ALL&gt;</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHOW_CODES">
+        <source>Show Codes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="HIDE_CODES">
+        <source>Hide Codes</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="THANK_YOU_">
+        <source>Thank you.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_ORDER_HAS_BEEN_PLACED_">
+        <source>Your order has been placed.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SORRY__THERE_ARE_NO_ITEMS_MATCH_YOUR_SEARCH_">
+        <source>Sorry, there are no items match your search.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHARE_ON_FACEBOOK">
+        <source>Share on Facebook</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SHARE_ON_TWITTER">
+        <source>Share on Twitter</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PART_OF_SETS">
+        <source>Part of Sets</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CONSISTS_OF">
+        <source>Consits of</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

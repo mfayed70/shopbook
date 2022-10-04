@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logging_configuration>
+    <loggers>
+        <logger name="oracle.adf.model.log.AMPoolLifecycle"/>
+        <logger name="oracle.adf.model.log.LobDomain"/>
+        <logger name="oracle.adf.model.log.SQLBuilder"/>
+        <logger name="oracle.adf.model.log.DataChangeEvent"/>
+        <logger name="oracle.adf.model.log.JPXSettings"/>
+        <logger name="oracle.adf.model.log.GlobalGroovyFunctions"/>
+        <logger name="oracle.adf.model.log.ApplicationScript" />
+        <logger name="oracle.adf.model.log.FrameManagement"/>
+        <logger name="oracle.adf.model.log.BusEvent"/>
+        <logger name="oracle.adf.model.log.DefaultValueSerializer"/>
+        <!--
+            BEGIN SECTION: ADFm Business Editor Functional Loggers
+         -->
+        <logger name="oracle.adf.model.businesseditor.log"/>
+        <!-- configuration -->
+        <logger name="oracle.adf.model.businesseditor.log.Settings"/>
+        <!-- Allocation/Management/Migration of objects in the
+             Business Editor database dictionary -->
+        <logger name="oracle.adf.model.businesseditor.log.dictionary"/>
+        <logger name="oracle.adf.model.businesseditor.log.dictionary.Allocation"/>
+        <logger name="oracle.adf.model.businesseditor.log.dictionary.Lookups"/>
+        <logger name="oracle.adf.model.businesseditor.log.dictionary.Migration"/>
+        <!-- Supported customization functions -->
+        <logger name="oracle.adf.model.businesseditor.log.customization"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.BusinessObjects"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.Fields"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.logic"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.logic.Functions"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.logic.Triggers"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.logic.ValidationRules"/>
+        <logger name="oracle.adf.model.businesseditor.log.customization.WebServices"/>
+        <!--
+            END SECTION: ADFm Business Editor Functional Loggers
+         -->
+        <logger name="oracle.adfdebugdiagnostics"/>
+    </loggers>
+</logging_configuration>

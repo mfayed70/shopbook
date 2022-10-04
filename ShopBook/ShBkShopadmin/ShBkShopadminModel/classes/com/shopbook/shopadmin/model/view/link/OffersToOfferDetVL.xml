@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OffersToOfferDetVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.shopbook.shopadmin.model.entity.assoc.OffersToOfferDetAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.link.OffersToOfferDetVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="Offers"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.shopadmin.model.view.Offers">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Offers"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.Offers.OfferMastId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="OfferDets"
+    Cardinality="-1"
+    Owner="com.shopbook.shopadmin.model.view.OfferDets">
+    <DesignTime>
+      <Attr Name="_finderName" Value="OfferDets"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.OfferDets.OfferId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

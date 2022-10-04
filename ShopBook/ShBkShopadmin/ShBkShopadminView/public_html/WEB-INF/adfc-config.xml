@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource id="__28"></metadata-resource>
+  <view id="shopadmin">
+    <redirect/>
+  </view>
+  <view id="shopbasicdata">
+    <page>/shopbasicdata.jsf</page>
+    <redirect/>
+  </view>
+  <view id="categoryproperties">
+    <page>/categoryproperties.jsf</page>
+    <redirect/>
+  </view>
+  <view id="shopproducts">
+    <page>/shopproducts.jsf</page>
+    <redirect/>
+  </view>
+  <task-flow-call id="crud-categoryproperties-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-categoryproperties-tf.xml</document>
+      <id>crud-categoryproperties-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__12">
+      <name>catPropsAction</name>
+      <value>#{pageFlowScope.catPropsAction}</value>
+    </input-parameter>
+    <input-parameter id="__27">
+      <name>vCatPropClsCode</name>
+      <value>#{pageFlowScope.vCatPropClsCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-shop-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-shop-tf.xml</document>
+      <id>crud-shop-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__14">
+      <name>vShopCode</name>
+      <value>#{pageFlowScope.vShopCode}</value>
+    </input-parameter>
+    <input-parameter id="__15">
+      <name>shopCrudAction</name>
+      <value>#{pageFlowScope.shopCrudAction}</value>
+    </input-parameter>
+    <input-parameter id="__18">
+      <name>vParentShopCode</name>
+      <value>#{pageFlowScope.vParentShopCode}</value>
+    </input-parameter>
+    <input-parameter id="__19">
+      <name>vLevel</name>
+      <value>#{pageFlowScope.vLevel}</value>
+    </input-parameter>
+    <input-parameter id="__57">
+      <name>vWhat</name>
+      <value>#{pageFlowScope.vWhat}</value>
+    </input-parameter>
+    <return-value id="__20">
+      <name>rShopCode</name>
+      <value>#{pageFlowScope.rShopCode}</value>
+    </return-value>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-shopproducts-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-shopproducts-tf.xml</document>
+      <id>crud-shopproducts-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__24">
+      <name>shpPrdcCrudAction</name>
+      <value>#{pageFlowScope.shpPrdcCrudAction}</value>
+    </input-parameter>
+    <input-parameter id="__11">
+      <name>vShopSubCatCode</name>
+      <value>#{pageFlowScope.vShopSubCatCode}</value>
+    </input-parameter>
+    <input-parameter id="__25">
+      <name>vSkuCode</name>
+      <value>#{pageFlowScope.vSkuCode}</value>
+    </input-parameter>
+    <input-parameter id="__26">
+      <name>vSkuClrCode</name>
+      <value>#{pageFlowScope.vSkuClrCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <view id="campaigns">
+    <page>/campaigns.jsf</page>
+    <redirect/>
+  </view>
+  <task-flow-call id="crud-cat-admin-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-cat-admin-tf.xml</document>
+      <id>crud-cat-admin-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__31">
+      <name>pUserId</name>
+      <value>#{pageFlowScope.pUserId}</value>
+    </input-parameter>
+    <input-parameter id="__32">
+      <name>pAction</name>
+      <value>#{pageFlowScope.pAction}</value>
+    </input-parameter>
+    <input-parameter id="__56">
+      <name>pCatName</name>
+      <value>#{pageFlowScope.pCatName}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <view id="terms">
+    <page>/terms.jsf</page>
+    <redirect/>
+  </view>
+  <task-flow-call id="crud-shipping-terms-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-shipping-terms-tf.xml</document>
+      <id>crud-shipping-terms-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__38">
+      <name>shippingAction</name>
+      <value>#{pageFlowScope.shippingAction}</value>
+    </input-parameter>
+    <input-parameter id="__39">
+      <name>pScode</name>
+      <value>#{pageFlowScope.pScode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-return-terms-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-return-terms-tf.xml</document>
+      <id>crud-return-terms-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__42">
+      <name>returnAction</name>
+      <value>#{pageFlowScope.returnAction}</value>
+    </input-parameter>
+    <input-parameter id="__43">
+      <name>pRcode</name>
+      <value>#{pageFlowScope.pRcode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-general-terms-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-general-terms-tf.xml</document>
+      <id>crud-general-terms-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__40">
+      <name>pGcode</name>
+      <value>#{pageFlowScope.pGcode}</value>
+    </input-parameter>
+    <input-parameter id="__41">
+      <name>generalAction</name>
+      <value>#{pageFlowScope.generalAction}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <view id="reviewshoppingbags">
+    <page>/reviewshoppingbags.jsf</page>
+  </view>
+  <view id="orderDetails">
+    <page>/orderDetails.jsf</page>
+  </view>
+  <method-call id="Commit">
+    <method>#{bindings.Commit.execute}</method>
+    <outcome>
+      <fixed-outcome>Commit</fixed-outcome>
+    </outcome>
+  </method-call>
+  <method-call id="Rollback">
+    <method>#{bindings.Rollback.execute}</method>
+    <outcome>
+      <fixed-outcome>Rollback</fixed-outcome>
+    </outcome>
+  </method-call>
+  <task-flow-call id="crudSkuBdata">
+    <task-flow-reference>
+      <document>/popupTf/crudSkuBdata.xml</document>
+      <id>crudSkuBdata</id>
+    </task-flow-reference>
+    <input-parameter id="__59">
+      <name>vCrudSkuAction</name>
+      <value>#{pageFlowScope.vCrudSkuAction}</value>
+    </input-parameter>
+    <input-parameter id="__60">
+      <name>vShopSubCatCode</name>
+      <value>#{pageFlowScope.vShopSubCatCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <control-flow-rule id="__1">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>adfMenu_shopadmin</from-outcome>
+      <to-activity-id>shopadmin</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>adfMenu_shopbasicdata</from-outcome>
+      <to-activity-id>shopbasicdata</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>adfMenu_categoryproperties</from-outcome>
+      <to-activity-id>categoryproperties</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__5">
+      <from-outcome>adfMenu_shopproducts</from-outcome>
+      <to-activity-id>shopproducts</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__29">
+      <from-outcome>adfMenu_campaigns</from-outcome>
+      <to-activity-id>campaigns</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__33">
+      <from-outcome>adfMenu_terms</from-outcome>
+      <to-activity-id>terms</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__44">
+      <from-outcome>adfMenu_reviewshoppingbags</from-outcome>
+      <to-activity-id>reviewshoppingbags</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__45">
+      <from-outcome>adfMenu_adsemails_4</from-outcome>
+      <to-activity-id>adsemails</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__9">
+    <from-activity-id>categoryproperties</from-activity-id>
+    <control-flow-case id="__10">
+      <from-outcome>toCrudCatProps</from-outcome>
+      <to-activity-id>crud-categoryproperties-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__30">
+      <from-outcome>toCrudCatAdmins</from-outcome>
+      <to-activity-id>crud-cat-admin-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id>shopbasicdata</from-activity-id>
+    <control-flow-case id="__17">
+      <from-outcome>toCrudShop</from-outcome>
+      <to-activity-id>crud-shop-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__21">
+    <from-activity-id>shopproducts</from-activity-id>
+    <control-flow-case id="__22">
+      <from-outcome>toCrudShopProduct</from-outcome>
+      <to-activity-id>crud-shopproducts-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__58">
+      <from-outcome>toNewProduct</from-outcome>
+      <to-activity-id>crudSkuBdata</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__34">
+    <from-activity-id>terms</from-activity-id>
+    <control-flow-case id="__35">
+      <from-outcome>toCrudShipTerms</from-outcome>
+      <to-activity-id>crud-shipping-terms-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__36">
+      <from-outcome>toCrudGenTerms</from-outcome>
+      <to-activity-id>crud-general-terms-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__37">
+      <from-outcome>toCrudRtrnTerms</from-outcome>
+      <to-activity-id>crud-return-terms-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__46">
+    <from-activity-id>reviewshoppingbags</from-activity-id>
+    <control-flow-case id="__47">
+      <from-outcome>toBagDetails</from-outcome>
+      <to-activity-id>orderDetails</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__48">
+    <from-activity-id>orderDetails</from-activity-id>
+    <control-flow-case id="__49">
+      <from-outcome>toCommit</from-outcome>
+      <to-activity-id>Commit</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__52">
+      <from-outcome>toCancel</from-outcome>
+      <to-activity-id>Rollback</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__50">
+    <from-activity-id>Commit</from-activity-id>
+    <control-flow-case id="__51">
+      <from-outcome>Commit</from-outcome>
+      <to-activity-id>reviewshoppingbags</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__53">
+    <from-activity-id>Rollback</from-activity-id>
+    <control-flow-case id="__54">
+      <from-outcome>Rollback</from-outcome>
+      <to-activity-id>reviewshoppingbags</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__6">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>shopadmin_menu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__7">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__8">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/shopadmin_menu.xml</value>
+    </managed-property>
+  </managed-bean>
+  <managed-bean id="__13">
+    <managed-bean-name>RefreshBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.shopadmin.view.beans.RefreshBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__23">
+    <managed-bean-name>SkuClrImgBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.shopadmin.view.beans.SkuClrImgBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

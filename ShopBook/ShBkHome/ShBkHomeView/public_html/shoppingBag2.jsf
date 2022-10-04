@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+    <af:document title="shoppingBag2.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/SkuTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_main">
+                    <af:panelHeader text="#{shbkhomeviewBundle.DELIVERY_ADDRESS}" id="sdh1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info">
+                            <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                                 inlineStyle="padding-right:50px;padding-bottom:10px;">
+                                <af:inputText value="Total items : #{bindings.sumQty.inputValue}"
+                                              shortDesc="#{bindings.sumQty.hints.tooltip}" id="it8" label="Label 2"
+                                              readOnly="true" autoSubmit="true" simple="true"
+                                              contentStyle="font-size:20px;">
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.sumQty.format}"/>
+                                </af:inputText>
+                                <af:link text="#{shbkhomeviewBundle.CONTINUE_SHOOPING}" id="l1"
+                                         inlineStyle="border-bottom-left-radius:20px 20px; border-bottom-right-radius:20px 20px; border-top-left-radius:20px 20px; border-top-right-radius:20px 20px;"
+                                         action="adfMenu_home" styleClass="ShopBagLinks AddTobag"/>
+                                <f:facet name="separator">
+                                    <af:spacer width="20" height="10" id="s1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <af:panelSplitter id="ps1" positionedFromEnd="true" splitterPosition="250" disabled="true">
+                            <f:facet name="first">
+                                <af:panelFormLayout id="pfl1"
+                                                    inlineStyle="border-style:solid; border-color:#e7e7e7; border-width:thin;margin-bottom:30px;">
+                                    <af:inputText value="#{bindings.FirstName.inputValue}"
+                                                  label="#{bindings.FirstName.hints.label}"
+                                                  required="#{bindings.FirstName.hints.mandatory}"
+                                                  columns="#{bindings.FirstName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.FirstName.hints.precision}"
+                                                  shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1"
+                                                  contentStyle="width:300px;">
+                                        <f:validator binding="#{bindings.FirstName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.LastName.inputValue}"
+                                                  label="#{bindings.LastName.hints.label}"
+                                                  required="#{bindings.LastName.hints.mandatory}"
+                                                  columns="#{bindings.LastName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.LastName.hints.precision}"
+                                                  shortDesc="#{bindings.LastName.hints.tooltip}" id="it2"
+                                                  contentStyle="width:300px;">
+                                        <f:validator binding="#{bindings.LastName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.MobNo.inputValue}"
+                                                  label="#{bindings.MobNo.hints.label}" required="true"
+                                                  columns="#{bindings.MobNo.hints.displayWidth}"
+                                                  maximumLength="#{bindings.MobNo.hints.precision}"
+                                                  shortDesc="#{bindings.MobNo.hints.tooltip}" id="it6"
+                                                  contentStyle="width:300px;">
+                                        <f:validator binding="#{bindings.MobNo.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Address.inputValue}"
+                                                  label="#{bindings.Address.hints.label}" required="true"
+                                                  columns="#{bindings.Address.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Address.hints.precision}"
+                                                  shortDesc="#{bindings.Address.hints.tooltip}" id="it4" rows="2"
+                                                  contentStyle="width:300px;">
+                                        <f:validator binding="#{bindings.Address.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Address1.inputValue}"
+                                                  label="#{bindings.Address1.hints.label}"
+                                                  required="true"
+                                                  columns="#{bindings.Address1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Address1.hints.precision}"
+                                                  shortDesc="#{bindings.Address1.hints.tooltip}" id="it3"
+                                                  contentStyle="width:300px;" rows="2">
+                                        <f:validator binding="#{bindings.Address1.validator}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.CntryCode2.inputValue}"
+                                                        label="#{bindings.CntryCode2.label}" required="true"
+                                                        shortDesc="#{bindings.CntryCode2.hints.tooltip}" id="soc1"
+                                                        autoSubmit="true" contentStyle="width:330px;height:40px;">
+                                        <f:selectItems value="#{bindings.CntryCode2.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.CntryCode2.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:selectOneChoice value="#{bindings.CityCode.inputValue}"
+                                                        label="#{bindings.CityCode.label}" required="true"
+                                                        shortDesc="#{bindings.CityCode.hints.tooltip}" id="soc2"
+                                                        autoSubmit="true"
+                                                        contentStyle="width:330px;height:40px;">
+                                        <f:selectItems value="#{bindings.CityCode.items}" id="si2"/>
+                                        <f:validator binding="#{bindings.CityCode.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputText value="#{bindings.PostalZipCode.inputValue}"
+                                                  label="#{bindings.PostalZipCode.hints.label}"
+                                                  required="#{bindings.PostalZipCode.hints.mandatory}"
+                                                  columns="#{bindings.PostalZipCode.hints.displayWidth}"
+                                                  maximumLength="#{bindings.PostalZipCode.hints.precision}"
+                                                  shortDesc="#{bindings.PostalZipCode.hints.tooltip}" id="it5"
+                                                  contentStyle="width:300px;">
+                                        <f:validator binding="#{bindings.PostalZipCode.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Notes.inputValue}"
+                                                  label="#{bindings.Notes.hints.label}"
+                                                  required="#{bindings.Notes.hints.mandatory}"
+                                                  columns="#{bindings.Notes.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Notes.hints.precision}"
+                                                  shortDesc="#{bindings.Notes.hints.tooltip}" id="it7" rows="3"
+                                                  contentStyle="width:300px;">
+                                        <f:validator binding="#{bindings.Notes.validator}"/>
+                                    </af:inputText>
+                                </af:panelFormLayout>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelGroupLayout id="pfl2" layout="vertical" halign="center"
+                                                     inlineStyle="padding-top:20px;margin-bottom:30px;">
+                                    <af:panelGroupLayout id="pgl3" layout="horizontal"
+                                                         inlineStyle="border-style:none none solid; border-width:medium medium thin; padding:0px; padding-left:35px; padding-right:35px; padding-bottom:10px; border-color:#e7e7e7;"
+                                                         halign="center">
+                                        <af:outputText value="#{shbkhomeviewBundle.ORDER_SUMMARY}" id="of1"
+                                                       inlineStyle="font-size:large;"/>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                         inlineStyle="border-style:none none solid; border-width:medium medium thin; padding:0px; padding-left:35px; padding-right:35px; padding-bottom:10px; border-color:#e7e7e7;">
+                                        <af:inputText value="#{bindings.sumPrice.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                                      shortDesc="#{bindings.sumPrice.hints.tooltip}" id="ot6"
+                                                      inlineStyle="font-size:18px; color:#003D5B;"
+                                                      label="#{bindings.sumPrice.hints}" labelStyle="font-size:14px;"/>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl5">
+                                        <af:link text="#{shbkhomeviewBundle.CONTINUE_CHECKOUT}" id="l3"
+                                                 inlineStyle="border-bottom-left-radius:20px 20px; border-bottom-right-radius:20px 20px; border-top-left-radius:20px 20px; border-top-right-radius:20px 20px;"
+                                                 actionListener="#{bindings.Commit.execute}" action="toDeliveryOption"
+                                                 styleClass="ShopBagLinks AddTobag"/>
+                                    </af:panelGroupLayout>
+                                    <f:facet name="separator">
+                                        <af:spacer height="20" id="s6"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

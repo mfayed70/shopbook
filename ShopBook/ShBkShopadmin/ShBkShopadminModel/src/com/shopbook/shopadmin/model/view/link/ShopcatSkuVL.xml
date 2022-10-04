@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShopcatSkuVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.shopbook.shopadmin.model.entity.assoc.ShopcatSkuAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.link.ShopcatSkuVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ShopSubCatsV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.shopadmin.model.view.ShopSubCatsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ShopSubCatsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.ShopSubCatsV.ShopSubCatCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SkusV"
+    Cardinality="-1"
+    Owner="com.shopbook.shopadmin.model.view.SkusV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SkusV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.SkusV.ShopCatSubCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

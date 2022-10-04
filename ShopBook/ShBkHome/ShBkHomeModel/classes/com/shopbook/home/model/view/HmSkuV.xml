@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="HmSkuV"
+   Version="12.1.3.10.47"
+   InheritPersonalization="merge"
+   BindingStyle="JDBC"
+   CustomQuery="true"
+   ComponentClass="com.shopbook.home.model.view.HmSkuVImpl"
+   ComponentInterface="com.shopbook.home.model.view.common.HmSkuV"
+   ClientProxyName="com.shopbook.home.model.view.client.HmSkuVClient" >
+   <DesignTime>
+      <Attr Name="_codeGenFlag2" Value="Coll" />
+      <Attr Name="_isExpertMode" Value="true" />
+   </DesignTime>
+   <Properties >
+      <SchemaBasedProperties >
+         <LABEL
+            ResId="com.shopbook.home.model.view.HmSkuV_LABEL" >
+         </LABEL>
+      </SchemaBasedProperties>
+   </Properties>
+   <Variable
+      Name="srchTxt"
+      Kind="viewcriteria"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="p01Brand_code"
+      Kind="where"
+      Type="java.lang.String"
+      DefaultValue="%" >
+      <AttrArray Name="ExtendedDataInts">
+         <Item Value="0" />
+      </AttrArray>
+   </Variable>
+   <Variable
+      Name="p02ModelCode"
+      Kind="where"
+      Type="java.lang.String"
+      DefaultValue="%" >
+      <AttrArray Name="ExtendedDataInts">
+         <Item Value="1" />
+      </AttrArray>
+   </Variable>
+   <Variable
+      Name="p03MnfCode"
+      Kind="where"
+      Type="java.lang.String"
+      DefaultValue="%" >
+      <AttrArray Name="ExtendedDataInts">
+         <Item Value="2" />
+      </AttrArray>
+   </Variable>
+   <Variable
+      Name="p04Year"
+      Kind="where"
+      Type="java.lang.String"
+      DefaultValue="%" >
+      <AttrArray Name="ExtendedDataInts">
+         <Item Value="3" />
+      </AttrArray>
+   </Variable>
+   <Variable
+      Name="p05ClrCode"
+      Kind="where"
+      Type="java.lang.String"
+      DefaultValue="%" >
+      <AttrArray Name="ExtendedDataInts">
+         <Item Value="4" />
+      </AttrArray>
+   </Variable>
+   <Variable
+      Name="p06SizeCode"
+      Kind="where"
+      Type="java.lang.String"
+      DefaultValue="%" >
+      <AttrArray Name="ExtendedDataInts">
+         <Item Value="5" />
+      </AttrArray>
+   </Variable>
+   <SQLQuery><![CDATA[
+SELECT Skus.APPEAR_ONLY_IN_ASS, 
+       Skus.ASSEMBLY, 
+       Skus.AVAILABLE, 
+       Skus.BASIC_UNIT, 
+       Skus.BRAND_CODE, 
+       Skus.CAT_SZ_CLASS_CODE, 
+       Skus.HIDE, 
+       Skus.LAST_MODIFIED, 
+       Skus.LAST_PRICE, 
+       Skus.MAX_QTY, 
+       Skus.MIN_QTY, 
+       Skus.MNF_CODE, 
+       Skus.MODEL_CODE, 
+       Skus.NEW_FLAG, 
+       Skus.NOTES, 
+       Skus.OLD_PRICE, 
+       Skus.QNTY_IN_STOCK, 
+       Skus.RATE, 
+       Skus.SHOP_CAT_SUB_CODE, 
+       Skus.SHP_PROP_CLS_CODE, 
+       Skus.SKU_CODE, 
+       Skus.SKU_NAME, 
+       Skus.STEP_QTY, 
+       Skus.YEAR
+FROM  skus Skus
+WHERE substr(Skus.SKU_CODE,-4) != '0000'
+and xyz(brand_code,?)='Y'
+and xyz(model_code,?)='Y'
+and xyz(mnf_code,?)='Y'
+and xyz(YEAR,?)='Y'
+and srchSkuClrs(?,sku_code)='Y'
+and srchSkuSizes(?,sku_code)='Y'
+   ]]></SQLQuery>
+   <EntityUsage
+      Name="Skus"
+      Entity="com.shopbook.home.model.entity.Skus" >
+   </EntityUsage>
+   <ViewAttribute
+      Name="AppearOnlyInAss"
+      PrecisionRule="true"
+      EntityAttrName="AppearOnlyInAss"
+      EntityUsage="Skus"
+      AliasName="APPEAR_ONLY_IN_ASS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Assembly"
+      PrecisionRule="true"
+      EntityAttrName="Assembly"
+      EntityUsage="Skus"
+      AliasName="ASSEMBLY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Available"
+      PrecisionRule="true"
+      EntityAttrName="Available"
+      EntityUsage="Skus"
+      AliasName="AVAILABLE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BasicUnit"
+      PrecisionRule="true"
+      EntityAttrName="BasicUnit"
+      EntityUsage="Skus"
+      AliasName="BASIC_UNIT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BrandCode"
+      PrecisionRule="true"
+      EntityAttrName="BrandCode"
+      EntityUsage="Skus"
+      AliasName="BRAND_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CatSzClassCode"
+      PrecisionRule="true"
+      EntityAttrName="CatSzClassCode"
+      EntityUsage="Skus"
+      AliasName="CAT_SZ_CLASS_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Hide"
+      PrecisionRule="true"
+      EntityAttrName="Hide"
+      EntityUsage="Skus"
+      AliasName="HIDE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastModified"
+      PrecisionRule="true"
+      EntityAttrName="LastModified"
+      EntityUsage="Skus"
+      AliasName="LAST_MODIFIED" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastPrice"
+      PrecisionRule="true"
+      EntityAttrName="LastPrice"
+      EntityUsage="Skus"
+      AliasName="LAST_PRICE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MaxQty"
+      PrecisionRule="true"
+      EntityAttrName="MaxQty"
+      EntityUsage="Skus"
+      AliasName="MAX_QTY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MinQty"
+      PrecisionRule="true"
+      EntityAttrName="MinQty"
+      EntityUsage="Skus"
+      AliasName="MIN_QTY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MnfCode"
+      PrecisionRule="true"
+      EntityAttrName="MnfCode"
+      EntityUsage="Skus"
+      AliasName="MNF_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ModelCode"
+      PrecisionRule="true"
+      EntityAttrName="ModelCode"
+      EntityUsage="Skus"
+      AliasName="MODEL_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NewFlag"
+      PrecisionRule="true"
+      EntityAttrName="NewFlag"
+      EntityUsage="Skus"
+      AliasName="NEW_FLAG" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Notes"
+      PrecisionRule="true"
+      EntityAttrName="Notes"
+      EntityUsage="Skus"
+      AliasName="NOTES" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OldPrice"
+      PrecisionRule="true"
+      EntityAttrName="OldPrice"
+      EntityUsage="Skus"
+      AliasName="OLD_PRICE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="QntyInStock"
+      PrecisionRule="true"
+      EntityAttrName="QntyInStock"
+      EntityUsage="Skus"
+      AliasName="QNTY_IN_STOCK" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Rate"
+      PrecisionRule="true"
+      EntityAttrName="Rate"
+      EntityUsage="Skus"
+      AliasName="RATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ShopCatSubCode"
+      IsNotNull="true"
+      PrecisionRule="true"
+      EntityAttrName="ShopCatSubCode"
+      EntityUsage="Skus"
+      AliasName="SHOP_CAT_SUB_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ShpPropClsCode"
+      PrecisionRule="true"
+      EntityAttrName="ShpPropClsCode"
+      EntityUsage="Skus"
+      AliasName="SHP_PROP_CLS_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SkuCode"
+      PrecisionRule="true"
+      EntityAttrName="SkuCode"
+      EntityUsage="Skus"
+      AliasName="SKU_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SkuName"
+      PrecisionRule="true"
+      EntityAttrName="SkuName"
+      EntityUsage="Skus"
+      AliasName="SKU_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StepQty"
+      PrecisionRule="true"
+      EntityAttrName="StepQty"
+      EntityUsage="Skus"
+      AliasName="STEP_QTY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Year"
+      PrecisionRule="true"
+      EntityAttrName="Year"
+      EntityUsage="Skus"
+      AliasName="YEAR" >
+   </ViewAttribute>
+   <ViewCriteria
+      Name="HmSkuVCriteria"
+      ViewObjectName="com.shopbook.home.model.view.HmSkuV"
+      Conjunction="AND" >
+      <Properties >
+         <CustomProperties>
+            <Property Name ="allowConjunctionOverride" Value ="true" />
+            <Property Name ="autoExecute" Value ="false" />
+            <Property Name ="displayOperators" Value ="InAdvancedMode" />
+            <Property Name ="mode" Value ="Basic" />
+            <Property Name ="showInList" Value ="true" />
+         </CustomProperties>
+      </Properties>
+      <ViewCriteriaRow
+         Name="HmSkuVCriteria_row_0"
+         UpperColumns="1" >
+         <ViewCriteriaItem
+            Name="SkuName"
+            ViewAttribute="SkuName"
+            Operator="CONTAINS"
+            Conjunction="AND"
+            Value=":srchTxt"
+            IsBindVarValue="true"
+            Required="Optional" >
+         </ViewCriteriaItem>
+      </ViewCriteriaRow>
+   </ViewCriteria>
+   <ViewLinkAccessor
+      Name="SkuColorsV"
+      ViewLink="com.shopbook.home.model.view.link.HmSkuVToSkuColorsVL"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </ViewLinkAccessor>
+   <ClientInterface
+      Name="__clientInterface" >
+      <Method
+         Name="setClrSizeForDetailSkuAccessorViewObject"
+         MethodName="setClrSizeForDetailSkuAccessorViewObject" >
+         <Return
+            Name="_return_type_"
+            Type="void" >
+         </Return>
+         <Parameter
+            Name="_clrCode"
+            Type="java.lang.String" >
+         </Parameter>
+         <Parameter
+            Name="_szCode"
+            Type="java.lang.String" >
+         </Parameter>
+      </Method>
+   </ClientInterface>
+   <ResourceBundle >
+      <PropertiesBundle
+         PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle" >
+      </PropertiesBundle>
+   </ResourceBundle>
+</ViewObject>

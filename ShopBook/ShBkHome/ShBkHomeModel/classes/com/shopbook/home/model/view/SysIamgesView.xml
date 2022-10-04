@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysIamgesView"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  PageIterMode="Full"
+  SelectList="SysImages.SYS_PARAMETER_ID, 
+       SysImages.SYS_IMAGE_ID, 
+       SysImages.IMAGE_SLIDE_1, 
+       SysImages.IMAGE_SLIDE_2, 
+       SysImages.IMAGE_SLIDE_3, 
+       SysImages.IMAGE_SLIDE_4"
+  FromList="sys_images SysImages">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.home.model.view.SysIamgesView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="SysImages"
+    Entity="com.shopbook.home.model.entity.SysImages"
+    ReadOnly="true"
+    DeleteParticipant="false"/>
+  <ViewAttribute
+    Name="SysParameterId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="SysParameterId"
+    EntityUsage="SysImages"
+    AliasName="SYS_PARAMETER_ID"/>
+  <ViewAttribute
+    Name="SysImageId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SysImageId"
+    EntityUsage="SysImages"
+    AliasName="SYS_IMAGE_ID"/>
+  <ViewAttribute
+    Name="ImageSlide1"
+    PrecisionRule="true"
+    EntityAttrName="ImageSlide1"
+    EntityUsage="SysImages"
+    AliasName="IMAGE_SLIDE_1"/>
+  <ViewAttribute
+    Name="ImageSlide2"
+    PrecisionRule="true"
+    EntityAttrName="ImageSlide2"
+    EntityUsage="SysImages"
+    AliasName="IMAGE_SLIDE_2"/>
+  <ViewAttribute
+    Name="ImageSlide3"
+    PrecisionRule="true"
+    EntityAttrName="ImageSlide3"
+    EntityUsage="SysImages"
+    AliasName="IMAGE_SLIDE_3"/>
+  <ViewAttribute
+    Name="ImageSlide4"
+    PrecisionRule="true"
+    EntityAttrName="ImageSlide4"
+    EntityUsage="SysImages"
+    AliasName="IMAGE_SLIDE_4"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

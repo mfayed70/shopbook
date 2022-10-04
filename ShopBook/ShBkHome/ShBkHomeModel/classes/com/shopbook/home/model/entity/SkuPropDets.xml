@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuPropDets"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="sku_prop_dets"
+  AliasName="SkuPropDets"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="SkuPropDetCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="SKU_PROP_DET_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_prop_dets"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuPropDetName"
+    Precision="4000"
+    ColumnName="SKU_PROP_DET_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_prop_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShpSubcatPrpClsDetCode"
+    Precision="25"
+    ColumnName="SHP_SUBCAT_PRP_CLS_DET_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_prop_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuCode"
+    IsNotNull="true"
+    Precision="23"
+    ColumnName="SKU_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_prop_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Hide"
+    Precision="1"
+    ColumnName="HIDE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_prop_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="sku_prop_dets">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="sku_prop_dets"/>
+  <AccessorAttribute
+    Name="Skus"
+    Association="com.shopbook.home.model.entity.assoc.SkuToSkuPropAssoc"
+    AssociationEnd="com.shopbook.home.model.entity.assoc.SkuToSkuPropAssoc.Skus"
+    AssociationOtherEnd="com.shopbook.home.model.entity.assoc.SkuToSkuPropAssoc.SkuPropDets"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuPropDets.SkuPropDetCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SkuToSkuProp">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SKU_TO_SKU_PROP"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.entity.SkuPropDets.SkuCode"/>
+    </AttrArray>
+  </Key>
+</Entity>

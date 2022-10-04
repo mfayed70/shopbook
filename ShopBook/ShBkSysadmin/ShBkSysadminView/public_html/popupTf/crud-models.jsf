@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="#{shbksysadminviewBundle.EDIT___NEW_MODEL}" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbksysadminviewBundle.EDIT___NEW_MODEL}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbksysadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toSave"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbksysadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                        <af:commandNavigationItem text="#{shbksysadminviewBundle.CLEAR__0MODEL__0RECORD}" id="cni1"
+                                                  icon="/icons/Delete.png" action="toSave"
+                                                  actionListener="#{bindings.Delete.execute}"
+                                                  disabled="#{bindings.has_detail_mdl_in_catRefs.inputValue=='Y'}"
+                                                  shortDesc="#{bindings.has_detail_mdl_in_catRefs.inputValue=='Y'?shbksysadminviewBundle.has_detail_mdl_in_catRefs : shbksysadminviewBundle.delete_record}"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.ModelCode.inputValue}" label="#{bindings.ModelCode.hints.label}"
+                                  required="#{bindings.ModelCode.hints.mandatory}"
+                                  columns="#{bindings.ModelCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.ModelCode.hints.precision}"
+                                  shortDesc="#{bindings.ModelCode.hints.tooltip}" id="it1" readOnly="true">
+                        <f:validator binding="#{bindings.ModelCode.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ModelName.inputValue}" label="#{bindings.ModelName.hints.label}"
+                                  required="#{bindings.ModelName.hints.mandatory}"
+                                  columns="50"
+                                  maximumLength="#{bindings.ModelName.hints.precision}"
+                                  shortDesc="#{bindings.ModelName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.ModelName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.OrigModelNo.inputValue}" label="#{bindings.OrigModelNo.hints.label}"
+                                  required="#{bindings.OrigModelNo.hints.mandatory}"
+                                  columns="#{bindings.OrigModelNo.hints.displayWidth}"
+                                  maximumLength="#{bindings.OrigModelNo.hints.precision}"
+                                  shortDesc="#{bindings.OrigModelNo.hints.tooltip}" id="it3" visible="false">
+                        <f:validator binding="#{bindings.OrigModelNo.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.RegisterStatus.inputValue}"
+                                        label="#{bindings.RegisterStatus.label}"
+                                        required="#{bindings.RegisterStatus.hints.mandatory}"
+                                        shortDesc="#{bindings.RegisterStatus.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.RegisterStatus.items}" id="si1"/>
+                        <f:validator binding="#{bindings.RegisterStatus.validator}"/>
+                    </af:selectOneChoice>
+                    <af:panelLabelAndMessage label="#{bindings.LastModified.hints.label}" id="plam1">
+                        <af:outputFormatted value="#{bindings.LastModified.inputValue}" id="of1">
+                            <af:convertDateTime pattern="#{bindings.LastModified.format}"/>
+                        </af:outputFormatted>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                                  required="#{bindings.Notes.hints.mandatory}"
+                                  columns="50"
+                                  maximumLength="#{bindings.Notes.hints.precision}"
+                                  shortDesc="#{bindings.Notes.hints.tooltip}" id="it4" rows="3">
+                        <f:validator binding="#{bindings.Notes.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

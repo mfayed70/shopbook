@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.shopbook.shopadmin.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/categoryproperties.jsf" usageId="com_shopbook_shopadmin_view_categorypropertiesPageDef"/>
+    <page path="/popupTf/crud-categoryproperties-tf.xml#crud-categoryproperties-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_categoryproperties_tf_crud_categoryproperties_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-categoryproperties-tf.xml#crud-categoryproperties-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_crud_categoryproperties_tf_crud_categoryproperties_tf_CreateInsertPageDef"/>
+    <page path="/popupTf/crud-categoryprops.jsf" usageId="com_shopbook_shopadmin_view_crud_categorypropsPageDef"/>
+    <page path="/shopbasicdata.jsf" usageId="com_shopbook_shopadmin_view_shopbasicdataPageDef"/>
+    <page path="/popupTf/crud-shop.jsf" usageId="com_shopbook_shopadmin_view_crud_shopPageDef"/>
+    <page path="/popupTf/crud-shop-tf.xml#crud-shop-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_shop_tf_crud_shop_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-shop-tf.xml#crud-shop-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_crud_shop_tf_crud_shop_tf_CreateInsertPageDef"/>
+    <page path="/shopproducts.jsf" usageId="com_shopbook_shopadmin_view_shopproductsPageDef"/>
+    <page path="/popupTf/crud-shopproducts.jsf" usageId="com_shopbook_shopadmin_view_crud_shopproductsPageDef"/>
+    <page path="/popupTf/crud-shopproducts-tf.xml#crud-shopproducts-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/sku-bdata.jsf" usageId="com_shopbook_shopadmin_view_sku_bdataPageDef"/>
+    <page path="/popupTf/crud-shopproducts-tf.xml#crud-shopproducts-tf@CreateWithParameters"
+          usageId="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_CreateWithParametersPageDef"/>
+    <page path="/popupTf/crudSkuBdata.xml#crudSkuBdata@Commit"
+          usageId="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_CommitPageDef"/>
+    <page path="/popupTf/crudSkuBdata.xml#crudSkuBdata@CreateWithParameters"
+          usageId="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_CreateWithParametersPageDef"/>
+    <page path="/popupTf/crudSkuBdata.xml#crudSkuBdata@Commit1"
+          usageId="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_Commit1PageDef"/>
+    <page path="/popupTf/crudSkuBdata.xml#crudSkuBdata@Delete"
+          usageId="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_DeletePageDef"/>
+    <page path="/popupTf/crudSkuBdata.xml#crudSkuBdata@CreateWithParameters1"
+          usageId="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_CreateWithParameters1PageDef"/>
+    <page path="/popupTf/crud-sku-colors.jsf" usageId="com_shopbook_shopadmin_view_crud_sku_colorsPageDef"/>
+    <page path="/popupTf/sku-color-imgs.jsf" usageId="com_shopbook_shopadmin_view_sku_color_imgsPageDef"/>
+    <page path="/popupTf/crud-shopproducts-tf.xml#crud-shopproducts-tf@SetCurrentRowWithKeyValue"
+          usageId="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/popupTf/crud-shopproducts-tf.xml#crud-shopproducts-tf@Rollback"
+          usageId="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_RollbackPageDef"/>
+    <page path="/popupTf/crud-product-props.jsf" usageId="com_shopbook_shopadmin_view_crud_product_propsPageDef"/>
+    <page path="/popupTf/crud-product-ass-tf.xml#crud-product-ass-tf@CreateWithParameters"
+          usageId="com_shopbook_shopadmin_view_crud_product_ass_tf_crud_product_ass_tf_CreateWithParametersPageDef"/>
+    <page path="/popupTf/crud-product-ass-tf.xml#crud-product-ass-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_product_ass_tf_crud_product_ass_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-product-ass.jsf" usageId="com_shopbook_shopadmin_view_crud_product_assPageDef"/>
+    <page path="/popupTf/sets-components-tf.xml#sets-components-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/sets-components-tf.xml#sets-components-tf@SetCurrentRowWithKeyValue"
+          usageId="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/popupTf/sets-components.jsf" usageId="com_shopbook_shopadmin_view_sets_componentsPageDef"/>
+    <page path="/popupTf/sets-components-tf.xml#sets-components-tf@SetsSetCurrentRowWithKeyValue"
+          usageId="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_SetCurrentRowWithKeyValue1PageDef"/>
+    <page path="/popupTf/sets-components-tf.xml#sets-components-tf@Delete"
+          usageId="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_DeletePageDef"/>
+    <page path="/campaigns.jsf" usageId="com_shopbook_shopadmin_view_adsemailsPageDef"/>
+    <page path="/popupTf/crudskuUnits.jsf" usageId="com_shopbook_shopadmin_view_crudskuUnitsPageDef"/>
+    <page path="/popupTf/crud-cat-admin-tf.xml#crud-cat-admin-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_crud_cat_admin_tf_crud_cat_admin_tf_CreateInsertPageDef"/>
+    <page path="/popupTf/crud-cat-admin-tf.xml#crud-cat-admin-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_cat_admin_tf_crud_cat_admin_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-cat-admin.jsf" usageId="com_shopbook_shopadmin_view_crud_cat_adminPageDef"/>
+    <page path="/terms.jsf" usageId="com_shopbook_shopadmin_view_termsPageDef"/>
+    <page path="/popupTf/crud-shipping-terms-tf.xml#crud-shipping-terms-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_shipping_terms_tf_crud_shipping_terms_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-shipping-terms-tf.xml#crud-shipping-terms-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_crud_shipping_terms_tf_crud_shipping_terms_tf_CreateInsertPageDef"/>
+    <page path="/popupTf/crud-return-terms-tf.xml#crud-return-terms-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_return_terms_tf_crud_return_terms_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-return-terms-tf.xml#crud-return-terms-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_crud_return_terms_tf_crud_return_terms_tf_CreateInsertPageDef"/>
+    <page path="/popupTf/crud-general-terms-tf.xml#crud-general-terms-tf@ExecuteWithParams"
+          usageId="com_shopbook_shopadmin_view_crud_general_terms_tf_crud_general_terms_tf_ExecuteWithParamsPageDef"/>
+    <page path="/popupTf/crud-general-terms-tf.xml#crud-general-terms-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_crud_general_terms_tf_crud_general_terms_tf_CreateInsertPageDef"/>
+    <page path="/popupTf/shipping-terms-crud.jsf" usageId="com_shopbook_shopadmin_view_shipping_terms_crudPageDef"/>
+    <page path="/popupTf/return-terms-crud.jsf" usageId="com_shopbook_shopadmin_view_return_terms_crudPageDef"/>
+    <page path="/popupTf/general-terms-crud.jsf" usageId="com_shopbook_shopadmin_view_general_terms_crudPageDef"/>
+    <page path="/reviewshoppingbags.jsf" usageId="com_shopbook_shopadmin_view_reviewshoppingbagsPageDef"/>
+    <page path="/orderDetails.jsf" usageId="com_shopbook_shopadmin_view_orderDetailsPageDef"/>
+    <page path="PageFlow#Commit" usageId="com_shopbook_shopadmin_view_adfc_config___CommitPageDef"/>
+    <page path="PageFlow#Rollback" usageId="com_shopbook_shopadmin_view_adfc_config___RollbackPageDef"/>
+    <page path="/popupTf/offers-tf.xml#offers-tf@Execute"
+          usageId="com_shopbook_shopadmin_view_offers_tf_offers_tf_ExecutePageDef"/>
+    <page path="/popupTf/offers-tf.xml#offers-tf@Commit"
+          usageId="com_shopbook_shopadmin_view_offers_tf_offers_tf_CommitPageDef"/>
+    <page path="/popupTf/offers-tf.xml#offers-tf@Rollback"
+          usageId="com_shopbook_shopadmin_view_offers_tf_offers_tf_RollbackPageDef"/>
+    <page path="/popupTf/newOffer.jsff" usageId="com_shopbook_shopadmin_view_newOfferPageDef"/>
+    <page path="/popupTf/offersQuery.jsff" usageId="com_shopbook_shopadmin_view_offersQueryPageDef"/>
+    <page path="/popupTf/offers-tf.xml#offers-tf@CreateInsert"
+          usageId="com_shopbook_shopadmin_view_offers_tf_offers_tf_CreateInsertPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_shopbook_shopadmin_view_categorypropertiesPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.categorypropertiesPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_categoryproperties_tf_crud_categoryproperties_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_categoryproperties_tf_crud_categoryproperties_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_categoryproperties_tf_crud_categoryproperties_tf_CreateInsertPageDef"
+          path="popupTf.crud_categoryproperties_tf_crud_categoryproperties_tf_CreateInsertPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_categorypropsPageDef" path="popupTf.crud_categorypropsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_shopbasicdataPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.shopbasicdataPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shopPageDef" path="popupTf.crud_shopPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shop_tf_crud_shop_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_shop_tf_crud_shop_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shop_tf_crud_shop_tf_CreateInsertPageDef"
+          path="popupTf.crud_shop_tf_crud_shop_tf_CreateInsertPageDef"/>
+    <page id="com_shopbook_shopadmin_view_shopproductsPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.shopproductsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shopproductsPageDef" path="popupTf.crud_shopproductsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_shopproducts_tf_crud_shopproducts_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_sku_bdataPageDef" path="popupTf.sku_bdataPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_CreateWithParametersPageDef"
+          path="popupTf.crud_shopproducts_tf_crud_shopproducts_tf_CreateWithParametersPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_CommitPageDef"
+          path="popupTf.crudSkuBdata_crudSkuBdata_CommitPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_CreateWithParametersPageDef"
+          path="popupTf.crudSkuBdata_crudSkuBdata_CreateWithParametersPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_Commit1PageDef"
+          path="popupTf.crudSkuBdata_crudSkuBdata_Commit1PageDef"/>
+    <page id="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_DeletePageDef"
+          path="popupTf.crudSkuBdata_crudSkuBdata_DeletePageDef"/>
+    <page id="com_shopbook_shopadmin_view_crudSkuBdata_crudSkuBdata_CreateWithParameters1PageDef"
+          path="popupTf.crudSkuBdata_crudSkuBdata_CreateWithParameters1PageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_sku_colorsPageDef" path="popupTf.crud_sku_colorsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_sku_color_imgsPageDef" path="popupTf.sku_color_imgsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_SetCurrentRowWithKeyValuePageDef"
+          path="popupTf.crud_shopproducts_tf_crud_shopproducts_tf_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shopproducts_tf_crud_shopproducts_tf_RollbackPageDef"
+          path="popupTf.crud_shopproducts_tf_crud_shopproducts_tf_RollbackPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_product_propsPageDef" path="popupTf.crud_product_propsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_product_ass_tf_crud_product_ass_tf_CreateWithParametersPageDef"
+          path="popupTf.crud_product_ass_tf_crud_product_ass_tf_CreateWithParametersPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_product_ass_tf_crud_product_ass_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_product_ass_tf_crud_product_ass_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_product_assPageDef" path="popupTf.crud_product_assPageDef"/>
+    <page id="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_ExecuteWithParamsPageDef"
+          path="popupTf.sets_components_tf_sets_components_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_SetCurrentRowWithKeyValuePageDef"
+          path="popupTf.sets_components_tf_sets_components_tf_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="com_shopbook_shopadmin_view_sets_componentsPageDef" path="popupTf.sets_componentsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_SetCurrentRowWithKeyValue1PageDef"
+          path="popupTf.sets_components_tf_sets_components_tf_SetCurrentRowWithKeyValue1PageDef"/>
+    <page id="com_shopbook_shopadmin_view_sets_components_tf_sets_components_tf_DeletePageDef"
+          path="popupTf.sets_components_tf_sets_components_tf_DeletePageDef"/>
+    <page id="com_shopbook_shopadmin_view_adsemailsPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.adsemailsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crudskuUnitsPageDef" path="popupTf.crudskuUnitsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_cat_admin_tf_crud_cat_admin_tf_CreateInsertPageDef"
+          path="popupTf.crud_cat_admin_tf_crud_cat_admin_tf_CreateInsertPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_cat_admin_tf_crud_cat_admin_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_cat_admin_tf_crud_cat_admin_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_cat_adminPageDef" path="popupTf.crud_cat_adminPageDef"/>
+    <page id="com_shopbook_shopadmin_view_termsPageDef" path="com.shopbook.shopadmin.view.pageDefs.termsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shipping_terms_tf_crud_shipping_terms_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_shipping_terms_tf_crud_shipping_terms_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_shipping_terms_tf_crud_shipping_terms_tf_CreateInsertPageDef"
+          path="popupTf.crud_shipping_terms_tf_crud_shipping_terms_tf_CreateInsertPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_return_terms_tf_crud_return_terms_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_return_terms_tf_crud_return_terms_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_return_terms_tf_crud_return_terms_tf_CreateInsertPageDef"
+          path="popupTf.crud_return_terms_tf_crud_return_terms_tf_CreateInsertPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_general_terms_tf_crud_general_terms_tf_ExecuteWithParamsPageDef"
+          path="popupTf.crud_general_terms_tf_crud_general_terms_tf_ExecuteWithParamsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_crud_general_terms_tf_crud_general_terms_tf_CreateInsertPageDef"
+          path="popupTf.crud_general_terms_tf_crud_general_terms_tf_CreateInsertPageDef"/>
+    <page id="com_shopbook_shopadmin_view_shipping_terms_crudPageDef" path="popupTf.shipping_terms_crudPageDef"/>
+    <page id="com_shopbook_shopadmin_view_return_terms_crudPageDef" path="popupTf.return_terms_crudPageDef"/>
+    <page id="com_shopbook_shopadmin_view_general_terms_crudPageDef" path="popupTf.general_terms_crudPageDef"/>
+    <page id="com_shopbook_shopadmin_view_reviewshoppingbagsPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.reviewshoppingbagsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_orderDetailsPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.orderDetailsPageDef"/>
+    <page id="com_shopbook_shopadmin_view_adfc_config___CommitPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.adfc_config___CommitPageDef"/>
+    <page id="com_shopbook_shopadmin_view_adfc_config___RollbackPageDef"
+          path="com.shopbook.shopadmin.view.pageDefs.adfc_config___RollbackPageDef"/>
+    <page id="com_shopbook_shopadmin_view_offers_tf_offers_tf_ExecutePageDef"
+          path="popupTf.offers_tf_offers_tf_ExecutePageDef"/>
+    <page id="com_shopbook_shopadmin_view_offers_tf_offers_tf_CommitPageDef"
+          path="popupTf.offers_tf_offers_tf_CommitPageDef"/>
+    <page id="com_shopbook_shopadmin_view_offers_tf_offers_tf_RollbackPageDef"
+          path="popupTf.offers_tf_offers_tf_RollbackPageDef"/>
+    <page id="com_shopbook_shopadmin_view_newOfferPageDef" path="popupTf.newOfferPageDef"/>
+    <page id="com_shopbook_shopadmin_view_offersQueryPageDef" path="popupTf.offersQueryPageDef"/>
+    <page id="com_shopbook_shopadmin_view_offers_tf_offers_tf_CreateInsertPageDef"
+          path="popupTf.offers_tf_offers_tf_CreateInsertPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ShBkShopAdminDataControl" Package="com.shopbook.shopadmin.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ShBkShopAdminLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ShBkHomeAmDataControl" Package="com.shopbook.home.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ShBkHomeAmLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

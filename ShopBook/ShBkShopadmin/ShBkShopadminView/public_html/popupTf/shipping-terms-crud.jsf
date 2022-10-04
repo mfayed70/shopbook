@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="#{shbkshopadminviewBundle.EDIT__0__0__0NEW__0SHIPPING__0TERMS}" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbkshopadminviewBundle.EDIT__0__0__0NEW__0SHIPPING__0TERMS}" id="ph1" inlineStyle="font-size:small;">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toCommit"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:spacer height="20" id="s1"/>
+                <af:panelFormLayout id="pfl1" inlineStyle="padding-left:30px;">
+                    <af:inputText value="#{bindings.ShortTxt.inputValue}" label="#{bindings.ShortTxt.hints.label}"
+                                  required="#{bindings.ShortTxt.hints.mandatory}"
+                                  columns="40"
+                                  maximumLength="#{bindings.ShortTxt.hints.precision}"
+                                  shortDesc="#{bindings.ShortTxt.hints.tooltip}" id="it4" contentStyle="width:200px;">
+                        <f:validator binding="#{bindings.ShortTxt.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Txt.inputValue}" label="#{bindings.Txt.hints.label}"
+                                  required="#{bindings.Txt.hints.mandatory}"
+                                  columns="40"
+                                  maximumLength="#{bindings.Txt.hints.precision}"
+                                  shortDesc="#{bindings.Txt.hints.tooltip}" id="it1" rows="3"
+                                  contentStyle="width:400px;">
+                        <f:validator binding="#{bindings.Txt.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.CityCode.inputValue}" label="#{bindings.CityCode.label}"
+                                        required="#{bindings.CityCode.hints.mandatory}"
+                                        shortDesc="#{bindings.CityCode.hints.tooltip}" id="soc1"
+                                        contentStyle="width:225px;">
+                        <f:selectItems value="#{bindings.CityCode.items}" id="si3"/>
+                        <f:validator binding="#{bindings.CityCode.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.Ordr.inputValue}" label="#{bindings.Ordr.hints.label}"
+                                  required="#{bindings.Ordr.hints.mandatory}"
+                                  columns="10"
+                                  maximumLength="#{bindings.Ordr.hints.precision}"
+                                  shortDesc="#{bindings.Ordr.hints.tooltip}" id="it2" rendered="false">
+                        <f:validator binding="#{bindings.Ordr.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Ordr.format}"/>
+                    </af:inputText>
+                    <af:selectOneRadio value="#{bindings.Active.inputValue}" label="#{bindings.Active.label}"
+                                       required="#{bindings.Active.hints.mandatory}"
+                                       shortDesc="#{bindings.Active.hints.tooltip}" id="sor1" layout="horizontal">
+                        <f:selectItems value="#{bindings.Active.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Active.validator}"/>
+                    </af:selectOneRadio>
+                    <af:selectOneRadio value="#{bindings.PercOrVal.inputValue}" label="#{bindings.PercOrVal.label}"
+                                       required="#{bindings.PercOrVal.hints.mandatory}"
+                                       shortDesc="#{bindings.PercOrVal.hints.tooltip}" id="sor2" autoSubmit="true"
+                                       layout="horizontal" rendered="false">
+                        <f:selectItems value="#{bindings.PercOrVal.items}" id="si2"/>
+                        <f:validator binding="#{bindings.PercOrVal.validator}"/>
+                    </af:selectOneRadio>
+                    <af:panelGroupLayout id="pgl1" layout="horizontal" inlineStyle="margin-left:-50px;">
+                        <af:inputText value="#{bindings.Value.inputValue}" label="#{bindings.Value.hints.label}"
+                                      required="#{bindings.Value.hints.mandatory}"
+                                      columns="#{bindings.Value.hints.displayWidth}"
+                                      maximumLength="#{bindings.Value.hints.precision}"
+                                      shortDesc="#{bindings.Value.hints.tooltip}" id="it3" partialTriggers="si2"
+                                      visible="#{bindings.PercOrVal.inputValue!='N'}" contentStyle="width:200px;">
+                            <f:validator binding="#{bindings.Value.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Value.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CurrSymbol.inputValue}" id="ot2" label="Label 1" simple="true"
+                                      readOnly="true"/>
+                        <af:outputText value="%" id="ot1" partialTriggers="si2"
+                                       visible="#{bindings.PercOrVal.inputValue=='P'}"/>
+                    </af:panelGroupLayout>
+                </af:panelFormLayout>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

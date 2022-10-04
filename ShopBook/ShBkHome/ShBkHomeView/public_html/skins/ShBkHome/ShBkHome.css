@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-size: 14px; 
+  font-weight: 400;
+  /*src: url(https://fonts.gstatic.com/s/indieflower/v12/m8JVjfNVeKWVnh3QMuKkFcZVaUuH.woff2) format('woff2');*/
+  src:url("/skins/fonts/SegoeUI.woff") format('woff');
+}
+.AFDefaultFontFamily:alias {
+    font-family: SegoeUI,Tahoma, Verdana, Helvetica, sans-serif; 
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.AFDefaultFont:alias {
+    font-family: SegoeUI, Tahoma, Verdana, Helvetica, sans-serif; 
+}
+
+af|link.homeSkuLink::image {
+    height: 200px; 
+    width: 200px; 
+}
+af|link.myBagSkuLink::image {
+    height: 30px; 
+    width: 30px; 
+}
+af|link.anyLink:hover {
+     border:Black solid thin;  
+}
+af|link.anyLinkSel:checked {
+     border:Black solid thin;  
+}
+af|link.detSkuLink::image {
+    height: 30px; 
+    width: 30px; 
+}
+af|link.shopSkuLink::image {
+    height: 50px; 
+    width: 50px; 
+}
+af|link:hover.AddTobag {
+    background-color: #00a552; 
+}
+af|link:disabled.AddTobag {
+    background-color: #b5b5b5;
+}
+af|link.AddTobagA {
+    font-size:18px; 
+    text-align:center; 
+    width:400px; 
+    padding:10px 100px; 
+    margin-top:10px; 
+    background-color:#003D5B; 
+    color:White; 
+}
+af|link.ShopBagLinks {
+    font-size:18px; 
+    text-align:center; 
+    /*width:200px;*/
+    padding:10px 10px; 
+    margin-top:10px; 
+    background-color:#003D5B; 
+    color:White; 
+}
+af|link.reqQtyPM {
+font-size:16px;
+font-weight:bold;
+background-color:#003D5B; 
+color:White; 
+text-align:center;
+}
+af|link.bagReqQtyPM {
+font-size:16px;
+font-weight:bold;
+background-color:#003D5B; 
+color:White; 
+text-align:center;
+}
+.badge {
+    position: relative;
+    /*right:-2px;*/
+    top:10px;
+    background:transparent ;
+    text-align: center;
+    /*margin-left: -100px;*/
+    /*border-radius: 30px 30px 30px 30px;*/
+    color:white;
+    /*padding:5px 10px;*/
+    font-size:20px;
+    -ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Safari 3-8 */
+    transform: rotate(-45deg);
+}
+/*af|link*/.myLink:focus{
+    /*background:Red ;*/
+    border:Black solid thin;
+}
+.PreWrap {
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    word-wrap: break-word;      /* IE 5.5-7 */
+}
+/*af|image.myImage:hover {
+    border:Black solid thin;
+}
+af|column::column-header-cell {
+    background-color: #c6c6c6; 
+    color: White; 
+    height: 20px; 
+    font-size: 12px; 
+    font-weight: bold; 
+    text-align: center; 
+}*/
+af|navigationPane-bar {
+    width: 150%; 
+    height: 20px; 
+}
+
+af|navigationPane-list {
+    height: 20px; 
+}
+
+af|commandNavigationItem {
+}
+
+af|navigationPane-list::link {
+    color: Maroon; 
+    height: 30px; 
+    font-size: 13px; 
+}
+
+af|showDetailHeader::title-text0 {
+    color: Gray; 
+    padding-left: 5px; 
+    font-style: italic; 
+}
+/* comes Shop Admin */
+af|panelWindow::close-icon-style{
+display:none; 
+}
+.OTLabel af|outputText{
+ font-size: 12px;
+ font-weight: 400;
+ /*text-decoration: underline ;*/ 
+ height: 20px;   
+}
+.OTContnt af|outputText {
+ height: 20px; 
+ color: #003D5B !important; 
+ font-size: 14px;
+ font-weight: 200;
+}
+af|selectOneRadio::label{
+ font-size: 12px;
+ font-weight: 400;
+ /*text-decoration: underline ;*/ 
+ padding: 0px 0px 0px 0px;
+    height: 12px;
+}
+af|selectOneRadio::content {
+ /*height: 20px; 
+ min-width: 100% !important;
+ padding: 0.0rem 0.75rem !important;
+ line-height: 1.5 !important;*/
+ color: #003D5B !important; 
+ /*font-size: 14px;
+ font-weight: 200;
+ background-color: transparent !important;
+ background-image: none !important;
+ background-clip: padding-box !important;
+ border-radius: 0.5em ;
+ border: 1px solid #ced4da;
+ margin-bottom: 0.25rem;*/
+}
+af|selectOneChoice::label {
+    font-size: 12px;
+ font-weight: 400;
+ /*text-decoration: underline ;*/ 
+    padding: 0px 0px 0px 0px; 
+    height: 12px; 
+}
+af|selectOneChoice::content {
+      height: 30px; 
+ /*min-width: 100% !important;*/
+ padding: 0.375rem 0.75rem !important;
+ line-height: 1.5 !important;
+ color: #003D5B !important; 
+ font-size: 14px;
+ font-weight: 200;
+ background-color: transparent !important;
+ background-image: none !important;
+ background-clip: padding-box !important;
+ border-radius: 0.5em ;
+ border: 1px solid #ced4da;
+ margin-bottom: 0.25rem;
+}
+.OrderStatus af|selectOneChoice::content {
+      height: 30px; 
+ /*min-width: 100% !important;*/
+ padding: 0.375rem 0.75rem !important;
+ line-height: 1.5 !important;
+ color: white !important; 
+ font-size: 14px;
+ font-weight: 200;
+ background-color: transparent !important;
+ background-image: none !important;
+ background-clip: padding-box !important;
+ border-radius: 0.5em ;
+ border: 1px solid #ced4da;
+ margin-bottom: 0.25rem;
+}
+af|inputListOfValues::content {
+   height: 20px; 
+ /*min-width: 100% !important;*/
+ padding: 0.375rem 0.75rem !important;
+ line-height: 1.5 !important;
+ color: #003D5B !important; 
+ font-size: 14px;
+ font-weight: 200;
+ background-color: transparent !important;
+ background-image: none !important;
+ background-clip: padding-box !important;
+ border-radius: 0.5em ;
+ border: 1px solid #ced4da;
+ margin-bottom: 0.25rem;
+}
+
+af|inputListOfValues::label {
+  font-size: 12px;
+ font-weight: 400;
+ /*text-decoration: underline ;*/ 
+    padding: 0px 0px 0px 0px; 
+    height: 20px; 
+}
+af|inputText::label {
+ font-size: 12px;
+ font-weight: 400;
+ /*text-decoration: underline ;*/ 
+    padding: 5px 0px 0px 0px; 
+    height: 20px; 
+}
+af|inputText::content {
+ height: 20px; 
+ /*min-width: 100% !important;*/
+ padding: 0.375rem 0.75rem !important;
+ line-height: 1.5 !important;
+ color: #003D5B !important; 
+ font-size: 14px;
+ font-weight: 200;
+ background-color: transparent !important;
+ background-image: none !important;
+ background-clip: padding-box !important;
+ border-radius: 0.5em ;
+ border: 1px solid #ced4da;
+ margin-bottom: 0.25rem;
+}
+
+af|button::text {
+    color:#003D5B;
+    font-weight:400;
+    padding-top:5px;
+}
+
+af|button::link {
+ height:20px;
+ }
+
+af|panelTabbed::tab-content, af|navigationPane-tabs::tab-content {
+    /*border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;*/
+    /*padding:0 10px 0 10px;*/
+    min-height:100px;
+    min-width:200px;
+    
+}
+af|panelTabbed::tab:selected af|panelTabbed::tab-text-link {
+    color: #003D5B; 
+    text-align: center;
+
+}
+
+af|table {
+    background-color: White; 
+}
+
+af|column::data-cell {
+    height: 30px; 
+    color: #003D5B; 
+    font-weight: 600;
+}
+
+af|column::column-header-cell {
+    background-color: #e7e7e7; 
+}
+
+af|column::column-header-cell-content {
+    color: #003D5B; 
+    font-weight: 400;
+}
+
+af|inputDate::label {
+  font-size: 12px;
+ font-weight: 400;
+ /*text-decoration: underline ;*/ 
+ height: 20px; 
+}
+
+af|inputDate::content {
+   height: 20px; 
+ /*min-width: 100% !important;*/
+ padding: 0.375rem 0.75rem !important;
+ line-height: 1.5 !important;
+ color: #003D5B !important; 
+ font-size: 14px;
+ font-weight: 200;
+ background-color: transparent !important;
+ background-image: none !important;
+ background-clip: padding-box !important;
+ border-radius: 0.5em ;
+ border: 1px solid #ced4da;
+ margin-bottom: 0.25rem;
+}
+af|commandMenuItem::bar-item-text{
+    color: #003D5B
+}
+af|menu::bar-item-text{
+     color: #003D5B
+}
+af|menu:hover{
+    height:25px;
+    border : 1px solid rgb(0,61,91) ;
+    background-color: white;
+    color: #003D5B
+}
+af|commandMenuItem:hover {
+      height:25px;
+    border : 1px solid rgb(0,61,91) ;
+    background-color: white;
+    color: #003D5B
+}
+af|menu::bar-item:highlighted {
+    background-image: none;
+    background: transparent;
+    border: none;
+    /*border-bottom: 2px solid #c00;*/
+    padding: 0px;
+}
+af|commandMenuItem::bar-item:highlighted {
+    background-image: none;
+    background: transparent;
+    border: none;
+    /*border-bottom: 2px solid #c00;*/
+    padding: 0px;
+}
+af|commandMenuItem::menu-item:highlighted {
+        background-image: none;
+    background: transparent;
+    border: none;
+    /*border-bottom: 2px solid #c00;*/
+    padding: 0px;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="general_terms_crudPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CrudGeneralTermsV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="CrudGeneralTermsVIterator"/>
+    <iterator Binds="GeneralTermsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="GeneralTermsVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CrudGeneralTermsVIterator" id="Txt">
+      <AttrNames>
+        <Item Value="Txt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudGeneralTermsVIterator" id="Ordr">
+      <AttrNames>
+        <Item Value="Ordr"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudGeneralTermsVIterator" StaticList="false" Uses="LOV_Active" id="Active"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="GeneralTermsVIterator" id="ShortTxt">
+      <AttrNames>
+        <Item Value="ShortTxt"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

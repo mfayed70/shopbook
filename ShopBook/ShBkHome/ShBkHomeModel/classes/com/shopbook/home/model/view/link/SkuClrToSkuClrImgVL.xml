@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuClrToSkuClrImgVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.shopbook.home.model.entity.assoc.SkuClrToSkuClrImgAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.home.model.view.link.SkuClrToSkuClrImgVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SkuColorsV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.home.model.view.SkuColorsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SkuColorsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.view.SkuColorsV.SkuClrCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SkuClrImagesV"
+    Cardinality="-1"
+    Owner="com.shopbook.home.model.view.SkuClrImagesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SkuClrImagesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.home.model.view.SkuClrImagesV.SkuClrCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

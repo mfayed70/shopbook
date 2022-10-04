@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+  <groupNode id="itemNode_signup" label="#{adfBundle['com.shopbook.signup.view.ShBkSupResBndl']['SIGN_UP']}" idref="itemNode_newshop">
+    <itemNode id="itemNode_newuser" action="adfMenu_newuser" focusViewId="/newuser"
+              label="#{adfBundle['com.shopbook.signup.view.ShBkSupResBndl']['NEW_USER']}"/>
+    <itemNode id="itemNode_newshop" label="#{adfBundle['com.shopbook.signup.view.ShBkSupResBndl']['NEW_SHOP']}" action="adfMenu_newshop" focusViewId="/newshop"/>
+  </groupNode>
+</menu>

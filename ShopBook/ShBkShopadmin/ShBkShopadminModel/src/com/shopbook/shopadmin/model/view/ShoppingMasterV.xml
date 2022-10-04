@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShoppingMasterV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="pName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="TransStatusList1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.TransStatusList"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CitiesLovV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.CitiesLovV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="CitiesLovVCriteria1"
+      FullName="com.shopbook.shopadmin.model.view.CitiesLovV.CitiesLovVCriteria1"/>
+    <ParameterMap>
+      <PIMap Variable="pCntryCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CntryCode2]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AreasLovV2"
+    ViewObjectName="com.shopbook.shopadmin.model.view.CitiesLovV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AreasLovVCriteria"
+      FullName="com.shopbook.shopadmin.model.view.CitiesLovV.AreasLovVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pPrntCityCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CityCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CountriesLov1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.CountriesLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShippingTermsV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.ShippingTermsV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ShippingTermsVCriteria"
+      FullName="com.shopbook.shopadmin.model.view.ShippingTermsV.ShippingTermsVCriteria"/>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_TransStatus"
+    ListVOName="TransStatusList1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CityCode"
+    ListVOName="CitiesLovV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CityCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CityCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AreaCode"
+    ListVOName="AreasLovV2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AreaCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CityCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CntryCode2"
+    ListVOName="CountriesLov1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CntryCode2"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CntryCode2"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CntryName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShippCode"
+    ListVOName="ShippingTermsV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShippCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ShortTxt"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Code"
+    ListVOName="ShippingTermsV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ShortTxt"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 
+    ShoppingMaster.TRANS_ID, 
+    ShoppingMaster.TRANS_DATE_TIME, 
+    ShoppingMaster.TRANS_VALUE, 
+    ShoppingMaster.NOTES, 
+    ShoppingMaster.MOB_NO, 
+    ShoppingMaster.ADDRESS, 
+    ShoppingMaster.TRANS_STATUS, 
+    ShoppingMaster.PAYMENT_ID, 
+    ShoppingMaster.USER_ID, 
+    ShoppingMaster.FIRST_NAME, 
+    ShoppingMaster.LAST_NAME, 
+    ShoppingMaster.ADDRESS_1, 
+    ShoppingMaster.POSTAL_ZIP_CODE, 
+    Users.FIRST_NAME AS First_Name1, 
+    Users.USER_ID AS User_Id1, 
+    Users.FAMILY_NAME, 
+    ShipRtrnPolicies.SHORT_TXT, 
+    ShipRtrnPolicies.CODE, 
+    ShoppingMaster.SHIPP_CODE SHIPP_CODE, 
+    ShoppingMaster.CNTRY_CODE2 CNTRY_CODE2, 
+    ShoppingMaster.CITY_CODE CITY_CODE, 
+    ShoppingMaster.AREA_CODE AREA_CODE 
+FROM 
+    (shopping_master ShoppingMaster INNER JOIN users Users ON ShoppingMaster.USER_ID = Users.USER_ID) INNER JOIN ship_rtrn_policies ShipRtrnPolicies ON ShoppingMaster.SHIPP_CODE = ShipRtrnPolicies.CODE]]></SQLQuery>
+  <EntityUsage
+    Name="ShoppingMaster"
+    Entity="com.shopbook.shopadmin.model.entity.ShoppingMaster"/>
+  <EntityUsage
+    Name="Users"
+    Entity="com.shopbook.shopadmin.model.entity.Users"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShoppingMastUserAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingMastUserAssoc.Users"
+    SourceUsage="com.shopbook.shopadmin.model.view.ShoppingMasterV.ShoppingMaster"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.ShoppingMaster.UserId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.Users.UserId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ShipRtrnPolicies"
+    Entity="com.shopbook.shopadmin.model.entity.ShipRtrnPolicies"
+    ReadOnly="true"
+    DeleteParticipant="false">
+    <DesignTime>
+      <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="TransId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransId"
+    EntityUsage="ShoppingMaster"
+    AliasName="TRANS_ID"/>
+  <ViewAttribute
+    Name="TransDateTime"
+    PrecisionRule="true"
+    EntityAttrName="TransDateTime"
+    EntityUsage="ShoppingMaster"
+    AliasName="TRANS_DATE_TIME">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.shopbook.shopadmin.model.view.ShoppingMasterV.TransDateTime_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.shopbook.shopadmin.model.view.ShoppingMasterV.TransDateTime_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransValue"
+    PrecisionRule="true"
+    EntityAttrName="TransValue"
+    EntityUsage="ShoppingMaster"
+    AliasName="TRANS_VALUE"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="ShoppingMaster"
+    AliasName="NOTES"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="MobNo"
+    PrecisionRule="true"
+    EntityAttrName="MobNo"
+    EntityUsage="ShoppingMaster"
+    AliasName="MOB_NO"/>
+  <ViewAttribute
+    Name="Address"
+    PrecisionRule="true"
+    EntityAttrName="Address"
+    EntityUsage="ShoppingMaster"
+    AliasName="ADDRESS"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="TransStatus"
+    PrecisionRule="true"
+    EntityAttrName="TransStatus"
+    EntityUsage="ShoppingMaster"
+    AliasName="TRANS_STATUS"
+    LOVName="LOV_TransStatus">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentId"
+    PrecisionRule="true"
+    EntityAttrName="PaymentId"
+    EntityUsage="ShoppingMaster"
+    AliasName="PAYMENT_ID"/>
+  <ViewAttribute
+    Name="UserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="ShoppingMaster"
+    AliasName="USER_ID"/>
+  <ViewAttribute
+    Name="FirstName"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="ShoppingMaster"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="LastName"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="ShoppingMaster"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="Address1"
+    PrecisionRule="true"
+    EntityAttrName="Address1"
+    EntityUsage="ShoppingMaster"
+    AliasName="ADDRESS_1"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="PostalZipCode"
+    PrecisionRule="true"
+    EntityAttrName="PostalZipCode"
+    EntityUsage="ShoppingMaster"
+    AliasName="POSTAL_ZIP_CODE"/>
+  <ViewAttribute
+    Name="RegFirstName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Users"
+    AliasName="First_Name1"/>
+  <ViewAttribute
+    Name="RegUserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="Users"
+    AliasName="User_Id1"/>
+  <ViewAttribute
+    Name="RegFamilyName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FamilyName"
+    EntityUsage="Users"
+    AliasName="FAMILY_NAME"/>
+  <ViewAttribute
+    Name="ShortTxt"
+    PrecisionRule="true"
+    EntityAttrName="ShortTxt"
+    EntityUsage="ShipRtrnPolicies"
+    AliasName="SHORT_TXT"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="Code"
+    PrecisionRule="true"
+    EntityAttrName="Code"
+    EntityUsage="ShipRtrnPolicies"
+    AliasName="CODE"
+    IsQueriable="false"
+    LOVName="LOV_Code">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShippCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SHIPP_CODE"
+    Expression="SHIPP_CODE"
+    SQLType="VARCHAR"
+    LOVName="LOV_ShippCode">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CntryCode2"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CNTRY_CODE2"
+    Expression="CNTRY_CODE2"
+    SQLType="VARCHAR"
+    LOVName="LOV_CntryCode2">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CityCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CITY_CODE"
+    Expression="CITY_CODE"
+    SQLType="VARCHAR"
+    LOVName="LOV_CityCode">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AreaCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="AREA_CODE"
+    Expression="AREA_CODE"
+    SQLType="VARCHAR"
+    LOVName="LOV_AreaCode">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SumQty"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.object.ShoppingDetV.sum("Qty")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="ShoppingMasterVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.ShoppingMasterV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ShoppingMasterVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FirstName"
+        ViewAttribute="FirstName"
+        Operator="="
+        Conjunction="AND"
+        Value=":pName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="TransId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="ShoppingDetV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.ShoppingMastDetVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

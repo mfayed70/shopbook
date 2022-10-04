@@ -1,0 +1,110 @@
+/* @charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+/* @namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+*/
+.sliderContainer {
+    height: 300px;
+    width: 960px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.slideContent {
+    background: url("../images/contentBg.png") repeat scroll 0px 0px transparent;
+    position: absolute;
+    bottom: 0px;
+    padding: 10px;
+    width: 960px;
+}
+
+.slideContent h3 {
+    font: 26px/1em 'Rokkitt', serif;
+    color: #FFF;
+    margin: 0 0 5px 0;
+    float: left;
+}
+
+.slideContent p {
+    font-size: 14px;
+    color: #FFF;
+    margin-top: 10px;
+}
+
+.sliderImage {
+    width:960px;
+}
+
+.jFlowSlideContainer {
+    overflow: hidden;
+}
+
+.jFlowSlideContainer a {
+    color: #F90;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.jFlowSlideContainer a:hover {
+    text-decoration: none;
+}
+
+.jFlowSlideContainer a:focus {
+    position: relative;
+    top: 1px;
+}
+
+.jFlowNext {
+    background: url("../images/arrows.png") no-repeat scroll 0px -35px transparent;
+    height: 130px;
+    position: relative;
+    top: -330px;
+    right: -495px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.jFlowPrev {
+    background: url("../images/arrows.png") no-repeat scroll -84px -35px transparent;
+    height: 130px;
+    position: relative;
+    top: -200px;
+    left: -495px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.jFlowPrev:hover {
+    background-position: -84px -235px;
+}
+
+.jFlowNext:hover {
+    background-position: 0px -235px;
+}
+
+/* controller pagination */
+#myController {
+    position: relative;
+    top: -300px;
+    left: 880px;
+}
+
+.jFlowControl {
+    background: url("../images/bullet.png") no-repeat scroll 0px 0px transparent;
+    float: left;
+    width: 15px;
+    height: 15px;
+}
+
+.jFlowControl:hover {
+    background-position: -32px 0px;
+    cursor: pointer;
+}
+
+.jFlowSelected, .jFlowSelected:hover {
+    background-position: -15px 0px;
+}
+
+af|panelTabbed::tab-content {
+    height: 40px; 
+}

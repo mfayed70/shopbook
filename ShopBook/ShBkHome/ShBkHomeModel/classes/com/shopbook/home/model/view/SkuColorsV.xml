@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuColorsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p0ClrCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
+  <Variable
+    Name="p1SzCode"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="%">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+    </AttrArray>
+  </Variable>
+  <SQLQuery><![CDATA[SELECT SkuColors.SKU_CLR_CODE, 
+       SkuColors.CLR_CODE, 
+       SkuColors.SKU_CODE,
+       SkuColors.AVAILABLE,
+       SkuColors.QNTY_IN_STOCK, 
+       SkuColors.LAST_PRICE, 
+       SkuColors.OLP_PRICE, 
+       SkuColors.NOTES,
+       SkuColors.LAST_MODIFIED,  
+       SkuColors.CLR_NAME, 
+min(concat(sku_clr_images.img_path,sku_clr_images.sku_clr_img_code,sku_clr_images.img_type)) FULL_PATH,
+sku_clr_images.img_name,
+(select count(*) from sku_sizes where sku_sizes.sku_code = SkuColors.sku_code)
+as no_of_det_sizes,
+min(sku_size_colors.sku_sz_clr_code) min_sku_sz_clr_code
+FROM  sku_colors SkuColors
+left join skus
+on SkuColors.SKU_CODE = skus.SKU_CODE
+left join sku_clr_images
+on SkuColors.sku_clr_code = sku_clr_images.sku_clr_code
+left join sku_size_colors
+on SkuColors.sku_clr_code = sku_size_colors.sku_clr_code
+where substr(SkuColors.sku_code,-4) != '0000'
+and xyz(SkuColors.clr_code,?)='Y'
+and srchSkuSizes(?,SkuColors.sku_code)='Y'
+group by SkuColors.SKU_CODE, 
+       SkuColors.CLR_CODE, 
+       SkuColors.SKU_CLR_CODE, 
+       SkuColors.CLR_NAME, 
+       SkuColors.AVAILABLE,  
+       SkuColors.QNTY_IN_STOCK, 
+       SkuColors.LAST_PRICE, 
+       SkuColors.OLP_PRICE, 
+       SkuColors.NOTES, 
+       SkuColors.LAST_MODIFIED,
+       no_of_det_sizes,sku_clr_images.img_name]]></SQLQuery>
+  <EntityUsage
+    Name="SkuColors"
+    Entity="com.shopbook.home.model.entity.SkuColors"/>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuClrCode"
+    EntityUsage="SkuColors"
+    AliasName="SKU_CLR_CODE"/>
+  <ViewAttribute
+    Name="ClrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ClrCode"
+    EntityUsage="SkuColors"
+    AliasName="CLR_CODE"/>
+  <ViewAttribute
+    Name="SkuCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuCode"
+    EntityUsage="SkuColors"
+    AliasName="SKU_CODE"/>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="SkuColors"
+    AliasName="AVAILABLE"/>
+  <ViewAttribute
+    Name="QntyInStock"
+    PrecisionRule="true"
+    EntityAttrName="QntyInStock"
+    EntityUsage="SkuColors"
+    AliasName="QNTY_IN_STOCK"/>
+  <ViewAttribute
+    Name="LastPrice"
+    PrecisionRule="true"
+    EntityAttrName="LastPrice"
+    EntityUsage="SkuColors"
+    AliasName="LAST_PRICE"/>
+  <ViewAttribute
+    Name="OlpPrice"
+    PrecisionRule="true"
+    EntityAttrName="OlpPrice"
+    EntityUsage="SkuColors"
+    AliasName="OLP_PRICE"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="SkuColors"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="SkuColors"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="ClrName"
+    PrecisionRule="true"
+    EntityAttrName="ClrName"
+    EntityUsage="SkuColors"
+    AliasName="CLR_NAME"/>
+  <ViewAttribute
+    Name="FullPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="148"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FULL_PATH"
+    Expression="FULL_PATH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="148"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImgName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="img_name"
+    Expression="img_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NoOfDetSizes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="no_of_det_sizes"
+    Expression="no_of_det_sizes"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="21"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MinSkuSzClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="37"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="min_sku_sz_clr_code"
+    Expression="min_sku_sz_clr_code"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="37"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SKU_NAME"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[HmSkuV.SkuName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="clrPriceDiffer"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="clrPriceDiffer"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[if (LastPrice!= null && OlpPrice !=null) {
+return 100 - ((LastPrice/OlpPrice)*100) }
+else {return null}]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FlagClrPriceDiffer"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="FlagClrPriceDiffer"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[if (clrPriceDiffer==0) {
+return "New"}
+else if (clrPriceDiffer<0) {
+return "   "}
+else {return clrPriceDiffer+"%Off"}]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SkuClrImagesV"
+    ViewLink="com.shopbook.home.model.view.link.SkuClrToSkuClrImgVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkuSizeColorsV"
+    ViewLink="com.shopbook.home.model.view.link.SkuClrToSkuSzClrVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ShoppingDetV"
+    ViewLink="com.shopbook.home.model.view.link.ShoppingDetSkuClrFkVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkusV"
+    ViewLink="com.shopbook.home.model.view.link.SkuToColorsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="HmSkuV"
+    ViewLink="com.shopbook.home.model.view.link.HmSkuVToSkuColorsVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

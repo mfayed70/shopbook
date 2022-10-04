@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+    <af:document title="shoppingBag.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/SkuTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_main">
+                    <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="AFStretchWidth">
+                        <af:panelHeader text="#{shbkhomeviewBundle.YOUR_SHOPPING_BAG}" id="ph1"
+                                        inlineStyle="min-height:500px;padding-bottom:30px;">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info">
+                                <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                                     inlineStyle="padding-right:50px;padding-bottom:10px;">
+                                    <af:inputText value="Total #{bindings.sumQty.inputValue} items"
+                                                  shortDesc="#{bindings.sumQty.hints.tooltip}" id="it1" label="Label 2"
+                                                  readOnly="true" autoSubmit="true" simple="true"
+                                                  partialTriggers="lv1:l6 lv1:of5 lv1:l5 lv1:l4"
+                                                  contentStyle="font-size:20px;">
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.sumQty.format}"/>
+                                    </af:inputText>
+                                    <af:link text="#{shbkhomeviewBundle.CONTINUE_SHOOPING}" id="l1"
+                                             inlineStyle="border-bottom-left-radius:20px 20px; border-bottom-right-radius:20px 20px; border-top-left-radius:20px 20px; border-top-right-radius:20px 20px;"
+                                             action="adfMenu_home" styleClass="ShopBagLinks AddTobag"/>
+                                    <f:facet name="separator">
+                                        <af:spacer width="20" height="10" id="s1"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                            <af:panelSplitter id="ps1" positionedFromEnd="true" splitterPosition="250" disabled="true">
+                                <f:facet name="first">
+                                    <af:panelGroupLayout id="pgl10" layout="vertical">
+                                        <af:listView value="#{bindings.ShoppingDetV1.collectionModel}" var="item"
+                                                     emptyText="#{bindings.ShoppingDetV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                     fetchSize="#{bindings.ShoppingDetV1.rangeSize}" id="lv1"
+                                                     selection="single"
+                                                     selectionListener="#{bindings.ShoppingDetV1.treeModel.makeCurrent}"
+                                                     selectedRowKeys="#{bindings.ShoppingDetV1.collectionModel.selectedRow}">
+                                            <af:listItem id="li1">
+                                                <af:panelGroupLayout layout="horizontal" id="pgl8"
+                                                                     styleClass="AFStretchWidth">
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" id="s12"/>
+                                                    </f:facet>
+                                                    <af:panelGroupLayout id="pgl9" layout="vertical"
+                                                                         inlineStyle="width:100px;" halign="center">
+                                                        <af:link id="of2" inlineStyle="font-size:14px;color:#003D5B;"
+                                                                 text="#{item.bindings.SkuName.inputValue}"
+                                                                 icon="/ViewImageServlet?path=#{item.ImgFullPath==null || empty item.ImgFullPath? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : item.ImgFullPath}"
+                                                                 iconPosition="bottom" styleClass="shopSkuLink"
+                                                                 destination="../shop/ProductPage?p1=#{item.bindings.SkuCode.inputValue}&amp;p2=#{item.bindings.SkuClrCode.inputValue}&amp;p3=#{item.bindings.ClrName.inputValue}&amp;p4=#{'No'}"
+                                                                 targetFrame="_parent"/>
+                                                        <af:outputFormatted value="#{item.bindings.ClrName.inputValue}"
+                                                                            id="of3" inlineStyle="font-size:14px;"/>
+                                                        <af:outputText value="#{item.bindings.SizeName.inputValue}"
+                                                                       id="of4" inlineStyle="font-size:14px;"/>
+                                                        <f:facet name="separator"/>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl12" layout="vertical" halign="center"
+                                                                         inlineStyle="width:70px;">
+                                                        <af:outputText value="#{shbkhomeviewBundle.QTY}" id="ot12"
+                                                                       inlineStyle="font-size:12px;"/>
+                                                        <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                                            <af:link text="-" id="l6"
+                                                                     inlineStyle="padding:0px 7px;border-radius:90px 90px 90px 90px / 90px 90px 90px 90px ; "
+                                                                     actionListener="#{pageFlowScope.RefreshBag.minusReqQtyLink}"
+                                                                     partialSubmit="true"
+                                                                     styleClass="bagReqQtyPM AddTobag"
+                                                                     disabled="#{sessionScope.userId==null}"/>
+                                                            <af:inputText value="#{item.bindings.Qty.inputValue}"
+                                                                          id="of5"
+                                                                          inlineStyle="font-size:14px;color:#003D5B;"
+                                                                          partialTriggers="l6 l5 ::it1" readOnly="true"
+                                                                          simple="true"
+                                                                          binding="#{pageFlowScope.RefreshBag.reqQty}"
+                                                                          autoSubmit="true">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ShoppingDetV1.hints.Qty.format}"/>
+                                                            </af:inputText>
+                                                            <af:link text="+" id="l5"
+                                                                     inlineStyle="padding:0px 5px;border-radius:90px 90px 90px 90px / 90px 90px 90px 90px;"
+                                                                     actionListener="#{pageFlowScope.RefreshBag.plusReqQtyLink}"
+                                                                     partialSubmit="true"
+                                                                     styleClass="bagReqQtyPM AddTobag"
+                                                                     disabled="#{sessionScope.userId==null}"/>
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="10" height="10" id="s14"/>
+                                                            </f:facet>
+                                                        </af:panelGroupLayout>
+                                                        <af:spacer width="10" height="10" id="s13"/>
+                                                        <af:outputText value="#{shbkhomeviewBundle.UNIT_PRICE}" id="ot13"
+                                                                       inlineStyle="font-size:12px;"/>
+                                                        <af:panelGroupLayout id="pgl13" layout="horizontal">
+                                                            <af:outputText value="#{item.bindings.UnitPrice.inputValue}"
+                                                                           id="of6"
+                                                                           inlineStyle="font-size:14px;color:#003D5B;">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ShoppingDetV1.hints.UnitPrice.format}"/>
+                                                            </af:outputText>
+                                                            <af:outputText value="#{bindings.CurrSymbol.inputValue}"
+                                                                           shortDesc="#{bindings.CurrSymbol.hints.tooltip}"
+                                                                           id="ot9" inlineStyle="font-size:small;"/>
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="5" height="10" id="s15"/>
+                                                            </f:facet>
+                                                        </af:panelGroupLayout>
+                                                        <f:facet name="separator"/>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl15" layout="vertical" halign="center"
+                                                                         inlineStyle="width:60px;">
+                                                        <af:outputText value="#{shbkhomeviewBundle.TOTAL_PRICE}"
+                                                                       id="ot14" inlineStyle="font-size:12px;"/>
+                                                        <af:panelGroupLayout id="pgl14" layout="horizontal">
+                                                            <af:inputText value="#{item.bindings.Qty.inputValue * item.bindings.UnitPrice.inputValue}"
+                                                                          id="of7"
+                                                                          inlineStyle="font-size:14px;color:#003D5B;"
+                                                                          label="Label 3" simple="true" autoSubmit="true"
+                                                                          readOnly="true" partialTriggers="of5 l6 l5">
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ShoppingDetV1.hints.TotalPrice.format}"/>
+                                                            </af:inputText>
+                                                            <af:outputText value="#{bindings.CurrSymbol.inputValue}"
+                                                                           shortDesc="#{bindings.CurrSymbol.hints.tooltip}"
+                                                                           id="ot7"
+                                                                           inlineStyle="font-size:14px;color:#003D5B;"/>
+                                                        </af:panelGroupLayout>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl16" layout="horizontal"
+                                                                         halign="center">
+                                                        <af:link actionListener="#{bindings.Delete.execute}"
+                                                                 text="#{shbkhomeviewBundle.REMOVE}"
+                                                                 disabled="#{!bindings.Delete.enabled}" id="l4"
+                                                                 icon="/icons/trash-9-16.png"
+                                                                 inlineStyle="font-size:small;"
+                                                                 iconPosition="top" partialTriggers="::l3"
+                                                                 immediate="true" action="#{bindings.Commit.execute}"/>
+                                                    </af:panelGroupLayout>
+                                                </af:panelGroupLayout>
+                                            </af:listItem>
+                                        </af:listView>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelGroupLayout id="pfl1" layout="vertical" halign="center"
+                                                         inlineStyle="padding-top:20px;margin-bottom:30px;">
+                                        <af:panelGroupLayout id="pgl3" layout="horizontal"
+                                                             inlineStyle="border-style:none none solid; border-width:medium medium thin; padding:0px; padding-left:35px; padding-right:35px; padding-bottom:10px; border-color:#e7e7e7;"
+                                                             halign="center">
+                                            <af:outputText value="#{shbkhomeviewBundle.ORDER_SUMMARY}" id="of1"
+                                                           inlineStyle="font-size:large;"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                             inlineStyle="border-style:none none solid; border-width:medium medium thin; padding:0px; padding-left:35px; padding-right:35px; padding-bottom:10px; border-color:#e7e7e7;">
+                                            <af:inputText value="#{bindings.sumPrice.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                                          shortDesc="#{bindings.sumPrice.hints.tooltip}" id="ot6"
+                                                          inlineStyle="font-size:18px; color:#003D5B;"
+                                                          partialTriggers="lv1:of7 lv1:l4"
+                                                          label="#{bindings.sumPrice.hints}"
+                                                          labelStyle="font-size:14px;"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="5" height="10" id="s8"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl1" halign="center">
+                                            <af:link text="#{shbkhomeviewBundle.CheckoutSecurely}" id="l3"
+                                                     inlineStyle="border-bottom-left-radius:20px 20px; border-bottom-right-radius:20px 20px; border-top-left-radius:20px 20px; border-top-right-radius:20px 20px;"
+                                                     action="toAddressOptions"
+                                                     styleClass="ShopBagLinks AddTobag"
+                                                     disabled="#{bindings.ShoppingDetVIterator.estimatedRowCount==0}"
+                                                     partialTriggers="lv1:l4"/>
+                                        </af:panelGroupLayout>
+                                        <f:facet name="separator">
+                                            <af:spacer height="20" id="s10"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelSplitter>
+                        </af:panelHeader>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SizeToSizeDetVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="com.shopbook.shopadmin.model.entity.assoc.SizeToSizeDetAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.link.SizeToSizeDetVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SizeClassesV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.shopadmin.model.view.SizeClassesV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SizeClassesV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.SizeClassesV.SzClassCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SizeClassDetsV"
+    Cardinality="-1"
+    Owner="com.shopbook.shopadmin.model.view.SizeClassDetsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SizeClassDetsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.view.SizeClassDetsV.SzClassCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

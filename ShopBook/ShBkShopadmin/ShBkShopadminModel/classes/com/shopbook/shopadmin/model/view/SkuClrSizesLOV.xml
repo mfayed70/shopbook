@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuClrSizesLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.SkuClrSizesLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT distinct
+    sku_size_colors.SKU_SZ_CLR_CODE SKU_SZ_CLR_CODE
+    , concat(skus.SKU_NAME,'-',sku_colors.CLR_NAME,'-',size_class_dets.SZ_DET_NAME) SKU_CLR_SZ_NAME
+    , sku_size_colors.LAST_PRICE LAST_PRICE,
+     sku_size_colors.OLD_PRICE OLD_PRICE,
+     sku_size_colors.SKU_CLR_CODE,
+     sku_colors.CLR_NAME,
+     concat(skus.SKU_NAME,'-',sku_colors.CLR_NAME,'-',size_class_dets.SZ_DET_NAME) SKU_OFFER_NAME
+     ,skus.SKU_CODE
+     ,countries.CURR_CODE, (select  min(concat(sku_clr_images.IMG_PATH,sku_clr_images.SKU_CLR_IMG_CODE,sku_clr_images.IMG_TYPE))
+                          from sku_clr_images where
+						  sku_clr_images.SKU_CLR_CODE = sku_colors.SKU_CLR_CODE) IMG_PATH
+
+FROM sku_size_colors, skus, sku_colors, size_class_dets,countries
+
+WHERE sku_size_colors.sku_clr_code = sku_colors.sku_clr_code
+and sku_colors.sku_code = skus.sku_code
+and substr(sku_size_colors.sku_size_code,-6) = size_class_dets.sz_det_code
+and countries.default_cntry='Y'
+and (skus.SKU_NAME <> 'Reserved'
+OR    sku_colors.CLR_NAME <> 'RESERVED'
+OR    size_class_dets.SZ_DET_NAME <> 'Reserved')]]></SQLQuery>
+  <ViewAttribute
+    Name="SkuSzClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SKU_SZ_CLR_CODE"
+    Expression="SKU_SZ_CLR_CODE"
+    SQLType="VARCHAR"
+    IsQueriable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="37"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrSzName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="402"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CLR_SZ_NAME"
+    Expression="SKU_CLR_SZ_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="402"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="LAST_PRICE"
+    Expression="LAST_PRICE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="7"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OldPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.math.BigDecimal"
+    ColumnType="VARCHAR"
+    AliasName="OLD_PRICE"
+    Expression="OLD_PRICE"
+    SQLType="NUMERIC"
+    IsQueriable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CLR_CODE"
+    Expression="SKU_CLR_CODE"
+    SQLType="VARCHAR"
+    IsQueriable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ClrName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="28"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CLR_NAME"
+    Expression="CLR_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuOfferName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="402"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_OFFER_NAME"
+    Expression="SKU_OFFER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="402"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="23"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CODE"
+    Expression="SKU_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CURR_CODE"
+    SQLType="VARCHAR"
+    Expression="CURR_CODE"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="ImgPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="155"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMG_PATH"
+    Expression="IMG_PATH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="155"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SkuSzClrCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

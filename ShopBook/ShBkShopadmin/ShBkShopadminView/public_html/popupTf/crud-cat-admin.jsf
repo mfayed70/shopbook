@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbkshopadminviewBundle.ADD___EDIT_CATEGORY_ADMINISTRATOR}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toSave"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <af:panelSplitter id="ps1" splitterPosition="450" disabled="true">
+                    <f:facet name="first">
+                        <af:panelHeader text="#{shbkshopadminviewBundle.DRAG_N_DROP_ADMIN_FOR_CATEGORY} : #{pageFlowScope.pCatName}" id="ph2"
+                                        inlineStyle="padding:10px 10px 0 0;">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar">
+                                <af:navigationPane hint="buttons" id="np2">
+                                    <af:commandNavigationItem id="ni3"
+                                                              text="#{shbkshopadminviewBundle.DELETE_CATEGORY_ADMIN}"
+                                                              icon="/icons/Delete.png" action="toSave"
+                                                              actionListener="#{bindings.Delete.execute}"/>
+                                </af:navigationPane>
+                            </f:facet>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:spacer width="10" height="20" id="s1"/>
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText value="#{bindings.ShopCatSubCode.inputValue}"
+                                              label="#{bindings.ShopCatSubCode.hints.label}"
+                                              required="#{bindings.ShopCatSubCode.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.ShopCatSubCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.ShopCatSubCode.hints.precision}"
+                                              shortDesc="#{bindings.ShopCatSubCode.hints.tooltip}" id="it3"
+                                              binding="#{DropHandlerBean.pshopCatSubCode}" clientComponent="true"
+                                              autoSubmit="true" rendered="false">
+                                    <f:validator binding="#{bindings.ShopCatSubCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.AdminShpCatCode.inputValue}"
+                                              label="#{bindings.AdminShpCatCode.hints.label}"
+                                              required="#{bindings.AdminShpCatCode.hints.mandatory}"
+                                              columns="#{bindings.AdminShpCatCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.AdminShpCatCode.hints.precision}"
+                                              shortDesc="#{bindings.AdminShpCatCode.hints.tooltip}" id="it1"
+                                              binding="#{DropHandlerBean.padminShpCatCode}" clientComponent="true"
+                                              autoSubmit="true" rendered="false">
+                                    <f:validator binding="#{bindings.AdminShpCatCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.UserId.inputValue}"
+                                              label="#{bindings.UserId.hints.label}"
+                                              required="#{bindings.UserId.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.UserId.hints.displayWidth}"
+                                              maximumLength="#{bindings.UserId.hints.precision}"
+                                              shortDesc="#{bindings.UserId.hints.tooltip}" id="it2"
+                                              binding="#{DropHandlerBean.puserId}" clientComponent="true">
+                                    <f:validator binding="#{bindings.UserId.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.FamilyName.inputValue}"
+                                              label="#{bindings.FamilyName.hints.label}"
+                                              required="#{bindings.FamilyName.hints.mandatory}" readOnly="true"
+                                              columns="50"
+                                              maximumLength="#{bindings.FamilyName.hints.precision}"
+                                              shortDesc="#{bindings.FamilyName.hints.tooltip}" id="it4"
+                                              binding="#{DropHandlerBean.pfamilyName}" clientComponent="true">
+                                    <f:validator binding="#{bindings.FamilyName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.FirstName.inputValue}"
+                                              label="#{bindings.FirstName.hints.label}"
+                                              required="#{bindings.FirstName.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.FirstName.hints.displayWidth}"
+                                              maximumLength="#{bindings.FirstName.hints.precision}"
+                                              shortDesc="#{bindings.FirstName.hints.tooltip}" id="it5"
+                                              binding="#{DropHandlerBean.pfirstName}" clientComponent="true">
+                                    <f:validator binding="#{bindings.FirstName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.UserName.inputValue}"
+                                              label="#{bindings.UserName.hints.label}"
+                                              required="#{bindings.UserName.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.UserName.hints.displayWidth}"
+                                              maximumLength="#{bindings.UserName.hints.precision}"
+                                              shortDesc="#{bindings.UserName.hints.tooltip}" id="it6"
+                                              binding="#{DropHandlerBean.puserName}" clientComponent="true">
+                                    <f:validator binding="#{bindings.UserName.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.LastModified.inputValue}" readOnly="true"
+                                              label="#{bindings.LastModified.hints.label}"
+                                              required="#{bindings.LastModified.hints.mandatory}"
+                                              columns="#{bindings.LastModified.hints.displayWidth}"
+                                              shortDesc="#{bindings.LastModified.hints.tooltip}" id="id1">
+                                    <f:validator binding="#{bindings.LastModified.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.LastModified.format}"/>
+                                </af:inputDate>
+                                <af:selectOneRadio value="#{bindings.Active.inputValue}"
+                                                   label="#{bindings.Active.label}"
+                                                   required="#{bindings.Active.hints.mandatory}"
+                                                   shortDesc="#{bindings.Active.hints.tooltip}"
+                                                   id="sor1" layout="horizontal">
+                                    <f:selectItems value="#{bindings.Active.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.Active.validator}"/>
+                                </af:selectOneRadio>
+                                <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                                              required="#{bindings.Notes.hints.mandatory}"
+                                              columns="#{bindings.Notes.hints.displayWidth}"
+                                              maximumLength="#{bindings.Notes.hints.precision}"
+                                              shortDesc="#{bindings.Notes.hints.tooltip}" id="it7" rows="3">
+                                    <f:validator binding="#{bindings.Notes.validator}"/>
+                                </af:inputText>
+                                <af:dropTarget dropListener="#{DropHandlerBean.dropHandler}" actions="COPY">
+                                    <af:dataFlavor flavorClass="org.apache.myfaces.trinidad.model.RowKeySet"
+                                                   discriminant="copyAdmin"/>
+                                </af:dropTarget>
+                            </af:panelFormLayout>
+                        </af:panelHeader>
+                    </f:facet>
+                    <f:facet name="second">
+                        <af:panelHeader text="#{shbkshopadminviewBundle.AVAILABLE_ADMINS}" id="ph3"
+                                        inlineStyle="padding:10px 0 0 10px;">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <af:table value="#{bindings.AdminsV.collectionModel}" var="row"
+                                      rows="#{bindings.AdminsV.rangeSize}"
+                                      emptyText="#{bindings.AdminsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.AdminsV.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.AdminsV.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.AdminsV.rangeSize}" id="t1"
+                                      columnStretching="column:c1" verticalGridVisible="false" width="550">
+                                <af:column headerText="#{bindings.AdminsV.hints.UserId.label}" id="c1">
+                                    <af:outputText value="#{row.UserId}"
+                                                   shortDesc="#{bindings.AdminsV.hints.UserId.tooltip}" id="ot5"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.AdminsV.hints.UserName.label}" id="c2">
+                                    <af:outputText value="#{row.UserName}"
+                                                   shortDesc="#{bindings.AdminsV.hints.UserName.tooltip}" id="ot6"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.AdminsV.hints.FirstName.label}" id="c3">
+                                    <af:outputText value="#{row.FirstName}"
+                                                   shortDesc="#{bindings.AdminsV.hints.FirstName.tooltip}" id="ot7"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.AdminsV.hints.FamilyName.label}" id="c4">
+                                    <af:outputText value="#{row.FamilyName}"
+                                                   shortDesc="#{bindings.AdminsV.hints.FamilyName.tooltip}" id="ot8"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.AdminsV.hints.Active.label}" id="c5">
+                                    <af:outputText value="#{row.Active}"
+                                                   shortDesc="#{bindings.AdminsV.hints.Active.tooltip}" id="ot9"/>
+                                </af:column>
+                                <af:dragSource actions="COPY" defaultAction="COPY" discriminant="copyAdmin"/>
+                            </af:table>
+                        </af:panelHeader>
+                    </f:facet>
+                </af:panelSplitter>
+                <f:facet name="info"/>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

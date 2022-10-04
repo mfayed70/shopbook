@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="adminsPageDef"
+                Package="com.shopbook.sysadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkSysAdminDataControl" id="SysParametersVIterator"/>
+    <iterator Binds="UsersV" RangeSize="10" DataControl="ShBkSysAdminDataControl" id="UsersVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SysParametersVIterator" id="NoimagePath">
+      <AttrNames>
+        <Item Value="NoimagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <tree id="UsersV" IterBinding="UsersVIterator">
+      <nodeDefinition DefName="com.shopbook.sysadmin.model.view.UsersV" Name="UsersCrudV0">
+        <AttrNames>
+          <Item Value="UserId"/>
+          <Item Value="UserName"/>
+          <Item Value="FirstName"/>
+          <Item Value="FamilyName"/>
+          <Item Value="LastModified"/>
+          <Item Value="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

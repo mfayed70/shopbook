@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CatMnfBrndMdlYersV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pCmbmyCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="BrandsVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.BrandsV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CategoriesVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.CategoriesV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ManufacturersVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.ManufacturersV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ModelsVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.ModelsV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YearsVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.YearsV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_BrandCode"
+    ListVOName="BrandsVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BrandCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BrandCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BrandName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CatCode"
+    ListVOName="CategoriesVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CatCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CatCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MnfCode"
+    ListVOName="ManufacturersVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MnfCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MnfCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MnfName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ModelCode"
+    ListVOName="ModelsVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ModelCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Year"
+    ListVOName="YearsVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="CatMnfBrndMdiYers"
+    Entity="com.shopbook.sysadmin.model.entity.CatMnfBrndMdiYers"/>
+  <ViewAttribute
+    Name="CmbmyCode"
+    PrecisionRule="true"
+    EntityAttrName="CmbmyCode"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="CMBMY_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.CmbmyCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BrandCode"
+    PrecisionRule="true"
+    EntityAttrName="BrandCode"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="BRAND_CODE"
+    LOVName="LOV_BrandCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.BrandCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CatCode"
+    PrecisionRule="true"
+    EntityAttrName="CatCode"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="CAT_CODE"
+    LOVName="LOV_CatCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.CatCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MnfCode"
+    PrecisionRule="true"
+    EntityAttrName="MnfCode"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="MNF_CODE"
+    LOVName="LOV_MnfCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.MnfCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModelCode"
+    PrecisionRule="true"
+    EntityAttrName="ModelCode"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="MODEL_CODE"
+    LOVName="LOV_ModelCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.ModelCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    PrecisionRule="true"
+    EntityAttrName="Year"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="YEAR"
+    LOVName="LOV_Year">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="LAST_MODIFIED">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.LastModified_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.LastModified_FMT_FORMATTER"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.LastModified_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="CatMnfBrndMdiYers"
+    AliasName="NOTES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CatMnfBrndMdlYersVCriteria"
+    ViewObjectName="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CatMnfBrndMdlYersVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CmbmyCode"
+        ViewAttribute="CmbmyCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pCmbmyCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.sysadmin.model.ShBkSysAdModelBndl"/>
+  </ResourceBundle>
+</ViewObject>

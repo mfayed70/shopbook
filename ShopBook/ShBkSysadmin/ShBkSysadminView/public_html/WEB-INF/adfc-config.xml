@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="sysadmin">
+    <page>/sysadmin.jsf</page>
+    <redirect/>
+  </view>
+  <view id="countriesandcurrencies">
+    <page>/countriesandcurrencies.jsf</page>
+    <redirect/>
+  </view>
+  <view id="references">
+    <page>/references.jsf</page>
+    <redirect/>
+  </view>
+  <view id="categories">
+    <page>/categories.jsf</page>
+    <redirect/>
+  </view>
+  <view id="categoryrefrencesandsizes">
+    <page>/categoryrefrencesandsizes.jsf</page>
+    <redirect/>
+  </view>
+  <view id="sizeclasses">
+    <page>/sizeclasses.jsf</page>
+    <redirect/>
+  </view>
+  <view id="units">
+    <page>/units.jsf</page>
+    <redirect/>
+  </view>
+  <view id="sysparameters">
+    <page>/sysparameters.jsf</page>
+    <redirect/>
+  </view>
+  <task-flow-call id="crud-sizes-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-sizes-tf.xml</document>
+      <id>crud-sizes-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__18">
+      <name>CrudSizesAction</name>
+      <value>#{viewScope.CrudSizesAction}</value>
+    </input-parameter>
+    <input-parameter id="__19">
+      <name>vSzClsCode</name>
+      <value>#{viewScope.vSzClsCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-units-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-units-tf.xml</document>
+      <id>crud-units-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__13">
+      <name>unitsAction</name>
+      <value>#{pageFlowScope.unitsAction}</value>
+    </input-parameter>
+    <input-parameter id="__14">
+      <name>vFromUnit</name>
+      <value>#{viewScope.vFromUnit}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-categories-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-categories-tf.xml</document>
+      <id>crud-categories-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__17">
+      <name>categoryAction</name>
+      <value>#{pageFlowScope.categoryAction}</value>
+    </input-parameter>
+    <input-parameter id="__22">
+      <name>vCatCode</name>
+      <value>#{pageFlowScope.vCatCode}</value>
+    </input-parameter>
+    <input-parameter id="__50">
+      <name>vCatImgName</name>
+      <value>#{pageFlowScope.vCatImgName}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-brands-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-brands-tf.xml</document>
+      <id>crud-brands-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__28">
+      <name>brandsAction</name>
+      <value>#{pageFlowScope.brandsAction}</value>
+    </input-parameter>
+    <input-parameter id="__29">
+      <name>vBrandCode</name>
+      <value>#{pageFlowScope.vBrandCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-manf-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-manf-tf.xml</document>
+      <id>crud-manf-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__32">
+      <name>manufAction</name>
+      <value>#{pageFlowScope.manufAction}</value>
+    </input-parameter>
+    <input-parameter id="__33">
+      <name>vManufCode</name>
+      <value>#{pageFlowScope.vManufCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-models-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-models-tf.xml</document>
+      <id>crud-models-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__35">
+      <name>modelsAction</name>
+      <value>#{pageFlowScope.modelsAction}</value>
+    </input-parameter>
+    <input-parameter id="__36">
+      <name>vModelCode</name>
+      <value>#{pageFlowScope.vModelCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-currencies-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-currPrices-tf.xml</document>
+      <id>crud-currencies-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__39">
+      <name>currPricesAction</name>
+      <value>#{pageFlowScope.currPricesAction}</value>
+    </input-parameter>
+    <input-parameter id="__40">
+      <name>vTransId</name>
+      <value>#{pageFlowScope.vTransId}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-catrefrences-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-catrefrences-tf.xml</document>
+      <id>crud-catrefrences-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__45">
+      <name>cmbmyCodeAction</name>
+      <value>#{pageFlowScope.cmbmyCodeAction}</value>
+    </input-parameter>
+    <input-parameter id="__46">
+      <name>vCmbmyCode</name>
+      <value>#{pageFlowScope.vCmbmyCode}</value>
+    </input-parameter>
+    <input-parameter id="__48">
+      <name>vCatName</name>
+      <value>#{pageFlowScope.vCatName}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-catsizes-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-catsizes-tf.xml</document>
+      <id>crud-catsizes-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__41">
+      <name>catSizClassAction</name>
+      <value>#{pageFlowScope.catSizClassAction}</value>
+    </input-parameter>
+    <input-parameter id="__42">
+      <name>vCatSizClassCode</name>
+      <value>#{pageFlowScope.vCatSizClassCode}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="edit-sysparameters-tf">
+    <task-flow-reference>
+      <document>/popupTf/edit-sysparameters-tf.xml</document>
+      <id>edit-sysparameters-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__52">
+      <name>vFileServPath</name>
+      <value>#{pageFlowScope.vFileServPath}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <view id="categorytree">
+    <page>/categorytree.jsf</page>
+    <redirect/>
+  </view>
+  <view id="admins">
+    <page>/admins.jsf</page>
+    <redirect/>
+  </view>
+  <task-flow-call id="crud-categorytree-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-categorytree-tf.xml</document>
+      <id>crud-categorytree-tf</id>
+    </task-flow-reference>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-useradmins-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-useradmins-tf.xml</document>
+      <id>crud-useradmins-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__59">
+      <name>userAdminsAction</name>
+      <value>#{pageFlowScope.userAdminsAction}</value>
+    </input-parameter>
+    <input-parameter id="__60">
+      <name>vUserId</name>
+      <value>#{pageFlowScope.vUserId}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="crud-cities-areas-tf">
+    <task-flow-reference>
+      <document>/popupTf/crud-cities-areas-tf.xml</document>
+      <id>crud-cities-areas-tf</id>
+    </task-flow-reference>
+    <input-parameter id="__62">
+      <name>pPrntCityCode</name>
+      <value>#{pageFlowScope.pPrntCityCode}</value>
+    </input-parameter>
+    <input-parameter id="__63">
+      <name>pCityCode</name>
+      <value>#{pageFlowScope.pCityCode}</value>
+    </input-parameter>
+    <input-parameter id="__64">
+      <name>pCityAreaAction</name>
+      <value>#{pageFlowScope.pCityAreaAction}</value>
+    </input-parameter>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <task-flow-call id="refNamesConfirm">
+    <task-flow-reference>
+      <document>/popupTf/refNamesConfirm.xml</document>
+      <id>refNamesConfirm</id>
+    </task-flow-reference>
+    <run-as-dialog>
+      <display-type>
+        <inline-popup/>
+      </display-type>
+    </run-as-dialog>
+  </task-flow-call>
+  <control-flow-rule id="__1">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>adfMenu_sysadmin</from-outcome>
+      <to-activity-id>sysadmin</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>adfMenu_countriesandcurrencies</from-outcome>
+      <to-activity-id>countriesandcurrencies</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>adfMenu_references</from-outcome>
+      <to-activity-id>references</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__5">
+      <from-outcome>adfMenu_categories</from-outcome>
+      <to-activity-id>categories</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>adfMenu_categoryrefrencesandsizes</from-outcome>
+      <to-activity-id>categoryrefrencesandsizes</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>adfMenu_sizeclasses</from-outcome>
+      <to-activity-id>sizeclasses</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__8">
+      <from-outcome>adfMenu_units</from-outcome>
+      <to-activity-id>units</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__9">
+      <from-outcome>adfMenu_sysparameters</from-outcome>
+      <to-activity-id>sysparameters</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__53">
+      <from-outcome>adfMenu_categorytree</from-outcome>
+      <to-activity-id>categorytree</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__54">
+      <from-outcome>adfMenu_admins</from-outcome>
+      <to-activity-id>admins</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__20">
+    <from-activity-id>sizeclasses</from-activity-id>
+    <control-flow-case id="__21">
+      <from-outcome>toCrudSizes</from-outcome>
+      <to-activity-id>crud-sizes-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__15">
+    <from-activity-id>units</from-activity-id>
+    <control-flow-case id="__16">
+      <from-outcome>toUnitsCrud</from-outcome>
+      <to-activity-id>crud-units-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__23">
+    <from-activity-id>categories</from-activity-id>
+    <control-flow-case id="__24">
+      <from-outcome>toCategoryCrud</from-outcome>
+      <to-activity-id>crud-categories-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__30">
+    <from-activity-id>references</from-activity-id>
+    <control-flow-case id="__31">
+      <from-outcome>toBrandsCrud</from-outcome>
+      <to-activity-id>crud-brands-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__34">
+      <from-outcome>toManufCrud</from-outcome>
+      <to-activity-id>crud-manf-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__37">
+      <from-outcome>toModelCrud</from-outcome>
+      <to-activity-id>crud-models-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__66">
+      <from-outcome>toOkay</from-outcome>
+      <to-activity-id>refNamesConfirm</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__27">
+    <from-activity-id>countriesandcurrencies</from-activity-id>
+    <control-flow-case id="__38">
+      <from-outcome>toCurrPricesCrud</from-outcome>
+      <to-activity-id>crud-currencies-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__61">
+      <from-outcome>toCrudCities</from-outcome>
+      <to-activity-id>crud-cities-areas-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__43">
+    <from-activity-id>categoryrefrencesandsizes</from-activity-id>
+    <control-flow-case id="__44">
+      <from-outcome>toCrudCatRefrences</from-outcome>
+      <to-activity-id>crud-catrefrences-tf</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__47">
+      <from-outcome>toCrudCatSizes</from-outcome>
+      <to-activity-id>crud-catsizes-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__49">
+    <from-activity-id>sysparameters</from-activity-id>
+    <control-flow-case id="__51">
+      <from-outcome>toEditSysPrmtrs</from-outcome>
+      <to-activity-id>edit-sysparameters-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__55">
+    <from-activity-id>categorytree</from-activity-id>
+    <control-flow-case id="__56">
+      <from-outcome>toCrudCategoryTrees</from-outcome>
+      <to-activity-id>crud-categorytree-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__57">
+    <from-activity-id>admins</from-activity-id>
+    <control-flow-case id="__58">
+      <from-outcome>toCrudUseradmins</from-outcome>
+      <to-activity-id>crud-useradmins-tf</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__10">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>sysadmin_menu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__11">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__12">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/sysadmin_menu.xml</value>
+    </managed-property>
+  </managed-bean>
+  <managed-bean id="__25">
+    <managed-bean-name>ReadImageBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.sysadmin.view.bean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__26">
+    <managed-bean-name>RefereshBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.sysadmin.view.bean.RefereshBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__65">
+    <managed-bean-name>ReferenceNamingUpdate</managed-bean-name>
+    <managed-bean-class>com.shopbook.sysadmin.view.bean.ReferenceNamingUpdate</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

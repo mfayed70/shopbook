@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuSizesVLOV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.SkuSizesVLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pSkuCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT 
+    sku_sizes.SKU_SIZE_CODE SKU_SIZE_CODE, 
+    size_class_dets.SZ_DET_NAME SZ_DET_NAME, 
+    sku_sizes.SKU_CODE SKU_CODE 
+FROM 
+    sku_sizes JOIN size_class_dets ON sku_sizes.SIZE_DET_CODE = size_class_dets.SZ_DET_CODE]]></SQLQuery>
+  <ViewAttribute
+    Name="SkuSizeCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SKU_SIZE_CODE"
+    Expression="SKU_SIZE_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="29"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SzDetName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SZ_DET_NAME"
+    Expression="SZ_DET_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="23"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CODE"
+    Expression="SKU_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="SkuSizesVLOVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkuSizesVLOV"
+    Conjunction="AND"
+    Mode="3">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SkuSizesVLOVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SkuSizesVLOVCriteria_SkuSizesVLOVCriteria_row_0_SkuCode"
+        ViewAttribute="SkuCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pSkuCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SkuSizeCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

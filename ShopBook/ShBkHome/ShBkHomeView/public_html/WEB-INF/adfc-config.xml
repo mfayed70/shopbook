@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="home">
+    <page>/index.jsf</page>
+    <redirect/>
+  </view>
+  <view id="orderMngmnt">
+    <page>/orderMngmnt.jsf</page>
+    <redirect/>
+  </view>
+  <view id="profile">
+    <page>/profile.jsf</page>
+    <redirect/>
+  </view>
+  <view id="login">
+    <page>/login.jsf</page>
+    <redirect/>
+  </view>
+  <view id="signUp">
+    <page>/signUp.jsf</page>
+    <redirect/>
+  </view>
+  <view id="shoppingBag">
+    <page>/shoppingBag.jsf</page>
+    <redirect/>
+  </view>
+  <view id="contactUs">
+    <redirect/>
+  </view>
+  <view id="frgtPswrd">
+    <page>/frgtPswrd.jsf</page>
+    <redirect/>
+  </view>
+  <view id="shoppingBag2">
+    <page>/shoppingBag2.jsf</page>
+    <redirect/>
+  </view>
+  <view id="shoppingBag3">
+    <page>/shoppingBag3.jsf</page>
+    <redirect/>
+  </view>
+  <view id="ProductPage">
+    <page>/ProductPage.jsf</page>
+  </view>
+  <method-call id="refBag">
+    <method>#{pageFlowScope.RefreshBag.refBag}</method>
+    <outcome>
+      <fixed-outcome>refresh</fixed-outcome>
+    </outcome>
+  </method-call>
+  <control-flow-rule id="__1">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>adfMenu_home</from-outcome>
+      <to-activity-id>home</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>adfMenu_orderMngmnt</from-outcome>
+      <to-activity-id>orderMngmnt</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__5">
+      <from-outcome>adfMenu_profile</from-outcome>
+      <to-activity-id>profile</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>adfMenu_login</from-outcome>
+      <to-activity-id>login</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__14">
+      <from-outcome>adfMenu_signUp</from-outcome>
+      <to-activity-id>signUp</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>adfMenu_shoppingBag</from-outcome>
+      <to-activity-id>refBag</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__24">
+      <from-outcome>adfMenu_contactUs</from-outcome>
+      <to-activity-id>contactUs</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__18">
+    <from-activity-id>login</from-activity-id>
+    <control-flow-case id="__19">
+      <from-outcome>toFrgtPswrd</from-outcome>
+      <to-activity-id>frgtPswrd</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__22">
+    <from-activity-id>shoppingBag</from-activity-id>
+    <control-flow-case id="__23">
+      <from-outcome>toAddressOptions</from-outcome>
+      <to-activity-id>shoppingBag2</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__25">
+    <from-activity-id>shoppingBag2</from-activity-id>
+    <control-flow-case id="__26">
+      <from-outcome>toDeliveryOption</from-outcome>
+      <to-activity-id>shoppingBag3</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__15">
+    <from-activity-id>home</from-activity-id>
+    <control-flow-case id="__16">
+      <from-outcome>ProductPage</from-outcome>
+      <to-activity-id>ProductPage</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__29">
+    <from-activity-id>refBag</from-activity-id>
+    <control-flow-case id="__30">
+      <from-outcome>refresh</from-outcome>
+      <to-activity-id>shoppingBag</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__7">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>root_menu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__8">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__9">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/root_menu.xml</value>
+    </managed-property>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>Locale</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.bundle</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__11">
+    <managed-bean-name>HomeWhereConditionBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.HomeWhereConditionBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name>SkuDeatilsBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.SkuDeatilsBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__13">
+    <managed-bean-name>ResetPasswrd</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.ResetPasswrd</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__17">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.LoginBean</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__20">
+    <managed-bean-name>RefereshHelper</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.RefereshHelper</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__21">
+    <managed-bean-name>RefreshBag</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.RefreshBag</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__27">
+    <managed-bean-name>ShippingTerms</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.ShippingTerms</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__28">
+    <managed-bean-name>ShopSecurity</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.ShopSecurity</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__31">
+    <managed-bean-name>ServingOrders</managed-bean-name>
+    <managed-bean-class>com.shopbook.home.view.beans.ServingOrders</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

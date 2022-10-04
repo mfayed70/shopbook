@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="crud_unitsPageDef"
+                Package="com.shopbook.sysadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UnitsCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="UnitsCrudVIterator"/>
+    <iterator Binds="UnitsV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="UnitsVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="FromUnit">
+      <AttrNames>
+        <Item Value="FromUnit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="UnitName">
+      <AttrNames>
+        <Item Value="UnitName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="MultiplyBy">
+      <AttrNames>
+        <Item Value="MultiplyBy"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="UnitsCrudVIterator" StaticList="false" Uses="LOV_ToUnit" id="ToUnit" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action IterBinding="UnitsCrudVIterator" id="Delete" InstanceName="ShBkSysAdminDataControl.UnitsCrudV"
+            DataControl="ShBkSysAdminDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="StepQty">
+      <AttrNames>
+        <Item Value="StepQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="MaxQty">
+      <AttrNames>
+        <Item Value="MaxQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="MinQty">
+      <AttrNames>
+        <Item Value="MinQty"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="UnitsVIterator" StaticList="false" Uses="LOV_BasicUnit" id="BasicUnit" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="UnitsCrudVIterator" id="BasicUnit1">
+      <AttrNames>
+        <Item Value="BasicUnit"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="sku_bdataPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CrudSkusV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudSkusVIterator"/>
+    <iterator Binds="ReferencesNamesV" RangeSize="10" DataControl="ShBkHomeAmDataControl"
+              id="ReferencesNamesVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CrudSkusVIterator" id="SkuCode">
+      <AttrNames>
+        <Item Value="SkuCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="SkuName">
+      <AttrNames>
+        <Item Value="SkuName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Available" id="Available" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Hide" id="Hide" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="Rate">
+      <AttrNames>
+        <Item Value="Rate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="QntyInStock">
+      <AttrNames>
+        <Item Value="QntyInStock"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="LastPrice">
+      <AttrNames>
+        <Item Value="LastPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_AppearOnlyInAss" id="AppearOnlyInAss"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="OldPrice">
+      <AttrNames>
+        <Item Value="OldPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_ShopCatSubCode" id="ShopCatSubCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_NewFlag" id="NewFlag" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="ImgName">
+      <AttrNames>
+        <Item Value="ImgName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_CatSzClassCode" id="CatSzClassCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_ShpPropClsCode" id="ShpPropClsCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_BrandCode" id="BrandCode"/>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_ModelCode" id="ModelCode"/>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_MnfCode" id="MnfCode"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_BasicUnit" id="BasicUnit" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudSkusVIterator" id="MaxQty">
+      <AttrNames>
+        <Item Value="MaxQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="MinQty">
+      <AttrNames>
+        <Item Value="MinQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudSkusVIterator" id="StepQty">
+      <AttrNames>
+        <Item Value="StepQty"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Year" id="Year"/>
+    <list IterBinding="CrudSkusVIterator" StaticList="false" Uses="LOV_Assembly" id="Assembly" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="BrPlural">
+      <AttrNames>
+        <Item Value="BrPlural"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="MdPlural">
+      <AttrNames>
+        <Item Value="MdPlural"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="MnPluran">
+      <AttrNames>
+        <Item Value="MnPluran"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+  <itemNode id="itemNode_home" action="adfMenu_home" focusViewId="/home" icon="../icons/Home.png"
+            label="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']['HOME']}">
+    <sharedNode ref="#{shopadmin_menu}"/>
+    <sharedNode ref="#{sysadmin_menu}"/>
+  </itemNode>
+  <itemNode id="itemNode_login" action="adfMenu_login" focusViewId="/login"
+            label="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']['LOGIN_SIGN_UP']}" icon="../icons/login.png"
+            rendered="#{empty request.remoteUser}">
+    <itemNode id="itemNode_signUp" label="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']['SIGN_UP']}" action="adfMenu_signUp" focusViewId="/signUp"
+              rendered="false"/>
+  </itemNode>
+  <itemNode id="itemNode_shoppingBag" action="adfMenu_shoppingBag" focusViewId="/shoppingBag"
+            label="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']['YOUR_BAG']}" icon="../icons/shopBag1.png"/>
+  <itemNode id="itemNode_contactUs" label="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']['CONTACT_US']}" action="adfMenu_contactUs" focusViewId="/contactUs"/>
+  <itemNode id="itemNode_profile" label="Your Profile" action="adfMenu_profile" focusViewId="/profile"/>
+  <itemNode id="itemNode_orderMngmnt" action="adfMenu_orderMngmnt" focusViewId="/orderMngmnt"
+            label="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']['ServingOrders']}"
+            rendered="#{request.isUserInRole('OrderMgmnt')}"/>
+</menu>

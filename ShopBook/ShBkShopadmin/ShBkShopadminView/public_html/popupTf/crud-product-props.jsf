@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="crud-product-props.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelBox text="#{shbkshopadminviewBundle.ADD___EDIT_PRODUCT_PROPERTIES}" id="ph1">
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}" icon="/icons/Save.png"
+                                                  action="toSave" inlineStyle="font-size:medium; font-weight:bold;"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"
+                                                  inlineStyle="font-size:medium; font-weight:bold;"/>
+                    </af:navigationPane>
+                </f:facet>
+                <af:link actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="l1" icon="/icons/New.png"
+                         inlineStyle="font-size:small; font-weight:bold;"/>
+                <af:table value="#{bindings.SkuPropDetsV.collectionModel}" var="row"
+                          rows="#{bindings.SkuPropDetsV.rangeSize}"
+                          emptyText="#{bindings.SkuPropDetsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.SkuPropDetsV.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.SkuPropDetsV.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.SkuPropDetsV.rangeSize}" id="t1" partialTriggers="::l1 l2"
+                          inlineStyle="background-color:White;" columnStretching="column:c4">
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.SkuCode.label}" id="c1" rendered="false">
+                        <af:inputText value="#{row.bindings.SkuCode.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.SkuCode.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.SkuCode.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.SkuCode.displayWidth}"
+                                      maximumLength="#{bindings.SkuPropDetsV.hints.SkuCode.precision}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.SkuCode.tooltip}" id="it1">
+                            <f:validator binding="#{row.bindings.SkuCode.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.ShpSubcatPrpClsDetCode.label}" id="c2"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.ShpSubcatPrpClsDetCode.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.ShpSubcatPrpClsDetCode.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.ShpSubcatPrpClsDetCode.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.ShpSubcatPrpClsDetCode.displayWidth}"
+                                      maximumLength="#{bindings.SkuPropDetsV.hints.ShpSubcatPrpClsDetCode.precision}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.ShpSubcatPrpClsDetCode.tooltip}"
+                                      id="it2">
+                            <f:validator binding="#{row.bindings.ShpSubcatPrpClsDetCode.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.SkuPropDetCode.label}" id="c3"
+                               rendered="false">
+                        <af:inputText value="#{row.bindings.SkuPropDetCode.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.SkuPropDetCode.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.SkuPropDetCode.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.SkuPropDetCode.displayWidth}"
+                                      maximumLength="#{bindings.SkuPropDetsV.hints.SkuPropDetCode.precision}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.SkuPropDetCode.tooltip}" id="it3">
+                            <f:validator binding="#{row.bindings.SkuPropDetCode.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.SkuPropDetName.label}" id="c4" width="150">
+                        <af:inputText value="#{row.bindings.SkuPropDetName.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.SkuPropDetName.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.SkuPropDetName.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.SkuPropDetName.displayWidth}"
+                                      maximumLength="#{bindings.SkuPropDetsV.hints.SkuPropDetName.precision}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.SkuPropDetName.tooltip}" id="it4"
+                                      rows="3">
+                            <f:validator binding="#{row.bindings.SkuPropDetName.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.Hide.label}" id="c5">
+                        <af:inputText value="#{row.bindings.Hide.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.Hide.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.Hide.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.Hide.displayWidth}"
+                                      maximumLength="#{bindings.SkuPropDetsV.hints.Hide.precision}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.Hide.tooltip}" id="it5">
+                            <f:validator binding="#{row.bindings.Hide.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.Notes.label}" id="c6">
+                        <af:inputText value="#{row.bindings.Notes.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.Notes.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.Notes.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.Notes.displayWidth}"
+                                      maximumLength="#{bindings.SkuPropDetsV.hints.Notes.precision}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.Notes.tooltip}" id="it6">
+                            <f:validator binding="#{row.bindings.Notes.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SkuPropDetsV.hints.LastModified.label}" id="c7">
+                        <af:inputDate value="#{row.bindings.LastModified.inputValue}"
+                                      label="#{bindings.SkuPropDetsV.hints.LastModified.label}"
+                                      required="#{bindings.SkuPropDetsV.hints.LastModified.mandatory}"
+                                      columns="#{bindings.SkuPropDetsV.hints.LastModified.displayWidth}"
+                                      shortDesc="#{bindings.SkuPropDetsV.hints.LastModified.tooltip}" id="id1">
+                            <f:validator binding="#{row.bindings.LastModified.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.SkuPropDetsV.hints.LastModified.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column id="c8" width="180">
+                        <af:link actionListener="#{bindings.Delete.execute}"
+                                 text="#{shbkshopadminviewBundle.DELETE_CURRENT_PROPERTY}"
+                                 disabled="#{!bindings.Delete.enabled}" id="l2" icon="/icons/Delete.png"
+                                 inlineStyle="font-size:small; font-weight:normal;"/>
+                    </af:column>
+                </af:table>
+            </af:panelBox>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkusV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="vSkuCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="vCrudSkuCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="vShopSubCatCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="vCrudSpSubCatCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="HideYesNoSV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.YesNoSV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AvailableYesNoSV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.YesNoSV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AppOnAssYesNoSV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.YesNoSV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AssYesNoSV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.YesNoSV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="NewFlagYesNoSV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.YesNoSV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CatMnfBrndMdlYersV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.CatMnfBrndMdlYersV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="CatMnfBrndMdlYersBySubCatViewCriteria"
+      FullName="com.shopbook.shopadmin.model.view.CatMnfBrndMdlYersV.CatMnfBrndMdlYersBySubCatViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="currShopSubCat">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ShopCatSubCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ShopSubCatsV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.ShopSubCatsV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShopSubCatPropClassesVLOV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.ShopSubCatPropClassesV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ShopSubCatPropClassesByCatVCriteria"
+      FullName="com.shopbook.shopadmin.model.view.ShopSubCatPropClassesV.ShopSubCatPropClassesByCatVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pShopSubCatCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ShopCatSubCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CatSizeClassesVLOV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.CatSizeClassesV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="CatSizeClassesVCriteria"
+      FullName="com.shopbook.shopadmin.model.view.CatSizeClassesV.CatSizeClassesVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pShopSubCatCode">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ShopCatSubCode]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="UnitsV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.UnitsV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Hide"
+    ListVOName="HideYesNoSV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Hide"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Available"
+    ListVOName="AvailableYesNoSV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Available"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AppearOnlyInAss"
+    ListVOName="AppOnAssYesNoSV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AppearOnlyInAss"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+<ListBinding
+    Name="LOV_NewFlag"
+    ListVOName="NewFlagYesNoSV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NewFlag"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShopCatSubCode"
+    ListVOName="ShopSubCatsV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShopCatSubCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ShopSubCatCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ShopSubCatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ShpPropClsCode"
+    ListVOName="ShopSubCatPropClassesVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ShpPropClsCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ShpSubCatPrpClsCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ShpSubCatPrpClsName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+<ListBinding
+    Name="LOV_BrandCode"
+    ListVOName="CatMnfBrndMdlYersV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="BrandCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ModelCode"/>
+      <Item Value="MnfCode"/>
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BrandCode"/>
+      <Item Value="ModelCode"/>
+      <Item Value="MnfCode"/>
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BrandName"/>
+      <Item Value="ModelName"/>
+      <Item Value="MnfName"/>
+      <Item Value="Year"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Assembly"
+    ListVOName="AssYesNoSV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Assembly"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BasicUnit"
+    ListVOName="UnitsV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BasicUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="MinQty"/>
+      <Item Value="MaxQty"/>
+      <Item Value="StepQty"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FromUnit"/>
+      <Item Value="MinQty"/>
+      <Item Value="MaxQty"/>
+      <Item Value="StepQty"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CatSzClassCode"
+    ListVOName="CatSizeClassesVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CatSzClassCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CatSzClassCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SzClassName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MnfCode"
+    ListVOName="CatMnfBrndMdlYersV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MnfCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MnfCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MnfName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ModelCode"
+    ListVOName="CatMnfBrndMdlYersV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ModelCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Year"
+    ListVOName="CatMnfBrndMdlYersV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Year"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Skus.SKU_CODE, 
+       Skus.SKU_NAME, 
+       Skus.AVAILABLE, 
+       Skus.HIDE, 
+       Skus.RATE, 
+       Skus.QNTY_IN_STOCK, 
+       Skus.LAST_PRICE, 
+       Skus.APPEAR_ONLY_IN_ASS, 
+       Skus.ASSEMBLY,
+       Skus.OLD_PRICE, 
+       Skus.SHOP_CAT_SUB_CODE, 
+       Skus.SHP_PROP_CLS_CODE,
+       Skus.CAT_SZ_CLASS_CODE,
+       Skus.BRAND_CODE, 
+       Skus.MNF_CODE, 
+       Skus.MODEL_CODE, 
+       IF (Skus.YEAR=0,'',Skus.YEAR) as YEAR, 
+       Skus.LAST_MODIFIED, 
+       Skus.NOTES,
+       Skus.MIN_QTY,
+       Skus.MAX_QTY,
+       Skus.STEP_QTY,
+       Skus.BASIC_UNIT,
+       sku_colors.last_price SkuClrLprice,
+       sku_colors.olp_price SkuClrOprice,
+       countries.curr_code,
+       Skus.NEW_FLAG, sku_clr_images.img_name, sku_colors.sku_clr_code,sku_colors.CLR_NAME,
+concat(sku_clr_images.img_path ,sku_clr_images.sku_clr_img_code ,sku_clr_images.img_type) Img_Full_Path
+FROM  skus Skus/*, countries*/
+left join sku_colors
+on Skus.sku_code = sku_colors.sku_code
+left join sku_clr_images
+on sku_colors.sku_clr_code = sku_clr_images.sku_clr_code
+/*and sku_clr_images.img_seq = 1 */
+left join countries
+on substring(Skus.SKU_CODE,1,2) = countries.cntry_code2
+where substr(Skus.sku_code,-4) != '0000'
+
+group by Skus.SKU_CODE, 
+       Skus.SKU_NAME, 
+       Skus.AVAILABLE, 
+       Skus.HIDE, 
+       Skus.RATE, 
+       Skus.QNTY_IN_STOCK, 
+       Skus.LAST_PRICE, 
+       Skus.APPEAR_ONLY_IN_ASS, 
+       Skus.ASSEMBLY, 
+       Skus.OLD_PRICE, 
+       Skus.SHOP_CAT_SUB_CODE, 
+       Skus.SHP_PROP_CLS_CODE, 
+       Skus.BRAND_CODE, 
+       Skus.MNF_CODE, 
+       Skus.MODEL_CODE, 
+       Skus.YEAR, 
+       Skus.LAST_MODIFIED, 
+       Skus.NOTES,
+       Skus.MIN_QTY,
+       Skus.MAX_QTY,
+       Skus.STEP_QTY,
+       Skus.BASIC_UNIT,
+       sku_colors.last_price,
+       sku_colors.olp_price,
+       countries.curr_symbol,
+       Skus.NEW_FLAG, sku_clr_images.img_name, sku_colors.sku_clr_code, Skus.cat_sz_class_code]]></SQLQuery>
+  <EntityUsage
+    Name="Skus"
+    Entity="com.shopbook.shopadmin.model.entity.Skus"/>
+  <ViewAttribute
+    Name="SkuCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuCode"
+    EntityUsage="Skus"
+    AliasName="SKU_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.SkuCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuName"
+    PrecisionRule="true"
+    EntityAttrName="SkuName"
+    EntityUsage="Skus"
+    AliasName="SKU_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.SkuName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="Skus"
+    AliasName="AVAILABLE"
+    LOVName="LOV_Available"
+    DefaultValue="Y">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Hide"
+    PrecisionRule="true"
+    EntityAttrName="Hide"
+    EntityUsage="Skus"
+    AliasName="HIDE"
+    LOVName="LOV_Hide"
+    DefaultValue="N">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rate"
+    PrecisionRule="true"
+    EntityAttrName="Rate"
+    EntityUsage="Skus"
+    AliasName="RATE"/>
+  <ViewAttribute
+    Name="QntyInStock"
+    PrecisionRule="true"
+    EntityAttrName="QntyInStock"
+    EntityUsage="Skus"
+    AliasName="QNTY_IN_STOCK">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.QntyInStock_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastPrice"
+    PrecisionRule="true"
+    EntityAttrName="LastPrice"
+    EntityUsage="Skus"
+    AliasName="LAST_PRICE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.LastPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AppearOnlyInAss"
+    PrecisionRule="true"
+    EntityAttrName="AppearOnlyInAss"
+    EntityUsage="Skus"
+    AliasName="APPEAR_ONLY_IN_ASS"
+    LOVName="LOV_AppearOnlyInAss"
+    DefaultValue="N">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.AppearOnlyInAss_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Assembly"
+    PrecisionRule="true"
+    EntityAttrName="Assembly"
+    EntityUsage="Skus"
+    AliasName="ASSEMBLY"
+    DefaultValue="N"
+    LOVName="LOV_Assembly">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.Assembly_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OldPrice"
+    PrecisionRule="true"
+    EntityAttrName="OldPrice"
+    EntityUsage="Skus"
+    AliasName="OLD_PRICE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.OldPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShopCatSubCode"
+    PrecisionRule="true"
+    EntityAttrName="ShopCatSubCode"
+    EntityUsage="Skus"
+    AliasName="SHOP_CAT_SUB_CODE"
+    LOVName="LOV_ShopCatSubCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.ShopCatSubCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShpPropClsCode"
+    PrecisionRule="true"
+    EntityAttrName="ShpPropClsCode"
+    EntityUsage="Skus"
+    AliasName="SHP_PROP_CLS_CODE"
+    LOVName="LOV_ShpPropClsCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.ShpPropClsCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CatSzClassCode"
+    PrecisionRule="true"
+    AliasName="CAT_SZ_CLASS_CODE"
+    EntityAttrName="CatSzClassCode"
+    EntityUsage="Skus"
+    LOVName="LOV_CatSzClassCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.CatSzClassCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BrandCode"
+    PrecisionRule="true"
+    EntityAttrName="BrandCode"
+    EntityUsage="Skus"
+    AliasName="BRAND_CODE"
+    LOVName="LOV_BrandCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.BrandCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MnfCode"
+    PrecisionRule="true"
+    EntityAttrName="MnfCode"
+    EntityUsage="Skus"
+    AliasName="MNF_CODE"
+    LOVName="LOV_MnfCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.MnfCode_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModelCode"
+    PrecisionRule="true"
+    EntityAttrName="ModelCode"
+    EntityUsage="Skus"
+    AliasName="MODEL_CODE"
+    LOVName="LOV_ModelCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.ModelCode_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    PrecisionRule="true"
+    EntityAttrName="Year"
+    EntityUsage="Skus"
+    AliasName="YEAR"
+    LOVName="LOV_Year">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="Skus"
+    AliasName="LAST_MODIFIED">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.LastModified_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="Skus"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="MinQty"
+    PrecisionRule="true"
+    EntityAttrName="MinQty"
+    EntityUsage="Skus"
+    AliasName="MIN_QTY"/>
+  <ViewAttribute
+    Name="MaxQty"
+    PrecisionRule="true"
+    EntityAttrName="MaxQty"
+    EntityUsage="Skus"
+    AliasName="MAX_QTY"/>
+  <ViewAttribute
+    Name="StepQty"
+    PrecisionRule="true"
+    EntityAttrName="StepQty"
+    EntityUsage="Skus"
+    AliasName="STEP_QTY"/>
+  <ViewAttribute
+    Name="BasicUnit"
+    PrecisionRule="true"
+    EntityAttrName="BasicUnit"
+    EntityUsage="Skus"
+    AliasName="BASIC_UNIT"
+    LOVName="LOV_BasicUnit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.BasicUnit_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Skuclrlprice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="SkuClrLprice"
+    Expression="SkuClrLprice"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.Skuclrlprice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Skuclroprice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="SkuClrOprice"
+    Expression="SkuClrOprice"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.SkusV.Skuclroprice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrSymbol"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="curr_code"
+    Expression="curr_code"
+    SQLType="VARCHAR"
+    IsQueriable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NewFlag"
+    PrecisionRule="true"
+    EntityAttrName="NewFlag"
+    EntityUsage="Skus"
+    AliasName="NEW_FLAG"
+    LOVName="LOV_NewFlag"
+    DefaultValue="Y">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImgName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="img_name"
+    Expression="img_name"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="28"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="sku_clr_code"
+    Expression="sku_clr_code"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ClrName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="CLR_NAME"
+    Expression="CLR_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImgFullPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="155"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="Img_Full_Path"
+    Expression="Img_Full_Path"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="155"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="SkusVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkusV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SkusVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SkuCode"
+        ViewAttribute="SkuCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":vSkuCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ShopCatSubCode"
+        ViewAttribute="ShopCatSubCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":vShopSubCatCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="CrudSkusVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkusV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SkusVCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SkuCode"
+        ViewAttribute="SkuCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":vCrudSkuCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ShopCatSubCode"
+        ViewAttribute="ShopCatSubCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":vCrudSpSubCatCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="SkusSetVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkusV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SkusVCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Assembly"
+        ViewAttribute="Assembly"
+        Operator="="
+        Conjunction="AND"
+        Value="Y"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="SkuColorsV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuToColorsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkuPropDetsV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuToSkuPropVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkuSizesV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuToSkuSizesVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkuUnitsV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuToSkuUnitVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CatMnfBrndMdlYersView"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuToCatMnfBrndMdlYerVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkuAssembliesV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.MainSkuToAssemblyVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SkuCompAssembliesV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuToAssCompVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

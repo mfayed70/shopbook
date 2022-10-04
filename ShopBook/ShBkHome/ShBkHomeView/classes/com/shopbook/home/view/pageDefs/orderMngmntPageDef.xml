@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="orderMngmntPageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ServingOrderMastV1" RangeSize="25" DataControl="ShBkHomeAmDataControl"
+              id="ServingOrderMastV1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="ShBkHomeAmDataControl" Binds="ServingOrderMastV1.variablesMap.valFrom"
+                     Name="ExecuteWithParams_valFrom" IsQueriable="false"/>
+      <variableUsage DataControl="ShBkHomeAmDataControl" Binds="ServingOrderMastV1.variablesMap.valTo"
+                     Name="ExecuteWithParams_valTo" IsQueriable="false"/>
+      <variableUsage DataControl="ShBkHomeAmDataControl" Binds="ServingOrderMastV1.variablesMap.fromDt"
+                     Name="ExecuteWithParams_fromDt" IsQueriable="false"/>
+      <variableUsage DataControl="ShBkHomeAmDataControl" Binds="ServingOrderMastV1.variablesMap.toDt"
+                     Name="ExecuteWithParams_toDt" IsQueriable="false"/>
+      <variableUsage DataControl="ShBkHomeAmDataControl" Binds="ServingOrderMastV1.variablesMap.pCity"
+                     Name="ExecuteWithParams_pCity" IsQueriable="false"/>
+      <variableUsage DataControl="ShBkHomeAmDataControl" Binds="ServingOrderMastV1.variablesMap.pTransStatus"
+                     Name="ExecuteWithParams_pTransStatus" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="CitiesLovV" RangeSize="-1" DataControl="ShBkHomeAmDataControl" id="CitiesLovVIterator"/>
+    <iterator Binds="ShpBagStatusV1" RangeSize="-1" DataControl="ShBkHomeAmDataControl" id="ShpBagStatusV1Iterator"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="SysParametersVIterator"/>
+    <iterator Binds="LangCurrV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="LangCurrVIterator"/>
+    <iterator Binds="ServingOrderDetsV1" RangeSize="10" DataControl="ShBkHomeAmDataControl"
+              id="ServingOrderDetsV1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ServingOrderMastV1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="valFrom" NDType="java.math.BigDecimal" NDValue="${bindings.ExecuteWithParams_valFrom}"/>
+      <NamedData NDName="valTo" NDType="java.math.BigDecimal" NDValue="${bindings.ExecuteWithParams_valTo}"/>
+      <NamedData NDName="fromDt" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_fromDt}"/>
+      <NamedData NDName="toDt" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_toDt}"/>
+      <NamedData NDName="pCity" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_pCity}"/>
+      <NamedData NDName="pTransStatus" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_pTransStatus}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="valFrom">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_valFrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="valTo">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_valTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="fromDt">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_fromDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="toDt">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_toDt"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="pCity" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="CitiesLovVIterator" NullValueId="pCity_null" NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pCity"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="CityCode"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CityName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="pTransStatus" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="ShpBagStatusV1Iterator" NullValueId="pTrnsStus_null" NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pTransStatus"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="ServingOrderMastV1Iterator" id="ServingOrderMastV1">
+      <nodeDefinition DefName="com.shopbook.home.model.view.ServingOrderMastV" Name="ServingOrderMastV10">
+        <AttrNames>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="UserId"/>
+          <Item Value="TransDateTime"/>
+          <Item Value="MobNo"/>
+          <Item Value="Address"/>
+          <Item Value="Address1"/>
+          <Item Value="CntryName"/>
+          <Item Value="CityName"/>
+          <Item Value="Notes"/>
+          <Item Value="Name"/>
+          <Item Value="Id"/>
+          <Item Value="TransValue"/>
+          <Item Value="TransStatus"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ShoppingDetV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.shopbook.home.model.view.ShoppingDetV" Name="ServingOrderMastV11">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="ClrName"/>
+          <Item Value="SizeName"/>
+          <Item Value="Qty"/>
+          <Item Value="UnitName"/>
+          <Item Value="ImgFullPath"/>
+          <Item Value="SkuClrCode"/>
+          <Item Value="SizeCode"/>
+          <Item Value="Notes"/>
+          <Item Value="SkuCode"/>
+          <Item Value="SkuStatus"/>
+          <Item Value="UnitPrice"/>
+          <Item Value="TotalPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysParametersVIterator" id="NoimagePath">
+      <AttrNames>
+        <Item Value="NoimagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LangCurrVIterator" id="CurrSymbol">
+      <AttrNames>
+        <Item Value="CurrSymbol"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ShBkHomeAmDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="ServingOrderDetsV1Iterator" id="SkuStatus">
+      <AttrNames>
+        <Item Value="SkuStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ServingOrderMastV1Iterator" id="CreateInsert"
+            InstanceName="ShBkHomeAmDataControl.ServingOrderMastV1" DataControl="ShBkHomeAmDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Rollback" DataControl="ShBkHomeAmDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="ServingOrderMastV1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ServingOrderMastV1Iterator" id="TransStatus">
+      <AttrNames>
+        <Item Value="TransStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ServingOrderMastV1Iterator" id="ServingOrderMastV11">
+      <nodeDefinition DefName="com.shopbook.home.model.view.ServingOrderMastV" Name="ServingOrderMastV110">
+        <AttrNames>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="UserId"/>
+          <Item Value="TransDateTime"/>
+          <Item Value="MobNo"/>
+          <Item Value="Address"/>
+          <Item Value="Address1"/>
+          <Item Value="AreaCode"/>
+          <Item Value="TransValue"/>
+          <Item Value="TransStatus"/>
+          <Item Value="Notes"/>
+          <Item Value="CntryName"/>
+          <Item Value="CityName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ShoppingDetV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.shopbook.home.model.view.ShoppingDetV" Name="ServingOrderMastV111">
+        <AttrNames>
+          <Item Value="SkuName"/>
+          <Item Value="ClrName"/>
+          <Item Value="SizeName"/>
+          <Item Value="Qty"/>
+          <Item Value="UnitName"/>
+          <Item Value="UnitPrice"/>
+          <Item Value="TotalPrice"/>
+          <Item Value="SkuCode"/>
+          <Item Value="SkuClrCode"/>
+          <Item Value="SizeCode"/>
+          <Item Value="SkuStatus"/>
+          <Item Value="ImgFullPath"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+  <ResourceBundle>
+    <XliffBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle" id="com.shopbook.home.view.ShBkHmResBndl"/>
+  </ResourceBundle>
+</pageDefinition>

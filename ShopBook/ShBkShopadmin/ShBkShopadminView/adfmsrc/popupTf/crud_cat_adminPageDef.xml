@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="crud_cat_adminPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="AdminsVIterator"/>
+    <iterator Binds="CrudShopCategoryAdminsV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="CrudShopCategoryAdminsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AdminsVIterator" id="AdminsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.UsersV" Name="AdminsV0">
+        <AttrNames>
+          <Item Value="UserId"/>
+          <Item Value="UserName"/>
+          <Item Value="FirstName"/>
+          <Item Value="FamilyName"/>
+          <Item Value="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="AdminShpCatCode">
+      <AttrNames>
+        <Item Value="AdminShpCatCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="ShopCatSubCode">
+      <AttrNames>
+        <Item Value="ShopCatSubCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="FamilyName">
+      <AttrNames>
+        <Item Value="FamilyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudShopCategoryAdminsVIterator" StaticList="false" Uses="LOV_Active" id="Active"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudShopCategoryAdminsVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CrudShopCategoryAdminsVIterator" id="Delete"
+            InstanceName="ShBkShopAdminDataControl.CrudShopCategoryAdminsV" DataControl="ShBkShopAdminDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

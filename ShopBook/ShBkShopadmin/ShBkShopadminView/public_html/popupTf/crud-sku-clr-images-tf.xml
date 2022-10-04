@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-sku-clr-images-tf">
+    <default-activity>sku-color-imgs</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__4">
+      <name>vSkuClrCode</name>
+      <value>#{pageFlowScope.vSkuClrCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name>SkuClrImgBean</managed-bean-name>
+      <managed-bean-class>com.shopbook.shopadmin.view.beans.SkuClrImgBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="sku-color-imgs">
+      <page>/popupTf/sku-color-imgs.jsf</page>
+    </view>
+    <task-flow-return id="back">
+      <outcome>
+        <name>back</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>sku-color-imgs</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toBack</from-outcome>
+        <to-activity-id>back</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

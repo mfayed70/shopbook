@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="shopproducts.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelGroupLayout id="pgl3" layout="scroll">
+                        <af:panelGroupLayout id="pgl5" inlineStyle="padding-top:30px;">
+                            <af:outputText value="#{shbkshopadminviewBundle['YouarenotCategoryAdministratorsoyoudontseeanyproducts.']}"
+                                           id="ot3" inlineStyle="font-size:18px;"
+                                           rendered="#{empty sessionScope.myPerms.size()}"/>
+                        </af:panelGroupLayout>
+                        <af:iterator id="i1" value="#{bindings.SpShopSubCatsV.collectionModel}" var="cats">
+                            <af:showDetailHeader id="pgl1" text="#{cats.ShopSubCatName}"
+                                                 disclosed="#{sessionScope.myPerms.containsValue(cats.ShopCatCode)}">
+                                <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" fieldWidth="100%" labelWidth="0%">
+                                    <f:facet name="footer">
+                                        <af:spacer width="10" height="20" id="s3"/>
+                                    </f:facet>
+                                    <af:iterator id="i2" value="#{cats.SkusV}" var="skus">
+                                        <af:panelGroupLayout id="pgl2" layout="vertical" halign="center"
+                                                             inlineStyle="border-color:currentColor currentColor GrayText; border-style:none none solid; border-width:medium medium thin;margin:10px 10px 10px 10px;">
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s2"/>
+                                            </f:facet>
+                                            <af:link text="#{skus.SkuName}" id="l1"
+                                                     inlineStyle="color:Maroon; font-size:small;"
+                                                     action="toCrudShopProduct" useWindow="true"
+                                                     windowEmbedStyle="inlineDocument" windowHeight="600"
+                                                     windowWidth="1150"
+                                                     returnListener="#{RefreshBean.NewPrdctReturnListener}"
+                                                     iconPosition="bottom">
+<!--                                                     disabled="#{!sessionScope.myPerms.containsKey(cats.ShopSubCatName)}">-->
+                                            <af:setPropertyListener from="#{'edit'}"
+                                                                    to="#{pageFlowScope.shpPrdcCrudAction}"
+                                                                    type="action"/>
+                                                <af:setPropertyListener from="#{skus.SkuCode}"
+                                                                        to="#{pageFlowScope.vSkuCode}" type="action"/>
+                                                <af:setPropertyListener from="#{cats.ShopSubCatCode}"
+                                                                        to="#{pageFlowScope.vShopSubCatCode}"
+                                                                        type="action"/>
+                                                <af:setPropertyListener from="#{skus.SkuClrCode}"
+                                                                        to="#{pageFlowScope.vSkuClrCode}"
+                                                                        type="action"/>
+                                            </af:link>
+                                            <af:outputText value="#{skus.ClrName}" id="ot2" inlineStyle="color:Navy;"/>
+                                            <af:image id="i4" inlineStyle="width:100px;height:100px;"
+                                                      source="/ViewImageServlet?path=#{skus.ImgFullPath==null || empty skus.ImgFullPath? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : skus.ImgFullPath}">
+                                                <?audit suppress oracle.adf.faces.imgshortdesc?>
+                                            </af:image>
+                                             
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="center"/>
+                                        </af:panelGroupLayout>
+                                    </af:iterator>
+                                </af:panelFormLayout>
+                                <f:facet name="context"/>
+                                <f:facet name="menuBar">
+                                    <af:outputText value="Hi ::#{sessionScope.myPerms.get(cats.ShopSubCatName)}" id="ot1"
+                                                   rendered="false"/>
+                                    <af:navigationPane hint="buttons" id="np2">
+                                        <af:commandNavigationItem id="cni2"
+                                                                  text="#{shbkshopadminviewBundle.NEW_PRODUCT}"
+                                                                  icon="/icons/New.png" action="toNewProduct"
+                                                                  useWindow="true" windowEmbedStyle="inlineDocument"
+                                                                  windowHeight="600" windowWidth="1100"
+                                                                  returnListener="#{RefreshBean.NewPrdctReturnListener}">
+<!--                                                                  disabled="#{!sessionScope.myPerms.containsKey(cats.ShopSubCatName)}">-->
+                                            <af:setPropertyListener from="#{'new'}"
+                                                                    to="#{pageFlowScope.vCrudSkuAction}"
+                                                                    type="action"/>
+                                            <af:setPropertyListener to="#{pageFlowScope.vShopSubCatCode}"
+                                                                    from="#{cats.ShopSubCatCode}" type="action"/>
+                                        </af:commandNavigationItem>
+                                    </af:navigationPane>
+                                </f:facet>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:showDetailHeader>
+                        </af:iterator>
+                        <f:facet name="separator">
+                            <af:separator id="s1"/>
+                        </f:facet>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

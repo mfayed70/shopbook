@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Cities"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="cities"
+  AliasName="Cities"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="CityCode"
+    IsNotNull="true"
+    Precision="6"
+    ColumnName="city_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="cities"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CntryCode2"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="cntry_code2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="cities">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CityName"
+    IsNotNull="true"
+    Precision="45"
+    ColumnName="city_name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="cities">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PrntCityCode"
+    Precision="6"
+    ColumnName="prnt_city_code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="cities">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Available"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="available"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="cities">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Cities"
+    Association="com.shopbook.shopadmin.model.entity.temp.CityTreeFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.temp.CityTreeFkAssoc.Cities"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.temp.CityTreeFkAssoc.PrntCityCodeCities"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PrntCityCodeCities"
+    Association="com.shopbook.shopadmin.model.entity.temp.CityTreeFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.temp.CityTreeFkAssoc.PrntCityCodeCities"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.temp.CityTreeFkAssoc.Cities"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Cities1"
+    Association="com.shopbook.shopadmin.model.entity.temp.CountriesCitiesFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.temp.CountriesCitiesFkAssoc.Cities1"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.temp.CountriesCitiesFkAssoc.CntryCode2Cities"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="CntryCode2Cities"
+    Association="com.shopbook.shopadmin.model.entity.temp.CountriesCitiesFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.temp.CountriesCitiesFkAssoc.CntryCode2Cities"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.temp.CountriesCitiesFkAssoc.Cities1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ShipRtrnPolicies"
+    Association="com.shopbook.shopadmin.model.entity.assoc.CityShipPolicyFk_Assocc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.CityShipPolicyFk_Assocc.ShipRtrnPolicies"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.CityShipPolicyFk_Assocc.Cities"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="CityTreeFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="city_tree_fk"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="CountriesCitiesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="countries_cities_fk"/>
+    </DesignTime>
+  </Key>
+</Entity>

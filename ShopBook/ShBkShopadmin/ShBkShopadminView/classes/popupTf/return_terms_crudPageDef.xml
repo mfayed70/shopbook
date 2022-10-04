@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="return_terms_crudPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CrudRtrnTermsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudRtrnTermsVIterator"/>
+    <iterator Binds="CountriesV" RangeSize="10" DataControl="ShBkShopAdminDataControl" id="CountriesVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CrudRtrnTermsVIterator" id="Txt">
+      <AttrNames>
+        <Item Value="Txt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CrudRtrnTermsVIterator" id="Ordr">
+      <AttrNames>
+        <Item Value="Ordr"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudRtrnTermsVIterator" StaticList="false" Uses="LOV_Active" id="Active" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CrudRtrnTermsVIterator" StaticList="false" Uses="LOV_PercOrVal" id="PercOrVal"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudRtrnTermsVIterator" id="Value">
+      <AttrNames>
+        <Item Value="Value"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CrudRtrnTermsVIterator" StaticList="false" Uses="LOV_CityCode" id="CityCode"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CrudRtrnTermsVIterator" id="ShortTxt">
+      <AttrNames>
+        <Item Value="ShortTxt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CountriesVIterator" id="CurrSymbol">
+      <AttrNames>
+        <Item Value="CurrCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

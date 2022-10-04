@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SliderImagesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.home.model.view.SliderImagesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT 
+    sys_images.SYS_IMAGE_ID SYS_IMAGE_ID, 
+    sys_images.SYS_PARAMETER_ID SYS_PARAMETER_ID, 
+    concat(FILE_SERVER_PATH,sys_images.IMAGE_SLIDE_1) IMAGE_SLIDE_1, 
+    concat(FILE_SERVER_PATH,sys_images.IMAGE_SLIDE_2)  IMAGE_SLIDE_2, 
+    concat(FILE_SERVER_PATH,sys_images.IMAGE_SLIDE_3)  IMAGE_SLIDE_3, 
+    concat(FILE_SERVER_PATH,sys_images.IMAGE_SLIDE_4)  IMAGE_SLIDE_4, 
+    concat(FILE_SERVER_PATH,sys_images.IMAGE_SLIDE_5)  IMAGE_SLIDE_5, 
+    sys_images.IMAGE_SLIDE_1CAP IMAGE_SLIDE_1CAP, 
+    sys_images.IMAGE_SLIDE_2CAP IMAGE_SLIDE_2CAP, 
+    sys_images.IMAGE_SLIDE_3CAP IMAGE_SLIDE_3CAP, 
+    sys_images.IMAGE_SLIDE_4CAP IMAGE_SLIDE_4CAP, 
+    sys_images.IMAGE_SLIDE_5CAP IMAGE_SLIDE_5CAP, 
+    sys_parameters.FILE_SERVER_PATH FILE_SERVER_PATH 
+FROM 
+    sys_images, 
+    sys_parameters 
+WHERE 
+    sys_images.SYS_PARAMETER_ID = sys_parameters.SYS_PARAMETER_ID]]></SQLQuery>
+  <ViewAttribute
+    Name="SysImageId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="SYS_IMAGE_ID"
+    Expression="SYS_IMAGE_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SysParameterId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    AliasName="SYS_PARAMETER_ID"
+    Expression="SYS_PARAMETER_ID"
+    SQLType="DECIMAL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="400"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_1"
+    Expression="IMAGE_SLIDE_1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide2"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="400"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_2"
+    Expression="IMAGE_SLIDE_2"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide3"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="400"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_3"
+    Expression="IMAGE_SLIDE_3"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide4"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="400"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_4"
+    Expression="IMAGE_SLIDE_4"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide5"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="400"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_5"
+    Expression="IMAGE_SLIDE_5"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide1cap"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_1CAP"
+    Expression="IMAGE_SLIDE_1CAP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide2cap"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_2CAP"
+    Expression="IMAGE_SLIDE_2CAP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide3cap"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_3CAP"
+    Expression="IMAGE_SLIDE_3CAP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide4cap"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_4CAP"
+    Expression="IMAGE_SLIDE_4CAP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImageSlide5cap"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="IMAGE_SLIDE_5CAP"
+    Expression="IMAGE_SLIDE_5CAP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FileServerPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FILE_SERVER_PATH"
+    Expression="FILE_SERVER_PATH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SysParameterId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.home.model.ShBkHomeModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

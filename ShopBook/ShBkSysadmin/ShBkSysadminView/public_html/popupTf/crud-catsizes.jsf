@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="#{shbksysadminviewBundle.EDIT__0__0__0ADD__0SIZE__0CLASS__0TO__0CATEGORY}" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="#{shbksysadminviewBundle.EDIT__0__0__0ADD__0SIZE__0CLASS__0TO__0CATEGORY}" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbksysadminviewBundle.SAVE}"
+                                                  icon="/icons/Save.png" action="toSave"/>
+                        <af:commandNavigationItem id="ni2" text="#{shbksysadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"/>
+                        <af:commandNavigationItem text="#{shbksysadminviewBundle.CLEAR__0CATEGORY__0SIZE__0CLASS}" id="cni1"
+                                                  icon="/icons/Delete.png" action="toSave"
+                                                  actionListener="#{bindings.Delete.execute}"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.CatSzClassCode.inputValue}"
+                                  label="#{bindings.CatSzClassCode.hints.label}"
+                                  required="#{bindings.CatSzClassCode.hints.mandatory}"
+                                  columns="#{bindings.CatSzClassCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.CatSzClassCode.hints.precision}"
+                                  shortDesc="#{bindings.CatSzClassCode.hints.tooltip}" id="it1" disabled="true">
+                        <f:validator binding="#{bindings.CatSzClassCode.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.CatCode.inputValue}" label="#{bindings.CatCode.label}"
+                                        required="#{bindings.CatCode.hints.mandatory}"
+                                        shortDesc="#{bindings.CatCode.hints.tooltip}" id="soc1" readOnly="true">
+                        <f:selectItems value="#{bindings.CatCode.items}" id="si1"/>
+                        <f:validator binding="#{bindings.CatCode.validator}"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.SzClassCode.inputValue}" label="#{bindings.SzClassCode.label}"
+                                        required="#{bindings.SzClassCode.hints.mandatory}"
+                                        shortDesc="#{bindings.SzClassCode.hints.tooltip}" id="soc2">
+                        <f:selectItems value="#{bindings.SzClassCode.items}" id="si2"/>
+                        <f:validator binding="#{bindings.SzClassCode.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                                  required="#{bindings.Notes.hints.mandatory}"
+                                  columns="50"
+                                  maximumLength="#{bindings.Notes.hints.precision}"
+                                  shortDesc="#{bindings.Notes.hints.tooltip}" id="it2" rows="2">
+                        <f:validator binding="#{bindings.Notes.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

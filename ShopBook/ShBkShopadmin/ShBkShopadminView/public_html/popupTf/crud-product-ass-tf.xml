@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-product-ass-tf">
+    <default-activity>crud-product-ass-router</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>skuAssAction</name>
+      <value>#{pageFlowScope.skuAssAction}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>vSkuAssCode</name>
+      <value>#{pageFlowScope.vSkuAssCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__15">
+      <name>pSkuCode</name>
+      <value>#{pageFlowScope.pSkuCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <router id="crud-product-ass-router">
+      <case id="__6">
+        <expression>#{pageFlowScope.skuAssAction=='createAsAss'}</expression>
+        <outcome>createAsAss</outcome>
+      </case>
+      <case id="__7">
+        <expression>#{pageFlowScope.skuAssAction=='addToAss'}</expression>
+        <outcome>addToAss</outcome>
+      </case>
+      <default-outcome>addToAss</default-outcome>
+    </router>
+    <method-call id="CreateWithParameters">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="crud-product-ass">
+      <page>/popupTf/crud-product-ass.jsf</page>
+    </view>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id>crud-product-ass-router</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>createAsAss</from-outcome>
+        <to-activity-id>CreateWithParameters</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>addToAss</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>CreateWithParameters</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>crud-product-ass</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>crud-product-ass</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>crud-product-ass</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

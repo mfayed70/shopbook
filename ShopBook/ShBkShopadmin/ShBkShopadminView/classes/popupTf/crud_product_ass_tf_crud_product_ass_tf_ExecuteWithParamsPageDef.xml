@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crud_product_ass_tf_crud_product_ass_tf_ExecuteWithParamsPageDef" Package="popupTf"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SkuAddToAssembliesV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="SkuAddToAssembliesVIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SkuAddToAssembliesVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams" InstanceName="ShBkShopAdminDataControl.SkuAddToAssembliesV"
+            DataControl="ShBkShopAdminDataControl">
+      <NamedData NDName="pSkuAssCode" NDValue="#{pageFlowScope.vSkuAssCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

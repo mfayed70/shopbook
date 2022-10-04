@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="crudSkuBdata_crudSkuBdata_CreateWithParametersPageDef" Package="popupTf" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CrudSkusV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudSkusVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CrudSkusVIterator" id="CreateWithParams" RequiresUpdateModel="true" Action="createWithParams"
+            InstanceName="ShBkShopAdminDataControl.CrudSkusV" DataControl="ShBkShopAdminDataControl">
+      <NamedData NDName="ShopCatSubCode" NDValue="#{pageFlowScope.vShopSubCatCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

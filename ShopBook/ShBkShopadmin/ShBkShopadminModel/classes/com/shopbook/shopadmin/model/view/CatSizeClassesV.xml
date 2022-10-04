@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CatSizeClassesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.CatSizeClassesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pShopSubCatCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select cat_size_classes.CAT_SZ_CLASS_CODE, size_classes.SZ_CLASS_NAME,shop_sub_cats.SHOP_SUB_CAT_CODE
+from cat_size_classes, categories, shop_categories, shop_sub_cats, size_classes
+where cat_size_classes.SZ_CLASS_CODE = size_classes.SZ_CLASS_CODE
+and cat_size_classes.CAT_CODE = categories.cat_code
+and categories.CAT_CODE = shop_categories.CAT_CODE
+and shop_categories.SHOP_CAT_CODE = shop_sub_cats.SHOP_CAT_CODE]]></SQLQuery>
+  <ViewAttribute
+    Name="CatSzClassCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CAT_SZ_CLASS_CODE"
+    Expression="CAT_SZ_CLASS_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SzClassName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SZ_CLASS_NAME"
+    Expression="SZ_CLASS_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShopSubCatCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="18"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SHOP_SUB_CAT_CODE"
+    Expression="SHOP_SUB_CAT_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="18"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CatSizeClassesVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.CatSizeClassesV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CatSizeClassesVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ShopSubCatCode"
+        ViewAttribute="ShopSubCatCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pShopSubCatCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="CatSzClassCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

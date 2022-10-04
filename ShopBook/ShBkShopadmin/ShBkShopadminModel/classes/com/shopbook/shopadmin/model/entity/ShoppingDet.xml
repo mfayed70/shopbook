@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShoppingDet"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="shopping_det"
+  AliasName="ShoppingDet"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="DetId"
+    IsNotNull="true"
+    Precision="42"
+    ColumnName="DET_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="42"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastModified"
+    ColumnName="LAST_MODIFIED"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="shopping_det"/>
+  <Attribute
+    Name="Notes"
+    Precision="500"
+    ColumnName="NOTES"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Qty"
+    ColumnName="QTY"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UnitPrice"
+    ColumnName="UNIT_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="13"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TotalPrice"
+    ColumnName="TOTAL_PRICE"
+    SQLType="DECIMAL"
+    Type="java.math.BigDecimal"
+    ColumnType="DECIMAL"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="13"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuStatus"
+    Precision="2"
+    ColumnName="SKU_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Available"
+    Precision="1"
+    ColumnName="AVAILABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddedDate"
+    ColumnName="ADDED_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="shopping_det"/>
+  <Attribute
+    Name="TransId"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="TRANS_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeCode"
+    IsNotNull="true"
+    Precision="6"
+    ColumnName="SIZE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuClrCode"
+    IsNotNull="true"
+    Precision="29"
+    ColumnName="SKU_CLR_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="29"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UnitCode"
+    IsNotNull="true"
+    Precision="4"
+    ColumnName="UNIT_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkuName"
+    Precision="200"
+    ColumnName="SKU_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ClrName"
+    Precision="100"
+    ColumnName="CLR_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeName"
+    Precision="100"
+    ColumnName="SIZE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UnitName"
+    Precision="100"
+    ColumnName="UNIT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="shopping_det">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SkuColors"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShoppimgDetSkuClrFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppimgDetSkuClrFkAssoc.SkuColors"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppimgDetSkuClrFkAssoc.ShoppingDet3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SizeClassDets"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShoppingDetSizeDetFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingDetSizeDetFkAssoc.SizeClassDets"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingDetSizeDetFkAssoc.ShoppingDet1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Units"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShoppingDetUnitFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingDetUnitFkAssoc.Units"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingDetUnitFkAssoc.ShoppingDet2"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ShoppingMaster"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShoppingMastDetAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingMastDetAssoc.ShoppingMaster"
+    AssociationOtherEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppingMastDetAssoc.ShoppingDet"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.ShoppingDet.DetId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShoppimgDetSkuClrFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="shoppimg_det_sku_clr_fk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.ShoppingDet.SkuClrCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShoppingDetSizeDetFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="shopping_det_size_det_fk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.ShoppingDet.SizeCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShoppingDetUnitFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="shopping_det_unit_fk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.ShoppingDet.UnitCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ShoppingMastDet">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SHOPPING_MAST_DET"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.shopadmin.model.entity.ShoppingDet.TransId"/>
+    </AttrArray>
+  </Key>
+</Entity>

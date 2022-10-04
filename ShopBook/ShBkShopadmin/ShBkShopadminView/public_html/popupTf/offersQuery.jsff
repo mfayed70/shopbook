@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+  <af:panelHeader text="#{shbkshopadminviewBundle.CampaignsChangePrices}" id="ph1" inlineStyle="padding-bottom:30px;">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:navigationPane hint="buttons" id="np1">
+        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.CREATE__0NEW__0CAMPAIGN}"
+                                  action="toNewOffer"/>
+      </af:navigationPane>
+    </f:facet>
+    <f:facet name="legend">
+      <af:spacer width="10" height="10" id="s3"/>
+    </f:facet>
+    <f:facet name="info"/>
+    <af:listView value="#{bindings.OffersV.treeModel}" var="item"
+                 emptyText="#{bindings.OffersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                 fetchSize="#{bindings.OffersV.rangeSize}" id="lv1"
+                 selectionListener="#{bindings.OffersV.treeModel.makeCurrent}" selection="single">
+      <af:listItem id="li1" partialTriggers="::d1">
+        <af:panelGroupLayout layout="horizontal" id="pgl1" inlineStyle="font-size:16px;padding-top:5px;" valign="top">
+          <f:facet name="separator">
+            <af:spacer width="10" id="s1"/>
+          </f:facet>
+          <af:panelGroupLayout id="pgl8" layout="vertical" halign="center" inlineStyle="width:300px;">
+            <af:outputText value="#{shbkshopadminviewBundle.ITEM__0TYPE__0__0__0NAME}" id="ot6"
+                           inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+            <af:spacer width="10" height="3" id="s10"/>
+            <af:selectOneChoice value="#{item.bindings.SkuType.inputValue}" label="#{item.bindings.SkuType.label}"
+                                required="#{bindings.OffersV.hints.SkuType.mandatory}"
+                                shortDesc="#{bindings.OffersV.hints.SkuType.tooltip}" readOnly="true" id="soc1"
+                                simple="true">
+              <f:selectItems value="#{item.bindings.SkuType.items}" id="si1"/>
+              <f:validator binding="#{item.bindings.SkuType.validator}"/>
+            </af:selectOneChoice>
+            <af:outputFormatted value="#{item.bindings.OfferName.inputValue}" id="of1"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl9" halign="center" layout="vertical" inlineStyle="width:150px;">
+            <af:outputText value="#{shbkshopadminviewBundle.OLD__0PRICE}" id="ot7"
+                           inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+            <af:panelGroupLayout id="pgl11" layout="horizontal">
+              <af:outputFormatted value="#{item.bindings.OldPrice.inputValue}" id="of2"
+                                  inlineStyle="text-decoration:line-through;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.OffersV.hints.OldPrice.format}"/>
+              </af:outputFormatted>
+              <af:outputFormatted value="#{bindings.CurrSymbol}" id="of4"/>
+              <f:facet name="separator">
+                <af:spacer width="5" height="10" id="s12"/>
+              </f:facet>
+            </af:panelGroupLayout>
+            <f:facet name="separator">
+              <af:spacer width="5" height="10" id="s9"/>
+            </f:facet>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl10" layout="vertical" halign="center" inlineStyle="width:150px;">
+            <af:outputText value="#{shbkshopadminviewBundle.PRICE__0IN__0CAMPAIGN}" id="ot8"
+                           inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+            <af:outputFormatted value="#{item.bindings.LastPrice.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                id="of3">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OffersV.hints.LastPrice.format}"/>
+            </af:outputFormatted>
+            <f:facet name="separator">
+              <af:spacer width="5" height="10" id="s11"/>
+            </f:facet>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:listItem>
+      <f:facet name="groupHeaderStamp">
+        <af:listItem id="li2"
+                     inlineStyle="background-image:linear-gradient(178deg, #003D5B 2%, #003D5B 22%, #003D5B 112%); margin-bottom:5px; border-bottom-left-radius:90px 90px; border-bottom-right-radius:90px 90px; border-top-left-radius:90px 90px; border-top-right-radius:90px;margin-top:5px;"
+                     binding="#{viewScope.OffersBean.offerMastListItem}" partialTriggers="::d1">
+          <af:panelGroupLayout layout="horizontal" id="pgl2" inlineStyle="color:white;font-size:14px;padding-top:5px;"
+                               valign="top">
+            <f:facet name="separator">
+              <af:spacer width="20" id="s2"/>
+            </f:facet>
+            <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+              <af:outputText value="#{shbkshopadminviewBundle.CAMPAIGN__0NAME__0__0__0TYPE}" id="ot1"
+                             inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+              <af:spacer width="10" height="3" id="s4"/>
+              <af:outputFormatted value="#{item.bindings.OfferTitle.inputValue}" id="of6"/>
+              <af:selectOneChoice value="#{item.bindings.OfferType.inputValue}" label="#{item.bindings.OfferType.label}"
+                                  required="#{bindings.OffersV.hints.OfferType.mandatory}"
+                                  shortDesc="#{bindings.OffersV.hints.OfferType.tooltip}" readOnly="true" id="soc2"
+                                  simple="true" styleClass="CampaignQuery">
+                <f:selectItems value="#{item.bindings.OfferType.items}" id="si2"/>
+                <f:validator binding="#{item.bindings.OfferType.validator}"/>
+              </af:selectOneChoice>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl4" layout="vertical" halign="center">
+              <af:outputText value="#{shbkshopadminviewBundle.DONE__0IN}" id="ot2"
+                             inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+              <af:outputText value="#{item.bindings.OfferDt.inputValue}" id="of7">
+                <af:convertDateTime pattern="#{bindings.OffersV.hints.OfferDt.format}"/>
+              </af:outputText>
+              <f:facet name="separator">
+                <af:spacer width="10" height="10" id="s5"/>
+              </f:facet>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
+              <af:outputText value="#{shbkshopadminviewBundle.VALID__0FROM__0__0__0TO}" id="ot3"
+                             inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+              <af:spacer width="10" height="3" id="s6"/>
+              <af:outputFormatted value="#{item.bindings.ValidFrmDate.inputValue}" id="of8">
+                <af:convertDateTime pattern="#{bindings.OffersV.hints.ValidFrmDate.format}"/>
+              </af:outputFormatted>
+              <af:outputFormatted value="#{item.bindings.ValidToDate.inputValue}" id="of9">
+                <af:convertDateTime pattern="#{bindings.OffersV.hints.ValidToDate.format}"/>
+              </af:outputFormatted>
+              <af:outputText value="#{shbkshopadminviewBundle.FOR__0EVER}" id="ot9"
+                             rendered="#{item.bindings.ValidToDate.inputValue==null}"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl6" halign="center" layout="vertical"
+                                 rendered="#{item.bindings.Percentage.inputValue!=null}">
+              <af:outputText value="#{shbkshopadminviewBundle.PERCENTAGE}" id="ot4"
+                             inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+              <af:outputFormatted value="#{item.bindings.Percentage.inputValue} %" id="of10"/>
+              <f:facet name="separator">
+                <af:spacer width="10" height="15" id="s7"/>
+              </f:facet>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl7" halign="center" layout="vertical"
+                                 rendered="#{item.bindings.SendEmailDt.inputValue!=null}">
+              <af:outputText value="#{shbkshopadminviewBundle.SEND__0ADS__0EMAIL__0IN}" id="ot5"
+                             inlineStyle="text-decoration:underline solid currentColor; color:Gray;"/>
+              <af:outputFormatted value="#{item.bindings.SendEmailDt.inputValue}" id="of11">
+                <af:convertDateTime pattern="#{bindings.OffersV.hints.SendEmailDt.format}"/>
+              </af:outputFormatted>
+              <f:facet name="separator">
+                <af:spacer width="10" height="15" id="s8"/>
+              </f:facet>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl12">
+              <af:link id="l1" icon="/icons/Delete.png" actionListener="#{viewScope.OffersBean.delCampaign}"
+                       returnListener="#{viewScope.OffersBean.returnFrmDelete}"
+                       disabled="#{item.bindings.AlreadyApplied.inputValue=='true' || item.bindings.AlreadySend.inputValue=='true'}"
+                       shortDesc="#{item.bindings.AlreadyApplied.inputValue=='true' || item.bindings.AlreadySend.inputValue=='true' ? shbkshopadminviewBundle.cantDeleteCampaign : ''}"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:listItem>
+      </f:facet>
+    </af:listView>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1" binding="#{viewScope.OffersBean.delCampaignPopup}">
+      <af:dialog id="d1" type="yesNo" title="#{shbkshopadminviewBundle.DELETE__0CAMPAIGN}" contentWidth="400"
+                 contentHeight="100" dialogListener="#{viewScope.OffersBean.delCampaignOptions}"
+                 titleIconSource="/icons/Delete.png"
+                 inlineStyle="border-top-left-radius:30px 30px; border-top-right-radius:30px 30px; border-bottom-left-radius:30px 30px; border-bottom-right-radius:30px;padding-left:10px;padding-right:10px;"
+                 partialTriggers="lv1 lv1:li1 lv1:li2">
+        <f:facet name="buttonBar"/>
+        <af:panelGroupLayout id="pgl13" halign="center" layout="scroll">
+          <af:outputText value="#{shbkshopadminviewBundle.ARE__0YOU__0SURE__0YOU__0WANT__0TO__0DELETE__0THIS__0CAMPAIGN__0AND__0IT__0S__0ITEMS__0__0}"
+                         id="ot10" inlineStyle="font-size:20px;"/>
+        </af:panelGroupLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelHeader>
+</ui:composition>

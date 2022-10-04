@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="crud_brands_tf_crud_brands_tf_ExecuteWithParamsPageDef" Package="popupTf" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="BrandsVCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="BrandsVCrudVIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="BrandsVCrudVIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pBrandCode" NDValue="#{pageFlowScope.vBrandCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

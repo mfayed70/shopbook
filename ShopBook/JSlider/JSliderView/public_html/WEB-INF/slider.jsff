@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+      <af:resource type="javascript" source="/script/jquery.min.js"/>
+      <af:resource type="javascript" source="/script/jflow.plus.min.js"/>
+      <af:resource type="javascript" source="/script/jflow.control.js"/>
+  <af:panelGroupLayout id="pgl1" layout="scroll" halign="center" styleClass="AFStretchWidth">
+    <div id="sliderContainer" class="sliderContainer"> 
+      <div id="mySlides">
+        <!--<af:forEach begin="0" end="3" var="row"/>-->
+          <div id="slide1" class="slide">
+            <img src="../images/jflow-sample-slide1.jpg" alt="Slide 1 jFlow Plus" class="sliderImage"/>
+            <div class="slideContent">
+              <h3>
+                AUDI
+              </h3>
+              <p>
+                Advancement through Technology
+              </p>
+            </div>
+          </div>
+        <div id="slide2" class="slide">
+          <img src="../images/jflow-sample-slide2.jpg" alt="Slide 2 jFlow Plus" class="sliderImage"/>
+          <div class="slideContent">
+            <h3>FERRARI</h3>
+            <p>Ultimate Driving Machine</p>
+          </div>
+        </div>
+        <div id="slide3" class="slide">
+          <img src="../images/jflow-sample-slide3.jpg" class="sliderImage" alt="   "/>
+          <div class="slideContent">
+            <h3>JAGUAR</h3>
+            <p>Born To Perform</p>
+          </div>
+        </div>
+        <div id="slide4" class="slide">
+          <img src="../images/jflow-sample-slide4.jpg" alt="Slide 3 jFlow Plus" class="sliderImage"/>
+          <div class="slideContent">
+            <h3>TOYOTO</h3>
+            <p>Moving Forward</p>
+          </div>
+        </div>
+      </div>
+      <div id="myController">
+      <af:forEach begin="0" end="3">
+        <span class="jFlowControl"></span>
+      </af:forEach>
+      </div>
+      <div class="jFlowPrev"></div>
+      <div class="jFlowNext"></div>
+  </div>
+    <!--end: sliderContainer -->
+  </af:panelGroupLayout>
+</jsp:root>
+

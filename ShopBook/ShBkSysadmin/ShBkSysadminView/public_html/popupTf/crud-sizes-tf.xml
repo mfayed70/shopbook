@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-sizes-tf">
+    <default-activity>sizes-crud-router</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <input-parameter-definition id="__7">
+      <name>CrudSizesAction</name>
+      <value>#{viewScope.CrudSizesAction}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__12">
+      <name>vSzClsCode</name>
+      <value>#{viewScope.vSzClsCode}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="crud-sizes">
+      <page>/popupTf/crud-sizes.jsf</page>
+    </view>
+    <router id="sizes-crud-router">
+      <case id="__6">
+        <expression>#{viewScope.CrudSizesAction == 'new'}</expression>
+        <outcome>new</outcome>
+      </case>
+      <case id="__1">
+        <expression>#{viewScope.CrudSizesAction == 'edit'}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>new</default-outcome>
+    </router>
+    <task-flow-return id="commit">
+      <outcome>
+        <name>commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__13">
+      <from-activity-id>crud-sizes</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>toCommit</from-outcome>
+        <to-activity-id>commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>sizes-crud-router</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>crud-sizes</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>crud-sizes</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

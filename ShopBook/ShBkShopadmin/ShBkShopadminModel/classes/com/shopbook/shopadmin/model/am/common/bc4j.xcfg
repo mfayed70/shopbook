@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.shopbook.shopadmin.model.am.ShBkShopAdmin" default="ShBkShopAdminLocal">
+      <AppModuleConfig DeployPlatform="LOCAL" name="ShBkShopAdminLocal" ApplicationName="com.shopbook.shopadmin.model.am.ShBkShopAdmin" jbo.project="com.shopbook.shopadmin.model.ShBkShopadminModel">
+         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.shopbook.shopadmin.model.am.ShBkShopAdmin"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="jdbc/ShBkConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" name="ShBkShopAdminShared" ApplicationName="com.shopbook.shopadmin.model.am.ShBkShopAdmin" jbo.project="com.shopbook.shopadmin.model.ShBkShopadminModel">
+         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+         <Security AppModuleJndiName="com.shopbook.shopadmin.model.am.ShBkShopAdmin"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="jdbc/ShBkConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

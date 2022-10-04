@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="com.shopbook.home.view.ShBkHmResBndl_ar" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="HOME">
+        <source>الرئيسية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOGIN">
+        <source>تسجيل الدخول</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LANGUAGE">
+        <source>اللغــة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_WISHES_LIST">
+        <source>قائمة أمنياتك</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="YOUR_FAVOURITE_SHOPS">
+        <source>المفضلة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="TEST__BUNDLE">
+        <source>ىىىىىىى</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

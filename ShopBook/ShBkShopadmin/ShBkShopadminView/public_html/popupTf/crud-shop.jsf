@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkshopadminviewBundle" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" usesUpload="true">
+            <af:panelHeader text="#{pageFlowScope.vWhat==1 ? shbkshopadminviewBundle.EDIT_SHOP___NEW_BRANCH:
+shbkshopadminviewBundle.EdithomePageImages}" id="ph1"
+                            inlineStyle="width:1100px;">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:navigationPane hint="buttons" id="np1">
+                        <af:commandNavigationItem id="ni1" text="#{shbkshopadminviewBundle.SAVE}" icon="/icons/Save.png" actionListener="#{ShopCrudBean.shopCrudSave}"
+                                                  action="toSave">
+                            <af:setPropertyListener from="#{bindings.ShopCode.inputValue}" to="#{pageFlowScope.rShopCode}" type="return"/>
+                        </af:commandNavigationItem>
+                        <af:commandNavigationItem id="ni2" text="#{shbkshopadminviewBundle.CANCEL}"
+                                                  icon="/icons/Refresh.png" action="toCancel"
+                                                  actionListener="#{ShopCrudBean.shopCrudCancel}"/>
+                    </af:navigationPane>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelHeader text=" " id="ph6" rendered="#{pageFlowScope.vWhat==0}">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelTabbed position="above" id="pt2">
+                        <af:showDetailItem id="tab2" text="#{shbkshopadminviewBundle.RIGHT__0__0__0LEFT__0IMAGES}">
+                            <af:panelSplitter id="ps1" splitterPosition="250" clientComponent="true" disabled="true"
+                                              inlineStyle="border-style:solid; border-width:thin; border-color:Gray;width:1100px;">
+                                <f:facet name="first">
+                                    <af:panelGroupLayout id="pgl2" layout="vertical" halign="center"
+                                                         rendered="#{bindings.ParentShopCode.inputValue==null}">
+                                        <af:outputText value="#{shbkshopadminviewBundle.LEFT_LOGO}" id="ot1"
+                                                       inlineStyle="font-size:large;"/>
+                                        <af:inputText value="#{bindings.Logo.inputValue}"
+                                                      label="#{bindings.Logo.hints.label}"
+                                                      required="#{bindings.Logo.hints.mandatory}" columns="30"
+                                                      maximumLength="#{bindings.Logo.hints.precision}"
+                                                      shortDesc="#{bindings.Logo.hints.tooltip}" id="it12"
+                                                      rendered="true" simple="true" rows="3"
+                                                      contentStyle="font-size:10px;width:150px;height:30px;"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.Logo.validator}"/>
+                                        </af:inputText>
+                                        <af:image id="i1" inlineStyle="width:180px; height:180px;"
+                                                  source="/ViewImageServlet?path=#{bindings.Logo.inputValue==null || empty bindings.Logo.inputValue ? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : bindings.Logo.inputValue}"
+                                                  partialTriggers="if1"/>
+                                        <af:inputFile label="Label 1" id="if1" autoSubmit="true" simple="true"
+                                                      valueChangeListener="#{ShopCrudBean.logoChngValListener}"/>
+                                        <af:outputText value="#{shbkshopadminviewBundle.IMAGE__0SHOULD__0BE__0OF__0FORMAT__0__0__0__0JPEG__0__0__0__0GIF__0__0__0__0PNG__0__0__0__0DIMENSION__0OF__0180X180__0PX__0}"
+                                                       id="ot4" inlineStyle="color:Maroon;"/>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s3"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelSplitter id="ps2" splitterPosition="500" disabled="true">
+                                        <f:facet name="first">
+                                            <af:spacer width="500" height="10" id="s1"/>
+                                        </f:facet>
+                                        <f:facet name="second">
+                                            <af:panelGroupLayout id="pgl3" layout="vertical" halign="center"
+                                                                 rendered="#{bindings.ParentShopCode.inputValue==null}">
+                                                <af:outputText value="#{shbkshopadminviewBundle.RIGHT_IMAGE}" id="ot2"
+                                                               inlineStyle="font-size:large;"/>
+                                                <af:inputText value="#{bindings.WebAddress.inputValue}"
+                                                              label="#{bindings.WebAddress.hints.label}"
+                                                              required="#{bindings.WebAddress.hints.mandatory}"
+                                                              columns="30"
+                                                              maximumLength="#{bindings.WebAddress.hints.precision}"
+                                                              shortDesc="#{bindings.WebAddress.hints.tooltip}" id="it11"
+                                                              rendered="true" simple="true"
+                                                              contentStyle="font-size:10px;width:100px;height:30px;"
+                                                              rows="3" readOnly="true">
+                                                    <f:validator binding="#{bindings.WebAddress.validator}"/>
+                                                </af:inputText>
+                                                <af:image id="i2" inlineStyle="width:180px; height:180px;"
+                                                          source="/ViewImageServlet?path=#{bindings.WebAddress.inputValue==null || empty bindings.WebAddress.inputValue ? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) :bindings.WebAddress.inputValue}"
+                                                          partialTriggers="if2"/>
+                                                <af:inputFile label="Label 2" id="if2" simple="true"
+                                                              valueChangeListener="#{ShopCrudBean.rightImgValChngListener}"
+                                                              autoSubmit="true"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s4"/>
+                                                </f:facet>
+                                                <af:outputText value="#{shbkshopadminviewBundle.IMAGE__0SHOULD__0BE__0OF__0FORMAT__0__0__0__0JPEG__0__0__0__0GIF__0__0__0__0PNG__0__0__0__0DIMENSION__0OF__0180X180__0PX__0}"
+                                                               id="ot5" inlineStyle="color:Maroon;"/>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:panelSplitter>
+                                </f:facet>
+                            </af:panelSplitter>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab3" text="#{shbkshopadminviewBundle.IMAGE__0SLIDER}">
+                            <af:panelHeader text="#{shbkshopadminviewBundle.IMAGE__0SLIDER}" id="ph5">
+                                <f:facet name="context"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="legend">
+                                    <af:outputText value="#{shbkshopadminviewBundle['eachslideshouldbeofformat.jpeg.gif.pngdimensionof800x200px.']}"
+                                                   id="ot3" inlineStyle="color:Maroon; font-size:small;"/>
+                                </f:facet>
+                                <f:facet name="info"/>
+                                <af:panelGroupLayout id="pgl1" layout="vertical"
+                                                     inlineStyle="padding-top:10px;margin-top:10px;">
+                                    <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                        <af:inputFile label="Label 3" id="if3" simple="true"
+                                                      valueChangeListener="#{ImageSliderChange.changeSlide1}"
+                                                      autoSubmit="true">
+                                            <af:clientAttribute name="indx" value="ImageSlide1"/>
+                                        </af:inputFile>
+                                        <af:inputText value="#{bindings.ImageSlide1.inputValue}"
+                                                      label="#{bindings.ImageSlide1.hints.label}"
+                                                      required="#{bindings.ImageSlide1.hints.mandatory}"
+                                                      columns="#{bindings.ImageSlide1.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ImageSlide1.hints.precision}"
+                                                      shortDesc="#{bindings.ImageSlide1.hints.tooltip}" id="it31"
+                                                      contentStyle="font-size:10px;" inlineStyle="width:500px;"
+                                                      readOnly="true" binding="#{ImageSliderChange.imgSlide1}"
+                                                      clientComponent="true" autoSubmit="true">
+                                            <f:validator binding="#{bindings.ImageSlide1.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s7"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:image id="i3" inlineStyle="width:800px;height:200px;"
+                                              source="/ViewImageServlet?path=#{bindings.FileServerPath.inputValue}#{bindings.ImageSlide1.inputValue}"
+                                              partialTriggers="if3"/>
+                                    <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                        <af:inputFile label="Label 4" id="if4" simple="true"
+                                                      valueChangeListener="#{ImageSliderChange.changeSlide1}"
+                                                      autoSubmit="true">
+                                            <af:clientAttribute name="indx" value="ImageSlide2"/>
+                                        </af:inputFile>
+                                        <af:inputText value="#{bindings.ImageSlide2.inputValue}"
+                                                      label="#{bindings.ImageSlide2.hints.label}"
+                                                      required="#{bindings.ImageSlide2.hints.mandatory}"
+                                                      columns="#{bindings.ImageSlide2.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ImageSlide2.hints.precision}"
+                                                      shortDesc="#{bindings.ImageSlide2.hints.tooltip}" id="it32"
+                                                      contentStyle="font-size:10px;" inlineStyle="width:500px;"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.ImageSlide2.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s8"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:image id="i4" inlineStyle="width:800px;height:200px;"
+                                              source="/ViewImageServlet?path=#{bindings.FileServerPath.inputValue}#{bindings.ImageSlide2.inputValue}"/>
+                                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                        <af:inputFile label="Label 3" id="if5" simple="true"
+                                                      valueChangeListener="#{ImageSliderChange.changeSlide1}"
+                                                      autoSubmit="true">
+                                            <af:clientAttribute name="indx" value="ImageSlide3"/>
+                                        </af:inputFile>
+                                        <af:inputText value="#{bindings.ImageSlide3.inputValue}"
+                                                      label="#{bindings.ImageSlide3.hints.label}"
+                                                      required="#{bindings.ImageSlide3.hints.mandatory}"
+                                                      columns="#{bindings.ImageSlide3.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ImageSlide3.hints.precision}"
+                                                      shortDesc="#{bindings.ImageSlide3.hints.tooltip}" id="it33"
+                                                      contentStyle="font-size:10px;" inlineStyle="width:500px;"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.ImageSlide3.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s9"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:image id="i5" inlineStyle="width:800px;height:200px;"
+                                              source="/ViewImageServlet?path=#{bindings.FileServerPath.inputValue}#{bindings.ImageSlide3.inputValue}"/>
+                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                        <af:inputFile label="Label 3" id="if6" simple="true"
+                                                      valueChangeListener="#{ImageSliderChange.changeSlide1}"
+                                                      autoSubmit="true">
+                                            <af:clientAttribute name="indx" value="ImageSlide4"/>
+                                        </af:inputFile>
+                                        <af:inputText value="#{bindings.ImageSlide4.inputValue}"
+                                                      label="#{bindings.ImageSlide4.hints.label}"
+                                                      required="#{bindings.ImageSlide4.hints.mandatory}"
+                                                      columns="#{bindings.ImageSlide4.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ImageSlide4.hints.precision}"
+                                                      shortDesc="#{bindings.ImageSlide4.hints.tooltip}" id="it34"
+                                                      contentStyle="font-size:10px;" inlineStyle="width:500px;"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.ImageSlide4.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s10"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:image id="i6" inlineStyle="width:800px;height:200px;"
+                                              source="/ViewImageServlet?path=#{bindings.FileServerPath.inputValue}#{bindings.ImageSlide4.inputValue}"/>
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                        <af:inputFile label="Label 3" id="if7" simple="true"
+                                                      valueChangeListener="#{ImageSliderChange.changeSlide1}"
+                                                      autoSubmit="true">
+                                            <af:clientAttribute name="indx" value="ImageSlide5"/>
+                                        </af:inputFile>
+                                        <af:inputText value="#{bindings.ImageSlide5.inputValue}"
+                                                      label="#{bindings.ImageSlide5.hints.label}"
+                                                      required="#{bindings.ImageSlide5.hints.mandatory}"
+                                                      columns="#{bindings.ImageSlide5.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ImageSlide5.hints.precision}"
+                                                      shortDesc="#{bindings.ImageSlide5.hints.tooltip}" id="it35"
+                                                      contentStyle="font-size:10px;" inlineStyle="width:500px;"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.ImageSlide5.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s11"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:image id="i7" inlineStyle="width:800px;height:200px;"
+                                              source="/ViewImageServlet?path=#{bindings.FileServerPath.inputValue}#{bindings.ImageSlide5.inputValue}"/>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s6"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </af:panelHeader>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </af:panelHeader>
+                <af:spacer width="10" height="20" id="s5"/>
+                <af:panelTabbed position="above" id="pt1" rendered="false">
+                    <af:showDetailItem id="tab1" text="#{shbkshopadminviewBundle.GEOGRAPHIC_DATA}">
+                        <af:panelHeader text="panelHeader 1" id="ph2">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:spacer width="10" height="20" id="s2"/>
+                            <af:panelFormLayout id="pfl2">
+                                <af:inputText value="#{bindings.Province.inputValue}"
+                                              label="#{bindings.Province.hints.label}"
+                                              required="#{bindings.Province.hints.mandatory}"
+                                              columns="#{bindings.Province.hints.displayWidth}"
+                                              maximumLength="#{bindings.Province.hints.precision}"
+                                              shortDesc="#{bindings.Province.hints.tooltip}" id="it8">
+                                    <f:validator binding="#{bindings.Province.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ShopLat.inputValue}"
+                                              label="#{bindings.ShopLat.hints.label}"
+                                              required="#{bindings.ShopLat.hints.mandatory}"
+                                              columns="#{bindings.ShopLat.hints.displayWidth}"
+                                              maximumLength="#{bindings.ShopLat.hints.precision}"
+                                              shortDesc="#{bindings.ShopLat.hints.tooltip}" id="it3">
+                                    <f:validator binding="#{bindings.ShopLat.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ShopLat.format}"/>
+                                </af:inputText>
+                                <f:facet name="footer"/>
+                                <af:inputText value="#{bindings.ShopLong.inputValue}"
+                                              label="#{bindings.ShopLong.hints.label}"
+                                              required="#{bindings.ShopLong.hints.mandatory}"
+                                              columns="#{bindings.ShopLong.hints.displayWidth}"
+                                              maximumLength="#{bindings.ShopLong.hints.precision}"
+                                              shortDesc="#{bindings.ShopLong.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.ShopLong.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ShopLong.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:panelHeader>
+                    </af:showDetailItem>
+                    <af:showDetailItem text="#{shbkshopadminviewBundle.SENDING_EMAILS_SETTINGS}" id="sdi1"
+                                       rendered="#{pageFlowScope.shopCrudAction=='edit' &amp;&amp; pageFlowScope.vShopCode=='EG0000001'}">
+                        <af:panelHeader text="panelHeader 2" id="ph3">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:inputText value="#{bindings.SmtpHost.inputValue}"
+                                          label="#{bindings.SmtpHost.hints.label}"
+                                          required="#{bindings.SmtpHost.hints.mandatory}"
+                                          columns="#{bindings.SmtpHost.hints.displayWidth}"
+                                          maximumLength="#{bindings.SmtpHost.hints.precision}"
+                                          shortDesc="#{bindings.SmtpHost.hints.tooltip}" id="it26">
+                                <f:validator binding="#{bindings.SmtpHost.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.SmtpPort.inputValue}"
+                                          label="#{bindings.SmtpPort.hints.label}"
+                                          required="#{bindings.SmtpPort.hints.mandatory}"
+                                          columns="#{bindings.SmtpPort.hints.displayWidth}"
+                                          maximumLength="#{bindings.SmtpPort.hints.precision}"
+                                          shortDesc="#{bindings.SmtpPort.hints.tooltip}" id="it27">
+                                <f:validator binding="#{bindings.SmtpPort.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.SmtpPort.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.SslOrTsl.inputValue}"
+                                          label="#{bindings.SslOrTsl.hints.label}"
+                                          required="#{bindings.SslOrTsl.hints.mandatory}"
+                                          columns="#{bindings.SslOrTsl.hints.displayWidth}"
+                                          maximumLength="#{bindings.SslOrTsl.hints.precision}"
+                                          shortDesc="#{bindings.SslOrTsl.hints.tooltip}" id="it28">
+                                <f:validator binding="#{bindings.SslOrTsl.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ShopAdminEmail.inputValue}"
+                                          label="#{bindings.ShopAdminEmail.hints.label}"
+                                          required="#{bindings.ShopAdminEmail.hints.mandatory}"
+                                          columns="#{bindings.ShopAdminEmail.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopAdminEmail.hints.precision}"
+                                          shortDesc="#{bindings.ShopAdminEmail.hints.tooltip}" id="it29">
+                                <f:validator binding="#{bindings.ShopAdminEmail.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ShopUserName.inputValue}"
+                                          label="#{bindings.ShopUserName.hints.label}"
+                                          required="#{bindings.ShopUserName.hints.mandatory}"
+                                          columns="#{bindings.ShopUserName.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShopUserName.hints.precision}"
+                                          shortDesc="#{bindings.ShopUserName.hints.tooltip}" id="it30">
+                                <f:validator binding="#{bindings.ShopUserName.validator}"/>
+                            </af:inputText>
+                        </af:panelHeader>
+                    </af:showDetailItem>
+                </af:panelTabbed>
+                <af:panelHeader text=" " id="ph4"
+                                rendered="#{pageFlowScope.vWhat==1}">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.ShopName.inputValue}" label="#{bindings.ShopName.hints.label}"
+                                      required="#{bindings.ShopName.hints.mandatory}" columns="50"
+                                      maximumLength="#{bindings.ShopName.hints.precision}"
+                                      shortDesc="#{bindings.ShopName.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.ShopName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Country.inputValue}" label="#{bindings.Country.hints.label}"
+                                      required="#{bindings.Country.hints.mandatory}"
+                                      columns="#{bindings.Country.hints.displayWidth}"
+                                      maximumLength="#{bindings.Country.hints.precision}"
+                                      shortDesc="#{bindings.Country.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.Country.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.City.inputValue}" label="#{bindings.City.hints.label}"
+                                      required="#{bindings.City.hints.mandatory}"
+                                      columns="#{bindings.City.hints.displayWidth}"
+                                      maximumLength="#{bindings.City.hints.precision}"
+                                      shortDesc="#{bindings.City.hints.tooltip}" id="it13">
+                            <f:validator binding="#{bindings.City.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.StreetAdd1.inputValue}"
+                                      label="#{bindings.StreetAdd1.hints.label}"
+                                      required="#{bindings.StreetAdd1.hints.mandatory}"
+                                      columns="#{bindings.StreetAdd1.hints.displayWidth}"
+                                      maximumLength="#{bindings.StreetAdd1.hints.precision}"
+                                      shortDesc="#{bindings.StreetAdd1.hints.tooltip}" id="it5">
+                            <f:validator binding="#{bindings.StreetAdd1.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.StreetAdd2.inputValue}"
+                                      label="#{bindings.StreetAdd2.hints.label}"
+                                      required="#{bindings.StreetAdd2.hints.mandatory}"
+                                      columns="#{bindings.StreetAdd2.hints.displayWidth}"
+                                      maximumLength="#{bindings.StreetAdd2.hints.precision}"
+                                      shortDesc="#{bindings.StreetAdd2.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.StreetAdd2.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.StreetAdd3.inputValue}"
+                                      label="#{bindings.StreetAdd3.hints.label}"
+                                      required="#{bindings.StreetAdd3.hints.mandatory}"
+                                      columns="#{bindings.StreetAdd3.hints.displayWidth}"
+                                      maximumLength="#{bindings.StreetAdd3.hints.precision}"
+                                      shortDesc="#{bindings.StreetAdd3.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.StreetAdd3.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Tel.inputValue}" label="#{bindings.Tel.hints.label}"
+                                      required="#{bindings.Tel.hints.mandatory}" columns="50"
+                                      maximumLength="#{bindings.Tel.hints.precision}"
+                                      shortDesc="#{bindings.Tel.hints.tooltip}" id="it10" rows="3">
+                            <f:validator binding="#{bindings.Tel.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Rate.inputValue}" label="#{bindings.Rate.hints.label}"
+                                      required="#{bindings.Rate.hints.mandatory}"
+                                      columns="#{bindings.Rate.hints.displayWidth}"
+                                      maximumLength="#{bindings.Rate.hints.precision}"
+                                      shortDesc="#{bindings.Rate.hints.tooltip}" id="it21" rendered="false">
+                            <f:validator binding="#{bindings.Rate.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Rate.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Level.inputValue}" label="#{bindings.Level.hints.label}"
+                                      required="#{bindings.Level.hints.mandatory}"
+                                      columns="#{bindings.Level.hints.displayWidth}"
+                                      maximumLength="#{bindings.Level.hints.precision}"
+                                      shortDesc="#{bindings.Level.hints.tooltip}" id="it22" rendered="false">
+                            <f:validator binding="#{bindings.Level.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Level.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CntryCode2.inputValue}"
+                                      label="#{bindings.CntryCode2.hints.label}"
+                                      required="#{bindings.CntryCode2.hints.mandatory}"
+                                      columns="#{bindings.CntryCode2.hints.displayWidth}"
+                                      maximumLength="#{bindings.CntryCode2.hints.precision}"
+                                      shortDesc="#{bindings.CntryCode2.hints.tooltip}" id="it23" rendered="false">
+                            <f:validator binding="#{bindings.CntryCode2.validator}"/>
+                        </af:inputText>
+                        <af:selectOneRadio value="#{bindings.Active.inputValue}" label="#{bindings.Active.label}"
+                                           required="#{bindings.Active.hints.mandatory}"
+                                           shortDesc="#{bindings.Active.hints.tooltip}" id="sor1">
+                            <f:selectItems value="#{bindings.Active.items}" id="si1"/>
+                            <f:validator binding="#{bindings.Active.validator}"/>
+                        </af:selectOneRadio>
+                        <af:inputText value="#{bindings.OneTimeCode.inputValue}"
+                                      label="#{bindings.OneTimeCode.hints.label}"
+                                      required="#{bindings.OneTimeCode.hints.mandatory}"
+                                      columns="#{bindings.OneTimeCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.OneTimeCode.hints.precision}"
+                                      shortDesc="#{bindings.OneTimeCode.hints.tooltip}" id="it14" rendered="false">
+                            <f:validator binding="#{bindings.OneTimeCode.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ShopFilePath.inputValue}"
+                                      label="#{bindings.ShopFilePath.hints.label}"
+                                      required="#{bindings.ShopFilePath.hints.mandatory}"
+                                      columns="#{bindings.ShopFilePath.hints.displayWidth}"
+                                      maximumLength="#{bindings.ShopFilePath.hints.precision}"
+                                      shortDesc="#{bindings.ShopFilePath.hints.tooltip}" id="it15" rendered="false">
+                            <f:validator binding="#{bindings.ShopFilePath.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.SmtpHost.inputValue}" label="#{bindings.SmtpHost.hints.label}"
+                                      required="#{bindings.SmtpHost.hints.mandatory}"
+                                      columns="#{bindings.SmtpHost.hints.displayWidth}"
+                                      maximumLength="#{bindings.SmtpHost.hints.precision}"
+                                      shortDesc="#{bindings.SmtpHost.hints.tooltip}" id="it16" rendered="false">
+                            <f:validator binding="#{bindings.SmtpHost.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.SmtpPort.inputValue}" label="#{bindings.SmtpPort.hints.label}"
+                                      required="#{bindings.SmtpPort.hints.mandatory}"
+                                      columns="#{bindings.SmtpPort.hints.displayWidth}"
+                                      maximumLength="#{bindings.SmtpPort.hints.precision}"
+                                      shortDesc="#{bindings.SmtpPort.hints.tooltip}" id="it17" rendered="false">
+                            <f:validator binding="#{bindings.SmtpPort.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.SmtpPort.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.SslOrTsl.inputValue}" label="#{bindings.SslOrTsl.hints.label}"
+                                      required="#{bindings.SslOrTsl.hints.mandatory}"
+                                      columns="#{bindings.SslOrTsl.hints.displayWidth}"
+                                      maximumLength="#{bindings.SslOrTsl.hints.precision}"
+                                      shortDesc="#{bindings.SslOrTsl.hints.tooltip}" id="it18" rendered="false">
+                            <f:validator binding="#{bindings.SslOrTsl.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ShopUserName.inputValue}"
+                                      label="#{bindings.ShopUserName.hints.label}"
+                                      required="#{bindings.ShopUserName.hints.mandatory}"
+                                      columns="#{bindings.ShopUserName.hints.displayWidth}"
+                                      maximumLength="#{bindings.ShopUserName.hints.precision}"
+                                      shortDesc="#{bindings.ShopUserName.hints.tooltip}" id="it19" rendered="false">
+                            <f:validator binding="#{bindings.ShopUserName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ShopAdminEmail.inputValue}"
+                                      label="#{bindings.ShopAdminEmail.hints.label}"
+                                      required="#{bindings.ShopAdminEmail.hints.mandatory}"
+                                      columns="#{bindings.ShopAdminEmail.hints.displayWidth}"
+                                      maximumLength="#{bindings.ShopAdminEmail.hints.precision}"
+                                      shortDesc="#{bindings.ShopAdminEmail.hints.tooltip}" id="it20" rendered="false">
+                            <f:validator binding="#{bindings.ShopAdminEmail.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.LastModified.inputValue}"
+                                      label="#{bindings.LastModified.hints.label}"
+                                      required="#{bindings.LastModified.hints.mandatory}"
+                                      columns="#{bindings.LastModified.hints.displayWidth}"
+                                      shortDesc="#{bindings.LastModified.hints.tooltip}" id="id1" readOnly="true">
+                            <f:validator binding="#{bindings.LastModified.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.LastModified.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.ParentShopCode.inputValue}"
+                                      label="#{bindings.ParentShopCode.hints.label}"
+                                      required="#{bindings.ParentShopCode.hints.mandatory}"
+                                      columns="#{bindings.ParentShopCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.ParentShopCode.hints.precision}"
+                                      shortDesc="#{bindings.ParentShopCode.hints.tooltip}" id="it24" readOnly="true"
+                                      rendered="false">
+                            <f:validator binding="#{bindings.ParentShopCode.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.RegisterStatus.inputValue}"
+                                      label="#{bindings.RegisterStatus.hints.label}"
+                                      required="#{bindings.RegisterStatus.hints.mandatory}"
+                                      columns="#{bindings.RegisterStatus.hints.displayWidth}"
+                                      maximumLength="#{bindings.RegisterStatus.hints.precision}"
+                                      shortDesc="#{bindings.RegisterStatus.hints.tooltip}" id="it25" rendered="false">
+                            <f:validator binding="#{bindings.RegisterStatus.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ShopCode.inputValue}" label="#{bindings.ShopCode.hints.label}"
+                                      required="#{bindings.ShopCode.hints.mandatory}"
+                                      columns="#{bindings.ShopCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.ShopCode.hints.precision}"
+                                      shortDesc="#{bindings.ShopCode.hints.tooltip}" id="it1" rendered="false">
+                            <f:validator binding="#{bindings.ShopCode.validator}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                </af:panelHeader>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

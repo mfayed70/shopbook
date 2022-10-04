@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="sku_color_imgsPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CrudSkuClrImagesV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="SkuClrImagesVIterator"/>
+    <iterator Binds="SysParametersV" RangeSize="10" DataControl="ShBkShopAdminDataControl" id="SysParametersVIterator"/>
+    <iterator Binds="CrudSkuColorsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="CrudSkuColorsVIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SkuClrImagesVIterator" id="SkuClrImagesV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.SkuClrImagesV" Name="SkuClrImagesV0">
+        <AttrNames>
+          <Item Value="SkuClrImgCode"/>
+          <Item Value="SkuClrCode"/>
+          <Item Value="ImgCode"/>
+          <Item Value="ImgPath"/>
+          <Item Value="ImgSeq"/>
+          <Item Value="ImgName"/>
+          <Item Value="ImgType"/>
+          <Item Value="Notes"/>
+          <Item Value="LastModified"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SysParametersVIterator" id="NoimagePath">
+      <AttrNames>
+        <Item Value="NoimagePath"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SkuClrImagesVIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SysParametersVIterator" id="FileServerPath">
+      <AttrNames>
+        <Item Value="FileServerPath"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ShBkShopAdminDataControl"/>
+    <methodAction id="upldSkuClrImg" RequiresUpdateModel="true" Action="invokeMethod" MethodName="upldSkuClrImg"
+                  IsViewObjectMethod="false" DataControl="ShBkShopAdminDataControl"
+                  InstanceName="data.ShBkShopAdminDataControl.dataProvider"
+                  ReturnName="data.ShBkShopAdminDataControl.methodResults.upldSkuClrImg_ShBkShopAdminDataControl_dataProvider_upldSkuClrImg_result">
+      <NamedData NDName="imgName" NDType="java.lang.String"/>
+      <NamedData NDName="imgPath" NDType="java.lang.String"/>
+      <NamedData NDName="imgType" NDType="java.lang.String"/>
+      <NamedData NDName="imgSeq" NDType="java.lang.String"/>
+      <NamedData NDName="imgCode" NDType="java.lang.String"/>
+      <NamedData NDName="skuClrCode" NDType="java.lang.String"/>
+      <NamedData NDName="skuClrImgCode" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="CrudSkuColorsVIterator" id="SkuClrCode">
+      <AttrNames>
+        <Item Value="SkuClrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SkuClrImagesVIterator" id="SkuClrImgCode">
+      <AttrNames>
+        <Item Value="SkuClrImgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SkuClrImagesVIterator" id="ImgPath">
+      <AttrNames>
+        <Item Value="ImgPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SkuClrImagesVIterator" id="ImgType">
+      <AttrNames>
+        <Item Value="ImgType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

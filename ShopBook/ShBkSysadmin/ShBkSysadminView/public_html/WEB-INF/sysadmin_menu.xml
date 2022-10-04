@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+  <groupNode id="itemNode_sysadmin" idref="itemNode_countriesandcurrencies"
+             label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['SYSTEM_ADMINISTRATION']}"
+             icon="../icons/Application.png" rendered="#{request.isUserInRole('SysAdmin')}">
+    <itemNode id="itemNode_sysparameters" action="adfMenu_sysparameters" focusViewId="/sysparameters"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['SYSTEM_PARAMETERS']}"/>
+    <itemNode id="itemNode_countriesandcurrencies" action="adfMenu_countriesandcurrencies"
+              focusViewId="/countriesandcurrencies"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['COUNTRIES___CURRENCIES']}"/>
+    <itemNode id="itemNode_categories" action="adfMenu_categories" focusViewId="/categories"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['SHOPPING_CATEGORIES']}"/>
+    <itemNode id="itemNode_sizeclasses" action="adfMenu_sizeclasses" focusViewId="/sizeclasses"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['SIZE_CLASSES']}"/>
+    <itemNode id="itemNode_references" action="adfMenu_references" focusViewId="/references"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['REFERENCES']}"/>
+    <itemNode id="itemNode_categoryrefrencesandsizes" action="adfMenu_categoryrefrencesandsizes"
+              focusViewId="/categoryrefrencesandsizes"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['CATEGORY_REFRENCES___SIZES']}"/>
+    <itemNode id="itemNode_categorytree"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['CATEGORIES__0TREE']}" action="adfMenu_categorytree"
+              focusViewId="/categorytree"/>
+    <itemNode id="itemNode_admins"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['SYSTEM__0ADMINSTRATORS']}" action="adfMenu_admins" focusViewId="/admins"/>
+    <itemNode id="itemNode_units" action="adfMenu_units" focusViewId="/units"
+              label="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']['UNITS']}"/>
+  </groupNode>
+</menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+  <groupNode id="itemNode_shopadmin"
+             label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['SHOP_ADMINISTRATION']}"
+             idref="itemNode_shopproducts" rendered="#{request.isUserInRole('GroupAdmin')}">
+    <itemNode id="itemNode_shopproducts"
+              label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['SHOP_PRODUCTS']}"
+              action="adfMenu_shopproducts" focusViewId="/shopproducts" visible="true"
+              rendered="true" disabled="false"/>
+    <itemNode id="itemNode_shopbasicdata"
+              label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['SHOP_BASIC_DATA']}"
+              action="adfMenu_shopbasicdata" focusViewId="/shopbasicdata"/>
+    <itemNode id="itemNode_categoryproperties" action="adfMenu_categoryproperties" focusViewId="/categoryproperties"
+              label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['CATEGORY_PROPERTIES']}"
+              rendered="true"/>
+    <itemNode id="itemNode_terms" label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['TERMS']}" action="adfMenu_terms" focusViewId="/terms"/>
+    <itemNode id="itemNode_reviewshoppingbags"
+              label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['REVIEW__0SHOPPING__0BAGS']}" action="adfMenu_reviewshoppingbags"
+              focusViewId="/reviewshoppingbags"/>
+    <itemNode id="itemNode_campaigns" label="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']['CAMPAIGNS']}" action="adfMenu_campaigns" focusViewId="/campaigns"/>
+  </groupNode>
+</menu>

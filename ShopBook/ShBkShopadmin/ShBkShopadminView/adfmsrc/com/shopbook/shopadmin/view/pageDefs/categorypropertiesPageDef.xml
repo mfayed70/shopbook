@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="categorypropertiesPageDef"
+                Package="com.shopbook.shopadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ShopSubCatsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="ShopSubCatsVIterator"/>
+    <iterator Binds="ShopSubCatPropClassesV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="ShopSubCatPropClassesVIterator"/>
+    <iterator Binds="ShopSubCatPropClassDetsV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="ShopSubCatPropClassDetsVIterator"/>
+    <iterator Binds="ShopCategoryAdminsV" RangeSize="25" DataControl="ShBkShopAdminDataControl"
+              id="ShopCategoryAdminsVIterator"/>
+    <iterator Binds="AdminsV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="AdminsVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="ShopCatCode">
+      <AttrNames>
+        <Item Value="ShopCatCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="ShopSubCatName">
+      <AttrNames>
+        <Item Value="ShopSubCatName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="SubCatImageName">
+      <AttrNames>
+        <Item Value="SubCatImageName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="SubCatImageType">
+      <AttrNames>
+        <Item Value="SubCatImageType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopSubCatsVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ShopSubCatsVIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ShopSubCatsVIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ShopSubCatsVIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ShopSubCatsVIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="ShopSubCatPropClassesVIterator" id="ShopSubCatPropClassesV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShopSubCatPropClassesV" Name="ShopSubCatPropClassesV0">
+        <AttrNames>
+          <Item Value="ShpSubCatPrpClsCode"/>
+          <Item Value="ShpSubCatPrpClsName"/>
+          <Item Value="LastModified"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ShopSubCatPropClassDetsVIterator" id="ShopSubCatPropClassDetsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShopSubCatPropClassDetsV"
+                      Name="ShopSubCatPropClassDetsV0">
+        <AttrNames>
+          <Item Value="ShpSubcatPrpClsDetCode"/>
+          <Item Value="PropClsDetName"/>
+          <Item Value="Notes"/>
+          <Item Value="LastModified"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ShopCategoryAdminsVIterator" id="ShopCategoryAdminsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV" Name="ShopCategoryAdminsV0">
+        <AttrNames>
+          <Item Value="UserId"/>
+          <Item Value="UserName"/>
+          <Item Value="FirstName"/>
+          <Item Value="FamilyName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="AdminsVIterator" id="AdminsV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.UsersV" Name="AdminsV0">
+        <AttrNames>
+          <Item Value="UserId"/>
+          <Item Value="UserName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ShopCategoryAdminsV"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV" Name="AdminsV1">
+        <AttrNames>
+          <Item Value="ShopSubCatName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

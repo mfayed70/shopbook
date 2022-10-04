@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="shoppingBag3PageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.SkuTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ShoppingMasterV" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="ShoppingMasterVIterator"/>
+    <iterator Binds="LangCurrV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="LangCurrVIterator"/>
+    <iterator Binds="ShoppingDetV" RangeSize="10" DataControl="ShBkHomeAmDataControl" id="ShoppingDetVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ShoppingMasterVIterator" id="sumQty">
+      <AttrNames>
+        <Item Value="sumQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingMasterVIterator" id="sumPrice">
+      <AttrNames>
+        <Item Value="sumPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LangCurrVIterator" id="CurrSymbol">
+      <AttrNames>
+        <Item Value="CurrSymbol"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ShoppingMasterVIterator" Uses="LOV_ShippCode" id="ShippCode"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" StaticList="false"/>
+    <attributeValues IterBinding="ShoppingMasterVIterator" id="ShipValue">
+      <AttrNames>
+        <Item Value="ShipValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingMasterVIterator" id="TransStatus">
+      <AttrNames>
+        <Item Value="TransStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingMasterVIterator" id="TransId">
+      <AttrNames>
+        <Item Value="TransId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingDetVIterator" id="SkuStatus">
+      <AttrNames>
+        <Item Value="SkuStatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

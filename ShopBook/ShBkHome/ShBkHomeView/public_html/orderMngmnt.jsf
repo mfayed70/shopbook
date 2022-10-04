@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbkhomeviewBundle" value="#{adfBundle['com.shopbook.home.view.ShBkHmResBndl']}"/>
+    <af:document title="orderMngmnt.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:showDetailHeader text="#{shbkhomeviewBundle.RECEIVED_ORDERS}" disclosed="true" id="sdh1"
+                                         inlineStyle="padding-left:10px;padding-bottom:15px;border-bottom-color:#e7e7e7; border-bottom-style:solid; border-bottom-width:thin;">
+                        <af:showDetail disclosed="true" id="sd1" disclosedText="#{shbkhomeviewBundle.SearchOrders}"
+                                       undisclosedText="#{shbkhomeviewBundle.SearchOrders}"
+                                       inlineStyle="padding-left:10px;padding-top:10px;padding-bottom:15px;border-bottom-color:#e7e7e7; border-bottom-style:solid; border-bottom-width:thin;">
+                            <af:panelFormLayout id="pfl1" maxColumns="2" rows="1"
+                                                inlineStyle="padding-top:10px;padding-bottom:5px;">
+                                <af:inputText value="#{bindings.valFrom.inputValue}"
+                                              label="#{bindings.valFrom.hints.label}"
+                                              required="#{bindings.valFrom.hints.mandatory}"
+                                              columns="#{bindings.valFrom.hints.displayWidth}"
+                                              maximumLength="#{bindings.valFrom.hints.precision}"
+                                              shortDesc="#{bindings.valFrom.hints.tooltip}" id="it1">
+                                    <f:validator binding="#{bindings.valFrom.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.valFrom.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.valTo.inputValue}" label="#{bindings.valTo.hints.label}"
+                                              required="#{bindings.valTo.hints.mandatory}"
+                                              columns="#{bindings.valTo.hints.displayWidth}"
+                                              maximumLength="#{bindings.valTo.hints.precision}"
+                                              shortDesc="#{bindings.valTo.hints.tooltip}" id="it2">
+                                    <f:validator binding="#{bindings.valTo.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.valTo.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl2" maxColumns="2" rows="1"
+                                                inlineStyle="padding-top:5px;padding-bottom:5px;">
+                                <af:inputDate value="#{bindings.fromDt.inputValue}"
+                                              label="#{bindings.fromDt.hints.label}"
+                                              required="#{bindings.fromDt.hints.mandatory}"
+                                              columns="#{bindings.fromDt.hints.displayWidth}"
+                                              shortDesc="#{bindings.fromDt.hints.tooltip}" id="id1">
+                                    <f:validator binding="#{bindings.fromDt.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.fromDt.format}"/>
+                                </af:inputDate>
+                                <af:inputDate value="#{bindings.toDt.inputValue}" label="#{bindings.toDt.hints.label}"
+                                              required="#{bindings.toDt.hints.mandatory}"
+                                              columns="#{bindings.toDt.hints.displayWidth}"
+                                              shortDesc="#{bindings.toDt.hints.tooltip}" id="id2">
+                                    <f:validator binding="#{bindings.toDt.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.toDt.format}"/>
+                                </af:inputDate>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl3" maxColumns="3" rows="1"
+                                                inlineStyle="padding-top:5px;padding-bottom:5px;">
+                                <af:selectOneChoice value="#{bindings.pCity.inputValue}" label="#{bindings.pCity.label}"
+                                                    required="#{bindings.pCity.hints.mandatory}"
+                                                    shortDesc="#{bindings.pCity.hints.tooltip}" id="soc1">
+                                    <f:selectItems value="#{bindings.pCity.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.pCity.validator}"/>
+                                </af:selectOneChoice>
+                                <af:selectOneChoice value="#{bindings.pTransStatus.inputValue}"
+                                                    label="#{bindings.pTransStatus.label}"
+                                                    required="#{bindings.pTransStatus.hints.mandatory}"
+                                                    shortDesc="#{bindings.pTransStatus.hints.tooltip}" id="soc2"
+                                                    labelStyle="min-width:100px;">
+                                    <f:selectItems value="#{bindings.pTransStatus.items}" id="si2"/>
+                                    <f:validator binding="#{bindings.pTransStatus.validator}"/>
+                                </af:selectOneChoice>
+                                <af:link actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
+                                         disabled="#{!bindings.ExecuteWithParams.enabled}" id="l1"
+                                         partialTriggers="lv1"/>
+                            </af:panelFormLayout>
+                        </af:showDetail>
+                        <af:listView value="#{bindings.ServingOrderMastV1.treeModel}" var="item"
+                                     emptyText="#{bindings.ServingOrderMastV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="#{bindings.ServingOrderMastV1.rangeSize}" id="lv1" selection="single"
+                                     selectionListener="#{bindings.ServingOrderMastV1.treeModel.makeCurrent}"
+                                     rendered="false">
+                            <af:listItem id="li1">
+                                <af:panelGroupLayout layout="horizontal" id="pgl1"
+                                                     inlineStyle="color:#003D5B; font-size:14px;">
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" id="s1"/>
+                                    </f:facet>
+                                    <af:panelGroupLayout id="pgl6" layout="vertical" inlineStyle="min-width:100px;"
+                                                         halign="center">
+                                        <af:outputFormatted value="#{item.bindings.SkuName.inputValue}" id="of1"/>
+                                        <af:image id="i1" inlineStyle="width:100px;height:100px;"
+                                                  source="/ViewImageServlet?path=#{item.bindings.ImgFullPath.inputValue==null || empty item.bindings.ImgFullPath.inputValue? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : item.bindings.ImgFullPath.inputValue}"/>
+                                        <af:outputFormatted value="#{item.bindings.ClrName.inputValue}" id="of2"/>
+                                        <af:outputFormatted value="#{item.bindings.SizeName.inputValue}" id="of3"/>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl8" layout="vertical" halign="center"
+                                                         inlineStyle="margin-left:100px;">
+                                        <af:inputText value="#{item.bindings.UnitPrice.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                                      id="of6" label="#{item.bindings.UnitPrice.hints.label}"
+                                                      readOnly="true"/>
+                                        <af:spacer width="10" height="15" id="s3"/>
+                                        <af:inputText value="#{item.bindings.Qty.inputValue} - #{item.bindings.UnitName.inputValue}"
+                                                      id="of4" label="#{item.bindings.Qty.hints.label}">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ServingOrderMastV1.hints.Qty.format}"/>
+                                        </af:inputText>
+                                        <af:spacer width="10" height="15" id="s4"/>
+                                        <af:inputText value="#{item.bindings.TotalPrice.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                                      id="of21" label="#{item.bindings.TotalPrice.hints.label}"/>
+                                    </af:panelGroupLayout>
+                                    <af:outputFormatted value="#{item.bindings.UnitName.inputValue}" id="of5"
+                                                        rendered="false"/>
+                                    <af:panelGroupLayout id="pgl9" layout="vertical" inlineStyle="width:250px;">
+                                        <af:showDetail id="sd2" disclosedText="Codes" undisclosedText="Codes">
+                                            <af:panelGroupLayout id="pgl7" layout="vertical">
+                                                <af:outputFormatted value="#{item.bindings.SkuCode.inputValue}"
+                                                                    id="of22"/>
+                                                <af:outputFormatted value="#{item.bindings.SkuClrCode.inputValue}"
+                                                                    id="of7"/>
+                                                <af:outputFormatted value="#{item.bindings.SizeCode.inputValue}"
+                                                                    id="of8"/>
+                                            </af:panelGroupLayout>
+                                        </af:showDetail>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl10"
+                                                         inlineStyle="width:150px;" layout="scroll">
+                                        <af:outputFormatted value="#{item.bindings.Notes.inputValue}" id="of9"/>
+                                    </af:panelGroupLayout>
+                                    <af:selectOneChoice value="#{item.bindings.SkuStatus.inputValue}"
+                                                        label="#{item.bindings.SkuStatus.label}"
+                                                        required="#{item.bindings.SkuStatus.hints.mandatory}"
+                                                        shortDesc="#{item.bindings.SkuStatus.hints.tooltip}" id="soc3"
+                                                        simple="true" autoSubmit="true"
+                                                        valueChangeListener="#{ServingOrders.skuStatusChange}" valuePassThru="true"
+                                                        partialTriggers="::lv1">
+                                        <f:selectItems value="#{item.bindings.SkuStatus.items}" id="si3"/>
+                                        <f:validator binding="#{item.bindings.SkuStatus.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:panelGroupLayout>
+                            </af:listItem>
+                            <f:facet name="groupHeaderStamp">
+                                <af:listItem id="li2"
+                                             inlineStyle="background-image:linear-gradient(178deg, #003D5B 2%, #003D5B 22%, #003D5B 112%); margin-bottom:5px; border-bottom-left-radius:90px 90px; border-bottom-right-radius:90px 90px; border-top-left-radius:90px 90px; border-top-right-radius:90px;margin-top:5px;"
+                                             partialTriggers="soc3">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl2"
+                                                         inlineStyle="color:white;font-size:14px;">
+                                        <f:facet name="separator">
+                                            <af:spacer width="20" id="s2"/>
+                                        </f:facet>
+                                        <af:panelGroupLayout id="pgl3" layout="vertical">
+                                            <af:outputFormatted value="#{item.bindings.FirstName.inputValue} #{item.bindings.LastName.inputValue}"
+                                                                id="of10"/>
+                                            <af:outputFormatted value="#{item.bindings.UserId.inputValue}" id="of12"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl4" layout="vertical">
+                                            <af:outputFormatted value="#{item.bindings.TransDateTime.inputValue}"
+                                                                id="of13">
+                                                <af:convertDateTime pattern="#{bindings.ServingOrderMastV1.hints.TransDateTime.format}"
+                                                                    type="both"/>
+                                            </af:outputFormatted>
+                                            <af:outputFormatted value="#{item.bindings.MobNo.inputValue}" id="of14"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl13" layout="vertical" inlineStyle="width:250px;">
+                                            <af:panelGroupLayout id="pgl5" inlineStyle="width:200px;" layout="scroll">
+                                                <af:outputFormatted value="#{item.bindings.Address.inputValue}"
+                                                                    id="of15"/>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl12" layout="scroll" inlineStyle="width:200px;">
+                                                <af:outputFormatted value="#{item.bindings.Address1.inputValue}"
+                                                                    id="of16"/>
+                                                <af:outputFormatted value="#{item.bindings.CntryName.inputValue}-#{item.bindings.CityName.inputValue}"
+                                                                    id="of17"/>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                        <af:outputFormatted value="#{item.bindings.TransValue.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                                            id="of11"/>
+                                        <af:panelGroupLayout id="pgl11" layout="scroll" inlineStyle="width:300px;">
+                                            <af:outputFormatted value="#{item.bindings.Notes.inputValue}" id="of19"
+                                                                rendered="true" inlineStyle="color:Red;"/>
+                                        </af:panelGroupLayout>
+                                        <af:outputFormatted value="#{item.bindings.Name.inputValue}" id="of20"/>
+                                    </af:panelGroupLayout>
+                                </af:listItem>
+                            </f:facet>
+                        </af:listView>
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:listView value="#{bindings.ServingOrderMastV11.treeModel}" var="item"
+                                     emptyText="#{bindings.ServingOrderMastV11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="#{bindings.ServingOrderMastV11.rangeSize}" id="lv2"
+                                     selection="single"
+                                     selectionListener="#{bindings.ServingOrderMastV11.treeModel.makeCurrent}">
+                            <af:listItem id="li3">
+                                <af:panelGroupLayout layout="horizontal" id="pgl14"
+                                                     inlineStyle="color:#003D5B; font-size:14px;">
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" id="s5"/>
+                                    </f:facet>
+                                    <af:panelGroupLayout id="pgl22" layout="vertical" inlineStyle="min-width:100px;"
+                                                         halign="center">
+                                        <af:outputFormatted value="#{item.bindings.SkuName.inputValue}" id="of18"/>
+                                        <af:image id="i2"
+                                                  source="/ViewImageServlet?path=#{item.bindings.ImgFullPath.inputValue==null || empty item.bindings.ImgFullPath.inputValue? bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : item.bindings.ImgFullPath.inputValue}"
+                                                  inlineStyle="width:100px;height:100px;"/>
+                                        <af:outputFormatted value="#{item.bindings.ClrName.inputValue}" id="of23"/>
+                                        <af:outputFormatted value="#{item.bindings.SizeName.inputValue}" id="of24"/>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl23" layout="vertical" halign="center"
+                                                         inlineStyle="margin-left:100px;">
+                                        <af:inputText value="#{item.bindings.UnitPrice.inputValue} #{bindings.CurrSymbol.inputValue}" id="of27"
+                                                      label="#{item.bindings.UnitPrice.hints.label}" readOnly="true">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ServingOrderMastV11.hints.UnitPrice.format}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="15" id="s7"/>
+                                        </f:facet>
+                                        <af:inputText value="#{item.bindings.Qty.inputValue}- #{item.bindings.UnitName.inputValue}" id="of25"
+                                                      label="#{item.bindings.Qty.hints.label}"
+                                                      readOnly="true">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ServingOrderMastV11.hints.Qty.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{item.bindings.TotalPrice.inputValue} #{bindings.CurrSymbol.inputValue}" id="of28"
+                                                      label="#{item.bindings.TotalPrice.hints.label}" readOnly="true">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ServingOrderMastV11.hints.TotalPrice.format}"/>
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl24" layout="vertical" inlineStyle="width:250px;">
+                                        <af:showDetail id="sd3"
+                                                       undisclosedText="#{shbkhomeviewBundle.SHOW_CODES}"
+                                                       disclosedText="#{shbkhomeviewBundle.HIDE_CODES}">
+                                            <af:panelGroupLayout id="pgl25" layout="vertical">
+                                                <af:outputFormatted value="#{item.bindings.SkuCode.inputValue}"
+                                                                    id="of29"/>
+                                                <af:outputFormatted value="#{item.bindings.SkuClrCode.inputValue}"
+                                                                    id="of30"/>
+                                                <af:outputFormatted value="#{item.bindings.SizeCode.inputValue}"
+                                                                    id="of31"/>
+                                            </af:panelGroupLayout>
+                                        </af:showDetail>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl26" inlineStyle="width:150px;" layout="scroll">
+                                        <af:outputFormatted value="#{item.bindings.Notes.inputValue}" id="of33"/>
+                                    </af:panelGroupLayout>
+                                    <af:selectOneChoice value="#{item.bindings.SkuStatus.inputValue}"
+                                                        label="#{item.bindings.SkuStatus.label}"
+                                                        required="#{bindings.ServingOrderMastV11.hints.SkuStatus.mandatory}"
+                                                        shortDesc="#{bindings.ServingOrderMastV11.hints.SkuStatus.tooltip}" id="soc4"
+                                                        valueChangeListener="#{ServingOrders.skuStatusChange}"
+                                                        autoSubmit="true" partialTriggers="::lv1 soc4" simple="true">
+                                        <f:selectItems value="#{item.bindings.SkuStatus.items}" id="si4"/>
+                                        <f:validator binding="#{item.bindings.SkuStatus.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:panelGroupLayout>
+                            </af:listItem>
+                            <f:facet name="groupHeaderStamp">
+                                <af:listItem id="li4"
+                                             inlineStyle="background-image:linear-gradient(178deg, #003D5B 2%, #003D5B 22%, #003D5B 112%); margin-bottom:5px; border-bottom-left-radius:90px 90px; border-bottom-right-radius:90px 90px; border-top-left-radius:90px 90px; border-top-right-radius:90px;margin-top:5px;">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl15"
+                                                         inlineStyle="color:white;font-size:14px;">
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" id="s6"/>
+                                        </f:facet>
+                                        <af:panelGroupLayout id="pgl16" layout="vertical">
+                                            <af:outputFormatted value="#{item.bindings.FirstName.inputValue} #{item.bindings.LastName.inputValue}"
+                                                                id="of32"/>
+                                            <af:outputFormatted value="#{item.bindings.UserId.inputValue}" id="of34"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl17" layout="vertical">
+                                            <af:outputFormatted value="#{item.bindings.TransDateTime.inputValue}"
+                                                                id="of35">
+                                                <af:convertDateTime pattern="#{bindings.ServingOrderMastV11.hints.TransDateTime.format}"
+                                                                    type="both"/>
+                                            </af:outputFormatted>
+                                            <af:outputFormatted value="#{item.bindings.MobNo.inputValue}" id="of36"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl18" layout="vertical"
+                                                             inlineStyle="min-width:220px;">
+                                            <af:panelGroupLayout id="pgl20" layout="scroll" inlineStyle="width:200px;">
+                                                <af:outputFormatted value="#{item.bindings.Address.inputValue}"
+                                                                    id="of37"/>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl19" layout="scroll" inlineStyle="width:200px;">
+                                                <af:outputFormatted value="#{item.bindings.Address1.inputValue}"
+                                                                    id="of38"/>
+                                                <af:outputFormatted value="#{item.bindings.CntryName.inputValue}-#{item.bindings.CityName.inputValue}"
+                                                                    id="of39"/>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl27" layout="horizontal"
+                                                             inlineStyle="padding-right:20px;">
+                                            <af:outputFormatted value="#{item.bindings.TransValue.inputValue} #{bindings.CurrSymbol.inputValue}"
+                                                                id="of40">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ServingOrderMastV11.hints.TransValue.format}"/>
+                                            </af:outputFormatted>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl21" layout="scroll" inlineStyle="width:300px;">
+                                            <af:outputFormatted value="#{item.bindings.Notes.inputValue}" id="of41"
+                                                                inlineStyle="color:Red;"/>
+                                        </af:panelGroupLayout>
+                                        <af:selectOneChoice value="#{item.bindings.TransStatus.inputValue}"
+                                                            label="#{item.bindings.TransStatus.label}"
+                                                            required="#{bindings.ServingOrderMastV11.hints.TransStatus.mandatory}"
+                                                            shortDesc="#{bindings.ServingOrderMastV11.hints.TransStatus.tooltip}" id="soc5" simple="true" styleClass="OrderStatus"
+                                                            disabled="true">
+                                            <f:selectItems value="#{item.bindings.TransStatus.items}" id="si5"/>
+                                            <f:validator binding="#{item.bindings.TransStatus.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelGroupLayout>
+                                </af:listItem>
+                            </f:facet>
+                        </af:listView>
+                    </af:showDetailHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

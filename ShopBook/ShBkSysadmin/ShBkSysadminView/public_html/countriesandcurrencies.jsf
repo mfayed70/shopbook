@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="countriesandcurrencies.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelHeader text="#{shbksysadminviewBundle.YOUR_COUNTRY_AND_BASIC_CURRENCY}" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.CntryCode2.inputValue}"
+                                          label="#{bindings.CntryCode2.hints.label}"
+                                          required="#{bindings.CntryCode2.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.CntryCode2.hints.displayWidth}"
+                                          maximumLength="#{bindings.CntryCode2.hints.precision}"
+                                          shortDesc="#{bindings.CntryCode2.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.CntryCode2.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CntryName.inputValue}"
+                                          label="#{bindings.CntryName.hints.label}"
+                                          required="#{bindings.CntryName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.CntryName.hints.displayWidth}"
+                                          maximumLength="#{bindings.CntryName.hints.precision}"
+                                          shortDesc="#{bindings.CntryName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.CntryName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CntryCode3.inputValue}"
+                                          label="#{bindings.CntryCode3.hints.label}"
+                                          required="#{bindings.CntryCode3.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.CntryCode3.hints.displayWidth}"
+                                          maximumLength="#{bindings.CntryCode3.hints.precision}"
+                                          shortDesc="#{bindings.CntryCode3.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.CntryCode3.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DialCode.inputValue}"
+                                          label="#{bindings.DialCode.hints.label}"
+                                          required="#{bindings.DialCode.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.DialCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.DialCode.hints.precision}"
+                                          shortDesc="#{bindings.DialCode.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.DialCode.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DialCode.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CurrCode.inputValue}"
+                                          label="#{bindings.CurrCode.hints.label}"
+                                          required="#{bindings.CurrCode.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.CurrCode.hints.displayWidth}"
+                                          maximumLength="#{bindings.CurrCode.hints.precision}"
+                                          shortDesc="#{bindings.CurrCode.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.CurrCode.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CurrName.inputValue}"
+                                          label="#{bindings.CurrName.hints.label}"
+                                          required="#{bindings.CurrName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.CurrName.hints.displayWidth}"
+                                          maximumLength="#{bindings.CurrName.hints.precision}"
+                                          shortDesc="#{bindings.CurrName.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.CurrName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CurrSymbol.inputValue}"
+                                          label="#{bindings.CurrSymbol.hints.label}"
+                                          required="#{bindings.CurrSymbol.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.CurrSymbol.hints.displayWidth}"
+                                          maximumLength="#{bindings.CurrSymbol.hints.precision}"
+                                          shortDesc="#{bindings.CurrSymbol.hints.tooltip}" id="it7">
+                                <f:validator binding="#{bindings.CurrSymbol.validator}"/>
+                            </af:inputText>
+                            <af:panelLabelAndMessage label="#{bindings.Flag.hints.label}" id="plam1">
+                                <af:outputText value="#{bindings.Flag.inputValue}"
+                                               shortDesc="#{bindings.Flag.hints.tooltip}" id="ot5"/>
+                            </af:panelLabelAndMessage>
+                        </af:panelFormLayout>
+                        <f:facet name="info"/>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:panelTabbed position="above" id="pt2">
+                            <af:showDetailItem id="tab1" text="#{shbksysadminviewBundle.ACCEPTED__0CURRENCIES}">
+                                <af:panelHeader text="#{shbksysadminviewBundle.ALTERNATIVE_CUURENCIES_AND_THEIR_TRANSFER_RATES_W_R_T_YOUR_BASIC_CURRENCY}"
+                                                id="ph2">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar">
+                                        <af:navigationPane hint="buttons" id="np1">
+                                            <af:commandNavigationItem id="cni1"
+                                                                      text="#{shbksysadminviewBundle.ADD_NEW_EXCHANGE_CURRENCY___IT_S_RATE}"
+                                                                      icon="/icons/New.png" action="toCurrPricesCrud"
+                                                                      windowEmbedStyle="inlineDocument" useWindow="true"
+                                                                      windowHeight="400" windowWidth="700"
+                                                                      returnListener="#{RefereshBean.currPricesReturnListener}">
+                                                <af:setPropertyListener from="#{'new'}"
+                                                                        to="#{pageFlowScope.currPricesAction}"
+                                                                        type="action"/>
+                                            </af:commandNavigationItem>
+                                        </af:navigationPane>
+                                    </f:facet>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                    <af:spacer width="10" height="10" id="s3"/>
+                                    <af:table value="#{bindings.CurrencyPricesV.collectionModel}" var="row"
+                                              rows="#{bindings.CurrencyPricesV.rangeSize}"
+                                              emptyText="#{bindings.CurrencyPricesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="1"
+                                              selectedRowKeys="#{bindings.CurrencyPricesV.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.CurrencyPricesV.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.CurrencyPricesV.rangeSize}"
+                                              id="t1" columnStretching="column:c6" horizontalGridVisible="false"
+                                              verticalGridVisible="false"
+                                              inlineStyle="background-color:White; font-size:large;">
+                                        <af:column headerText="#{bindings.CurrencyPricesV.hints.TransId.label}" id="c1"
+                                                   width="150">
+                                            <af:panelGroupLayout id="pgl1">
+                                                <af:outputText value="#{row.TransId}"
+                                                               shortDesc="#{bindings.CurrencyPricesV.hints.TransId.tooltip}"
+                                                               id="ot1">
+                                                    <af:convertDateTime pattern="#{bindings.CurrencyPricesV.hints.TransId.format}"/>
+                                                </af:outputText>
+                                                <af:link id="l1" icon="/icons/edit.png" action="toCurrPricesCrud"
+                                                         useWindow="true" windowEmbedStyle="inlineDocument"
+                                                         windowHeight="400" windowWidth="700"
+                                                         returnListener="#{RefereshBean.currPricesReturnListener}"
+                                                         rendered="false">
+                                                    <af:setPropertyListener from="#{'edit'}"
+                                                                            to="#{pageFlowScope.currPricesAction}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{row.TransId}"
+                                                                            to="#{pageFlowScope.vTransId}"
+                                                                            type="action"/>
+                                                </af:link>
+                                                <af:spacer width="10" height="10" id="s4"/>
+                                            </af:panelGroupLayout>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.CurrencyPricesV.hints.FromCurr.label}"
+                                                   id="c2">
+                                            <af:selectOneChoice value="#{row.bindings.FromCurr.inputValue}"
+                                                                label="#{row.bindings.FromCurr.label}"
+                                                                required="#{bindings.CurrencyPricesV.hints.FromCurr.mandatory}"
+                                                                shortDesc="#{bindings.CurrencyPricesV.hints.FromCurr.tooltip}"
+                                                                readOnly="true" id="soc1">
+                                                <f:selectItems value="#{row.bindings.FromCurr.items}" id="si1"/>
+                                                <f:validator binding="#{row.bindings.FromCurr.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.CurrencyPricesV.hints.MultiplyBy.label}"
+                                                   id="c3">
+                                            <af:outputText value="#{row.MultiplyBy}"
+                                                           shortDesc="#{bindings.CurrencyPricesV.hints.MultiplyBy.tooltip}"
+                                                           id="ot2">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CurrencyPricesV.hints.MultiplyBy.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.CurrencyPricesV.hints.ToCurr.label}" id="c4"
+                                                   width="150" sortable="true">
+                                            <af:selectOneChoice value="#{row.bindings.ToCurr.inputValue}"
+                                                                label="#{row.bindings.ToCurr.label}"
+                                                                required="#{bindings.CurrencyPricesV.hints.ToCurr.mandatory}"
+                                                                shortDesc="#{bindings.CurrencyPricesV.hints.ToCurr.tooltip}"
+                                                                readOnly="true" id="soc2">
+                                                <f:selectItems value="#{row.bindings.ToCurr.items}" id="si2"/>
+                                                <f:validator binding="#{row.bindings.ToCurr.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.CurrencyPricesV.hints.LastModified.label}"
+                                                   id="c5" width="130">
+                                            <af:outputText value="#{row.LastModified}"
+                                                           shortDesc="#{bindings.CurrencyPricesV.hints.LastModified.tooltip}"
+                                                           id="ot3">
+                                                <af:convertDateTime pattern="#{bindings.CurrencyPricesV.hints.LastModified.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.CurrencyPricesV.hints.Notes.label}" id="c6">
+                                            <af:outputText value="#{row.Notes}"
+                                                           shortDesc="#{bindings.CurrencyPricesV.hints.Notes.tooltip}"
+                                                           id="ot4"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelHeader>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab2"
+                                               text="#{shbksysadminviewBundle.SHIPPING__0TO__0CITIES__0__0__0AREAS}">
+                                <af:navigationPane hint="bar" id="np2">
+                                    <af:commandNavigationItem id="cni2"
+                                                              text="#{shbksysadminviewBundle.ADD__0NEW__0CITY}"
+                                                              icon="/icons/New.png" action="toCrudCities"
+                                                              useWindow="true" windowEmbedStyle="inlineDocument"
+                                                              windowHeight="300" windowWidth="400" partialSubmit="true"
+                                                              returnListener="#{RefereshBean.CitiesReturnListener}">
+                                        <af:setPropertyListener from="#{'new'}" to="#{pageFlowScope.pCityAreaAction}"
+                                                                type="action"/>
+                                        <af:setPropertyListener from="#{null}" to="#{pageFlowScope.pPrntCityCode}"
+                                                                type="action"/>
+                                    </af:commandNavigationItem>
+                                </af:navigationPane>
+                                <af:listView value="#{bindings.CitiesV.treeModel}" var="item"
+                                             emptyText="#{bindings.CitiesV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                             fetchSize="#{bindings.CitiesV.rangeSize}" id="lv1"
+                                             groupDisclosurePolicy="initiallyExpanded" selection="single"
+                                             selectionListener="#{bindings.CitiesV.treeModel.makeCurrent}"
+                                             selectedRowKeys="#{bindings.CitiesV.collectionModel.selectedRow}">
+                                    <af:listItem id="li1">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" id="s5"/>
+                                            </f:facet>
+                                            <af:spacer width="20" id="s7"/>
+                                            <af:link id="of1" text="#{item.bindings.CityName.inputValue}"
+                                                     inlineStyle="color:Gray; font-size:small;" icon="/icons/edit.png"
+                                                     iconPosition="trailing" action="toCrudCities" useWindow="true"
+                                                     windowEmbedStyle="inlineDocument" windowHeight="300"
+                                                     windowWidth="400" partialSubmit="true"
+                                                     returnListener="#{RefereshBean.CitiesReturnListener}">
+                                                <af:setPropertyListener from="#{'edit'}"
+                                                                        to="#{pageFlowScope.pCityAreaAction}"
+                                                                        type="action"/>
+                                                <af:setPropertyListener from="#{item.bindings.CityCode.inputValue}" to="#{pageFlowScope.pCityCode}"
+                                                                        type="action"/>
+                                                <af:setPropertyListener from="#{item.bindings.PrntCityCode.inputValue}" to="#{pageFlowScope.pPrntCityCode}"
+                                                                        type="action"/>
+                                            </af:link>
+                                        </af:panelGroupLayout>
+                                    </af:listItem>
+                                    <f:facet name="groupHeaderStamp">
+                                        <af:listItem id="li2">
+                                            <af:panelGroupLayout layout="horizontal" id="pgl3"
+                                                                 inlineStyle="width:1100px;">
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" id="s6"/>
+                                                </f:facet>
+                                                <af:link id="of2" inlineStyle="color:Maroon; font-size:small;"
+                                                         text="#{item.bindings.CityName.inputValue}"
+                                                         icon="/icons/edit.png" action="toCrudCities" useWindow="true"
+                                                         windowEmbedStyle="inlineDocument" windowHeight="300"
+                                                         windowWidth="400" partialSubmit="true"
+                                                         returnListener="#{RefereshBean.CitiesReturnListener}">
+                                                    <af:setPropertyListener from="#{'edit'}"
+                                                                            to="#{pageFlowScope.pCityAreaAction}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{item.bindings.CityCode.inputValue}"
+                                                                            to="#{pageFlowScope.pCityCode}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{null}"
+                                                                            to="#{pageFlowScope.pPrntCityCode}"
+                                                                            type="action"/>
+                                                </af:link>
+                                                <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end"
+                                                                     styleClass="AFStretchWidth">
+                                                    <af:navigationPane hint="bar" id="np3">
+                                                        <af:commandNavigationItem id="cni3"
+                                                                                  text="#{shbksysadminviewBundle.ADD__0NEW__0AREA}"
+                                                                                  icon="/icons/New.png"
+                                                                                  action="toCrudCities"
+                                                                                  useWindow="true"
+                                                                                  windowEmbedStyle="inlineDocument"
+                                                                                  windowHeight="300" windowWidth="400"
+                                                                                  partialSubmit="true"
+                                                                                  returnListener="#{RefereshBean.CitiesReturnListener}">
+                                                            <af:setPropertyListener from="#{'new'}"
+                                                                                    to="#{pageFlowScope.pCityAreaAction}"
+                                                                                    type="action"/>
+                                                            <af:setPropertyListener from="#{item.bindings.CityCode.inputValue}"
+                                                                                    to="#{pageFlowScope.pPrntCityCode}"
+                                                                                    type="action"/>
+                                                        </af:commandNavigationItem>
+                                                    </af:navigationPane>
+                                                </af:panelGroupLayout>
+                                            </af:panelGroupLayout>
+                                        </af:listItem>
+                                    </f:facet>
+                                </af:listView>
+                                <f:facet name="toolbar"/>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

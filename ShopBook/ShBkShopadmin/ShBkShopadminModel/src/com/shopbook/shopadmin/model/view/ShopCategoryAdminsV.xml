@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShopCategoryAdminsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="pUserId"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="YesNoSV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.YesNoSV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShopCategoryAdminsV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UsersV"
+    ViewObjectName="com.shopbook.shopadmin.model.view.UsersV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Active"
+    ListVOName="YesNoSV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Active"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 
+    ShopCategoryAdmins.ADMIN_SHP_CAT_CODE, 
+    ShopCategoryAdmins.ACTIVE, 
+    ShopCategoryAdmins.USER_ID, 
+    ShopCategoryAdmins.SHOP_CAT_SUB_CODE, 
+    ShopCategoryAdmins.NOTES, 
+    ShopCategoryAdmins.LAST_MODIFIED, 
+    Users.FAMILY_NAME, 
+    Users.USER_ID AS User_Id1, 
+    Users.FIRST_NAME, 
+    Users.USER_NAME, 
+    shop_sub_cats.SHOP_SUB_CAT_NAME SHOP_SUB_CAT_NAME 
+FROM 
+    shop_category_admins ShopCategoryAdmins 
+    INNER JOIN users Users ON ShopCategoryAdmins.USER_ID = Users.USER_ID, 
+    shop_sub_cats 
+WHERE 
+    ShopCategoryAdmins.SHOP_CAT_SUB_CODE = shop_sub_cats.SHOP_SUB_CAT_CODE]]></SQLQuery>
+  <EntityUsage
+    Name="ShopCategoryAdmins"
+    Entity="com.shopbook.shopadmin.model.entity.ShopCategoryAdmins"/>
+  <EntityUsage
+    Name="Users"
+    Entity="com.shopbook.shopadmin.model.entity.Users"
+    Association="com.shopbook.shopadmin.model.entity.assoc.AdminToAdminCatAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.AdminToAdminCatAssoc.Users"
+    SourceUsage="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV.ShopCategoryAdmins"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.ShopCategoryAdmins.UserId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.Users.UserId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="AdminShpCatCode"
+    PrecisionRule="true"
+    EntityAttrName="AdminShpCatCode"
+    EntityUsage="ShopCategoryAdmins"
+    AliasName="ADMIN_SHP_CAT_CODE"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="ShopCategoryAdmins"
+    AliasName="ACTIVE"
+    LOVName="LOV_Active"
+    DefaultValue="Y"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="ShopCategoryAdmins"
+    AliasName="USER_ID"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV.UserId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShopCatSubCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ShopCatSubCode"
+    EntityUsage="ShopCategoryAdmins"
+    AliasName="SHOP_CAT_SUB_CODE"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="ShopCategoryAdmins"
+    AliasName="NOTES"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="ShopCategoryAdmins"
+    AliasName="LAST_MODIFIED"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FamilyName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FamilyName"
+    EntityUsage="Users"
+    AliasName="FAMILY_NAME"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV.FamilyName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="Users"
+    AliasName="User_Id1"/>
+  <ViewAttribute
+    Name="FirstName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Users"
+    AliasName="FIRST_NAME"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV.FirstName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserName"
+    PrecisionRule="true"
+    EntityAttrName="UserName"
+    EntityUsage="Users"
+    AliasName="USER_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV.UserName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShopSubCatName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SHOP_SUB_CAT_NAME"
+    Expression="SHOP_SUB_CAT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="ShopCategoryAdminsVCriteria"
+    ViewObjectName="com.shopbook.shopadmin.model.view.ShopCategoryAdminsV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ShopCategoryAdminsVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="UserId"
+        ViewAttribute="UserId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pUserId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="AdminShpCatCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

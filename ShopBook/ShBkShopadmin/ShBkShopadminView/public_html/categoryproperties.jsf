@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <c:set var="shbkshopadminviewBundle1" value="#{adfBundle['com.shopbook.shopadmin.view.ShBkShpAdResBndl']}"/>
+    <af:document title="categoryproperties.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelHeader text="#{shbkshopadminviewBundle1.CATEGORY_PROPERTIES}" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:panelHeader text="#{shbkshopadminviewBundle1.CATEGORIES}" id="ph2">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:panelFormLayout id="pfl1" inlineStyle="padding-top:10px;">
+                                <af:inputText value="#{fn:substring(bindings.ShopCatCode.inputValue,9,14)}"
+                                              label="#{bindings.ShopCatCode.hints.label}"
+                                              required="#{bindings.ShopCatCode.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.ShopCatCode.hints.displayWidth}"
+                                              maximumLength="#{bindings.ShopCatCode.hints.precision}"
+                                              shortDesc="#{bindings.ShopCatCode.hints.tooltip}" id="it1">
+                                    <f:validator binding="#{bindings.ShopCatCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.ShopSubCatName.inputValue}"
+                                              label="#{bindings.ShopSubCatName.hints.label}"
+                                              required="#{bindings.ShopSubCatName.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.ShopSubCatName.hints.displayWidth}"
+                                              maximumLength="#{bindings.ShopSubCatName.hints.precision}"
+                                              shortDesc="#{bindings.ShopSubCatName.hints.tooltip}" id="it2">
+                                    <f:validator binding="#{bindings.ShopSubCatName.validator}"/>
+                                </af:inputText>
+                                <af:image shortDesc="#{bindings.SubCatImageName.hints.tooltip}" id="it3"
+                                          inlineStyle="width:141px; height:113px;padding-top:10px;padding-bottom:10px;"
+                                          source="/ViewImageServlet?path=#{bindings.SubCatImageName.inputValue}"/>
+                                <af:inputText value="#{bindings.SubCatImageName.inputValue}"
+                                              label="#{bindings.SubCatImageName.hints.label}"
+                                              required="#{bindings.SubCatImageName.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.SubCatImageName.hints.displayWidth}"
+                                              maximumLength="#{bindings.SubCatImageName.hints.precision}"
+                                              shortDesc="#{bindings.SubCatImageName.hints.tooltip}" id="it6">
+                                    <f:validator binding="#{bindings.SubCatImageType.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.SubCatImageType.inputValue}"
+                                              label="#{bindings.SubCatImageType.hints.label}"
+                                              required="#{bindings.SubCatImageType.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.SubCatImageType.hints.displayWidth}"
+                                              maximumLength="#{bindings.SubCatImageType.hints.precision}"
+                                              shortDesc="#{bindings.SubCatImageType.hints.tooltip}" id="it4"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.SubCatImageType.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Notes.inputValue}" label="#{bindings.Notes.hints.label}"
+                                              required="#{bindings.Notes.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.Notes.hints.displayWidth}"
+                                              maximumLength="#{bindings.Notes.hints.precision}"
+                                              shortDesc="#{bindings.Notes.hints.tooltip}" id="it5">
+                                    <f:validator binding="#{bindings.Notes.validator}"/>
+                                </af:inputText>
+                                <f:facet name="footer">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                        <af:button actionListener="#{bindings.First.execute}" text="First"
+                                                   disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                   id="b2"/>
+                                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                        <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                   disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s12"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelFormLayout>
+                            <af:spacer width="10" height="20" id="s2"/>
+                            <af:panelGroupLayout id="pgl8" layout="scroll">
+                                <af:panelTabbed position="above" id="pt2" truncationStyle="ellipsis">
+                                    <af:showDetailItem id="tab1" text="#{shbkshopadminviewBundle1.CATEGORY_PROPERTIES}">
+                                        <af:panelHeader text="#{shbkshopadminviewBundle1.PROPERTY_CLASSES}" id="ph3"
+                                                        inlineStyle="margin:5px 10px 5px 10px;">
+                                            <f:facet name="context"/>
+                                            <f:facet name="menuBar"/>
+                                            <f:facet name="toolbar">
+                                                <af:navigationPane hint="buttons" id="np1">
+                                                    <af:commandNavigationItem id="cni1"
+                                                                              text="#{shbkshopadminviewBundle1.CREATE_NEW_CATEGORY_CLASS}"
+                                                                              icon="/icons/New.png" useWindow="true"
+                                                                              windowEmbedStyle="inlineDocument"
+                                                                              windowHeight="500" windowWidth="750"
+                                                                              action="toCrudCatProps"
+                                                                              returnListener="#{RefreshBean.catPropsReturnListener}">
+                                                        <af:setPropertyListener from="#{'new'}"
+                                                                                to="#{pageFlowScope.catPropsAction}"
+                                                                                type="action"/>
+                                                    </af:commandNavigationItem>
+                                                </af:navigationPane>
+                                            </f:facet>
+                                            <f:facet name="legend"/>
+                                            <f:facet name="info"/>
+                                            <af:spacer width="10" height="10" id="s7"/>
+                                            <af:listView value="#{bindings.ShopSubCatPropClassesV.collectionModel}"
+                                                         var="item"
+                                                         emptyText="#{bindings.ShopSubCatPropClassesV.viewable ? 'No property classes for such category defined.' : 'Access Denied.'}"
+                                                         fetchSize="#{bindings.ShopSubCatPropClassesV.rangeSize}"
+                                                         id="lv1"
+                                                         selectionListener="#{bindings.ShopSubCatPropClassesV.treeModel.makeCurrent}"
+                                                         selection="single" partialTriggers="::b1 ::b2 ::b3 ::b4">
+                                                <af:listItem id="li1" inlineStyle="color:#a5a5a5; font-size:large;">
+                                                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                                        <f:facet name="separator">
+                                                            <af:spacer width="30" id="s3"/>
+                                                        </f:facet>
+                                                        <af:outputFormatted value="#{item.bindings.ShpSubCatPrpClsCode.inputValue}"
+                                                                            id="of1" rendered="false"/>
+                                                        <af:link id="l1" icon="/icons/edit.png" action="toCrudCatProps"
+                                                                 useWindow="true" windowEmbedStyle="inlineDocument"
+                                                                 windowHeight="500" windowWidth="750"
+                                                                 returnListener="#{RefreshBean.catPropsReturnListener}">
+                                                            <af:setPropertyListener from="#{item.bindings.ShpSubCatPrpClsCode.inputValue}"
+                                                                                    to="#{pageFlowScope.vCatPropClsCode}"
+                                                                                    type="action"/>
+                                                            <af:setPropertyListener from="#{'edit'}"
+                                                                                    to="#{pageFlowScope.catPropsAction}"
+                                                                                    type="action"/>
+                                                        </af:link>
+                                                        <af:outputFormatted value="#{item.bindings.ShpSubCatPrpClsName.inputValue}"
+                                                                            id="of2"/>
+                                                        <af:outputFormatted value="#{item.bindings.LastModified.inputValue}"
+                                                                            id="of3" rendered="false">
+                                                            <af:convertDateTime pattern="#{bindings.ShopSubCatPropClassesV.hints.LastModified.format}"/>
+                                                        </af:outputFormatted>
+                                                        <af:outputFormatted value="#{item.bindings.Notes.inputValue}"
+                                                                            id="of4" rendered="false"/>
+                                                    </af:panelGroupLayout>
+                                                </af:listItem>
+                                            </af:listView>
+                                            <af:spacer width="10" height="20" id="s5"/>
+                                            <af:panelHeader text="#{shbkshopadminviewBundle1.PROPERTY_CLASS_DETAILS}"
+                                                            id="ph4">
+                                                <f:facet name="context"/>
+                                                <f:facet name="menuBar"/>
+                                                <f:facet name="toolbar"/>
+                                                <f:facet name="legend">
+                                                    <af:outputText value="#{shbkshopadminviewBundle.PROPCLASSITEMDET}"
+                                                                   id="ot1"/>
+                                                </f:facet>
+                                                <f:facet name="info"/>
+                                                <af:spacer width="10" height="10" id="s6"/>
+                                                <af:listView value="#{bindings.ShopSubCatPropClassDetsV.collectionModel}"
+                                                             var="item"
+                                                             emptyText="#{bindings.ShopSubCatPropClassDetsV.viewable ? 'No properties for such class defined.' : 'Access Denied.'}"
+                                                             fetchSize="#{bindings.ShopSubCatPropClassDetsV.rangeSize}"
+                                                             id="lv2"
+                                                             selectionListener="#{bindings.ShopSubCatPropClassDetsV.treeModel.makeCurrent}"
+                                                             selection="single" partialTriggers="::lv1">
+                                                    <af:listItem id="li2" inlineStyle="color:#949494; font-size:large;">
+                                                        <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="20" id="s4"/>
+                                                            </f:facet>
+                                                            <af:outputFormatted value="#{item.bindings.ShpSubcatPrpClsDetCode.inputValue}"
+                                                                                id="of5" rendered="false"/>
+                                                            <af:outputText value="#{item.bindings.PropClsDetName.inputValue}"
+                                                                           id="of6" styleClass="PreWrap"
+                                                                           inlineStyle="font-size:small;"/>
+                                                            <af:outputFormatted value="#{item.bindings.Notes.inputValue}"
+                                                                                id="of7" rendered="false"/>
+                                                            <af:outputFormatted value="#{item.bindings.LastModified.inputValue}"
+                                                                                id="of8" rendered="false">
+                                                                <af:convertDateTime pattern="#{bindings.ShopSubCatPropClassDetsV.hints.LastModified.format}"/>
+                                                            </af:outputFormatted>
+                                                        </af:panelGroupLayout>
+                                                    </af:listItem>
+                                                </af:listView>
+                                            </af:panelHeader>
+                                        </af:panelHeader>
+                                    </af:showDetailItem>
+                                    <af:showDetailItem id="tab2"
+                                                       text="#{shbkshopadminviewBundle1.CATEGORY_ADMINISTARTORS}"
+                                                       styleClass="AFPrivateFixedTableLayout"
+                                                       rendered="#{sessionScope.myPerms.size()==null}">
+                                        <af:panelSplitter id="ps1" splitterPosition="400" disabled="true"
+                                                          inlineStyle="margin:5px 10px 5px 10px;">
+                                            <f:facet name="first">
+                                                <af:panelHeader text="#{bindings.ShopSubCatName.inputValue} Admins" id="ph5">
+                                                    <f:facet name="context"/>
+                                                    <f:facet name="menuBar">
+                                                        <af:navigationPane hint="buttons" id="np2">
+                                                            <af:commandNavigationItem id="cni2"
+                                                                                      text="#{shbkshopadminviewBundle1.ADD_NEW_ADMIN}"
+                                                                                      icon="/icons/New.png"
+                                                                                      action="toCrudCatAdmins"
+                                                                                      useWindow="true"
+                                                                                      windowEmbedStyle="inlineDocument"
+                                                                                      windowHeight="400"
+                                                                                      windowWidth="800"
+                                                                                      returnListener="#{RefreshBean.catAdminReturnListener}">
+                                                                <af:setPropertyListener from="#{'new'}"
+                                                                                        to="#{pageFlowScope.pAction}"
+                                                                                        type="action"/>
+                                                                <af:setPropertyListener from="#{bindings.ShopSubCatName.inputValue}"
+                                                                                        to="#{pageFlowScope.pCatName}"
+                                                                                        type="action"/>
+                                                            </af:commandNavigationItem>
+                                                        </af:navigationPane>
+                                                    </f:facet>
+                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="legend"/>
+                                                    <af:listView value="#{bindings.ShopCategoryAdminsV.collectionModel}"
+                                                                 var="item"
+                                                                 emptyText="#{bindings.ShopCategoryAdminsV.viewable ? 'No Admins specified to category' : 'Access Denied.'}"
+                                                                 fetchSize="#{bindings.ShopCategoryAdminsV.rangeSize}"
+                                                                 id="lv3" selection="single"
+                                                                 selectionListener="#{bindings.ShopCategoryAdminsV.treeModel.makeCurrent}"
+                                                                 selectedRowKeys="#{bindings.ShopCategoryAdminsV.collectionModel.selectedRow}"
+                                                                 partialTriggers="::b1 ::b2 ::b3 ::b4">
+                                                        <af:listItem id="li3">
+                                                            <af:panelGridLayout id="pgl4">
+                                                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                                    <af:gridCell marginStart="5px" columnSpan="3"
+                                                                                 marginEnd="5px" id="gc1">
+                                                                        <af:panelGroupLayout id="pgl5"
+                                                                                             layout="horizontal"
+                                                                                             rendered="false">
+                                                                            <af:outputFormatted value="#{item.bindings.UserId.inputValue}"
+                                                                                                id="of9"
+                                                                                                rendered="false"/>
+                                                                            <f:facet name="separator"/>
+                                                                        </af:panelGroupLayout>
+                                                                        <af:link id="l2" icon="/icons/edit.png"
+                                                                                 action="toCrudCatAdmins"
+                                                                                 useWindow="true"
+                                                                                 windowEmbedStyle="inlineDocument"
+                                                                                 windowHeight="400" windowWidth="800"
+                                                                                 returnListener="#{RefreshBean.catAdminReturnListener}"
+                                                                                 text="#{item.bindings.UserId.inputValue}">
+                                                                            <af:setPropertyListener from="#{'edit'}"
+                                                                                                    to="#{pageFlowScope.pAction}"
+                                                                                                    type="action"/>
+                                                                            <af:setPropertyListener from="#{item.bindings.UserId.inputValue}"
+                                                                                                    to="#{pageFlowScope.pUserId}"
+                                                                                                    type="action"/>
+                                                                        </af:link>
+                                                                    </af:gridCell>
+                                                                </af:gridRow>
+                                                                <af:gridRow marginTop="5px" height="auto"
+                                                                            marginBottom="5px" id="gr2">
+                                                                    <af:gridCell marginStart="5px" width="34%" id="gc2"
+                                                                                 inlineStyle="padding-left:20px;">
+                                                                        <af:outputFormatted value="#{item.bindings.UserName.inputValue}"
+                                                                                            id="of10"/>
+                                                                    </af:gridCell>
+                                                                    <af:gridCell marginStart="5px" width="33%" id="gc3">
+                                                                        <af:outputFormatted value="#{item.bindings.FirstName.inputValue} #{item.bindings.FamilyName.inputValue}"
+                                                                                            id="of11"/>
+                                                                    </af:gridCell>
+                                                                    <af:gridCell marginStart="5px" width="33%"
+                                                                                 marginEnd="5px" id="gc4"
+                                                                                 rendered="false">
+                                                                        <af:outputFormatted value="#{item.bindings.FamilyName.inputValue}"
+                                                                                            id="of12"/>
+                                                                    </af:gridCell>
+                                                                </af:gridRow>
+                                                            </af:panelGridLayout>
+                                                        </af:listItem>
+                                                    </af:listView>
+                                                    <f:facet name="info"/>
+                                                </af:panelHeader>
+                                            </f:facet>
+                                            <f:facet name="second">
+                                                <af:panelHeader text="#{shbkshopadminviewBundle1.ALL__0CATEGORIES__0ADMINS}" id="ph6">
+                                                    <f:facet name="context"/>
+                                                    <f:facet name="menuBar"/>
+                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="legend"/>
+                                                    <af:listView value="#{bindings.AdminsV.treeModel}" var="item"
+                                                                 emptyText="#{bindings.AdminsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                 fetchSize="#{bindings.AdminsV.rangeSize}" id="lv4"
+                                                                 partialTriggers="::b1 ::b2 ::b3 ::b4">
+                                                        <af:listItem id="li4">
+                                                            <af:panelGroupLayout layout="horizontal" id="pgl6">
+                                                                <f:facet name="separator">
+                                                                    <af:spacer width="10" id="s9"/>
+                                                                </f:facet>
+                                                                <af:outputFormatted value="#{item.bindings.ShopSubCatName.inputValue}"
+                                                                                    id="of13"/>
+                                                            </af:panelGroupLayout>
+                                                        </af:listItem>
+                                                        <f:facet name="groupHeaderStamp">
+                                                            <af:listItem id="li5">
+                                                                <af:panelGroupLayout layout="horizontal" id="pgl7">
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer width="10" id="s10"/>
+                                                                    </f:facet>
+                                                                    <af:outputFormatted value="#{item.bindings.UserId.inputValue}"
+                                                                                        id="of14"
+                                                                                        inlineStyle="color:Maroon; font-weight:bold;"/>
+                                                                    <af:outputFormatted value="#{item.bindings.UserName.inputValue}"
+                                                                                        id="of15"
+                                                                                        inlineStyle="color:Maroon; font-weight:bold;"/>
+                                                                </af:panelGroupLayout>
+                                                            </af:listItem>
+                                                        </f:facet>
+                                                    </af:listView>
+                                                    <f:facet name="info"/>
+                                                </af:panelHeader>
+                                            </f:facet>
+                                        </af:panelSplitter>
+                                    </af:showDetailItem>
+                                </af:panelTabbed>
+                            </af:panelGroupLayout>
+                        </af:panelHeader>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="crud-categorytree-tf">
+    <default-activity>crud-categorytrees</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__4">
+      <managed-bean-name>TreeDnDbean</managed-bean-name>
+      <managed-bean-class>com.shopbook.sysadmin.view.bean.TreeDnDbean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="crud-categorytrees">
+      <page>/popupTf/crud-categorytrees.jsf</page>
+    </view>
+    <task-flow-return id="comit">
+      <outcome>
+        <name>comit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>crud-categorytrees</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>comit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

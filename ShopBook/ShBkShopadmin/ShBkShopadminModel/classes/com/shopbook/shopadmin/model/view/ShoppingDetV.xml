@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShoppingDetV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="SkuStatusList1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkuStatusList"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_SkuStatus"
+    ListVOName="SkuStatusList1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SkuStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Val"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT ShoppingDet.DET_ID, 
+       ShoppingDet.LAST_MODIFIED, 
+       ShoppingDet.NOTES, 
+       ShoppingDet.QTY, 
+       ShoppingDet.UNIT_PRICE, 
+       ShoppingDet.TOTAL_PRICE, 
+       ShoppingDet.SKU_STATUS, 
+       ShoppingDet.AVAILABLE, 
+       ShoppingDet.ADDED_DATE, 
+       ShoppingDet.TRANS_ID, 
+       ShoppingDet.SIZE_CODE, 
+       ShoppingDet.SKU_CLR_CODE, 
+       ShoppingDet.UNIT_CODE, 
+       ShoppingDet.SKU_NAME, 
+       ShoppingDet.CLR_NAME, 
+       ShoppingDet.SIZE_NAME, 
+       ShoppingDet.UNIT_NAME, 
+
+       SkuClrImages.SKU_CLR_IMG_CODE,
+Concat(SkuClrImages.IMG_PATH,SkuClrImages.SKU_CLR_IMG_CODE,SkuClrImages.IMG_TYPE) FULL_IMG_PATH       
+     
+FROM  shopping_det ShoppingDet
+LEFT OUTER JOIN sku_colors SkuColors 
+ON (ShoppingDet.SKU_CLR_CODE = SkuColors.SKU_CLR_CODE)
+LEFT OUTER JOIN sku_clr_images SkuClrImages 
+ON (SkuColors.SKU_CLR_CODE = SkuClrImages.SKU_CLR_CODE)]]></SQLQuery>
+  <EntityUsage
+    Name="ShoppingDet"
+    Entity="com.shopbook.shopadmin.model.entity.ShoppingDet"/>
+  <EntityUsage
+    Name="SkuColors"
+    Entity="com.shopbook.shopadmin.model.entity.SkuColors"
+    Association="com.shopbook.shopadmin.model.entity.assoc.ShoppimgDetSkuClrFkAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.ShoppimgDetSkuClrFkAssoc.SkuColors"
+    SourceUsage="com.shopbook.shopadmin.model.view.ShoppingDetV.ShoppingDet"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.ShoppingDet.SkuClrCode"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.SkuColors.SkuClrCode"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="SkuClrImages"
+    Entity="com.shopbook.shopadmin.model.entity.SkuClrImages"
+    Association="com.shopbook.shopadmin.model.entity.assoc.SkuClrToSkuClrImgAssoc"
+    AssociationEnd="com.shopbook.shopadmin.model.entity.assoc.SkuClrToSkuClrImgAssoc.SkuClrImages"
+    SourceUsage="com.shopbook.shopadmin.model.view.ShoppingDetV.SkuColors"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.SkuColors.SkuClrCode"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.shopbook.shopadmin.model.entity.SkuClrImages.SkuClrCode"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="DetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DetId"
+    EntityUsage="ShoppingDet"
+    AliasName="DET_ID"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="ShoppingDet"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="ShoppingDet"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="Qty"
+    PrecisionRule="true"
+    EntityAttrName="Qty"
+    EntityUsage="ShoppingDet"
+    AliasName="QTY"/>
+  <ViewAttribute
+    Name="UnitPrice"
+    PrecisionRule="true"
+    EntityAttrName="UnitPrice"
+    EntityUsage="ShoppingDet"
+    AliasName="UNIT_PRICE"/>
+  <ViewAttribute
+    Name="TotalPrice"
+    PrecisionRule="true"
+    EntityAttrName="TotalPrice"
+    EntityUsage="ShoppingDet"
+    AliasName="TOTAL_PRICE"/>
+  <ViewAttribute
+    Name="SkuStatus"
+    PrecisionRule="true"
+    EntityAttrName="SkuStatus"
+    EntityUsage="ShoppingDet"
+    AliasName="SKU_STATUS"
+    LOVName="LOV_SkuStatus">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="ShoppingDet"
+    AliasName="AVAILABLE"/>
+  <ViewAttribute
+    Name="AddedDate"
+    PrecisionRule="true"
+    EntityAttrName="AddedDate"
+    EntityUsage="ShoppingDet"
+    AliasName="ADDED_DATE"/>
+  <ViewAttribute
+    Name="TransId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransId"
+    EntityUsage="ShoppingDet"
+    AliasName="TRANS_ID"/>
+  <ViewAttribute
+    Name="SizeCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SizeCode"
+    EntityUsage="ShoppingDet"
+    AliasName="SIZE_CODE"/>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuClrCode"
+    EntityUsage="ShoppingDet"
+    AliasName="SKU_CLR_CODE"/>
+  <ViewAttribute
+    Name="UnitCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitCode"
+    EntityUsage="ShoppingDet"
+    AliasName="UNIT_CODE"/>
+  <ViewAttribute
+    Name="SkuName"
+    PrecisionRule="true"
+    EntityAttrName="SkuName"
+    EntityUsage="ShoppingDet"
+    AliasName="SKU_NAME"/>
+  <ViewAttribute
+    Name="ClrName"
+    PrecisionRule="true"
+    EntityAttrName="ClrName"
+    EntityUsage="ShoppingDet"
+    AliasName="CLR_NAME"/>
+  <ViewAttribute
+    Name="SizeName"
+    PrecisionRule="true"
+    EntityAttrName="SizeName"
+    EntityUsage="ShoppingDet"
+    AliasName="SIZE_NAME"/>
+  <ViewAttribute
+    Name="UnitName"
+    PrecisionRule="true"
+    EntityAttrName="UnitName"
+    EntityUsage="ShoppingDet"
+    AliasName="UNIT_NAME"/>
+  <ViewAttribute
+    Name="SkuClrImgCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuClrImgCode"
+    EntityUsage="SkuClrImages"
+    AliasName="SKU_CLR_IMG_CODE"/>
+  <ViewAttribute
+    Name="FullImgPath"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="127"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="FULL_IMG_PATH"
+    Expression="FULL_IMG_PATH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="127"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="DetId"/>
+  </AttrArray>
+</ViewObject>

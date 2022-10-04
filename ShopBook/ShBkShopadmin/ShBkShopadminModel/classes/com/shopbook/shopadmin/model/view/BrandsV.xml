@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BrandsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Brands"
+    Entity="com.shopbook.shopadmin.model.entity.Brands"/>
+  <ViewAttribute
+    Name="BrandCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BrandCode"
+    EntityUsage="Brands"
+    AliasName="BRAND_CODE"/>
+  <ViewAttribute
+    Name="BrandName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BrandName"
+    EntityUsage="Brands"
+    AliasName="BRAND_NAME"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="Brands"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="RegisterStatus"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RegisterStatus"
+    EntityUsage="Brands"
+    AliasName="REGISTER_STATUS"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="Brands"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="ShopCode"
+    PrecisionRule="true"
+    EntityAttrName="ShopCode"
+    EntityUsage="Brands"
+    AliasName="SHOP_CODE"/>
+  <ViewLinkAccessor
+    Name="SkusV"
+    ViewLink="com.shopbook.shopadmin.model.view.link.SkuBrandVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

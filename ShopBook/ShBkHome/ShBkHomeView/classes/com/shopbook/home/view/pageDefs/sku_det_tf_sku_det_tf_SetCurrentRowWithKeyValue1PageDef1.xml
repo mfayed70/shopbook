@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="sku_det_tf_sku_det_tf_SetCurrentRowWithKeyValue1PageDef1" Package="com.shopbook.home.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="DetSkuSizeColorsV" RangeSize="25" DataControl="ShBkHomeAmDataControl"
+              id="DetSkuSizeColorsVIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DetSkuSizeColorsVIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.pSkuSzClrCode}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

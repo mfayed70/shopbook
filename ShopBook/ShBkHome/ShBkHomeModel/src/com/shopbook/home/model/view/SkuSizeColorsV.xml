@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuSizeColorsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT SkuSizeColors.SKU_SZ_CLR_CODE, 
+       SkuSizeColors.SKU_SIZE_CODE, 
+       SkuSizeColors.SKU_CLR_CODE, 
+       SkuSizeColors.AVAILABLE, 
+       SkuSizeColors.RATE, 
+       SkuSizeColors.QNTY_IN_STOCK, 
+       SkuSizeColors.LAST_PRICE, 
+       SkuSizeColors.OLD_PRICE, 
+       SkuSizeColors.NOTES, 
+       SkuSizeColors.LAST_MODIFIED, 
+       SkuColors.SKU_CODE, 
+       SkuColors.SKU_CLR_CODE AS Sku_Clr_Code1, 
+       SizeClassDets.SZ_DET_NAME, 
+       SizeClassDets.SZ_DET_CODE
+FROM  sku_size_colors SkuSizeColors
+LEFT OUTER JOIN sku_colors SkuColors ON (SkuSizeColors.SKU_CLR_CODE = SkuColors.SKU_CLR_CODE)
+LEFT OUTER JOIN sku_sizes SkuSizes ON (SkuSizeColors.SKU_SIZE_CODE = SkuSizes.SKU_SIZE_CODE)
+inner JOIN size_class_dets SizeClassDets ON (SkuSizes.SIZE_DET_CODE = SizeClassDets.SZ_DET_CODE)]]></SQLQuery>
+  <EntityUsage
+    Name="SkuSizeColors"
+    Entity="com.shopbook.home.model.entity.SkuSizeColors"/>
+  <ViewAttribute
+    Name="SkuSzClrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuSzClrCode"
+    EntityUsage="SkuSizeColors"
+    AliasName="SKU_SZ_CLR_CODE"/>
+  <ViewAttribute
+    Name="SkuSizeCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuSizeCode"
+    EntityUsage="SkuSizeColors"
+    AliasName="SKU_SIZE_CODE"/>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuClrCode"
+    EntityUsage="SkuSizeColors"
+    AliasName="SKU_CLR_CODE"/>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="SkuSizeColors"
+    AliasName="AVAILABLE"/>
+  <ViewAttribute
+    Name="Rate"
+    PrecisionRule="true"
+    EntityAttrName="Rate"
+    EntityUsage="SkuSizeColors"
+    AliasName="RATE"/>
+  <ViewAttribute
+    Name="QntyInStock"
+    PrecisionRule="true"
+    EntityAttrName="QntyInStock"
+    EntityUsage="SkuSizeColors"
+    AliasName="QNTY_IN_STOCK"/>
+  <ViewAttribute
+    Name="LastPrice"
+    PrecisionRule="true"
+    EntityAttrName="LastPrice"
+    EntityUsage="SkuSizeColors"
+    AliasName="LAST_PRICE"/>
+  <ViewAttribute
+    Name="OldPrice"
+    PrecisionRule="true"
+    EntityAttrName="OldPrice"
+    EntityUsage="SkuSizeColors"
+    AliasName="OLD_PRICE"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="SkuSizeColors"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="SkuSizeColors"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="SkuCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="23"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CODE"
+    Expression="SKU_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="23"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrCode1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="28"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="Sku_Clr_Code1"
+    Expression="Sku_Clr_Code1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SzDetName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SZ_DET_NAME"
+    Expression="SZ_DET_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SzDetCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SZ_DET_CODE"
+    Expression="SZ_DET_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </ViewAttribute>
+</ViewObject>

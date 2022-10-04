@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="offersQueryPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OffersV" RangeSize="25" DataControl="ShBkShopAdminDataControl" id="OffersVIterator"/>
+    <iterator Binds="CountriesV" RangeSize="10" DataControl="ShBkShopAdminDataControl" id="CountriesVIterator"/>
+    <iterator Binds="OfferDets" RangeSize="10" DataControl="ShBkShopAdminDataControl" id="OfferDetsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OffersVIterator" id="OffersV">
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.Offers" Name="OffersV0">
+        <AttrNames>
+          <Item Value="OfferType"/>
+          <Item Value="OfferMastId"/>
+          <Item Value="OfferTitle"/>
+          <Item Value="OfferDt"/>
+          <Item Value="ValidFrmDate"/>
+          <Item Value="ValidToDate"/>
+          <Item Value="SendAdsEmail"/>
+          <Item Value="SendEmailDt"/>
+          <Item Value="Percentage"/>
+          <Item Value="AlreadyApplied"/>
+          <Item Value="AlreadySend"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="OfferDets"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.shopbook.shopadmin.model.view.OfferDets" Name="OffersV1">
+        <AttrNames>
+          <Item Value="SkuType"/>
+          <Item Value="SkuName"/>
+          <Item Value="OldPrice"/>
+          <Item Value="LastPrice"/>
+          <Item Value="TT"/>
+          <Item Value="OfferName"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CountriesVIterator" id="CurrSymbol">
+      <AttrNames>
+        <Item Value="CurrCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OffersVIterator" id="DeleteOffer" InstanceName="ShBkShopAdminDataControl.OffersV"
+            DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OfferDetsIterator" id="DeleteOfferDets" InstanceName="ShBkShopAdminDataControl.OfferDets"
+            DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OffersVIterator" id="setCurrentRowWithKeyValue" InstanceName="ShBkShopAdminDataControl.OffersV"
+            DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="" NDType="java.lang.String"/>
+    </action>
+    <action id="Commit" DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="ShBkShopAdminDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

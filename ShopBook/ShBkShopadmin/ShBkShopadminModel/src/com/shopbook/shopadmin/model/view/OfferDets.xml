@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OfferDets"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.shopadmin.model.view.OfferDets_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="OfferDetsOfferTypeLOV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.OfferDetsOfferTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OfferDetSkuTypeLOV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.OfferDetSkuTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SkuLOV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkuLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SkuColorLOV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkuColorLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SkuClrSizesLOV1"
+    ViewObjectName="com.shopbook.shopadmin.model.view.SkuClrSizesLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_OfferType"
+    ListVOName="OfferDetsOfferTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OfferType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SkuType"
+    ListVOName="OfferDetSkuTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SkuType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="S"
+    ListVOName="SkuLOV1"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="_SELECT_ITEM_">
+    <AttrArray Name="AttrNames">
+      <Item Value="SkuName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SkuCode"/>
+      <Item Value="OldPrice"/>
+      <Item Value="TT"/>
+      <Item Value="TempOldPrice"/>
+      <Item Value="ClrName"/>
+      <Item Value="SkuClrCodeLnk"/>
+      <Item Value="OfferName"/>
+      <Item Value="ImgPath"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SkuName"/>
+      <Item Value="SkuCode"/>
+      <Item Value="LastPrice"/>
+      <Item Value="CurrCode"/>
+      <Item Value="OldPrice"/>
+      <Item Value="ClrName"/>
+      <Item Value="SkuClrCode"/>
+      <Item Value="SkuName"/>
+      <Item Value="ImgPath"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SkuName"/>
+      <Item Value="LastPrice"/>
+      <Item Value="OldPrice"/>
+      <Item Value="CurrCode"/>
+      <Item Value="SkuCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="C"
+    ListVOName="SkuColorLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="_SELECT_ITEM_COLOR_"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SkuName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SkuClrCode"/>
+      <Item Value="OldPrice"/>
+      <Item Value="TT"/>
+      <Item Value="TempOldPrice"/>
+      <Item Value="ClrName"/>
+      <Item Value="SkuClrCodeLnk"/>
+      <Item Value="OfferName"/>
+      <Item Value="SkuCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SkuClrName"/>
+      <Item Value="SkuClrCode"/>
+      <Item Value="LastPrice"/>
+      <Item Value="CurrCode"/>
+      <Item Value="OldPrice"/>
+      <Item Value="ClrName"/>
+      <Item Value="SkuClrCode"/>
+      <Item Value="SkuClrCodeLnk"/>
+      <Item Value="SkuCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="Z"
+    ListVOName="SkuClrSizesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="_SELECT_ITEM_COLOR_SIZE_"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SkuName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SkuSzClrCode"/>
+      <Item Value="OldPrice"/>
+      <Item Value="TT"/>
+      <Item Value="TempOldPrice"/>
+      <Item Value="ClrName"/>
+      <Item Value="SkuClrCodeLnk"/>
+      <Item Value="OfferName"/>
+      <Item Value="SkuCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SkuClrSzName"/>
+      <Item Value="SkuSzClrCode"/>
+      <Item Value="LastPrice"/>
+      <Item Value="CurrCode"/>
+      <Item Value="OldPrice"/>
+      <Item Value="ClrName"/>
+      <Item Value="SkuClrCode"/>
+      <Item Value="SkuOfferName"/>
+      <Item Value="SkuCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 
+    OfferDets.OFFER_DET_ID, 
+    OfferDets.OFFER_NAME, 
+    OfferDets.OFFER_TYPE, 
+    OfferDets.OFFER_ID, 
+    OfferDets.TRX_DT_TIME, 
+    OfferDets.SKU_CODE, 
+    OfferDets.SKU_CLR_CODE, 
+    OfferDets.SKU_SZ_CLR_CODE, 
+    OfferDets.OLD_PRICE, 
+    OfferDets.LAST_PRICE, 
+    OfferDets.BASE_QTY, 
+    OfferDets.EXTRA_QTY, 
+    OfferDets.NOTES, 
+    OfferDets.SKU_TYPE, 
+    OfferDets.SKU_CLR_CODE_LNK,
+    OfferDets.CLR_NAME,
+    OfferDets.SELECTED,
+    OfferDets.IMG_PATH
+FROM 
+    offer_dets OfferDets /*LEFT JOIN skus USING (SKU_CODE)*/]]></SQLQuery>
+  <EntityUsage
+    Name="OfferDets"
+    Entity="com.shopbook.shopadmin.model.entity.OfferDets"/>
+  <ViewAttribute
+    Name="OfferDetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OfferDetId"
+    EntityUsage="OfferDets"
+    AliasName="OFFER_DET_ID">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(int) (new Date().getTime()/1000)]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OfferName"
+    PrecisionRule="true"
+    EntityAttrName="OfferName"
+    EntityUsage="OfferDets"
+    AliasName="OFFER_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.OfferName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OfferType"
+    PrecisionRule="true"
+    EntityAttrName="OfferType"
+    EntityUsage="OfferDets"
+    AliasName="OFFER_TYPE"
+    LOVName="LOV_OfferType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.OfferType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OfferId"
+    PrecisionRule="true"
+    EntityAttrName="OfferId"
+    EntityUsage="OfferDets"
+    AliasName="OFFER_ID"/>
+  <ViewAttribute
+    Name="TrxDtTime"
+    PrecisionRule="true"
+    EntityAttrName="TrxDtTime"
+    EntityUsage="OfferDets"
+    AliasName="TRX_DT_TIME">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.TrxDtTime_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.TrxDtTime_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuCode"
+    EntityUsage="OfferDets"
+    AliasName="SKU_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuClrCode"
+    EntityUsage="OfferDets"
+    AliasName="SKU_CLR_CODE"/>
+  <ViewAttribute
+    Name="SkuSzClrCode"
+    PrecisionRule="true"
+    EntityAttrName="SkuSzClrCode"
+    EntityUsage="OfferDets"
+    AliasName="SKU_SZ_CLR_CODE"/>
+  <ViewAttribute
+    Name="OldPrice"
+    PrecisionRule="true"
+    EntityAttrName="OldPrice"
+    EntityUsage="OfferDets"
+    AliasName="OLD_PRICE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.OldPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastPrice"
+    PrecisionRule="true"
+    EntityAttrName="LastPrice"
+    EntityUsage="OfferDets"
+    AliasName="LAST_PRICE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.LastPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BaseQty"
+    PrecisionRule="true"
+    EntityAttrName="BaseQty"
+    EntityUsage="OfferDets"
+    AliasName="BASE_QTY"/>
+  <ViewAttribute
+    Name="ExtraQty"
+    PrecisionRule="true"
+    EntityAttrName="ExtraQty"
+    EntityUsage="OfferDets"
+    AliasName="EXTRA_QTY"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="OfferDets"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="SkuType"
+    PrecisionRule="true"
+    EntityAttrName="SkuType"
+    EntityUsage="OfferDets"
+    AliasName="SKU_TYPE"
+    LOVName="LOV_SkuType"
+    DefaultValue="S">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.SkuType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrCodeLnk"
+    PrecisionRule="true"
+    EntityAttrName="SkuClrCodeLnk"
+    EntityUsage="OfferDets"
+    AliasName="SKU_CLR_CODE_LNK"/>
+  <ViewAttribute
+    Name="ClrName"
+    PrecisionRule="true"
+    EntityAttrName="ClrName"
+    EntityUsage="OfferDets"
+    AliasName="CLR_NAME"/>
+  <ViewAttribute
+    Name="Selected"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="OfferDets"
+    AliasName="SELECTED"/>
+  <ViewAttribute
+    Name="ImgPath"
+    PrecisionRule="true"
+    EntityAttrName="ImgPath"
+    EntityUsage="OfferDets"
+    AliasName="IMG_PATH"/>
+  <ViewAttribute
+    Name="SkuName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_NAME"
+    SQLType="VARCHAR"
+    LOVName="S"
+    LOVFinder="SkuType">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.shopadmin.model.view.OfferDets.SkuName_LABEL"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="SkuType"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TT"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="TT"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="TempOldPrice"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="BIGINT"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"/>
+  <ViewLinkAccessor
+    Name="OfferDetsDets"
+    ViewLink="com.shopbook.shopadmin.model.view.link.FkOfferDetsDetsDetsVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Offers"
+    ViewLink="com.shopbook.shopadmin.model.view.link.OffersToOfferDetVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.shopadmin.model.ShBkShopadminModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

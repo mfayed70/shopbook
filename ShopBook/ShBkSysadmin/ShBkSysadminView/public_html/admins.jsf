@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="admins.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelHeader text="#{shbksysadminviewBundle.SYSTEM__0ADMINSTRATORS}" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:navigationPane hint="buttons" id="np1">
+                                <af:commandNavigationItem id="cni1"
+                                                          text="#{shbksysadminviewBundle.CREATE__0NEW__0ADMINISTRATOR}"
+                                                          icon="/icons/New.png" useWindow="true"
+                                                          action="toCrudUseradmins" windowEmbedStyle="inlineDocument"
+                                                          windowHeight="400" windowWidth="700"
+                                                          returnListener="#{RefereshBean.UserAdminsReturnListener}">
+                                    <af:setPropertyListener from="#{'new'}" to="#{pageFlowScope.userAdminsAction}"
+                                                            type="action"/>
+                                </af:commandNavigationItem>
+                            </af:navigationPane>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:table value="#{bindings.UsersV.collectionModel}" var="row"
+                                  rows="#{bindings.UsersV.rangeSize}"
+                                  emptyText="#{bindings.UsersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.UsersV.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.UsersV.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.UsersV.rangeSize}" id="t1"
+                                  columnStretching="column:c1">
+                            <af:column id="c8" headerText="#{shbksysadminviewBundle.SERIAL__0NO__0}">
+                                <af:outputText value="#{row.index+1}" id="ot6" inlineStyle="font-weight:bold;"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.UsersV.hints.UserId.label}" id="c1">
+                                <af:panelGroupLayout id="pgl1">
+                                    <af:link id="l1" icon="/icons/edit.png" useWindow="true"
+                                             windowEmbedStyle="inlineDocument" windowHeight="400" windowWidth="700"
+                                             action="toCrudUseradmins"
+                                             returnListener="#{RefereshBean.UserAdminsReturnListener}">
+                                        <af:setPropertyListener from="#{row.UserId}" to="#{pageFlowScope.vUserId}"
+                                                                type="action"/>
+                                        <af:setPropertyListener from="#{'edit'}" to="#{pageFlowScope.userAdminsAction}"
+                                                                type="action"/>
+                                    </af:link>
+                                    <af:spacer width="10" height="10" id="s2"/>
+                                    <af:outputText value="#{row.UserId}"
+                                                   shortDesc="#{bindings.UsersV.hints.UserId.tooltip}" id="ot1"/>
+                                </af:panelGroupLayout>
+                            </af:column>
+                            <af:column headerText="#{bindings.UsersV.hints.UserName.label}" id="c2" width="100">
+                                <af:outputText value="#{row.UserName}"
+                                               shortDesc="#{bindings.UsersV.hints.UserName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.UsersV.hints.FirstName.label}" id="c3" width="100">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.UsersV.hints.FirstName.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.UsersV.hints.FamilyName.label}" id="c4" width="100">
+                                <af:outputText value="#{row.FamilyName}"
+                                               shortDesc="#{bindings.UsersV.hints.FamilyName.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.UsersV.hints.LastModified.label}" id="c5">
+                                <af:outputText value="#{row.LastModified}"
+                                               shortDesc="#{bindings.UsersV.hints.LastModified.tooltip}" id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.UsersV.hints.LastModified.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.UsersV.hints.Active.label}" id="c6">
+                                <af:selectOneChoice value="#{row.bindings.Active.inputValue}"
+                                                    label="#{row.bindings.Active.label}"
+                                                    required="#{bindings.UsersV.hints.Active.mandatory}"
+                                                    shortDesc="#{bindings.UsersV.hints.Active.tooltip}" readOnly="true"
+                                                    id="soc1">
+                                    <f:selectItems value="#{row.bindings.Active.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.Active.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column id="c7" rendered="false">
+                                <af:image id="of5" inlineStyle="height:50px; width:50px;" source="/viewimageservlet?path=#{row.PhotoName==null || empty row.PhotoName?
+bindings.FileServerPath.inputValue.concat('/').concat(bindings.NoimagePath.inputValue) : row.PhotoName}"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="untitled1PageDef"
+                Package="com.shopbook.home.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ShopImagesV1" RangeSize="25" DataControl="ShBkHomeAmDataControl" id="ShopImagesV1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ShopImagesV1Iterator" id="ImgPath">
+      <AttrNames>
+        <Item Value="ImgPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopImagesV1Iterator" id="ImagePath1">
+      <AttrNames>
+        <Item Value="ImagePath1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShopImagesV1Iterator" id="ImagePath2">
+      <AttrNames>
+        <Item Value="ImagePath2"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

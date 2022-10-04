@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkuAssemblyCompsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT 
+    SkuAssemblies.SKU_ASS_COMP_CODE, 
+    SkuAssemblies.SKU_SEQ, 
+    SkuAssemblies.AVAILABLE, 
+    SkuAssemblies.HIDE, 
+    SkuAssemblies.SKU_ASS_CODE, 
+    SkuAssemblies.SKU_ASS_COMP, 
+    SkuAssemblies.LAST_MODIFIED, 
+    SkuAssemblies.NOTES, 
+    SkuAssemblies.QTY_IN_ASS,
+    Skus.SKU_NAME,
+    min(sku_colors.sku_clr_code) SKU_CLR_CODE,
+    min(sku_size_colors.sku_sz_clr_code) SKU_SZ_CLR_CODE
+    FROM 
+     skus Skus
+     inner join sku_assemblies SkuAssemblies
+     on SkuAssemblies.SKU_ASS_COMP = Skus.SKU_CODE 
+    left join sku_colors
+    on Skus.sku_code = sku_colors.sku_code
+    left join sku_size_colors
+    on sku_colors.sku_clr_code = sku_size_colors.sku_clr_code
+    where SkuAssemblies.SKU_ASS_CODE != SkuAssemblies.SKU_ASS_COMP
+    group by 
+        SkuAssemblies.SKU_ASS_COMP_CODE, 
+    SkuAssemblies.SKU_SEQ, 
+    SkuAssemblies.AVAILABLE, 
+    SkuAssemblies.HIDE, 
+    SkuAssemblies.SKU_ASS_CODE, 
+    SkuAssemblies.SKU_ASS_COMP, 
+    SkuAssemblies.LAST_MODIFIED, 
+    SkuAssemblies.NOTES, 
+    SkuAssemblies.QTY_IN_ASS,
+    Skus.SKU_NAME]]></SQLQuery>
+  <EntityUsage
+    Name="SkuAssemblyComps"
+    Entity="com.shopbook.home.model.entity.SkuAssemblyComps"/>
+  <ViewAttribute
+    Name="SkuAssCompCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuAssCompCode"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="SKU_ASS_COMP_CODE"/>
+  <ViewAttribute
+    Name="SkuSeq"
+    PrecisionRule="true"
+    EntityAttrName="SkuSeq"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="SKU_SEQ"/>
+  <ViewAttribute
+    Name="Available"
+    PrecisionRule="true"
+    EntityAttrName="Available"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="AVAILABLE"/>
+  <ViewAttribute
+    Name="Hide"
+    PrecisionRule="true"
+    EntityAttrName="Hide"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="HIDE"/>
+  <ViewAttribute
+    Name="SkuAssCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuAssCode"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="SKU_ASS_CODE"/>
+  <ViewAttribute
+    Name="SkuAssComp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkuAssComp"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="SKU_ASS_COMP"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="LAST_MODIFIED"/>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="QtyInAss"
+    PrecisionRule="true"
+    EntityAttrName="QtyInAss"
+    EntityUsage="SkuAssemblyComps"
+    AliasName="QTY_IN_ASS"/>
+  <ViewAttribute
+    Name="SkuName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_NAME"
+    Expression="SKU_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="28"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_CLR_CODE"
+    Expression="SKU_CLR_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="28"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkuSzClrCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="37"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="SKU_SZ_CLR_CODE"
+    Expression="SKU_SZ_CLR_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="37"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SkusV"
+    ViewLink="com.shopbook.home.model.view.link.MainSkuToAssemblyVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

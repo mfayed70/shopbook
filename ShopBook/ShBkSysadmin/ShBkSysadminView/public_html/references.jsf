@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="shbksysadminviewBundle" value="#{adfBundle['com.shopbook.sysadmin.view.ShBkSysAdResBndl']}"/>
+    <af:document title="references.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/WEB-INF/ShBkTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="_body">
+                    <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_REFERENCES}" id="ph1">
+                        <f:facet name="context">
+                            <af:outputText value="#{bindings.ReferencesNamesVIterator.estimatedRowCount}" id="ot13"/>
+                        </f:facet>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend">
+                            <af:spacer width="10" height="10" id="s2"/>
+                        </f:facet>
+                        <f:facet name="info"/>
+                        <af:panelTabbed position="above" id="pt2" binding="#{ReferenceNamingUpdate.panelTabbed}">
+                            <af:showDetailItem id="tab1" text="#{bindings.BrPlural.inputValue}"
+                                               partialTriggers="pt_soc1" disclosed="true"
+                                               binding="#{ReferenceNamingUpdate.tab1}">
+                                <f:facet name="toolbar"/>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:panelBox text="#{shbksysadminviewBundle['1stRef.Naming']}" id="pb1"
+                                             disclosed="false">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelFormLayout id="pfl1" maxColumns="3" rows="1" labelAlignment="top"
+                                                        inlineStyle="width:600px;padding:10px 0px 10px 10px;;">
+                                        <af:inputText id="it1" labelStyle="text-align:center;"
+                                                      label="#{shbksysadminviewBundle.NAME__0IN__0ENGLISH}"
+                                                      binding="#{ReferenceNamingUpdate.enName1}" autoSubmit="true"
+                                                      partialTriggers="l4"/>
+                                        <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ARABIC}" id="it2"
+                                                      binding="#{ReferenceNamingUpdate.arName1}" autoSubmit="true"
+                                                      partialTriggers="l4"/>
+                                        <f:facet name="footer">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                                 inlineStyle="padding-left:550px;">
+                                                <af:link text="#{shbksysadminviewBundle.MODIFY}" id="l4"
+                                                         inlineStyle="font-size:16px; padding:5px 10px; color:White; background-color:#495057;" action="toOkay"
+                                                         returnListener="#{RefereshBean.refNameModifyRLSNR}"
+                                                         useWindow="true" windowEmbedStyle="inlineDocument"
+                                                         windowHeight="200" windowWidth="300"
+                                                         actionListener="#{ReferenceNamingUpdate.updateNames}"
+                                                         disabled="#{(empty ReferenceNamingUpdate.enName1.value &amp;&amp; empty ReferenceNamingUpdate.arName1.value) || (ReferenceNamingUpdate.enName1.value==null &amp;&amp; ReferenceNamingUpdate.arName1.value==null)}">
+                                                    <f:attribute name="tab" value="#{'t1'}"/>
+                                                </af:link>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:panelFormLayout>
+                                </af:panelBox>
+                                <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_AVAILABLE_BRANDS}" id="ph2">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar">
+                                        <af:navigationPane hint="buttons" id="np1">
+                                            <af:commandNavigationItem id="cni1"
+                                                                      text="#{shbksysadminviewBundle.ADD_NEW_BRAND}"
+                                                                      icon="/icons/New.png" action="toBrandsCrud"
+                                                                      returnListener="#{RefereshBean.BrandsReturnListener}"
+                                                                      windowEmbedStyle="inlineDocument"
+                                                                      windowHeight="400" windowWidth="700"
+                                                                      useWindow="true">
+                                                <af:setPropertyListener from="#{'new'}"
+                                                                        to="#{pageFlowScope.brandsAction}"
+                                                                        type="action"/>
+                                            </af:commandNavigationItem>
+                                        </af:navigationPane>
+                                    </f:facet>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                    <af:spacer width="10" height="10" id="s3"/>
+                                    <af:table value="#{bindings.BrandsV.collectionModel}" var="row"
+                                              rows="#{bindings.BrandsV.rangeSize}"
+                                              emptyText="#{bindings.BrandsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.BrandsV.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.BrandsV.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.BrandsV.rangeSize}" id="t1"
+                                              columnStretching="column:c5" columnSelection="single">
+                                        <af:column headerText="#{bindings.BrandsV.hints.BrandCode.label}" id="c1"
+                                                   width="150">
+                                            <af:panelGroupLayout id="pgl1">
+                                                <af:link id="l1" icon="/icons/edit.png" action="toBrandsCrud"
+                                                         returnListener="#{RefereshBean.BrandsReturnListener}"
+                                                         windowEmbedStyle="inlineDocument"
+                                                         windowHeight="400" windowWidth="700" useWindow="true">
+                                                    <af:setPropertyListener from="#{'edit'}"
+                                                                            to="#{pageFlowScope.brandsAction}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{row.BrandCode}"
+                                                                            to="#{pageFlowScope.vBrandCode}"
+                                                                            type="action"/>
+                                                </af:link>
+                                                <af:spacer width="10" height="10" id="s4"/>
+                                                <af:outputText value="#{row.BrandCode}"
+                                                               shortDesc="#{bindings.BrandsV.hints.BrandCode.tooltip}"
+                                                               id="ot1"/>
+                                            </af:panelGroupLayout>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BrandsV.hints.BrandName.label}" id="c2"
+                                                   width="200" align="center">
+                                            <af:outputText value="#{row.BrandName}"
+                                                           shortDesc="#{bindings.BrandsV.hints.BrandName.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BrandsV.hints.LastModified.label}" id="c3"
+                                                   width="130">
+                                            <af:outputText value="#{row.LastModified}"
+                                                           shortDesc="#{bindings.BrandsV.hints.LastModified.tooltip}"
+                                                           id="ot3">
+                                                <af:convertDateTime pattern="#{bindings.BrandsV.hints.LastModified.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BrandsV.hints.RegisterStatus.label}" id="c4"
+                                                   width="130">
+                                            <af:selectOneChoice value="#{row.bindings.RegisterStatus.inputValue}"
+                                                                label="#{row.bindings.RegisterStatus.label}"
+                                                                required="#{bindings.BrandsV.hints.RegisterStatus.mandatory}"
+                                                                shortDesc="#{bindings.BrandsV.hints.RegisterStatus.tooltip}"
+                                                                readOnly="true" id="soc1">
+                                                <f:selectItems value="#{row.bindings.RegisterStatus.items}" id="si1"/>
+                                                <f:validator binding="#{row.bindings.RegisterStatus.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.BrandsV.hints.Notes.label}" id="c5">
+                                            <af:outputText value="#{row.Notes}"
+                                                           shortDesc="#{bindings.BrandsV.hints.Notes.tooltip}"
+                                                           id="ot4"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelHeader>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab2" text="#{bindings.MdPlural.inputValue}"
+                                               partialTriggers="l5">
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:panelBox text="#{shbksysadminviewBundle['2ndRef.Naming']}" id="pb2"
+                                             disclosed="false">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelFormLayout id="pfl2" maxColumns="3" rows="1" labelAlignment="top"
+                                                        inlineStyle="width:600px;padding:10px 0px 10px 10px;;">
+                                        <f:facet name="footer">
+                                            <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                                                 inlineStyle="padding-left:550px;">
+                                                <af:link text="#{shbksysadminviewBundle.MODIFY}" id="l5"
+                                                         actionListener="#{ReferenceNamingUpdate.updateNames}"
+                                                         inlineStyle="font-size:16px; padding:5px 10px; color:#c6c6c6; background-color:#495057;">
+                                                    <f:attribute name="tab" value="#{'t2'}"/>
+                                                </af:link>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ENGLISH}" id="it3"
+                                                      binding="#{ReferenceNamingUpdate.enName2}"/>
+                                        <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ARABIC}" id="it4"
+                                                      binding="#{ReferenceNamingUpdate.arName2}"/>
+                                    </af:panelFormLayout>
+                                </af:panelBox>
+                                <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_AVAILABLE_MANUFACTURERS}" id="ph3">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar">
+                                        <af:navigationPane hint="buttons" id="np2">
+                                            <af:commandNavigationItem id="cni2"
+                                                                      text="#{shbksysadminviewBundle.ADD_NEW_MAUFACTURER}"
+                                                                      icon="/icons/New.png" action="toManufCrud"
+                                                                      useWindow="true" windowEmbedStyle="inlineDocument"
+                                                                      windowHeight="400" windowWidth="700"
+                                                                      returnListener="#{RefereshBean.manufReturnListener}">
+                                                <af:setPropertyListener from="#{'new'}"
+                                                                        to="#{pageFlowScope.manufAction}"
+                                                                        type="action"/>
+                                            </af:commandNavigationItem>
+                                        </af:navigationPane>
+                                    </f:facet>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                    <af:spacer width="10" height="10" id="s7"/>
+                                    <af:table value="#{bindings.ManufacturersV.collectionModel}" var="row"
+                                              rows="#{bindings.ManufacturersV.rangeSize}"
+                                              emptyText="#{bindings.ManufacturersV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ManufacturersV.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ManufacturersV.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.ManufacturersV.rangeSize}"
+                                              id="t2" columnStretching="column:c9">
+                                        <af:column headerText="#{bindings.ManufacturersV.hints.MnfCode.label}" id="c6"
+                                                   width="150">
+                                            <af:panelGroupLayout id="pgl2">
+                                                <af:link id="l2" icon="/icons/edit.png" action="toManufCrud"
+                                                         returnListener="#{RefereshBean.manufReturnListener}"
+                                                         useWindow="true" windowEmbedStyle="inlineDocument"
+                                                         windowHeight="400" windowWidth="700">
+                                                    <af:setPropertyListener from="#{'edit'}"
+                                                                            to="#{pageFlowScope.manufAction}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{row.MnfCode}"
+                                                                            to="#{pageFlowScope.vManufCode}"
+                                                                            type="action"/>
+                                                </af:link>
+                                                <af:spacer width="10" height="10" id="s6"/>
+                                                <af:outputText value="#{row.MnfCode}"
+                                                               shortDesc="#{bindings.ManufacturersV.hints.MnfCode.tooltip}"
+                                                               id="ot5"/>
+                                            </af:panelGroupLayout>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ManufacturersV.hints.MnfName.label}" id="c7"
+                                                   width="200">
+                                            <af:outputText value="#{row.MnfName}"
+                                                           shortDesc="#{bindings.ManufacturersV.hints.MnfName.tooltip}"
+                                                           id="ot6"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ManufacturersV.hints.LastModified.label}"
+                                                   id="c8" width="130">
+                                            <af:outputText value="#{row.LastModified}"
+                                                           shortDesc="#{bindings.ManufacturersV.hints.LastModified.tooltip}"
+                                                           id="ot7">
+                                                <af:convertDateTime pattern="#{bindings.ManufacturersV.hints.LastModified.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ManufacturersV.hints.RegisterStatus.label}"
+                                                   id="c9" width="130">
+                                            <af:selectOneChoice value="#{row.bindings.RegisterStatus.inputValue}"
+                                                                label="#{row.bindings.RegisterStatus.label}"
+                                                                required="#{bindings.ManufacturersV.hints.RegisterStatus.mandatory}"
+                                                                shortDesc="#{bindings.ManufacturersV.hints.RegisterStatus.tooltip}"
+                                                                readOnly="true" id="soc2">
+                                                <f:selectItems value="#{row.bindings.RegisterStatus.items}" id="si2"/>
+                                                <f:validator binding="#{row.bindings.RegisterStatus.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ManufacturersV.hints.Notes.label}" id="c10">
+                                            <af:outputText value="#{row.Notes}"
+                                                           shortDesc="#{bindings.ManufacturersV.hints.Notes.tooltip}"
+                                                           id="ot8"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelHeader>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab3" text="#{bindings.MnPluran.inputValue}"
+                                               partialTriggers="l6">
+                                <af:spacer width="10" height="10" id="s8"/>
+                                <af:panelBox text="#{shbksysadminviewBundle['3rdRef.Naming']}" id="pb3"
+                                             disclosed="false">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelFormLayout id="pfl3" maxColumns="2" rows="1" labelAlignment="top"
+                                                        inlineStyle="width:600px;padding:10px 0px 10px 10px;;">
+                                        <f:facet name="footer">
+                                            <af:panelGroupLayout id="pgl6" layout="horizontal"
+                                                                 inlineStyle="padding-left:550px;">
+                                                <af:link text="#{shbksysadminviewBundle.MODIFY}" id="l6"
+                                                         inlineStyle="font-size:16px; padding:5px 10px; color:#c6c6c6; background-color:#495057;"
+                                                         returnListener="#{RefereshBean.refNameModifyRLSNR}"
+                                                         useWindow="true" windowEmbedStyle="inlineDocument">
+                                                    <f:attribute name="tab" value="#{'t3'}"/>
+                                                </af:link>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ENGLISH}" id="it5"
+                                                      binding="#{ReferenceNamingUpdate.enName3}"/>
+                                        <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ARABIC}" id="it6"
+                                                      binding="#{ReferenceNamingUpdate.arName3}"/>
+                                    </af:panelFormLayout>
+                                </af:panelBox>
+                                <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_AVAILABLE_MODELS}" id="ph4">
+                                    <f:facet name="context"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="toolbar">
+                                        <af:navigationPane hint="buttons" id="np3">
+                                            <af:commandNavigationItem id="cni3"
+                                                                      text="#{shbksysadminviewBundle.ADD_NEW_MODEL}"
+                                                                      icon="/icons/New.png" useWindow="true"
+                                                                      windowEmbedStyle="inlineDocument"
+                                                                      windowHeight="400" windowWidth="700"
+                                                                      returnListener="#{RefereshBean.modelsReturnListener}"
+                                                                      action="toModelCrud">
+                                                <af:setPropertyListener from="#{'new'}"
+                                                                        to="#{pageFlowScope.modelsAction}"
+                                                                        type="action"/>
+                                            </af:commandNavigationItem>
+                                        </af:navigationPane>
+                                    </f:facet>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                    <af:spacer width="10" height="10" id="s9"/>
+                                    <af:table value="#{bindings.ModelsV.collectionModel}" var="row"
+                                              rows="#{bindings.ModelsV.rangeSize}"
+                                              emptyText="#{bindings.ModelsV.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ModelsV.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ModelsV.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.ModelsV.rangeSize}" id="t3"
+                                              columnStretching="column:c16">
+                                        <af:column headerText="#{bindings.ModelsV.hints.ModelCode.label}" id="c11"
+                                                   width="150">
+                                            <af:panelGroupLayout id="pgl3">
+                                                <af:link id="l3" icon="/icons/edit.png" action="toModelCrud"
+                                                         useWindow="true" windowEmbedStyle="inlineDocument"
+                                                         windowHeight="400" windowWidth="700"
+                                                         returnListener="#{RefereshBean.modelsReturnListener}">
+                                                    <af:setPropertyListener from="#{'edit'}"
+                                                                            to="#{pageFlowScope.modelsAction}"
+                                                                            type="action"/>
+                                                    <af:setPropertyListener from="#{row.ModelCode}"
+                                                                            to="#{pageFlowScope.vModelCode}"
+                                                                            type="action"/>
+                                                </af:link>
+                                                <af:spacer width="10" height="10" id="s10"/>
+                                                <af:outputText value="#{row.ModelCode}"
+                                                               shortDesc="#{bindings.ModelsV.hints.ModelCode.tooltip}"
+                                                               id="ot9"/>
+                                            </af:panelGroupLayout>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ModelsV.hints.ModelName.label}" id="c12"
+                                                   width="200">
+                                            <af:outputText value="#{row.ModelName}"
+                                                           shortDesc="#{bindings.ModelsV.hints.ModelName.tooltip}"
+                                                           id="ot10"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ModelsV.hints.OrigModelNo.label}" id="c13"
+                                                   width="150" visible="false">
+                                            <af:outputText value="#{row.OrigModelNo}"
+                                                           shortDesc="#{bindings.ModelsV.hints.OrigModelNo.tooltip}"
+                                                           id="ot11"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ModelsV.hints.RegisterStatus.label}" id="c14"
+                                                   width="130">
+                                            <af:selectOneChoice value="#{row.bindings.RegisterStatus.inputValue}"
+                                                                label="#{row.bindings.RegisterStatus.label}"
+                                                                required="#{bindings.ModelsV.hints.RegisterStatus.mandatory}"
+                                                                shortDesc="#{bindings.ModelsV.hints.RegisterStatus.tooltip}"
+                                                                readOnly="true" id="soc3">
+                                                <f:selectItems value="#{row.bindings.RegisterStatus.items}" id="si3"/>
+                                                <f:validator binding="#{row.bindings.RegisterStatus.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ModelsV.hints.LastModified.label}" id="c15"
+                                                   width="130">
+                                            <af:outputFormatted value="#{row.bindings.LastModified.inputValue}"
+                                                                id="of1">
+                                                <af:convertDateTime pattern="#{bindings.ModelsV.hints.LastModified.format}"/>
+                                            </af:outputFormatted>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ModelsV.hints.Notes.label}" id="c16">
+                                            <af:outputText value="#{row.Notes}"
+                                                           shortDesc="#{bindings.ModelsV.hints.Notes.tooltip}"
+                                                           id="ot12"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelHeader>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                    </af:panelHeader>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
