@@ -20,6 +20,7 @@ import oracle.jbo.ViewObject;
 import org.apache.myfaces.trinidad.context.RequestContext;
 import org.apache.myfaces.trinidad.event.DisclosureEvent;
 import org.apache.myfaces.trinidad.event.LaunchEvent;
+import org.apache.myfaces.trinidad.event.ReturnEvent;
 
 public class ReferenceNamingUpdate {
     private RichInputText enName1;
@@ -46,9 +47,13 @@ String _tab = (String) actionEvent.getComponent().getAttributes().get("tab");
         rE.setAttribute("BrPlural", this.enName1.getValue());
         }
     } else if("t2".equals(_tab)){
+        if(this.enName2.getValue()!=null){
         rE.setAttribute("MdPlural", this.enName2.getValue());
+        }
     } else if("t3".equals(_tab)){
+        if(this.enName3.getValue()!=null){
         rE.setAttribute("MnPluran", this.enName3.getValue());
+        }
     }
  }     
         for(Row rA : rAr) { 
@@ -57,23 +62,17 @@ String _tab = (String) actionEvent.getComponent().getAttributes().get("tab");
             rA.setAttribute("BrPlural", this.arName1.getValue());
             }
         } else if("t2".equals(_tab)){
+            if(this.arName2.getValue()!=null){
             rA.setAttribute("MdPlural", this.arName2.getValue());
+            }
         } else if("t3".equals(_tab)){
+            if(this.arName3.getValue()!=null){
             rA.setAttribute("MnPluran", this.arName3.getValue());
+            }
         }
          }   
    ADFUtils.findOperation("Commit").execute();
-//   if (JSFUtil.resolveExpressionAsString("#{sessionScope.lang}").equals("en")) {
-//             UIComponent myChildList = this.getPanelTabbed();
-//            RichShowDetailItem sdi1 = (RichShowDetailItem)myChildList.findComponent("tab1");
-//            System.out.println("childs :"+sdi1.getText());
-//            sdi1.setText(this.enName1.getValue().toString()); 
-//    }
-//   ViewObject vo1= ADFUtils.findIterator("ReferencesNamesVIterator").getViewObject();
-//   vo1.clearCache();
-//   vo1.createRow();
-//   ADFUtils.findOperation("Rollback").execute();
-//   vo1.executeQuery();
+
     }
     public void disclosureLsnr(DisclosureEvent disclosureEvent) {
 //        UIComponent myChildList = this.getPanelTabbed();
@@ -154,4 +153,19 @@ String _tab = (String) actionEvent.getComponent().getAttributes().get("tab");
         return tab1;
     }
 
+    public void refNameModifyRLSNR(ReturnEvent returnEvent) {
+        // Add event code here...
+        DCIteratorBinding it = ADFUtils.findIterator("ReferencesNamesVIterator");
+        ViewObject vo = it.getViewObject();
+        vo.clearCache();
+        vo.executeQuery();
+        RequestContext.getCurrentInstance().addPartialTarget(returnEvent.
+                    getComponent().getParent().getParent().getParent().getParent().getParent());
+        this.enName1.resetValue();
+        this.enName2.resetValue();
+        this.enName3.resetValue();
+        this.arName1.resetValue();
+        this.arName2.resetValue();
+        this.arName3.resetValue();
+    }
 }

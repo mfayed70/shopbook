@@ -12,7 +12,11 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="com.shopbook.sysadmin.model.view.ReferencesVImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -31,14 +35,12 @@
     AliasName="ID"/>
   <ViewAttribute
     Name="BrPlural"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="BrPlural"
     EntityUsage="References1"
     AliasName="BR_PLURAL"/>
   <ViewAttribute
     Name="BrSingle"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="BrSingle"
     EntityUsage="References1"
@@ -52,7 +54,6 @@
     AliasName="LANG"/>
   <ViewAttribute
     Name="MdPlural"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="MdPlural"
     EntityUsage="References1"
@@ -60,21 +61,17 @@
   <ViewAttribute
     Name="MdSingle"
     IsNotNull="true"
-    PrecisionRule="false"
     EntityAttrName="MdSingle"
     EntityUsage="References1"
     AliasName="MD_SINGLE"/>
   <ViewAttribute
     Name="MnPluran"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="MnPluran"
     EntityUsage="References1"
     AliasName="MN_PLURAN"/>
   <ViewAttribute
     Name="MnSingle"
-    IsNotNull="false"
-    PrecisionRule="false"
     EntityAttrName="MnSingle"
     EntityUsage="References1"
     AliasName="MN_SINGLE"/>

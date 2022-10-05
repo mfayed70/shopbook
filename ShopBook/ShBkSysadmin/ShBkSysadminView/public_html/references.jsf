@@ -41,9 +41,9 @@
                                                                  inlineStyle="padding-left:550px;">
                                                 <af:link text="#{shbksysadminviewBundle.MODIFY}" id="l4"
                                                          inlineStyle="font-size:16px; padding:5px 10px; color:White; background-color:#495057;" action="toOkay"
-                                                         returnListener="#{RefereshBean.refNameModifyRLSNR}"
+                                                         returnListener="#{ReferenceNamingUpdate.refNameModifyRLSNR}"
                                                          useWindow="true" windowEmbedStyle="inlineDocument"
-                                                         windowHeight="200" windowWidth="300"
+                                                         windowHeight="100" windowWidth="280"
                                                          actionListener="#{ReferenceNamingUpdate.updateNames}"
                                                          disabled="#{(empty ReferenceNamingUpdate.enName1.value &amp;&amp; empty ReferenceNamingUpdate.arName1.value) || (ReferenceNamingUpdate.enName1.value==null &amp;&amp; ReferenceNamingUpdate.arName1.value==null)}">
                                                     <f:attribute name="tab" value="#{'t1'}"/>
@@ -147,15 +147,22 @@
                                                                  inlineStyle="padding-left:550px;">
                                                 <af:link text="#{shbksysadminviewBundle.MODIFY}" id="l5"
                                                          actionListener="#{ReferenceNamingUpdate.updateNames}"
-                                                         inlineStyle="font-size:16px; padding:5px 10px; color:#c6c6c6; background-color:#495057;">
+                                                         inlineStyle="font-size:16px; padding:5px 10px; color:#c6c6c6; background-color:#495057;"
+                                                         action="toOkay"
+                                                         disabled="#{(empty ReferenceNamingUpdate.enName2.value &amp;&amp; empty ReferenceNamingUpdate.arName2.value) || (ReferenceNamingUpdate.enName2.value==null &amp;&amp; ReferenceNamingUpdate.arName2.value==null)}"
+                                                         windowHeight="100" windowWidth="280" useWindow="true"
+                                                         windowEmbedStyle="inlineDocument"
+                                                         returnListener="#{ReferenceNamingUpdate.refNameModifyRLSNR}">
                                                     <f:attribute name="tab" value="#{'t2'}"/>
                                                 </af:link>
                                             </af:panelGroupLayout>
                                         </f:facet>
                                         <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ENGLISH}" id="it3"
-                                                      binding="#{ReferenceNamingUpdate.enName2}"/>
+                                                      binding="#{ReferenceNamingUpdate.enName2}" autoSubmit="true"
+                                                      partialTriggers="l5"/>
                                         <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ARABIC}" id="it4"
-                                                      binding="#{ReferenceNamingUpdate.arName2}"/>
+                                                      binding="#{ReferenceNamingUpdate.arName2}" autoSubmit="true"
+                                                      partialTriggers="l5"/>
                                     </af:panelFormLayout>
                                 </af:panelBox>
                                 <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_AVAILABLE_MANUFACTURERS}" id="ph3">
@@ -252,16 +259,22 @@
                                                                  inlineStyle="padding-left:550px;">
                                                 <af:link text="#{shbksysadminviewBundle.MODIFY}" id="l6"
                                                          inlineStyle="font-size:16px; padding:5px 10px; color:#c6c6c6; background-color:#495057;"
-                                                         returnListener="#{RefereshBean.refNameModifyRLSNR}"
-                                                         useWindow="true" windowEmbedStyle="inlineDocument">
+                                                         returnListener="#{ReferenceNamingUpdate.refNameModifyRLSNR}"
+                                                         useWindow="true" windowEmbedStyle="inlineDocument"
+                                                         disabled="#{(empty ReferenceNamingUpdate.enName3.value &amp;&amp; empty ReferenceNamingUpdate.arName3.value) || (ReferenceNamingUpdate.enName3.value==null &amp;&amp; ReferenceNamingUpdate.arName3.value==null)}"
+                                                         action="toOkay"
+                                                         actionListener="#{ReferenceNamingUpdate.updateNames}"
+                                                         windowHeight="100" windowWidth="280">
                                                     <f:attribute name="tab" value="#{'t3'}"/>
                                                 </af:link>
                                             </af:panelGroupLayout>
                                         </f:facet>
                                         <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ENGLISH}" id="it5"
-                                                      binding="#{ReferenceNamingUpdate.enName3}"/>
+                                                      binding="#{ReferenceNamingUpdate.enName3}" autoSubmit="true"
+                                                      partialTriggers="l6"/>
                                         <af:inputText label="#{shbksysadminviewBundle.NAME__0IN__0ARABIC}" id="it6"
-                                                      binding="#{ReferenceNamingUpdate.arName3}"/>
+                                                      binding="#{ReferenceNamingUpdate.arName3}" autoSubmit="true"
+                                                      partialTriggers="l6"/>
                                     </af:panelFormLayout>
                                 </af:panelBox>
                                 <af:panelHeader text="#{shbksysadminviewBundle.LIST_OF_AVAILABLE_MODELS}" id="ph4">
