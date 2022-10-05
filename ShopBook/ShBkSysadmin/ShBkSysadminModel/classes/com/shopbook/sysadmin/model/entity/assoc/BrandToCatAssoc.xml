@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BrandToCatAssoc"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Brands"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.sysadmin.model.entity.Brands">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.sysadmin.model.entity.Brands.BrandCode"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="CatMnfBrndMdiYers2"
+    Cardinality="-1"
+    Owner="com.shopbook.sysadmin.model.entity.CatMnfBrndMdiYers">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CatMnfBrndMdiYers2"/>
+      <Attr Name="_foreignKey" Value="com.shopbook.sysadmin.model.entity.CatMnfBrndMdiYers.BrandToCat"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.sysadmin.model.entity.CatMnfBrndMdiYers.BrandCode"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

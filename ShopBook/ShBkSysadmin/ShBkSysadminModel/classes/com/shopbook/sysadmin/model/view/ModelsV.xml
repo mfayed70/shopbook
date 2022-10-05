@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ModelsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.sysadmin.model.view.ModelsV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pModelCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="RegisteredLOVinModels"
+    ViewObjectName="com.shopbook.sysadmin.model.view.RegisteredLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RegisterStatus"
+    ListVOName="RegisteredLOVinModels"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RegisterStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VALUE"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Models.MODEL_CODE,       
+       Models.MODEL_NAME,       
+       Models.ORIG_MODEL_NO,       
+       Models.REGISTER_STATUS,       
+       Models.LAST_MODIFIED,       
+       Models.NOTES,  
+       case when exists (select null from cat_mnf_brnd_mdl_yers  
+       where cat_mnf_brnd_mdl_yers.model_code = Models.model_code)   
+       then 'Y' else 'N' end as has_detail_mdl_in_catRefs  
+FROM  models Models     
+Where Models.MODEL_CODE <> 'M0000000']]></SQLQuery>
+  <EntityUsage
+    Name="Models"
+    Entity="com.shopbook.sysadmin.model.entity.Models"/>
+  <ViewAttribute
+    Name="ModelCode"
+    PrecisionRule="true"
+    EntityAttrName="ModelCode"
+    EntityUsage="Models"
+    AliasName="MODEL_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.ModelCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModelName"
+    PrecisionRule="true"
+    EntityAttrName="ModelName"
+    EntityUsage="Models"
+    AliasName="MODEL_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.ModelName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrigModelNo"
+    PrecisionRule="true"
+    EntityAttrName="OrigModelNo"
+    EntityUsage="Models"
+    AliasName="ORIG_MODEL_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.OrigModelNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RegisterStatus"
+    PrecisionRule="true"
+    EntityAttrName="RegisterStatus"
+    EntityUsage="Models"
+    AliasName="REGISTER_STATUS"
+    LOVName="LOV_RegisterStatus">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.RegisterStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="Models"
+    AliasName="LAST_MODIFIED">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.LastModified_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.LastModified_FMT_FORMAT"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ModelsV.LastModified_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="Models"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="has_detail_mdl_in_catRefs"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="has_detail_mdl_in_catRefs"
+    SQLType="VARCHAR"
+    Expression="case when exists (select null from cat_mnf_brnd_mdl_yers where cat_mnf_brnd_mdl_yers.model_code = Models.model_code) then 'Y' else 'N' end"
+    Precision="2"/>
+  <ViewCriteria
+    Name="ModelsVCriteria"
+    ViewObjectName="com.shopbook.sysadmin.model.view.ModelsV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ModelsVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ModelCode"
+        ViewAttribute="ModelCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pModelCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="CatMnfBrndMdlYersV"
+    ViewLink="com.shopbook.sysadmin.model.view.link.ModelToCatVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.sysadmin.model.ShBkSysAdModelBndl"/>
+  </ResourceBundle>
+</ViewObject>

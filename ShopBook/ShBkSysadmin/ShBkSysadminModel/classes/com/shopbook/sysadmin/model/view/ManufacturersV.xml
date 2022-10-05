@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ManufacturersV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="JDBC"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.sysadmin.model.view.ManufacturersV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pManfCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="RegisteredLOVinManufacturers"
+    ViewObjectName="com.shopbook.sysadmin.model.view.RegisteredLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RegisterStatus"
+    ListVOName="RegisteredLOVinManufacturers"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RegisterStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CODE"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VALUE"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT Manufactures.MNF_CODE,     
+       Manufactures.MNF_NAME,     
+       Manufactures.NOTES,     
+       Manufactures.REGISTER_STATUS,     
+       Manufactures.LAST_MODIFIED,  
+       case when exists (select null from cat_mnf_brnd_mdl_yers  
+       where cat_mnf_brnd_mdl_yers.mnf_code = Manufactures.mnf_code)  
+       then 'Y' else 'N' end as has_detail_mnf_in_catRefs  
+FROM  manufactures Manufactures   
+where Manufactures.MNF_CODE <> 'F00000']]></SQLQuery>
+  <EntityUsage
+    Name="Manufactures"
+    Entity="com.shopbook.sysadmin.model.entity.Manufactures"/>
+  <ViewAttribute
+    Name="MnfCode"
+    PrecisionRule="true"
+    EntityAttrName="MnfCode"
+    EntityUsage="Manufactures"
+    AliasName="MNF_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ManufacturersV.MnfCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MnfName"
+    PrecisionRule="true"
+    EntityAttrName="MnfName"
+    EntityUsage="Manufactures"
+    AliasName="MNF_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ManufacturersV.MnfName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="Manufactures"
+    AliasName="NOTES"/>
+  <ViewAttribute
+    Name="RegisterStatus"
+    PrecisionRule="true"
+    EntityAttrName="RegisterStatus"
+    EntityUsage="Manufactures"
+    AliasName="REGISTER_STATUS"
+    LOVName="LOV_RegisterStatus"
+    DefaultValue="I">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ManufacturersV.RegisterStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="Manufactures"
+    AliasName="LAST_MODIFIED">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.shopbook.sysadmin.model.view.ManufacturersV.LastModified_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.shopbook.sysadmin.model.view.ManufacturersV.LastModified_FMT_FORMAT"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.ManufacturersV.LastModified_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="has_detail_mnf_in_catRefs"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    AliasName="has_detail_mnf_in_catRefs"
+    SQLType="VARCHAR"
+    Expression="case when exists (select null from cat_mnf_brnd_mdl_yers   where cat_mnf_brnd_mdl_yers.mnf_code = Manufactures.mnf_code)  then 'Y' else 'N' end"
+    Precision="2"/>
+  <ViewCriteria
+    Name="ManufacturersVCriteria"
+    ViewObjectName="com.shopbook.sysadmin.model.view.ManufacturersV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ManufacturersVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="MnfCode"
+        ViewAttribute="MnfCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pManfCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="CatMnfBrndMdlYersV"
+    ViewLink="com.shopbook.sysadmin.model.view.link.ManufactureToCatVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.sysadmin.model.ShBkSysAdModelBndl"/>
+  </ResourceBundle>
+</ViewObject>

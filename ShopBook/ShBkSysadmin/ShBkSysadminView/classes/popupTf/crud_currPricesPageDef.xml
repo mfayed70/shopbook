@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="crud_currPricesPageDef"
+                Package="popupTf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CurrencyPricesCrudV" RangeSize="25" DataControl="ShBkSysAdminDataControl"
+              id="CurrencyPricesCrudVIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CurrencyPricesCrudVIterator" id="TransId">
+      <AttrNames>
+        <Item Value="TransId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CurrencyPricesCrudVIterator" StaticList="false" Uses="LOV_FromCurr" id="FromCurr"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CurrencyPricesCrudVIterator" id="MultiplyBy">
+      <AttrNames>
+        <Item Value="MultiplyBy"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CurrencyPricesCrudVIterator" StaticList="false" Uses="LOV_ToCurr" id="ToCurr"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CurrencyPricesCrudVIterator" id="LastModified">
+      <AttrNames>
+        <Item Value="LastModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CurrencyPricesCrudVIterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

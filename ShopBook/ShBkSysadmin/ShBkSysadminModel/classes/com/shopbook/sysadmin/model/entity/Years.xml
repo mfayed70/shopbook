@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Years"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="years"
+  AliasName="Years"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Year"
+    IsNotNull="true"
+    ColumnName="YEAR"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="years"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RegisterStatus"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="REGISTER_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="years">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="CatMnfBrndMdiYers1"
+    Association="com.shopbook.sysadmin.model.entity.assoc.YearToCatAssoc"
+    AssociationEnd="com.shopbook.sysadmin.model.entity.assoc.YearToCatAssoc.CatMnfBrndMdiYers1"
+    AssociationOtherEnd="com.shopbook.sysadmin.model.entity.assoc.YearToCatAssoc.Years"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+</Entity>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BrandToCatVL"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  EntityAssociation="com.shopbook.sysadmin.model.entity.assoc.BrandToCatAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.sysadmin.model.view.link.BrandToCatVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="BrandsV"
+    Cardinality="1"
+    Source="true"
+    Owner="com.shopbook.sysadmin.model.view.BrandsV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="BrandsV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.sysadmin.model.view.BrandsV.BrandCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CatMnfBrndMdlYersV"
+    Cardinality="-1"
+    Owner="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CatMnfBrndMdlYersV"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.shopbook.sysadmin.model.view.CatMnfBrndMdlYersV.BrandCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.sysadmin.model.ShBkSysadminModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

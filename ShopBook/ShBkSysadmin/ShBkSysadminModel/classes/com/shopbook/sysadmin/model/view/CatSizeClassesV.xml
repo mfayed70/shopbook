@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CatSizeClassesV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.shopbook.sysadmin.model.view.CatSizeClassesV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pCatSizClassCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CategoriesVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.CategoriesV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SizeClassesVLOV"
+    ViewObjectName="com.shopbook.sysadmin.model.view.SizeClassesV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CatCode"
+    ListVOName="CategoriesVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CatCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CatCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SzClassCode"
+    ListVOName="SizeClassesVLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SzClassCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SzClassCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SzClassName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="CatSizeClasses"
+    Entity="com.shopbook.sysadmin.model.entity.CatSizeClasses"/>
+  <ViewAttribute
+    Name="CatSzClassCode"
+    PrecisionRule="true"
+    EntityAttrName="CatSzClassCode"
+    EntityUsage="CatSizeClasses"
+    AliasName="CAT_SZ_CLASS_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatSizeClassesV.CatSzClassCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CatCode"
+    PrecisionRule="true"
+    EntityAttrName="CatCode"
+    EntityUsage="CatSizeClasses"
+    AliasName="CAT_CODE"
+    LOVName="LOV_CatCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatSizeClassesV.CatCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SzClassCode"
+    PrecisionRule="true"
+    EntityAttrName="SzClassCode"
+    EntityUsage="CatSizeClasses"
+    AliasName="SZ_CLASS_CODE"
+    LOVName="LOV_SzClassCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="com.shopbook.sysadmin.model.view.CatSizeClassesV.SzClassCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    PrecisionRule="true"
+    EntityAttrName="Notes"
+    EntityUsage="CatSizeClasses"
+    AliasName="NOTES"/>
+  <ViewCriteria
+    Name="CatSizeClassesVCriteria"
+    ViewObjectName="com.shopbook.sysadmin.model.view.CatSizeClassesV"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CatSizeClassesVCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CatSzClassCode"
+        ViewAttribute="CatSzClassCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pCatSizClassCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.shopbook.sysadmin.model.ShBkSysAdModelBndl"/>
+  </ResourceBundle>
+</ViewObject>

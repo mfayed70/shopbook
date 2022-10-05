@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="referencesPageDef"
+                Package="com.shopbook.sysadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="com.shopbook.home.view.pageDefs.ShBkTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="BrandsV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="BrandsVIterator"/>
+    <iterator Binds="ManufacturersV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="ManufacturersVIterator"/>
+    <iterator Binds="ModelsV" RangeSize="25" DataControl="ShBkSysAdminDataControl" id="ModelsVIterator"/>
+    <iterator id="LangCurrVIterator" Binds="LangCurrV" DataControl="ShBkHomeAmDataControl" RangeSize="25"/>
+    <iterator Binds="ReferencesNamesV" DataControl="ShBkHomeAmDataControl"
+              id="ReferencesNamesVIterator" RangeSize="25" Refresh="always" CacheResults="false"/>
+    <iterator id="ReferencesV1Iterator" Binds="ReferencesV1" DataControl="ShBkSysAdminDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BrandsVIterator" id="BrandsV">
+      <nodeDefinition DefName="com.shopbook.sysadmin.model.view.BrandsV" Name="BrandsV0">
+        <AttrNames>
+          <Item Value="BrandCode"/>
+          <Item Value="BrandName"/>
+          <Item Value="LastModified"/>
+          <Item Value="RegisterStatus"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ManufacturersVIterator" id="ManufacturersV">
+      <nodeDefinition DefName="com.shopbook.sysadmin.model.view.ManufacturersV" Name="ManufacturersV0">
+        <AttrNames>
+          <Item Value="MnfCode"/>
+          <Item Value="MnfName"/>
+          <Item Value="LastModified"/>
+          <Item Value="RegisterStatus"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ModelsVIterator" id="ModelsV">
+      <nodeDefinition DefName="com.shopbook.sysadmin.model.view.ModelsV" Name="ModelsV0">
+        <AttrNames>
+          <Item Value="ModelCode"/>
+          <Item Value="ModelName"/>
+          <Item Value="OrigModelNo"/>
+          <Item Value="RegisterStatus"/>
+          <Item Value="LastModified"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="BrPlural">
+      <AttrNames>
+        <Item Value="BrPlural"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="MdPlural">
+      <AttrNames>
+        <Item Value="MdPlural"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ReferencesNamesVIterator" id="MnPluran">
+      <AttrNames>
+        <Item Value="MnPluran"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ShBkSysAdminDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="ShBkSysAdminDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>
